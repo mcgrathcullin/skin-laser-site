@@ -1063,25 +1063,35 @@ footer {
   .form-row { grid-template-columns: 1fr; }
   .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .technology { padding: 4rem 1.5rem; }
-  .tech-top { margin-bottom: 2rem; align-items: center; }
+  .tech-top { margin-bottom: 1.5rem; align-items: center; }
   .tech-top h2 { font-size: 1.6rem; }
   .tech-nav { display: flex; gap: 0.5rem; }
-  .tech-track-wrap { overflow: hidden; }
   .tech-cards {
-    display: flex; gap: 1rem;
-    overflow-x: auto; scroll-snap-type: x mandatory;
-    scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    display: block;
   }
-  .tech-cards::-webkit-scrollbar { display: none; }
   .tech-card {
-    flex: 0 0 100%; scroll-snap-align: start;
-    grid-template-columns: 1fr;
-    padding: 1.5rem; overflow: hidden;
+    display: none; grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+  .tech-card.tech-active {
+    display: grid;
+    animation: stepIn .4s var(--ease);
   }
   .tech-card h3 { font-size: 1.3rem; }
   .tech-card p { font-size: 0.8rem; margin-bottom: 0.8rem; }
   .tech-card-img { max-width: 120px; margin: 0 auto 1rem; }
+  /* Featured treatment overlay for readability */
+  .tx-featured { position: relative; }
+  .tx-featured-img { min-height: 200px; }
+  .tx-featured-content {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 2rem 1.5rem 1.5rem;
+    background: linear-gradient(to top, rgba(27,27,27,0.92) 0%, rgba(27,27,27,0.7) 60%, transparent 100%);
+    color: var(--bg);
+  }
+  .tx-featured-content h3 { color: var(--white); font-size: 1.4rem; }
+  .tx-featured-content p { color: rgba(255,255,255,0.7); font-size: 0.82rem; margin-bottom: 1rem; }
+  .tx-featured-content .tx-link { color: var(--gold-light); }
   .spec-card { flex: 0 0 280px; }
   .form-row { grid-template-columns: 1fr; }
 }
@@ -1618,12 +1628,21 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 // Tech swiper
 let techIdx = 0;
-function scrollTech(dir) {
-  const track = document.getElementById('techTrack');
-  const cards = track.querySelectorAll('.tech-card');
-  techIdx = Math.max(0, Math.min(cards.length - 1, techIdx + dir));
-  cards[techIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+function initTechCards() {
+  const cards = document.querySelectorAll('#techTrack .tech-card');
+  if (window.innerWidth <= 768) {
+    cards.forEach((c, i) => c.classList.toggle('tech-active', i === techIdx));
+  } else {
+    cards.forEach(c => { c.style.display = ''; c.classList.remove('tech-active'); });
+  }
 }
+function scrollTech(dir) {
+  const cards = document.querySelectorAll('#techTrack .tech-card');
+  techIdx = (techIdx + dir + cards.length) % cards.length;
+  cards.forEach((c, i) => c.classList.toggle('tech-active', i === techIdx));
+}
+initTechCards();
+window.addEventListener('resize', initTechCards);
 
 // Specials swiper
 function scrollSpecials(dir) {

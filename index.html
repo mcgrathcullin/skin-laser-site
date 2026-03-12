@@ -1047,8 +1047,18 @@ footer {
   .cta-band { min-height: 340px; padding: 4rem 1.5rem; }
   .form-row { grid-template-columns: 1fr; }
   .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-  .tech-card { grid-template-columns: 1fr; }
-  .tech-card-img { max-width: 150px; }
+  .tech-cards {
+    display: flex; gap: 1.25rem;
+    overflow-x: auto; scroll-snap-type: x mandatory;
+    scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; padding-bottom: 0.5rem;
+  }
+  .tech-cards::-webkit-scrollbar { display: none; }
+  .tech-card {
+    flex: 0 0 85vw; scroll-snap-align: start;
+    grid-template-columns: 1fr;
+  }
+  .tech-card-img { max-width: 140px; margin: 0 auto; }
   .spec-card { flex: 0 0 280px; }
   .form-row { grid-template-columns: 1fr; }
 }

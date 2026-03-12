@@ -519,6 +519,21 @@ nav.scrolled { height: 64px; box-shadow: 0 1px 0 rgba(0,0,0,.06); }
 }
 .tech-top h2 i { font-style: italic; color: var(--gold-light); }
 
+.tech-nav { display: none; }
+.tech-arrow {
+  width: 40px; height: 40px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: none; color: rgba(255,255,255,0.5);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 1rem;
+  transition: all .3s var(--ease);
+}
+.tech-arrow:hover {
+  border-color: var(--gold); color: var(--gold);
+}
+
+.tech-track-wrap { position: relative; }
+
 .tech-cards {
   display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
 }
@@ -1047,6 +1062,14 @@ footer {
   .cta-band { min-height: 340px; padding: 4rem 1.5rem; }
   .form-row { grid-template-columns: 1fr; }
   .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .tech-nav { display: flex; gap: 0.5rem; }
+  .tech-track-wrap { overflow: hidden; }
+  .tech-track-wrap::after {
+    content: ''; position: absolute;
+    right: 0; top: 0; bottom: 0; width: 40px;
+    background: linear-gradient(to left, var(--ink), transparent);
+    pointer-events: none; z-index: 2;
+  }
   .tech-cards {
     display: flex; gap: 1.25rem;
     overflow-x: auto; scroll-snap-type: x mandatory;
@@ -1288,32 +1311,38 @@ body::after {
         <span class="label" style="color: var(--gold-light);">Our Technology</span>
         <h2 style="margin-top: 0.75rem;">Precision instruments,<br><i>proven results</i></h2>
       </div>
-    </div>
-    <div class="tech-cards">
-      <div class="tech-card reveal">
-        <img class="tech-card-img" src="skin-laser-assets/elite-iq-transparent.png" alt="Cynosure Elite iQ+" />
-        <div>
-          <span class="tech-card-badge">Flagship</span>
-          <h3>Cynosure Elite iQ+</h3>
-          <p>The world's first intelligent workstation. Two powerful wavelengths for fast, safe, and effective treatments across all skin types.</p>
-          <ul>
-            <li>Dual wavelength precision</li>
-            <li>Intelligent cooling system</li>
-            <li>All skin types & tones</li>
-          </ul>
-        </div>
+      <div class="tech-nav">
+        <button class="tech-arrow" onclick="scrollTech(-1)">&larr;</button>
+        <button class="tech-arrow" onclick="scrollTech(1)">&rarr;</button>
       </div>
-      <div class="tech-card reveal d2">
-        <img class="tech-card-img" src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/PicoLazer-tile-clear-640w.png" alt="Pico Laser" />
-        <div>
-          <span class="tech-card-badge">Advanced</span>
-          <h3>Pico Laser</h3>
-          <p>Non-surgical technology for treating damage, scarring, pigmentation, acne, and tattoo removal with minimal recovery.</p>
-          <ul>
-            <li>Ultra-short pulse technology</li>
-            <li>Minimal recovery time</li>
-            <li>Fewer sessions required</li>
-          </ul>
+    </div>
+    <div class="tech-track-wrap">
+      <div class="tech-cards" id="techTrack">
+        <div class="tech-card reveal">
+          <img class="tech-card-img" src="skin-laser-assets/elite-iq-transparent.png" alt="Cynosure Elite iQ+" />
+          <div>
+            <span class="tech-card-badge">Flagship</span>
+            <h3>Cynosure Elite iQ+</h3>
+            <p>The world's first intelligent workstation. Two powerful wavelengths for fast, safe, and effective treatments across all skin types.</p>
+            <ul>
+              <li>Dual wavelength precision</li>
+              <li>Intelligent cooling system</li>
+              <li>All skin types & tones</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tech-card reveal d2">
+          <img class="tech-card-img" src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/PicoLazer-tile-clear-640w.png" alt="Pico Laser" />
+          <div>
+            <span class="tech-card-badge">Advanced</span>
+            <h3>Pico Laser</h3>
+            <p>Non-surgical technology for treating damage, scarring, pigmentation, acne, and tattoo removal with minimal recovery.</p>
+            <ul>
+              <li>Ultra-short pulse technology</li>
+              <li>Minimal recovery time</li>
+              <li>Fewer sessions required</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -1586,6 +1615,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
   });
 });
+
+// Tech swiper
+function scrollTech(dir) {
+  const track = document.getElementById('techTrack');
+  track.scrollBy({ left: dir * track.offsetWidth * 0.87, behavior: 'smooth' });
+}
 
 // Specials swiper
 function scrollSpecials(dir) {

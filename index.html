@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skin Laser & MedSpa | Chicago's Premier Laser Hair Removal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #F6F3EE;
+  --bg-warm: #EDE8E0;
+  --bg-deep: #E4DDD3;
+  --white: #FDFCFA;
+  --ink: #1B1B1B;
+  --ink-soft: #3A3632;
+  --ink-muted: #7A746B;
+  --gold: #B08D57;
+  --gold-light: #C9AD7A;
+  --gold-pale: #DFD0B5;
+  --gold-wash: rgba(176, 141, 87, 0.08);
+
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; }
+
+/* ─── UTILITIES ─── */
+.reveal {
+  opacity: 0; transform: translateY(50px);
+  transition: opacity 1s var(--ease), transform 1s var(--ease);
+}
+.reveal.vis { opacity: 1; transform: none; }
+.d1 { transition-delay: .1s } .d2 { transition-delay: .2s }
+.d3 { transition-delay: .3s } .d4 { transition-delay: .4s }
+.d5 { transition-delay: .5s }
+
+.label {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 76px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(1.5rem, 4vw, 3.5rem);
+  background: rgba(246, 243, 238, 0.8);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  transition: all .4s ease;
+}
+nav.scrolled { height: 64px; box-shadow: 0 1px 0 rgba(0,0,0,.06); }
+
+.nav-brand img { height: 38px; width: auto; }
+.nav-links {
+  display: flex; align-items: center; gap: 2.2rem; list-style: none;
+}
+.nav-links a {
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em;
+  color: var(--ink-soft); transition: color .3s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+.nav-book {
+  padding: 0.65rem 1.6rem !important;
+  background: var(--ink); color: var(--bg) !important;
+  font-size: 0.68rem !important; font-weight: 600 !important;
+  letter-spacing: 0.12em !important; text-transform: uppercase;
+  transition: all .35s var(--ease);
+}
+.nav-book:hover { background: var(--gold) !important; }
+
+.burger { display: none; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; background: none; }
+.burger span { width: 22px; height: 1.5px; background: var(--ink); display: block; }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  padding-top: 76px;
+}
+
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 2rem clamp(2.5rem, 5vw, 5.5rem) 3rem clamp(2.5rem, 6vw, 6.5rem);
+  position: relative;
+}
+.hero-left::after {
+  content: ''; position: absolute;
+  right: 0; top: 20%; bottom: 20%; width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--gold-pale), transparent);
+}
+
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 2.5rem;
+  opacity: 0; animation: fadeIn .8s .3s var(--ease) forwards;
+}
+.hero-eyebrow::before {
+  content: ''; width: 32px; height: 1px; background: var(--gold);
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 5.2vw, 4.8rem);
+  font-weight: 400; line-height: 1.06;
+  letter-spacing: -0.02em; margin-bottom: 2rem;
+  opacity: 0; animation: fadeUp 1s .4s var(--ease) forwards;
+}
+.hero h1 i { font-style: italic; color: var(--gold); }
+
+.hero-sub {
+  font-size: 1.05rem; font-weight: 300; line-height: 1.8;
+  color: var(--ink-muted); max-width: 460px; margin-bottom: 2.8rem;
+  opacity: 0; animation: fadeUp .8s .6s var(--ease) forwards;
+}
+
+.hero-actions {
+  display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp .8s .75s var(--ease) forwards;
+}
+
+.btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 1.05rem 2.2rem; font-size: 0.74rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  border: none; cursor: pointer; transition: all .4s var(--ease);
+}
+.btn-dark { background: var(--ink); color: var(--bg); }
+.btn-dark:hover {
+  background: var(--gold); transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(176,141,87,0.3);
+}
+.btn-ghost {
+  background: none; color: var(--ink-soft);
+  border: 1px solid var(--ink-muted);
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+/* Hero social proof strip */
+.hero-proof {
+  margin-top: 3.5rem; padding-top: 2.5rem;
+  border-top: 1px solid var(--bg-deep);
+  display: flex; gap: 2rem; align-items: center;
+  opacity: 0; animation: fadeIn 1s 1s var(--ease) forwards;
+}
+
+.hero-badge {
+  flex-shrink: 0;
+  padding-right: 2rem;
+  border-right: 1px solid var(--bg-deep);
+}
+.hero-badge-img {
+  width: 130px; height: auto;
+  object-fit: contain;
+}
+
+/* Review slider */
+.review-slider {
+  flex: 1; min-width: 0;
+  overflow: hidden; position: relative;
+  height: 90px;
+}
+.review-track {
+  display: flex; flex-direction: column;
+  animation: reviewSlide 20s var(--ease) infinite;
+}
+.review-slide {
+  height: 90px; flex-shrink: 0;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.review-stars {
+  color: var(--gold); font-size: 0.85rem;
+  letter-spacing: 0.1em; margin-bottom: 0.35rem;
+}
+.review-quote {
+  font-size: 0.92rem; font-weight: 300;
+  color: var(--ink-soft); line-height: 1.55;
+  font-style: italic;
+  display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+}
+.review-author {
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-muted); margin-top: 0.3rem;
+}
+
+@keyframes reviewSlide {
+  0%, 16% { transform: translateY(0); }
+  20%, 36% { transform: translateY(-90px); }
+  40%, 56% { transform: translateY(-180px); }
+  60%, 76% { transform: translateY(-270px); }
+  80%, 96% { transform: translateY(-360px); }
+  100% { transform: translateY(0); }
+}
+
+/* Hero right image */
+.hero-right {
+  position: relative; overflow: hidden;
+}
+.hero-right-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0; animation: fadeIn 1.2s .2s var(--ease) forwards;
+}
+
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+/* ─── MARQUEE ─── */
+.marquee-wrap {
+  background: var(--ink); padding: 0.85rem 0;
+  overflow: hidden; position: relative;
+}
+.marquee-track {
+  display: flex; gap: 2.5rem;
+  animation: scroll 30s linear infinite;
+  width: max-content;
+}
+.marquee-track span {
+  white-space: nowrap; font-size: 0.68rem; font-weight: 400;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold-light);
+  display: flex; align-items: center; gap: 2.5rem;
+}
+.marquee-track span::after { content: '\2726'; font-size: 0.5rem; opacity: 0.4; }
+@keyframes scroll { to { transform: translateX(-50%); } }
+
+/* ─── PHILOSOPHY ─── */
+.philosophy {
+  padding: 10rem clamp(2rem, 6vw, 6rem) 8rem;
+  display: grid; grid-template-columns: 1fr 480px;
+  gap: 5rem; align-items: start;
+  max-width: 1380px; margin: 0 auto;
+}
+
+.phil-text h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 400; line-height: 1.15; margin-bottom: 2rem;
+}
+.phil-text h2 i { font-style: italic; color: var(--gold); }
+.phil-text p {
+  font-size: 0.95rem; font-weight: 300;
+  line-height: 1.85; color: var(--ink-muted);
+  margin-bottom: 1rem; max-width: 520px;
+}
+
+.phil-stats {
+  display: flex; gap: 2.5rem; margin-top: 3rem;
+  padding-top: 2.5rem; border-top: 1px solid var(--bg-deep);
+}
+.phil-stat-num {
+  font-family: var(--serif); font-size: 2.8rem;
+  font-weight: 400; color: var(--gold); line-height: 1;
+}
+.phil-stat-label {
+  font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-muted); margin-top: 0.3rem;
+}
+
+.phil-images {
+  display: grid; grid-template-rows: auto auto;
+  gap: 1.5rem; position: relative;
+}
+.phil-images::before {
+  content: ''; position: absolute;
+  top: -1rem; left: -1rem;
+  width: 120px; height: 120px;
+  border-top: 1px solid var(--gold-pale);
+  border-left: 1px solid var(--gold-pale);
+  pointer-events: none;
+}
+.phil-img-main { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.phil-img-secondary {
+  width: 70%; aspect-ratio: 1; object-fit: cover;
+  margin-left: auto; margin-top: -4rem;
+  position: relative; z-index: 2;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+
+/* ─── TREATMENTS (featured + grid) ─── */
+.treatments {
+  padding: 6rem 0 8rem; background: var(--white);
+  position: relative;
+}
+.treatments::before {
+  content: ''; position: absolute; top: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-pale), transparent);
+}
+
+.treatments-head {
+  padding: 0 clamp(2rem, 6vw, 6rem);
+  display: flex; justify-content: space-between; align-items: flex-end;
+  max-width: 1380px; margin: 0 auto 4rem;
+}
+.treatments-head h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 400; line-height: 1.15;
+}
+.treatments-head h2 i { font-style: italic; color: var(--gold); }
+.treatments-head p {
+  font-size: 0.88rem; font-weight: 300;
+  color: var(--ink-muted); max-width: 380px;
+  text-align: right; line-height: 1.7;
+}
+
+/* Featured first card + 2-col rest */
+.tx-layout {
+  max-width: 1380px; margin: 0 auto;
+  padding: 0 clamp(2rem, 6vw, 6rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.tx-featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--bg);
+  border: 1px solid var(--bg-deep);
+  overflow: hidden;
+  transition: all .5s var(--ease);
+}
+.tx-featured:hover {
+  border-color: var(--gold-pale);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.06);
+}
+.tx-featured-img {
+  width: 100%; height: 100%;
+  object-fit: cover; min-height: 320px;
+}
+.tx-featured-content {
+  padding: 3rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.tx-featured-tag {
+  display: inline-block; width: fit-content;
+  font-size: 0.58rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--white); background: var(--gold);
+  padding: 0.35rem 0.8rem; margin-bottom: 1.2rem;
+}
+.tx-featured-content h3 {
+  font-family: var(--serif);
+  font-size: 1.8rem; font-weight: 400; margin-bottom: 1rem;
+}
+.tx-featured-content p {
+  font-size: 0.9rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.8; margin-bottom: 1.5rem;
+}
+
+.tx-card {
+  padding: 2.2rem;
+  border: 1px solid var(--bg-deep);
+  background: var(--bg);
+  position: relative;
+  transition: all .5s var(--ease);
+}
+.tx-card::after {
+  content: ''; position: absolute;
+  bottom: 0; left: 2rem; right: 2rem; height: 2px;
+  background: var(--gold);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .5s var(--ease);
+}
+.tx-card:hover::after { transform: scaleX(1); }
+.tx-card:hover {
+  border-color: var(--gold-pale);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.04);
+  transform: translateY(-2px);
+}
+
+.tx-num {
+  font-family: var(--serif); font-size: 1.6rem;
+  color: var(--gold-pale); line-height: 1; margin-bottom: 1rem;
+}
+.tx-card h3 {
+  font-family: var(--serif); font-size: 1.25rem;
+  font-weight: 400; margin-bottom: 0.65rem;
+}
+.tx-card p {
+  font-size: 0.82rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.75; margin-bottom: 1.2rem;
+}
+.tx-link {
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold);
+  display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.tx-link::after { content: '\2192'; transition: transform .3s ease; }
+.tx-card:hover .tx-link::after,
+.tx-featured:hover .tx-link::after { transform: translateX(4px); }
+
+/* ─── CONDITIONS ─── */
+.conditions {
+  padding: 8rem clamp(2rem, 6vw, 6rem);
+  max-width: 1380px; margin: 0 auto;
+}
+
+.cond-top {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+.cond-top h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 400; line-height: 1.2; margin-bottom: 1rem;
+}
+.cond-top h2 i { font-style: italic; color: var(--gold); }
+.cond-top > p {
+  font-size: 0.9rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.7;
+}
+
+.cond-pills {
+  display: flex; flex-wrap: wrap; gap: 0.65rem;
+  justify-content: center;
+}
+.cond-pill {
+  padding: 0.85rem 1.5rem;
+  border: 1px solid var(--bg-deep);
+  font-size: 0.82rem; font-weight: 400;
+  color: var(--ink-soft); border-radius: 999px;
+  transition: all .4s var(--ease); cursor: pointer;
+  background: var(--white);
+}
+.cond-pill:hover {
+  background: var(--ink); color: var(--bg);
+  border-color: var(--ink);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+/* ─── CTA BAND ─── */
+.cta-band {
+  position: relative;
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; min-height: 420px;
+}
+.cta-band-bg {
+  position: absolute; inset: 0;
+}
+.cta-band-bg img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.cta-band-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(27,27,27,0.75);
+}
+.cta-band-content {
+  position: relative; z-index: 1;
+  max-width: 560px;
+}
+.cta-band-content h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400; line-height: 1.15;
+  color: var(--white); margin: 0.75rem 0 1.2rem;
+}
+.cta-band-content h2 i { font-style: italic; color: var(--gold-light); }
+.cta-band-content p {
+  font-size: 0.92rem; font-weight: 300;
+  color: rgba(255,255,255,0.6); line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* ─── TECHNOLOGY ─── */
+.technology {
+  padding: 8rem clamp(2rem, 6vw, 6rem);
+  background: var(--ink); color: var(--bg);
+  position: relative; overflow: hidden;
+}
+.technology::before {
+  content: ''; position: absolute;
+  top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(176,141,87,0.1) 0%, transparent 70%);
+}
+
+.tech-layout { max-width: 1380px; margin: 0 auto; }
+
+.tech-top {
+  display: flex; justify-content: space-between;
+  align-items: flex-end; margin-bottom: 5rem;
+}
+.tech-top h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 400; line-height: 1.15;
+}
+.tech-top h2 i { font-style: italic; color: var(--gold-light); }
+
+.tech-cards {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+}
+.tech-card {
+  display: grid; grid-template-columns: 180px 1fr;
+  gap: 2rem; padding: 2.5rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  transition: all .5s var(--ease); align-items: center;
+}
+.tech-card:hover {
+  border-color: rgba(176,141,87,0.25);
+  background: rgba(255,255,255,0.04);
+}
+
+.tech-card-img {
+  width: 100%; aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.tech-card-badge {
+  display: inline-block; font-size: 0.58rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); padding: 0.3rem 0.7rem;
+  border: 1px solid rgba(176,141,87,0.3); margin-bottom: 1rem;
+}
+.tech-card h3 {
+  font-family: var(--serif);
+  font-size: 1.6rem; font-weight: 400; margin-bottom: 0.8rem;
+}
+.tech-card p {
+  font-size: 0.84rem; font-weight: 300;
+  line-height: 1.75; color: rgba(246,243,238,0.55); margin-bottom: 1.2rem;
+}
+.tech-card ul { list-style: none; }
+.tech-card li {
+  font-size: 0.78rem; font-weight: 300;
+  color: rgba(246,243,238,0.45); padding: 0.3rem 0;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.tech-card li::before {
+  content: ''; width: 14px; height: 1px;
+  background: var(--gold); flex-shrink: 0;
+}
+
+/* ─── SPECIALS (horizontal swiper) ─── */
+.specials {
+  padding: 6rem clamp(2rem, 6vw, 6rem) 6rem;
+  max-width: 1380px; margin: 0 auto;
+}
+
+.spec-top {
+  display: flex; justify-content: space-between;
+  align-items: flex-end; margin-bottom: 2.5rem;
+}
+.spec-top-left h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 400; line-height: 1.15; margin-bottom: 0.5rem;
+}
+.spec-top-left h2 i { font-style: italic; color: var(--gold); }
+.spec-top-left p {
+  font-size: 0.88rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.7;
+}
+
+.spec-month {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); padding: 0.5rem 1rem;
+  border: 1px solid var(--gold-pale); flex-shrink: 0;
+}
+.spec-month::before {
+  content: ''; width: 6px; height: 6px;
+  background: var(--gold); border-radius: 50%;
+  animation: pulse 2s ease infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+.spec-nav {
+  display: flex; gap: 0.5rem; margin-top: 1rem;
+}
+.spec-arrow {
+  width: 40px; height: 40px;
+  border: 1px solid var(--bg-deep);
+  background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all .3s var(--ease);
+  font-size: 1rem; color: var(--ink-muted);
+}
+.spec-arrow:hover {
+  border-color: var(--gold); color: var(--gold);
+}
+
+.spec-track-wrap {
+  overflow: hidden; position: relative;
+}
+.spec-track-wrap::after {
+  content: ''; position: absolute;
+  right: 0; top: 0; bottom: 0; width: 80px;
+  background: linear-gradient(to left, var(--bg), transparent);
+  pointer-events: none; z-index: 2;
+}
+
+.spec-track {
+  display: flex; gap: 1.25rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 0.5rem;
+}
+.spec-track::-webkit-scrollbar { display: none; }
+
+.spec-card {
+  flex: 0 0 340px;
+  scroll-snap-align: start;
+  background: var(--white);
+  border: 1px solid var(--bg-deep);
+  padding: 2rem;
+  transition: all .4s var(--ease);
+  position: relative; overflow: hidden;
+}
+.spec-card::before {
+  content: ''; position: absolute;
+  left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--gold);
+  transform: scaleY(0); transition: transform .4s var(--ease);
+}
+.spec-card:hover::before { transform: scaleY(1); }
+.spec-card:hover {
+  border-color: var(--gold-pale);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.04);
+}
+
+.spec-card h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem; font-weight: 400; margin-bottom: 0.5rem;
+}
+.spec-card p {
+  font-size: 0.8rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.6; margin-bottom: 1rem;
+}
+.spec-tag {
+  display: inline-block;
+  font-size: 0.58rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gold); padding: 0.25rem 0.5rem;
+  background: var(--gold-wash); margin-bottom: 0.75rem;
+}
+.spec-book {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-soft); transition: color .3s;
+}
+.spec-book:hover { color: var(--gold); }
+.spec-book::after { content: '\2192'; transition: transform .3s; }
+.spec-book:hover::after { transform: translateX(3px); }
+
+/* ─── ABOUT ─── */
+.about {
+  padding: 8rem clamp(2rem, 6vw, 6rem);
+  max-width: 1380px; margin: 0 auto;
+}
+
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1.1fr;
+  gap: 5rem; align-items: center;
+}
+
+.about-portrait { position: relative; }
+.about-portrait-wrap {
+  position: relative; overflow: hidden;
+  aspect-ratio: 3/4; background: var(--bg-deep);
+}
+.about-portrait-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+}
+.about-portrait::after {
+  content: ''; position: absolute;
+  top: 1.5rem; right: -1.5rem;
+  bottom: -1.5rem; left: 1.5rem;
+  border: 1px solid var(--gold-pale);
+  pointer-events: none; z-index: -1;
+}
+
+.about-content h2 {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-weight: 400; line-height: 1.12; margin-bottom: 0.4rem;
+}
+.about-content h2 i { font-style: italic; color: var(--gold); }
+.about-role {
+  font-size: 0.85rem; font-weight: 400;
+  color: var(--ink-muted); margin-bottom: 2rem;
+}
+.about-content p {
+  font-size: 0.92rem; font-weight: 300;
+  line-height: 1.85; color: var(--ink-muted); margin-bottom: 1rem;
+}
+.about-creds {
+  display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 2rem;
+}
+.about-cred {
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--gold-pale); color: var(--gold);
+}
+
+/* ─── CONTACT ─── */
+.contact {
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+  background: var(--ink); color: var(--bg);
+}
+.contact-inner {
+  max-width: 1380px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 4rem;
+}
+
+.contact-main h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-weight: 400; line-height: 1.2; margin-bottom: 1.5rem;
+}
+.contact-main h2 i { font-style: italic; color: var(--gold-light); }
+.contact-main p {
+  font-size: 0.9rem; font-weight: 300;
+  color: rgba(246,243,238,0.55); line-height: 1.75;
+  margin-bottom: 2rem; max-width: 360px;
+}
+
+.contact-block { margin-bottom: 2rem; }
+.contact-block-label {
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold-light); margin-bottom: 0.6rem;
+}
+.contact-block p, .contact-block a {
+  font-size: 0.88rem; font-weight: 300;
+  color: rgba(246,243,238,0.6); line-height: 1.7; display: block;
+}
+.contact-block a:hover { color: var(--gold-light); }
+
+.hours h3 {
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold-light); margin-bottom: 1rem;
+}
+.hours-row {
+  display: flex; justify-content: space-between;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 0.82rem; font-weight: 300;
+}
+.hours-row .day { color: rgba(246,243,238,0.35); }
+.hours-row .time { color: rgba(246,243,238,0.6); }
+
+/* ─── FOOTER ─── */
+footer {
+  padding: 1.5rem clamp(2rem, 6vw, 6rem);
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.footer-inner {
+  max-width: 1380px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-brand img { height: 28px; opacity: 0.4; }
+.footer-copy { font-size: 0.7rem; color: rgba(246,243,238,0.2); }
+
+/* ─── BOOKING MODAL (multi-step) ─── */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(27,27,27,0.6);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .4s var(--ease);
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.modal {
+  background: var(--white);
+  width: 90%; max-width: 480px;
+  max-height: 90vh; overflow: hidden;
+  transform: translateY(30px) scale(0.97);
+  transition: transform .5s var(--ease);
+  position: relative;
+  display: flex; flex-direction: column;
+}
+.modal-overlay.open .modal { transform: translateY(0) scale(1); }
+
+.modal-top {
+  padding: 2rem 2rem 0;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-shrink: 0;
+}
+.modal-close {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: none; border: 1px solid var(--bg-deep);
+  font-size: 1.1rem; color: var(--ink-muted);
+  cursor: pointer; transition: all .3s; flex-shrink: 0;
+}
+.modal-close:hover { border-color: var(--ink); color: var(--ink); }
+
+/* Progress dots */
+.modal-progress {
+  display: flex; gap: 0.4rem; align-items: center;
+}
+.modal-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--bg-deep); transition: all .3s;
+}
+.modal-dot.active { background: var(--gold); width: 24px; border-radius: 4px; }
+.modal-dot.done { background: var(--gold); }
+
+/* Steps container */
+.modal-steps {
+  flex: 1; overflow: hidden; position: relative;
+}
+.modal-step {
+  padding: 1.5rem 2rem 2rem;
+  display: none; flex-direction: column;
+  animation: stepIn .4s var(--ease);
+}
+.modal-step.active { display: flex; }
+
+@keyframes stepIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.step-title {
+  font-family: var(--serif);
+  font-size: 1.4rem; font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+.step-title i { font-style: italic; color: var(--gold); }
+.step-subtitle {
+  font-size: 0.82rem; color: var(--ink-muted);
+  margin-bottom: 1.5rem; line-height: 1.5;
+}
+
+/* Treatment selection cards */
+.tx-options {
+  display: flex; flex-direction: column; gap: 0.5rem;
+}
+.tx-option {
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--bg-deep);
+  background: var(--bg);
+  cursor: pointer; transition: all .3s;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.88rem; font-weight: 400; color: var(--ink-soft);
+}
+.tx-option:hover { border-color: var(--gold); }
+.tx-option.selected {
+  border-color: var(--ink); background: var(--ink); color: var(--bg);
+}
+.tx-option::after {
+  content: ''; width: 18px; height: 18px; border-radius: 50%;
+  border: 1.5px solid var(--bg-deep); flex-shrink: 0;
+  transition: all .2s;
+}
+.tx-option.selected::after {
+  border-color: var(--gold); background: var(--gold);
+  box-shadow: inset 0 0 0 3px var(--ink);
+}
+
+/* Form fields (reused) */
+.form-group { margin-bottom: 1.25rem; }
+.form-label {
+  display: block; font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-soft); margin-bottom: 0.5rem;
+}
+.form-input {
+  width: 100%; padding: 0.85rem 1rem;
+  border: 1px solid var(--bg-deep); background: var(--bg);
+  font-family: var(--sans); font-size: 0.88rem;
+  color: var(--ink); outline: none; transition: border-color .3s;
+}
+.form-input:focus { border-color: var(--gold); }
+.form-input::placeholder { color: var(--ink-muted); }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+/* Date picker */
+.date-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 0.5rem;
+}
+.date-nav span { font-family: var(--serif); font-size: 1rem; font-weight: 400; }
+.date-nav button {
+  background: none; border: 1px solid var(--bg-deep);
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--ink-muted); font-size: 0.85rem;
+  transition: all .2s;
+}
+.date-nav button:hover { border-color: var(--gold); color: var(--gold); }
+
+.date-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.2rem;
+}
+.date-grid-header {
+  font-size: 0.58rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-muted); text-align: center; padding: 0.35rem;
+}
+.date-cell {
+  aspect-ratio: 1; display: flex;
+  align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 400;
+  color: var(--ink-soft); cursor: pointer;
+  transition: all .2s; border: 1px solid transparent;
+}
+.date-cell:hover { border-color: var(--gold); color: var(--gold); }
+.date-cell.disabled { color: var(--bg-deep); pointer-events: none; }
+.date-cell.selected { background: var(--ink); color: var(--bg); }
+.date-cell.today { border-color: var(--gold-pale); }
+
+/* Time slots */
+.time-slots {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem;
+  margin-top: 1rem;
+}
+.time-slot {
+  padding: 0.6rem; text-align: center;
+  font-size: 0.76rem; font-weight: 400;
+  border: 1px solid var(--bg-deep);
+  cursor: pointer; transition: all .2s;
+  color: var(--ink-soft); background: none;
+}
+.time-slot:hover { border-color: var(--gold); color: var(--gold); }
+.time-slot.selected { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+/* Modal nav buttons */
+.modal-nav {
+  padding: 0 2rem 2rem;
+  display: flex; gap: 0.75rem; flex-shrink: 0;
+}
+.modal-nav .btn { flex: 1; justify-content: center; }
+.btn-back {
+  background: none; color: var(--ink-soft);
+  border: 1px solid var(--bg-deep);
+  padding: 0.9rem 1.5rem; font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  cursor: pointer; transition: all .3s;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.btn-back:hover { border-color: var(--ink); color: var(--ink); }
+
+/* Confirmation step */
+.confirm-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--gold-wash); color: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; margin-bottom: 1.2rem;
+}
+.confirm-detail {
+  display: flex; justify-content: space-between;
+  padding: 0.6rem 0; border-bottom: 1px solid var(--bg-deep);
+  font-size: 0.82rem;
+}
+.confirm-detail .cd-label { color: var(--ink-muted); font-weight: 400; }
+.confirm-detail .cd-value { color: var(--ink-soft); font-weight: 500; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left::after { display: none; }
+  .hero-right { height: 50vh; min-height: 300px; }
+  .philosophy { grid-template-columns: 1fr; }
+  .phil-images { max-width: 500px; }
+  .cond-top { grid-template-columns: 1fr; gap: 1.5rem; }
+  .tech-cards { grid-template-columns: 1fr; }
+  .tech-card { grid-template-columns: 150px 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-portrait { max-width: 380px; order: -1; }
+  .contact-inner { grid-template-columns: 1fr 1fr; }
+  .tx-featured { grid-template-columns: 1fr; }
+  .tx-featured-img { min-height: 240px; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .burger { display: flex; }
+  .hero-left { padding: 2rem 1.5rem 2.5rem; }
+  .hero h1 { font-size: 3.75rem; line-height: 1; margin-bottom: 1.2rem; }
+  .hero-sub { font-size: 0.95rem; margin-bottom: 1.8rem; }
+  .hero-eyebrow { margin-bottom: 1.5rem; }
+  .hero-actions { flex-direction: column; align-items: stretch; gap: 0.75rem; }
+  .hero-actions .btn { justify-content: center; padding: 1rem 1.5rem; font-size: 0.7rem; }
+  .philosophy { padding-top: 4rem; padding-bottom: 4rem; }
+  .hero-proof {
+    margin-top: 2rem; padding-top: 1.5rem;
+    flex-direction: row; gap: 1.25rem; align-items: center;
+  }
+  .hero-badge {
+    border-right: 1px solid var(--bg-deep);
+    padding-right: 1.25rem; padding-bottom: 0;
+    border-bottom: none;
+  }
+  .hero-badge-img { width: 72px; }
+  .review-slider { height: 75px; }
+  .review-slide { height: 75px; }
+  .review-stars { font-size: 0.7rem; margin-bottom: 0.2rem; }
+  .review-quote { font-size: 0.78rem; line-height: 1.45; }
+  .review-author { font-size: 0.58rem; margin-top: 0.2rem; }
+  @keyframes reviewSlide {
+    0%, 16% { transform: translateY(0); }
+    20%, 36% { transform: translateY(-75px); }
+    40%, 56% { transform: translateY(-150px); }
+    60%, 76% { transform: translateY(-225px); }
+    80%, 96% { transform: translateY(-300px); }
+    100% { transform: translateY(0); }
+  }
+  .tx-layout { grid-template-columns: 1fr; }
+  .cta-band { min-height: 340px; padding: 4rem 1.5rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .tech-card { grid-template-columns: 1fr; }
+  .tech-card-img { max-width: 150px; }
+  .spec-card { flex: 0 0 280px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* ─── GRAIN ─── */
+body::after {
+  content: ''; position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999; opacity: 0.5;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-brand">
+    <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser & MedSpa" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="#treatments">Treatments</a></li>
+    <li><a href="#conditions">Conditions</a></li>
+    <li><a href="#technology">Technology</a></li>
+    <li><a href="#specials">Specials</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#" class="nav-book" onclick="openModal(event)">Book Now</a></li>
+  </ul>
+  <button class="burger" onclick="this.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="label">Streeterville, Chicago</span>
+    </div>
+    <h1>Chicago's #1 laser <i>med spa</i></h1>
+    <p class="hero-sub">One-on-one care from a dedicated provider who knows your skin, your goals, and your name. No corporate upsells, no revolving-door technicians. World-class technology and results you can see.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn btn-dark" onclick="openModal(event)">Free Consultation &#8594;</a>
+      <a href="#treatments" class="btn btn-ghost">View Treatments</a>
+    </div>
+    <div class="hero-proof">
+      <div class="hero-badge">
+        <img class="hero-badge-img" src="skin-laser-assets/expertise-badge.webp" alt="Expertise.com Best Laser Hair Removal Services in Chicago 2023" />
+      </div>
+      <div class="review-slider">
+        <div class="review-track">
+          <div class="review-slide">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-quote">"Kimberly was so sweet & honest with her approach. I loved her transparency. I knew I was in good hands."</p>
+            <span class="review-author">Reema K. &mdash; Google Review</span>
+          </div>
+          <div class="review-slide">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-quote">"Very thorough, knowledgeable, and kind! Kim always made me feel comfortable during treatment."</p>
+            <span class="review-author">Gabriella W. &mdash; Google Review</span>
+          </div>
+          <div class="review-slide">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-quote">"Kim is the best! I've done 2 different treatments and have been so happy with the results."</p>
+            <span class="review-author">Mariel E. &mdash; Google Review</span>
+          </div>
+          <div class="review-slide">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-quote">"I saw an immediate improvement. The office is beautiful and centrally-located."</p>
+            <span class="review-author">Olga G. &mdash; Google Review</span>
+          </div>
+          <div class="review-slide">
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-quote">"Incredible results for tattoo removal. Kimberly is kind, friendly, and professional."</p>
+            <span class="review-author">Alyssa N. &mdash; Google Review</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-right-img" src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/672A3CA2-8E24-498D-BCDB-82792E9E41D4-1920w.jpeg" alt="Skin Laser MedSpa interior" />
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Boutique Private Experience</span>
+    <span>Board-Certified Technician</span>
+    <span>Personalized Treatment Plans</span>
+    <span>State-of-the-Art Technology</span>
+    <span>Gold Standard Results</span>
+    <span>All Skin Types Welcome</span>
+    <span>Boutique Private Experience</span>
+    <span>Board-Certified Technician</span>
+    <span>Personalized Treatment Plans</span>
+    <span>State-of-the-Art Technology</span>
+    <span>Gold Standard Results</span>
+    <span>All Skin Types Welcome</span>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div class="phil-text reveal">
+    <span class="label">Our Philosophy</span>
+    <h2 style="margin-top: 1rem;">A boutique experience,<br><i>tailored entirely</i> to you</h2>
+    <p>At Skin Laser & MedSpa, aesthetic care is personal. Our style-rich, comfortable setting allows for a welcoming yet private experience. No filled waiting rooms, no rushed appointments, just personal one-on-one time.</p>
+    <p>In a world full of one-size-fits-all perspectives, we provide real results to help you look and feel your most confident.</p>
+    <div class="phil-stats">
+      <div class="phil-stat reveal d1">
+        <div class="phil-stat-num">10+</div>
+        <div class="phil-stat-label">Years Experience</div>
+      </div>
+      <div class="phil-stat reveal d2">
+        <div class="phil-stat-num">5K+</div>
+        <div class="phil-stat-label">Clients Treated</div>
+      </div>
+      <div class="phil-stat reveal d3">
+        <div class="phil-stat-num">4.9</div>
+        <div class="phil-stat-label">Star Rating</div>
+      </div>
+    </div>
+  </div>
+  <div class="phil-images reveal d2">
+    <img class="phil-img-main" src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/2021-04-20+%282%29-1920w.jpg" alt="Treatment room" />
+    <img class="phil-img-secondary" src="https://lirp.cdn-website.com/md/pexels/dms3rep/multi/opt/pexels-photo-5069612-1920w.jpeg" alt="Facial treatment" />
+  </div>
+</section>
+
+<!-- TREATMENTS -->
+<section class="treatments" id="treatments">
+  <div class="treatments-head">
+    <div class="reveal">
+      <span class="label">What We Offer</span>
+      <h2 style="margin-top: 0.75rem;">Popular <i>Treatments</i></h2>
+    </div>
+    <p class="reveal d2">Advanced aesthetic treatments delivered with precision, care, and the latest technology.</p>
+  </div>
+  <div class="tx-layout">
+    <!-- Featured card -->
+    <div class="tx-featured reveal">
+      <img class="tx-featured-img" src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Model_Freeze_DiamondPolar_1-1920w.jpg" alt="Laser treatment" />
+      <div class="tx-featured-content">
+        <span class="tx-featured-tag">Most Popular</span>
+        <h3>Laser Hair Removal</h3>
+        <p>Our signature service. The Cynosure Elite iQ+ delivers fast, safe treatments with minimal discomfort and lasting results. Effective on all skin types and tones with our dual-wavelength precision technology.</p>
+        <a href="#" class="tx-link">Learn More</a>
+      </div>
+    </div>
+    <!-- Rest of treatments -->
+    <div class="tx-card reveal">
+      <div class="tx-num">02</div>
+      <h3>CO2 Laser Resurfacing</h3>
+      <p>Advanced fractional CO2 laser to treat acne scarring, texture, pigmentation, and fine lines with dramatic, lasting improvement.</p>
+      <a href="#" class="tx-link">Learn More</a>
+    </div>
+    <div class="tx-card reveal d1">
+      <div class="tx-num">03</div>
+      <h3>RF Microneedling</h3>
+      <p>Radiofrequency microneedling stimulates collagen production for firmer, smoother skin with minimal downtime.</p>
+      <a href="#" class="tx-link">Learn More</a>
+    </div>
+    <div class="tx-card reveal">
+      <div class="tx-num">04</div>
+      <h3>Tattoo Removal</h3>
+      <p>PicoSure laser technology breaks down ink particles more effectively than traditional methods, working on all ink colors.</p>
+      <a href="#" class="tx-link">Learn More</a>
+    </div>
+    <div class="tx-card reveal d1">
+      <div class="tx-num">05</div>
+      <h3>Fractional Laser</h3>
+      <p>Targets imperfections at a microscopic level, promoting natural healing and collagen remodeling for a more even complexion.</p>
+      <a href="#" class="tx-link">Learn More</a>
+    </div>
+    <div class="tx-card reveal">
+      <div class="tx-num">06</div>
+      <h3>Laser Genesis Facial</h3>
+      <p>Gentle, non-invasive laser addressing fine lines, redness, and large pores while stimulating collagen for a natural glow.</p>
+      <a href="#" class="tx-link">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONDITIONS -->
+<section class="conditions" id="conditions">
+  <div class="cond-top reveal">
+    <div>
+      <span class="label">Conditions We Treat</span>
+      <h2 style="margin-top: 0.75rem;">Find the right<br>treatment <i>for you</i></h2>
+    </div>
+    <p>We recommend the best treatment based on your specific condition or concern. Select below to learn more about how we can help.</p>
+  </div>
+  <div class="cond-pills reveal d1">
+    <a href="#" class="cond-pill">Acne</a>
+    <a href="#" class="cond-pill">Acne Scarring</a>
+    <a href="#" class="cond-pill">Facial Scars</a>
+    <a href="#" class="cond-pill">Rosacea & Spider Veins</a>
+    <a href="#" class="cond-pill">Hyperpigmentation</a>
+    <a href="#" class="cond-pill">Excess Hair</a>
+    <a href="#" class="cond-pill">Fine Lines & Wrinkles</a>
+    <a href="#" class="cond-pill">Uneven Skin Tone</a>
+    <a href="#" class="cond-pill">Sun Damage</a>
+    <a href="#" class="cond-pill">Large Pores</a>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-band-bg">
+    <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Model_Freeze_DiamondPolar_1-1920w.jpg" alt="Laser treatment" />
+  </div>
+  <div class="cta-band-content reveal">
+    <span class="label" style="color: var(--gold-light);">Ready to Start?</span>
+    <h2>Your first consultation is <i>completely free</i></h2>
+    <p>No pressure, no obligation. Meet Kimberly, tour the studio, and get a personalized treatment plan built around your goals.</p>
+    <a href="#" class="btn btn-dark" onclick="openModal(event)" style="background: var(--gold);">Book Your Free Consultation &#8594;</a>
+  </div>
+</section>
+
+<!-- TECHNOLOGY -->
+<section class="technology" id="technology">
+  <div class="tech-layout">
+    <div class="tech-top reveal">
+      <div>
+        <span class="label" style="color: var(--gold-light);">Our Technology</span>
+        <h2 style="margin-top: 0.75rem;">Precision instruments,<br><i>proven results</i></h2>
+      </div>
+    </div>
+    <div class="tech-cards">
+      <div class="tech-card reveal">
+        <img class="tech-card-img" src="skin-laser-assets/elite-iq-transparent.png" alt="Cynosure Elite iQ+" />
+        <div>
+          <span class="tech-card-badge">Flagship</span>
+          <h3>Cynosure Elite iQ+</h3>
+          <p>The world's first intelligent workstation. Two powerful wavelengths for fast, safe, and effective treatments across all skin types.</p>
+          <ul>
+            <li>Dual wavelength precision</li>
+            <li>Intelligent cooling system</li>
+            <li>All skin types & tones</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tech-card reveal d2">
+        <img class="tech-card-img" src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/PicoLazer-tile-clear-640w.png" alt="Pico Laser" />
+        <div>
+          <span class="tech-card-badge">Advanced</span>
+          <h3>Pico Laser</h3>
+          <p>Non-surgical technology for treating damage, scarring, pigmentation, acne, and tattoo removal with minimal recovery.</p>
+          <ul>
+            <li>Ultra-short pulse technology</li>
+            <li>Minimal recovery time</li>
+            <li>Fewer sessions required</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALS -->
+<section class="specials" id="specials">
+  <div class="spec-top reveal">
+    <div class="spec-top-left">
+      <span class="label">Limited Time</span>
+      <h2 style="margin-top: 0.75rem;">Monthly <i>Specials</i></h2>
+      <p>Curated packages that make our most popular treatments more accessible.</p>
+    </div>
+    <div style="text-align: right;">
+      <span class="spec-month">March 2026</span>
+      <div class="spec-nav">
+        <button class="spec-arrow" onclick="scrollSpecials(-1)">&larr;</button>
+        <button class="spec-arrow" onclick="scrollSpecials(1)">&rarr;</button>
+      </div>
+    </div>
+  </div>
+  <div class="spec-track-wrap reveal d1">
+    <div class="spec-track" id="specTrack">
+      <div class="spec-card">
+        <span class="spec-tag">Best Value</span>
+        <h3>Laser Hair Removal Package</h3>
+        <p>6 Brazilian Treatments + 4 FREE Underarm Treatments</p>
+        <a href="#" class="spec-book" onclick="openModal(event)">Reserve Now</a>
+      </div>
+      <div class="spec-card">
+        <h3>Half Face Laser Hair Removal</h3>
+        <p>6 treatments for half face area</p>
+        <a href="#" class="spec-book" onclick="openModal(event)">Reserve Now</a>
+      </div>
+      <div class="spec-card">
+        <span class="spec-tag">Includes Kit</span>
+        <h3>Acne Scarring Treatment</h3>
+        <p>CO2 Laser, 3 Treatments + 3 FREE AnteAGE MD Growth Factor Treatments with take-home products</p>
+        <a href="#" class="spec-book" onclick="openModal(event)">Reserve Now</a>
+      </div>
+      <div class="spec-card">
+        <h3>Microneedling + Growth Factor</h3>
+        <p>Microneedling treatment with free AnteAGE MD Growth Factor + take-home kit</p>
+        <a href="#" class="spec-book" onclick="openModal(event)">Reserve Now</a>
+      </div>
+      <div class="spec-card">
+        <h3>Laser Genesis Facial</h3>
+        <p>Single session rejuvenation treatment for radiant, glowing skin</p>
+        <a href="#" class="spec-book" onclick="openModal(event)">Reserve Now</a>
+      </div>
+      <div class="spec-card">
+        <h3>Laser Hair Removal &ndash; 6 Underarm</h3>
+        <p>6 underarm laser hair removal sessions</p>
+        <a href="#" class="spec-book" onclick="openModal(event)">Reserve Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-portrait reveal">
+      <div class="about-portrait-wrap">
+        <img src="skin-laser-assets/kimberly-real.png" alt="Kimberly Mack" />
+      </div>
+    </div>
+    <div class="about-content reveal d2">
+      <span class="label">Meet Your Provider</span>
+      <h2 style="margin-top: 0.75rem;">Kimberly <i>Mack</i></h2>
+      <p class="about-role">Cosmetologist & Certified Clinical Laser Technician</p>
+      <p>Kimberly's passion for beauty and wellness began at just 17, when she started her career as a licensed Cosmetologist. Her love for helping others led her to study Dietetics & Nutrition at Florida International University, where she earned a B.S. degree and became a Licensed Dietitian.</p>
+      <p>After gaining experience in both skincare and clinical nutrition while living abroad in Singapore, she discovered her true calling in advanced aesthetics. She trained at the world-renowned National Laser Institute, mastering the latest techniques in laser treatments and skin rejuvenation.</p>
+      <p>Today, Kimberly combines decades of experience in beauty, health, and wellness to create customized treatments that leave clients glowing from the inside out. Her mission is simple: to help you look and feel your personal best, every day.</p>
+      <div class="about-creds">
+        <span class="about-cred">Licensed Cosmetologist</span>
+        <span class="about-cred">Certified Laser Technician</span>
+        <span class="about-cred">Licensed Dietitian</span>
+        <span class="about-cred">B.S. Florida International</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-main reveal">
+      <span class="label" style="color: var(--gold-light);">Get Started</span>
+      <h2 style="margin-top: 0.75rem;">Ready to start your <i>journey?</i></h2>
+      <p>Schedule a consultation and let us create a personalized treatment plan designed around your goals.</p>
+      <a href="#" class="btn btn-dark" onclick="openModal(event)" style="margin-top: 0.5rem;">Free Consultation &#8594;</a>
+    </div>
+    <div class="contact-info reveal d1">
+      <div class="contact-block">
+        <div class="contact-block-label">Location</div>
+        <p>Optima Signature Building</p>
+        <p>330 E Illinois St, Suite 165</p>
+        <p>Chicago, IL 60611</p>
+      </div>
+      <div class="contact-block">
+        <div class="contact-block-label">Contact</div>
+        <a href="tel:3128365896">(312) 836-5896</a>
+        <a href="mailto:skinlasermedspa@gmail.com">skinlasermedspa@gmail.com</a>
+      </div>
+    </div>
+    <div class="hours reveal d2">
+      <h3>Hours</h3>
+      <div class="hours-row"><span class="day">Monday</span><span class="time">10 am - 7 pm</span></div>
+      <div class="hours-row"><span class="day">Tuesday</span><span class="time">10 am - 7 pm</span></div>
+      <div class="hours-row"><span class="day">Wednesday</span><span class="time">10 am - 7 pm</span></div>
+      <div class="hours-row"><span class="day">Thursday</span><span class="time">10 am - 7 pm</span></div>
+      <div class="hours-row"><span class="day">Friday</span><span class="time">10 am - 5 pm</span></div>
+      <div class="hours-row"><span class="day">Saturday</span><span class="time">By appt</span></div>
+      <div class="hours-row"><span class="day">Sunday</span><span class="time">Closed</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser" />
+    </div>
+    <span class="footer-copy">&copy; 2026 Skin Laser & MedSpa. All rights reserved.</span>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL (multi-step) -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal">
+    <div class="modal-top">
+      <div class="modal-progress">
+        <span class="modal-dot active" data-step="0"></span>
+        <span class="modal-dot" data-step="1"></span>
+        <span class="modal-dot" data-step="2"></span>
+        <span class="modal-dot" data-step="3"></span>
+      </div>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+
+    <div class="modal-steps">
+      <!-- Step 1: Treatment -->
+      <div class="modal-step active" data-step="0">
+        <h3 class="step-title">What brings <i>you in?</i></h3>
+        <p class="step-subtitle">Select the treatment you're interested in.</p>
+        <div class="tx-options">
+          <div class="tx-option" onclick="selectTx(this)">Laser Hair Removal</div>
+          <div class="tx-option" onclick="selectTx(this)">CO2 Laser Resurfacing</div>
+          <div class="tx-option" onclick="selectTx(this)">RF Microneedling</div>
+          <div class="tx-option" onclick="selectTx(this)">Tattoo Removal</div>
+          <div class="tx-option" onclick="selectTx(this)">Fractional Laser</div>
+          <div class="tx-option" onclick="selectTx(this)">Laser Genesis Facial</div>
+          <div class="tx-option" onclick="selectTx(this)">Not sure yet</div>
+        </div>
+      </div>
+
+      <!-- Step 2: Date & Time -->
+      <div class="modal-step" data-step="1">
+        <h3 class="step-title">Pick a <i>date</i></h3>
+        <p class="step-subtitle">Choose your preferred day and time.</p>
+        <div class="date-nav">
+          <button onclick="changeMonth(-1)">&larr;</button>
+          <span id="calMonth">March 2026</span>
+          <button onclick="changeMonth(1)">&rarr;</button>
+        </div>
+        <div class="date-grid" id="calGrid">
+          <span class="date-grid-header">Su</span>
+          <span class="date-grid-header">Mo</span>
+          <span class="date-grid-header">Tu</span>
+          <span class="date-grid-header">We</span>
+          <span class="date-grid-header">Th</span>
+          <span class="date-grid-header">Fr</span>
+          <span class="date-grid-header">Sa</span>
+        </div>
+        <div class="time-slots">
+          <button class="time-slot" onclick="selectTime(this)">10:00 AM</button>
+          <button class="time-slot" onclick="selectTime(this)">11:00 AM</button>
+          <button class="time-slot" onclick="selectTime(this)">12:00 PM</button>
+          <button class="time-slot" onclick="selectTime(this)">1:00 PM</button>
+          <button class="time-slot" onclick="selectTime(this)">2:00 PM</button>
+          <button class="time-slot" onclick="selectTime(this)">3:00 PM</button>
+          <button class="time-slot" onclick="selectTime(this)">4:00 PM</button>
+          <button class="time-slot" onclick="selectTime(this)">5:00 PM</button>
+          <button class="time-slot" onclick="selectTime(this)">6:00 PM</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Your Info -->
+      <div class="modal-step" data-step="2">
+        <h3 class="step-title">Your <i>details</i></h3>
+        <p class="step-subtitle">So we can confirm your appointment.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input class="form-input" type="text" placeholder="Jane" id="fname" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input class="form-input" type="text" placeholder="Smith" id="lname" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="jane@email.com" id="email" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone</label>
+          <input class="form-input" type="tel" placeholder="(312) 555-0123" id="phone" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Notes (optional)</label>
+          <input class="form-input" type="text" placeholder="Anything we should know..." />
+        </div>
+      </div>
+
+      <!-- Step 4: Confirmation -->
+      <div class="modal-step" data-step="3">
+        <div class="confirm-icon">&#10003;</div>
+        <h3 class="step-title">You're all <i>set!</i></h3>
+        <p class="step-subtitle">We'll confirm your appointment within 24 hours. Questions? Call (312) 836-5896.</p>
+        <div style="margin-top: 0.5rem;">
+          <div class="confirm-detail">
+            <span class="cd-label">Treatment</span>
+            <span class="cd-value" id="confirmTx">--</span>
+          </div>
+          <div class="confirm-detail">
+            <span class="cd-label">Date</span>
+            <span class="cd-value" id="confirmDate">--</span>
+          </div>
+          <div class="confirm-detail">
+            <span class="cd-label">Time</span>
+            <span class="cd-value" id="confirmTime">--</span>
+          </div>
+          <div class="confirm-detail">
+            <span class="cd-label">Name</span>
+            <span class="cd-value" id="confirmName">--</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-nav" id="modalNav">
+      <button class="btn-back" id="btnBack" onclick="prevStep()" style="display:none;">Back</button>
+      <button class="btn btn-dark" id="btnNext" onclick="nextStep()" style="flex:1; justify-content:center;">Continue &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Nav
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', scrollY > 60);
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    const t = document.querySelector(href);
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+
+// Specials swiper
+function scrollSpecials(dir) {
+  const track = document.getElementById('specTrack');
+  track.scrollBy({ left: dir * 360, behavior: 'smooth' });
+}
+
+// Modal - multi-step
+let currentStep = 0;
+const totalSteps = 4;
+let selectedTx = '', selectedDate = '', selectedTimeVal = '';
+
+function openModal(e) {
+  if (e) e.preventDefault();
+  currentStep = 0;
+  updateStep();
+  document.getElementById('bookingModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderCalendar();
+}
+function closeModal() {
+  document.getElementById('bookingModal').classList.remove('open');
+  document.body.style.overflow = '';
+  // Reset selections
+  document.querySelectorAll('.tx-option.selected').forEach(o => o.classList.remove('selected'));
+  document.querySelectorAll('.date-cell.selected').forEach(c => c.classList.remove('selected'));
+  document.querySelectorAll('.time-slot.selected').forEach(s => s.classList.remove('selected'));
+  selectedTx = ''; selectedDate = ''; selectedTimeVal = '';
+}
+document.getElementById('bookingModal').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+function updateStep() {
+  document.querySelectorAll('.modal-step').forEach(s => s.classList.remove('active'));
+  document.querySelector(`.modal-step[data-step="${currentStep}"]`).classList.add('active');
+
+  // Progress dots
+  document.querySelectorAll('.modal-dot').forEach(d => {
+    const s = parseInt(d.dataset.step);
+    d.classList.remove('active', 'done');
+    if (s === currentStep) d.classList.add('active');
+    else if (s < currentStep) d.classList.add('done');
+  });
+
+  // Nav buttons
+  const back = document.getElementById('btnBack');
+  const next = document.getElementById('btnNext');
+  const nav = document.getElementById('modalNav');
+
+  back.style.display = currentStep > 0 && currentStep < 3 ? '' : 'none';
+
+  if (currentStep === 3) {
+    // Confirmation - show done button
+    next.textContent = 'Done';
+    next.onclick = closeModal;
+    populateConfirmation();
+  } else {
+    next.innerHTML = 'Continue &#8594;';
+    next.onclick = nextStep;
+  }
+}
+
+function nextStep() {
+  if (currentStep < totalSteps - 1) {
+    currentStep++;
+    updateStep();
+    if (currentStep === 1) renderCalendar();
+  }
+}
+function prevStep() {
+  if (currentStep > 0) {
+    currentStep--;
+    updateStep();
+  }
+}
+
+function selectTx(el) {
+  document.querySelectorAll('.tx-option.selected').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedTx = el.textContent;
+}
+
+function populateConfirmation() {
+  document.getElementById('confirmTx').textContent = selectedTx || '--';
+  document.getElementById('confirmDate').textContent = selectedDate || '--';
+  document.getElementById('confirmTime').textContent = selectedTimeVal || '--';
+  const fn = document.getElementById('fname')?.value || '';
+  const ln = document.getElementById('lname')?.value || '';
+  document.getElementById('confirmName').textContent = (fn + ' ' + ln).trim() || '--';
+}
+
+// Calendar
+let calYear = 2026, calMonth = 2;
+const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+function renderCalendar() {
+  const grid = document.getElementById('calGrid');
+  grid.querySelectorAll('.date-cell').forEach(c => c.remove());
+  document.getElementById('calMonth').textContent = monthNames[calMonth] + ' ' + calYear;
+
+  const firstDay = new Date(calYear, calMonth, 1).getDay();
+  const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+  const today = new Date();
+
+  for (let i = 0; i < firstDay; i++) {
+    const cell = document.createElement('span');
+    cell.className = 'date-cell disabled';
+    grid.appendChild(cell);
+  }
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const cell = document.createElement('span');
+    cell.className = 'date-cell';
+    cell.textContent = d;
+    const cellDate = new Date(calYear, calMonth, d);
+    if (cellDate < today) cell.classList.add('disabled');
+    if (cellDate.getDay() === 0) cell.classList.add('disabled');
+    if (d === today.getDate() && calMonth === today.getMonth() && calYear === today.getFullYear()) cell.classList.add('today');
+
+    cell.addEventListener('click', function() {
+      grid.querySelectorAll('.date-cell.selected').forEach(c => c.classList.remove('selected'));
+      this.classList.add('selected');
+      selectedDate = monthNames[calMonth] + ' ' + d + ', ' + calYear;
+    });
+    grid.appendChild(cell);
+  }
+}
+
+function changeMonth(dir) {
+  calMonth += dir;
+  if (calMonth > 11) { calMonth = 0; calYear++; }
+  if (calMonth < 0) { calMonth = 11; calYear--; }
+  renderCalendar();
+}
+
+function selectTime(el) {
+  document.querySelectorAll('.time-slot.selected').forEach(s => s.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedTimeVal = el.textContent;
+}
+</script>
+
+</body>
+</html>

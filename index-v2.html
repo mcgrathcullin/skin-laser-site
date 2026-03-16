@@ -340,37 +340,46 @@ nav.scrolled .nav-brand img { height: 48px; }
   color: var(--ink-muted); margin-top: 0.3rem;
 }
 
-.phil-testimonial {
-  margin-top: 3rem;
-  padding: 2rem 2.2rem;
-  background: linear-gradient(135deg, #F2EBE4, #EDE4DA);
-  border-radius: 2px;
+/* ─── TESTIMONIAL BAND ─── */
+.testimonial-band {
+  padding: 0 clamp(2rem, 6vw, 6rem);
+  max-width: 1280px; margin: 0 auto;
+}
+.testimonial-band-inner {
+  background: var(--ink);
+  border-radius: 16px;
+  padding: 4rem clamp(2.5rem, 5vw, 5rem);
+  max-width: 100%; margin: 0 auto;
+  text-align: center;
+}
+.testimonial-band .label {
+  color: var(--skin-peach);
+  font-size: 1rem; font-weight: 600; letter-spacing: 0.22em;
+  margin-bottom: 1.5rem; display: block;
+}
+.testimonial-band-quote {
+  font-family: var(--sans);
+  font-size: 1.1rem; font-weight: 300;
+  line-height: 1.9; color: rgba(255,255,255,0.7);
+  margin: 0 0 1.5rem;
   position: relative;
 }
-.phil-testimonial::before {
-  content: '\201C'; position: absolute;
-  top: -0.2rem; left: 1.2rem;
-  font-family: var(--serif); font-size: 4rem;
-  color: var(--skin-sand); line-height: 1;
+.testimonial-band-quote::before,
+.testimonial-band-quote::after {
+  font-family: var(--serif);
+  font-size: 3.5rem; font-weight: 400;
+  color: var(--skin-taupe); line-height: 0;
+  vertical-align: -0.3em;
 }
-.phil-testimonial .label {
-  font-size: 0.85rem; font-weight: 600;
-  letter-spacing: 0.18em; margin-bottom: 0.75rem;
-  color: var(--skin-deep);
+.testimonial-band-quote::before { content: '\201C'; margin-right: 0.1em; }
+.testimonial-band-quote::after { content: '\201D'; margin-left: 0.05em; }
+.testimonial-band-quote strong {
+  font-weight: 500; color: var(--white);
 }
-.phil-quote {
-  font-family: var(--sans);
-  font-size: 0.9rem; font-weight: 400;
-  line-height: 1.8; color: var(--ink-soft);
-  margin: 0 0 0.75rem;
-}
-.phil-quote strong {
-  font-weight: 500; color: var(--ink);
-}
-.phil-quote-author {
-  font-size: 0.62rem; font-weight: 600;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--skin-taupe);
+.testimonial-band-author {
+  font-size: 0.68rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--skin-peach);
 }
 
 .phil-images {
@@ -840,6 +849,57 @@ nav.scrolled .nav-brand img { height: 48px; }
   border: 1px solid var(--skin-sand); color: var(--skin-deep);
 }
 
+/* ─── TEAM ─── */
+.team-row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.5rem; margin-top: 4rem;
+  max-width: 1280px; margin-left: auto; margin-right: auto;
+  padding: 0 clamp(2rem, 6vw, 6rem);
+}
+.team-card {
+  display: flex; flex-direction: column;
+  background: var(--white);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  overflow: hidden;
+}
+.team-photo-wrap { position: relative; background: var(--white); overflow: hidden; }
+.team-photo-wrap img {
+  width: 100%; height: 320px;
+  object-fit: cover; object-position: top center;
+}
+.team-card:first-child .team-photo-wrap {
+  background: var(--white);
+}
+.team-card:first-child .team-photo-wrap img {
+  object-fit: contain; height: 320px;
+}
+.team-content {
+  padding: 2rem;
+}
+.team-info h3 {
+  font-family: var(--serif);
+  font-size: 1.4rem; font-weight: 400; margin-bottom: 0.3rem;
+}
+.team-role {
+  font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.06em; color: var(--skin-taupe);
+  display: block; margin-bottom: 1rem;
+}
+.team-info p {
+  font-size: 0.88rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.75;
+  margin-bottom: 1.2rem;
+}
+.team-creds {
+  display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem;
+}
+.team-cred {
+  font-size: 0.58rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--skin-sand); color: var(--skin-deep);
+}
+
 /* ─── CONTACT ─── */
 .contact {
   padding: 6rem clamp(2rem, 6vw, 6rem);
@@ -1161,6 +1221,9 @@ footer {
   .conditions { padding: 3rem 1.75rem; }
   .specials { padding: 5rem 1.75rem; }
   .about { padding: 5rem 1.75rem; }
+  .team-row { grid-template-columns: 1fr; padding: 0 1.75rem; margin-top: 3rem; }
+  .team-photo-wrap img { height: 240px; }
+  .team-content { padding: 1.5rem; }
   .cta-band { min-height: 340px; padding: 4.5rem 1.75rem; }
   .form-row { grid-template-columns: 1fr; }
   .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
@@ -1330,17 +1393,21 @@ body::after {
         <div class="phil-stat-label">Star Rating</div>
       </div>
     </div>
-    <div class="phil-testimonial reveal d4">
-      <span class="label">Every Skin Type Welcome</span>
-      <blockquote class="phil-quote">
-Kimberly was very knowledgeable and easy to talk to. She texted which was hugely convenient and helped address my worries for my first treatment.<br><br><strong>She could easily treat darker skin which was a fear I had going in.</strong> As a bonus, she had pads available to help lighten hyperpigmentation which was the primary reason I sought laser. Definitely would recommend her to anyone interested in getting a laser treatment.
-      </blockquote>
-      <span class="phil-quote-author">Google Review</span>
-    </div>
   </div>
   <div class="phil-images reveal d2">
     <img class="phil-img-main" src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/2021-04-20+%282%29-1920w.jpg" alt="Treatment room" />
     <img class="phil-img-secondary" src="https://lirp.cdn-website.com/md/pexels/dms3rep/multi/opt/pexels-photo-5069612-1920w.jpeg" alt="Facial treatment" />
+  </div>
+</section>
+
+<!-- TESTIMONIAL BAND -->
+<section class="testimonial-band">
+  <div class="testimonial-band-inner reveal">
+    <span class="label">Every Skin Type Welcome</span>
+    <blockquote class="testimonial-band-quote">
+Kimberly was very knowledgeable and easy to talk to. She texted which was hugely convenient and helped address my worries for my first treatment. <strong>She could easily treat darker skin which was a fear I had going in.</strong> As a bonus, she had pads available to help lighten hyperpigmentation which was the primary reason I sought laser. Definitely would recommend her to anyone interested in getting a laser treatment.
+    </blockquote>
+    <span class="testimonial-band-author">&#9733;&#9733;&#9733;&#9733;&#9733; &nbsp; Google Review</span>
   </div>
 </section>
 
@@ -1573,6 +1640,44 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
         <span class="about-cred">Certified Laser Technician</span>
         <span class="about-cred">Licensed Dietitian</span>
         <span class="about-cred">B.S. Florida International</span>
+      </div>
+    </div>
+  </div>
+  <div class="team-row reveal">
+    <div class="team-card">
+      <div class="team-photo-wrap">
+        <img src="skin-laser-assets/dr-alkadri.jpg" alt="Dr. Amjad Alkadri" />
+      </div>
+      <div class="team-content">
+      <div class="team-info">
+        <h3>Dr. Amjad Alkadri, MD</h3>
+        <span class="team-role">Interventional Radiologist &amp; Vein Specialist</span>
+        <p>Dr. Alkadri brings decades of medical expertise to Skin Laser &amp; MedSpa. After earning his medical degree from the University of Damascus, he completed general surgery and radiology training at Providence Hospital in Michigan, followed by an Interventional Radiology fellowship at the University of Illinois Medical Center in Chicago.</p>
+        <p>His specialization in minimally invasive procedures and deep understanding of vascular conditions makes him an invaluable part of our team, particularly for laser vein therapy and complex skin treatments.</p>
+        <div class="team-creds">
+          <span class="team-cred">Board Certified Radiology</span>
+          <span class="team-cred">Interventional Radiology</span>
+          <span class="team-cred">U of I Chicago Fellowship</span>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-photo-wrap">
+        <img src="skin-laser-assets/yvonne.png" alt="Yvonne, RN" />
+      </div>
+      <div class="team-content">
+      <div class="team-info">
+        <h3>Yvonne, RN</h3>
+        <span class="team-role">Registered Nurse &amp; Nurse Injector</span>
+        <p>Yvonne is a highly skilled nurse injector whose background spans both healthcare and client relations. She brings a rare combination of clinical precision and warm, personalized service to every treatment.</p>
+        <p>Her commitment to continuous professional development keeps her at the forefront of the latest aesthetic treatments and injection techniques, ensuring every client receives safe, effective, and natural-looking results.</p>
+        <div class="team-creds">
+          <span class="team-cred">Registered Nurse</span>
+          <span class="team-cred">Certified Nurse Injector</span>
+          <span class="team-cred">Aesthetic Specialist</span>
+        </div>
+      </div>
       </div>
     </div>
   </div>

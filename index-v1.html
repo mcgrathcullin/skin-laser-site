@@ -83,7 +83,7 @@ button { font-family: inherit; cursor: pointer; border: none; }
 /* ─── NAV ─── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  height: 96px;
+  height: 88px;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 clamp(1.5rem, 4vw, 3.5rem);
   background: rgba(246, 243, 238, 0.8);
@@ -93,7 +93,7 @@ nav {
 nav.scrolled { height: 64px; box-shadow: 0 1px 0 rgba(0,0,0,.06); }
 nav.scrolled .nav-brand img { height: 48px; }
 
-.nav-brand img { height: 80px; width: auto; }
+.nav-brand img { height: 64px; width: auto; }
 .nav-links {
   display: flex; align-items: center; gap: 2.2rem; list-style: none;
 }
@@ -118,33 +118,21 @@ nav.scrolled .nav-brand img { height: 48px; }
 /* ─── HERO ─── */
 .hero {
   min-height: 100vh;
-  position: relative;
-  padding: 96px 1.5rem 1.5rem;
-  background: var(--bg);
-}
-.hero-frame {
-  position: relative;
-  min-height: calc(100vh - 96px - 1.5rem);
-  border-radius: 16px;
-  overflow: hidden;
-}
-.hero-slides { position: absolute; inset: 0; z-index: 0; }
-.hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.5s ease; }
-.hero-slide.active { opacity: 1; }
-.hero-slide img { width: 100%; height: 100%; object-fit: cover; animation: kenBurns 10s ease forwards; }
-@keyframes kenBurns { from { transform: scale(1); } to { transform: scale(1.08); } }
-.hero-overlay {
-  position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(135deg, rgba(27,27,27,0.82) 0%, rgba(27,27,27,0.55) 40%, rgba(27,27,27,0.35) 100%);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  padding-top: 88px;
 }
 
 .hero-left {
   display: flex; flex-direction: column; justify-content: center;
-  padding: 3.5rem clamp(2.5rem, 5vw, 5rem) 3.5rem clamp(2.5rem, 6vw, 5.5rem);
-  position: relative; z-index: 2; max-width: 860px;
-  min-height: calc(100vh - 96px - 1.5rem);
+  padding: 2rem clamp(2.5rem, 5vw, 5.5rem) 3rem clamp(2.5rem, 6vw, 6.5rem);
+  position: relative;
 }
-.hero-left::after { display: none; }
+.hero-left::after {
+  content: ''; position: absolute;
+  right: 0; top: 20%; bottom: 20%; width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--skin-peach), var(--skin-sand), transparent);
+}
 
 .hero-eyebrow {
   display: flex; align-items: center; gap: 1rem;
@@ -152,26 +140,24 @@ nav.scrolled .nav-brand img { height: 48px; }
   opacity: 0; animation: fadeIn .8s .3s var(--ease) forwards;
 }
 .hero-eyebrow::before {
-  content: ''; width: 32px; height: 1px; background: var(--skin-peach);
+  content: ''; width: 32px; height: 1px; background: var(--skin-blush);
 }
 
-.hero .label { color: var(--skin-peach); }
 .hero h1 {
   font-family: var(--serif);
   font-size: clamp(3rem, 5.2vw, 4.8rem);
-  font-weight: 500; line-height: 1.06;
+  font-weight: 400; line-height: 1.06;
   letter-spacing: -0.02em; margin-bottom: 2rem;
-  color: var(--white); text-shadow: 0 2px 20px rgba(0,0,0,0.15);
   opacity: 0; animation: fadeUp 1s .4s var(--ease) forwards;
 }
-.hero h1 i { font-style: italic; color: var(--skin-peach); }
+.hero h1 i { font-style: italic; color: var(--skin-taupe); }
 
 .hero-sub {
   font-size: 1.05rem; font-weight: 300; line-height: 1.8;
-  color: rgba(255,255,255,0.7); max-width: 460px; margin-bottom: 2.8rem;
+  color: var(--ink-muted); max-width: 460px; margin-bottom: 2.8rem;
 }
 .hero-sub b {
-  font-weight: 600; color: rgba(255,255,255,0.9);
+  font-weight: 600; color: var(--ink-soft);
   opacity: 0; animation: fadeUp .8s .6s var(--ease) forwards;
 }
 
@@ -197,54 +183,44 @@ nav.scrolled .nav-brand img { height: 48px; }
 }
 .btn-ghost:hover { border-color: var(--skin-blush); color: var(--skin-taupe); }
 
-/* Hero button overrides for dark bg */
-.hero .btn-dark { background: var(--white); color: var(--ink); }
-.hero .btn-dark:hover { background: var(--skin-peach); }
-.hero .btn-ghost { color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.3); }
-.hero .btn-ghost:hover { border-color: var(--skin-blush); color: var(--white); }
-
 /* Hero social proof strip */
 .hero-proof {
-  margin-top: 2.5rem;
-  padding: 1.8rem;
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 10px;
-  display: flex; gap: 1.5rem; align-items: center;
+  margin-top: 3.5rem; padding-top: 2.5rem;
+  border-top: 1px solid var(--bg-deep);
+  display: flex; gap: 2rem; align-items: center;
   opacity: 0; animation: fadeIn 1s 1s var(--ease) forwards;
 }
 
 .hero-badge {
   flex-shrink: 0;
-  padding-right: 1.5rem;
-  border-right: 1px solid rgba(255,255,255,0.12);
+  padding-right: 2rem;
+  border-right: 1px solid var(--bg-deep);
 }
 .hero-badge--text { display: none; }
 .hero-badge-img {
   width: 162px; height: auto;
   object-fit: contain;
-  filter: brightness(1.2);
+  mix-blend-mode: multiply;
 }
 .hero-badge-icon {
   width: 64px; height: 64px;
-  object-fit: contain; filter: brightness(1.2); flex-shrink: 0;
+  object-fit: contain; mix-blend-mode: multiply; flex-shrink: 0;
 }
 .hero-badge-copy { display: flex; flex-direction: column; }
 .hero-badge-title {
   font-size: 0.88rem; font-weight: 600;
-  letter-spacing: 0.04em; color: var(--white);
+  letter-spacing: 0.04em; color: var(--ink-soft);
 }
 .hero-badge-desc {
   font-size: 0.82rem; font-weight: 400;
-  color: rgba(255,255,255,0.6); line-height: 1.4;
+  color: var(--ink-muted); line-height: 1.4;
 }
 
 /* Review slider */
 .review-slider {
   flex: 1; min-width: 0;
   overflow: hidden; position: relative;
-  height: 105px;
+  height: 90px;
 }
 .review-track {
   display: flex; flex-direction: column;
@@ -255,12 +231,12 @@ nav.scrolled .nav-brand img { height: 48px; }
   display: flex; flex-direction: column; justify-content: center;
 }
 .review-stars {
-  color: var(--skin-peach); font-size: 0.85rem;
+  color: var(--skin-blush); font-size: 0.85rem;
   letter-spacing: 0.1em; margin-bottom: 0.35rem;
 }
 .review-quote {
   font-size: 0.92rem; font-weight: 300;
-  color: rgba(255,255,255,0.75); line-height: 1.55;
+  color: var(--ink-soft); line-height: 1.55;
   font-style: italic;
   display: -webkit-box; -webkit-line-clamp: 2;
   -webkit-box-orient: vertical; overflow: hidden;
@@ -268,7 +244,7 @@ nav.scrolled .nav-brand img { height: 48px; }
 .review-author {
   font-size: 0.68rem; font-weight: 600;
   letter-spacing: 0.08em; text-transform: uppercase;
-  color: rgba(255,255,255,0.4); margin-top: 0.3rem;
+  color: var(--ink-muted); margin-top: 0.3rem;
 }
 
 @keyframes reviewSlide {
@@ -344,48 +320,6 @@ nav.scrolled .nav-brand img { height: 48px; }
   font-size: 0.65rem; font-weight: 500;
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--ink-muted); margin-top: 0.3rem;
-}
-
-/* ─── TESTIMONIAL BAND ─── */
-.testimonial-band {
-  padding: 0 clamp(2rem, 6vw, 6rem);
-  max-width: 1280px; margin: 0 auto;
-}
-.testimonial-band-inner {
-  background: var(--ink);
-  border-radius: 16px;
-  padding: 4rem clamp(2.5rem, 5vw, 5rem);
-  max-width: 100%; margin: 0 auto;
-  text-align: center;
-}
-.testimonial-band .label {
-  color: var(--skin-peach);
-  font-size: 1rem; font-weight: 600; letter-spacing: 0.22em;
-  margin-bottom: 1.5rem; display: block;
-}
-.testimonial-band-quote {
-  font-family: var(--sans);
-  font-size: 1.1rem; font-weight: 300;
-  line-height: 1.9; color: rgba(255,255,255,0.7);
-  margin: 0 0 1.5rem;
-  position: relative;
-}
-.testimonial-band-quote::before,
-.testimonial-band-quote::after {
-  font-family: var(--serif);
-  font-size: 3.5rem; font-weight: 400;
-  color: var(--skin-taupe); line-height: 0;
-  vertical-align: -0.3em;
-}
-.testimonial-band-quote::before { content: '\201C'; margin-right: 0.1em; }
-.testimonial-band-quote::after { content: '\201D'; margin-left: 0.05em; }
-.testimonial-band-quote strong {
-  font-weight: 500; color: var(--white);
-}
-.testimonial-band-author {
-  font-size: 0.68rem; font-weight: 500;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--skin-peach);
 }
 
 .phil-images {
@@ -855,57 +789,6 @@ nav.scrolled .nav-brand img { height: 48px; }
   border: 1px solid var(--skin-sand); color: var(--skin-deep);
 }
 
-/* ─── TEAM ─── */
-.team-row {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 1.5rem; margin-top: 4rem;
-  max-width: 1280px; margin-left: auto; margin-right: auto;
-  padding: 0 clamp(2rem, 6vw, 6rem);
-}
-.team-card {
-  display: flex; flex-direction: column;
-  background: var(--white);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-  overflow: hidden;
-}
-.team-photo-wrap { position: relative; background: var(--white); overflow: hidden; }
-.team-photo-wrap img {
-  width: 100%; height: 320px;
-  object-fit: cover; object-position: top center;
-}
-.team-card:first-child .team-photo-wrap {
-  background: var(--white);
-}
-.team-card:first-child .team-photo-wrap img {
-  object-fit: contain; height: 320px;
-}
-.team-content {
-  padding: 2rem;
-}
-.team-info h3 {
-  font-family: var(--serif);
-  font-size: 1.4rem; font-weight: 400; margin-bottom: 0.3rem;
-}
-.team-role {
-  font-size: 0.7rem; font-weight: 500;
-  letter-spacing: 0.06em; color: var(--skin-taupe);
-  display: block; margin-bottom: 1rem;
-}
-.team-info p {
-  font-size: 0.88rem; font-weight: 300;
-  color: var(--ink-muted); line-height: 1.75;
-  margin-bottom: 1.2rem;
-}
-.team-creds {
-  display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem;
-}
-.team-cred {
-  font-size: 0.58rem; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 0.4rem 0.7rem;
-  border: 1px solid var(--skin-sand); color: var(--skin-deep);
-}
-
 /* ─── CONTACT ─── */
 .contact {
   padding: 6rem clamp(2rem, 6vw, 6rem);
@@ -1168,8 +1051,9 @@ footer {
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
-  .hero { min-height: auto; }
-  .hero-frame { min-height: auto; border-radius: 12px; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left::after { display: none; }
+  .hero-right { height: 50vh; min-height: 300px; }
   .philosophy { grid-template-columns: 1fr; }
   .phil-images { max-width: 500px; }
   .cond-top { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -1188,20 +1072,20 @@ footer {
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .burger { display: flex; }
-  .hero-left { padding: 2.5rem 1.75rem 2.5rem; min-height: auto; }
-  .hero h1 { font-size: clamp(2.8rem, 11vw, 3.75rem); line-height: 1.05; margin-bottom: 1.75rem; font-weight: 500; }
+  .hero-left { padding: 2.5rem 1.75rem 2.5rem; }
+  .hero h1 { font-size: clamp(2.4rem, 9vw, 3.75rem); line-height: 1; margin-bottom: 1.75rem; }
   .hero-sub { font-size: 0.95rem; margin-bottom: 2.25rem; }
   .hero-eyebrow { margin-bottom: 1.75rem; }
-  .hero-actions { flex-direction: row; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
-  .hero-actions .btn { padding: 0.8rem 1.1rem; font-size: 0.62rem; }
+  .hero-actions { flex-direction: row; align-items: center; gap: 0.6rem; flex-wrap: nowrap; }
+  .hero-actions .btn { padding: 0.85rem 1.2rem; font-size: 0.65rem; white-space: nowrap; }
   .philosophy { padding: 4rem 1.75rem 3rem; }
   .hero-proof {
-    margin-top: 2.25rem; padding: 1.5rem;
+    margin-top: 2.25rem; padding-top: 1.5rem; padding-bottom: 0;
     flex-direction: column; align-items: flex-start; gap: 1rem;
   }
   .hero-badge {
     border-right: none; padding-right: 0;
-    padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.12);
+    padding-bottom: 1rem; border-bottom: 1px solid var(--bg-deep);
     width: 100%;
   }
   .hero-badge--img { display: none; }
@@ -1223,14 +1107,10 @@ footer {
     100% { transform: translateY(0); }
   }
   .tx-trio { padding: 0 1.75rem; }
-  .treatments { padding: 4rem 0 3rem; }
+  .treatments { padding: 5rem 0 6rem; }
   .conditions { padding: 3rem 1.75rem; }
   .specials { padding: 5rem 1.75rem; }
   .about { padding: 5rem 1.75rem; }
-  .team-row { grid-template-columns: 1fr; padding: 0 1.75rem; margin-top: 3rem; }
-  .team-photo-wrap img { height: 300px; object-fit: cover; }
-  .team-card:first-child .team-photo-wrap img { object-fit: contain; height: 300px; }
-  .team-content { padding: 1.5rem; }
   .cta-band { min-height: 340px; padding: 4.5rem 1.75rem; }
   .form-row { grid-template-columns: 1fr; }
   .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
@@ -1298,14 +1178,6 @@ body::after {
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-frame">
-  <div class="hero-slides">
-    <div class="hero-slide active"><img src="skin-laser-assets/interior.jpg" alt="" /></div>
-    <div class="hero-slide"><img src="skin-laser-assets/interior2.jpeg" alt="" /></div>
-    <div class="hero-slide"><img src="skin-laser-assets/pexels-spa.jpeg" alt="" /></div>
-    <div class="hero-slide"><img src="skin-laser-assets/model-treatment.jpg" alt="" /></div>
-  </div>
-  <div class="hero-overlay"></div>
   <div class="hero-left">
     <div class="hero-eyebrow">
       <span class="label">Streeterville, Chicago</span>
@@ -1358,6 +1230,8 @@ body::after {
       </div>
     </div>
   </div>
+  <div class="hero-right">
+    <img class="hero-right-img" src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/672A3CA2-8E24-498D-BCDB-82792E9E41D4-1920w.jpeg" alt="Skin Laser MedSpa interior" />
   </div>
 </section>
 
@@ -1404,17 +1278,6 @@ body::after {
   <div class="phil-images reveal d2">
     <img class="phil-img-main" src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/2021-04-20+%282%29-1920w.jpg" alt="Treatment room" />
     <img class="phil-img-secondary" src="https://lirp.cdn-website.com/md/pexels/dms3rep/multi/opt/pexels-photo-5069612-1920w.jpeg" alt="Facial treatment" />
-  </div>
-</section>
-
-<!-- TESTIMONIAL BAND -->
-<section class="testimonial-band">
-  <div class="testimonial-band-inner reveal">
-    <span class="label">Every Skin Type Welcome</span>
-    <blockquote class="testimonial-band-quote">
-Kimberly was very knowledgeable and easy to talk to. She texted which was hugely convenient and helped address my worries for my first treatment. <strong>She could easily treat darker skin which was a fear I had going in.</strong> As a bonus, she had pads available to help lighten hyperpigmentation which was the primary reason I sought laser. Definitely would recommend her to anyone interested in getting a laser treatment.
-    </blockquote>
-    <span class="testimonial-band-author">&#9733;&#9733;&#9733;&#9733;&#9733; &nbsp; Google Review</span>
   </div>
 </section>
 
@@ -1650,44 +1513,6 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
       </div>
     </div>
   </div>
-  <div class="team-row reveal">
-    <div class="team-card">
-      <div class="team-photo-wrap">
-        <img src="skin-laser-assets/dr-alkadri.jpg" alt="Dr. Amjad Alkadri" />
-      </div>
-      <div class="team-content">
-      <div class="team-info">
-        <h3>Dr. Amjad Alkadri, MD</h3>
-        <span class="team-role">Interventional Radiologist &amp; Vein Specialist</span>
-        <p>Dr. Alkadri brings decades of medical expertise to Skin Laser &amp; MedSpa. After earning his medical degree from the University of Damascus, he completed general surgery and radiology training at Providence Hospital in Michigan, followed by an Interventional Radiology fellowship at the University of Illinois Medical Center in Chicago.</p>
-        <p>His specialization in minimally invasive procedures and deep understanding of vascular conditions makes him an invaluable part of our team, particularly for laser vein therapy and complex skin treatments.</p>
-        <div class="team-creds">
-          <span class="team-cred">Board Certified Radiology</span>
-          <span class="team-cred">Interventional Radiology</span>
-          <span class="team-cred">U of I Chicago Fellowship</span>
-        </div>
-      </div>
-      </div>
-    </div>
-    <div class="team-card">
-      <div class="team-photo-wrap">
-        <img src="skin-laser-assets/yvonne.png" alt="Yvonne, RN" />
-      </div>
-      <div class="team-content">
-      <div class="team-info">
-        <h3>Yvonne, RN</h3>
-        <span class="team-role">Registered Nurse &amp; Nurse Injector</span>
-        <p>Yvonne is a highly skilled nurse injector whose background spans both healthcare and client relations. She brings a rare combination of clinical precision and warm, personalized service to every treatment.</p>
-        <p>Her commitment to continuous professional development keeps her at the forefront of the latest aesthetic treatments and injection techniques, ensuring every client receives safe, effective, and natural-looking results.</p>
-        <div class="team-creds">
-          <span class="team-cred">Registered Nurse</span>
-          <span class="team-cred">Certified Nurse Injector</span>
-          <span class="team-cred">Aesthetic Specialist</span>
-        </div>
-      </div>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- CONTACT -->
@@ -1865,23 +1690,6 @@ function scrollSpecials(dir) {
   const track = document.getElementById('specTrack');
   track.scrollBy({ left: dir * 360, behavior: 'smooth' });
 }
-
-// Hero slideshow
-(function() {
-  const slides = document.querySelectorAll('.hero-slide');
-  if (!slides.length) return;
-  let current = 0;
-  setInterval(() => {
-    slides[current].classList.remove('active');
-    slides[current].querySelector('img').style.animation = 'none';
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('active');
-    const img = slides[current].querySelector('img');
-    img.style.animation = 'none';
-    img.offsetHeight;
-    img.style.animation = 'kenBurns 10s ease forwards';
-  }, 8000);
-})();
 
 // Modal - multi-step
 let currentStep = 0;

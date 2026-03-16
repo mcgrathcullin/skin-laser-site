@@ -186,16 +186,22 @@ nav.scrolled .nav-brand img { height: 48px; }
   letter-spacing: 0.14em; text-transform: uppercase;
   border: none; cursor: pointer; transition: all .4s var(--ease);
 }
-.btn-dark { background: var(--white); color: var(--ink); }
+.btn-dark { background: var(--ink); color: var(--bg); }
 .btn-dark:hover {
   background: var(--skin-deep); transform: translateY(-2px);
   box-shadow: 0 12px 32px rgba(139,115,98,0.3);
 }
 .btn-ghost {
-  background: none; color: rgba(255,255,255,0.85);
-  border: 1px solid rgba(255,255,255,0.3);
+  background: none; color: var(--ink-soft);
+  border: 1px solid var(--ink-muted);
 }
-.btn-ghost:hover { border-color: var(--skin-blush); color: var(--white); }
+.btn-ghost:hover { border-color: var(--skin-blush); color: var(--skin-taupe); }
+
+/* Hero button overrides for dark bg */
+.hero .btn-dark { background: var(--white); color: var(--ink); }
+.hero .btn-dark:hover { background: var(--skin-peach); }
+.hero .btn-ghost { color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.3); }
+.hero .btn-ghost:hover { border-color: var(--skin-blush); color: var(--white); }
 
 /* Hero social proof strip */
 .hero-proof {
@@ -1217,12 +1223,13 @@ footer {
     100% { transform: translateY(0); }
   }
   .tx-trio { padding: 0 1.75rem; }
-  .treatments { padding: 5rem 0 6rem; }
+  .treatments { padding: 4rem 0 3rem; }
   .conditions { padding: 3rem 1.75rem; }
   .specials { padding: 5rem 1.75rem; }
   .about { padding: 5rem 1.75rem; }
   .team-row { grid-template-columns: 1fr; padding: 0 1.75rem; margin-top: 3rem; }
-  .team-photo-wrap img { height: 240px; }
+  .team-photo-wrap img { height: 300px; object-fit: cover; }
+  .team-card:first-child .team-photo-wrap img { object-fit: contain; height: 300px; }
   .team-content { padding: 1.5rem; }
   .cta-band { min-height: 340px; padding: 4.5rem 1.75rem; }
   .form-row { grid-template-columns: 1fr; }

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RF Microneedling | Venus Viva NanoFractional RF | Skin Laser & MedSpa</title>
+<meta name="description" content="Venus Viva NanoFractional RF Microneedling with SmartScan technology at Skin Laser & MedSpa in Chicago. Customizable skin resurfacing for scars, wrinkles, and skin tightening.">
+<link rel="icon" type="image/png" href="../skin-laser-assets/favicon.png">
+<link rel="apple-touch-icon" href="../skin-laser-assets/favicon.png">
+<meta name="theme-color" content="#fff4dc">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #F6F3EE;
+  --bg-warm: #EDE8E0;
+  --bg-deep: #E4DDD3;
+  --white: #FDFCFA;
+  --ink: #1B1B1B;
+  --ink-soft: #3A3632;
+  --ink-muted: #7A746B;
+  --gold: #A88A7B;
+  --gold-light: #C4A693;
+  --gold-pale: #D9C4B5;
+  --gold-wash: rgba(168, 138, 123, 0.08);
+  --skin-deep: #8B7362;
+  --skin-taupe: #A89080;
+  --skin-blush: #C9A992;
+  --skin-peach: #D4B8A4;
+  --skin-sand: #E2CDBF;
+  --skin-sage: #9CA08A;
+
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; }
+
+/* ---- UTILITIES ---- */
+.reveal {
+  opacity: 0; transform: translateY(50px);
+  transition: opacity 1s var(--ease), transform 1s var(--ease);
+}
+.reveal.vis { opacity: 1; transform: none; }
+.d1 { transition-delay: .1s } .d2 { transition-delay: .2s }
+.d3 { transition-delay: .3s } .d4 { transition-delay: .4s }
+
+.label {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--skin-taupe);
+}
+
+/* ---- NAV ---- */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 96px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(1.5rem, 4vw, 3.5rem);
+  background: rgba(246, 243, 238, 0.8);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  transition: all .4s ease;
+}
+nav.scrolled { height: 64px; box-shadow: 0 1px 0 rgba(0,0,0,.06); }
+nav.scrolled .nav-brand img { height: 48px; }
+
+.nav-brand img { height: 80px; width: auto; }
+.nav-links {
+  display: flex; align-items: center; gap: 2.2rem; list-style: none;
+}
+.nav-links a {
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em;
+  color: var(--ink-soft); transition: color .3s;
+}
+.nav-links a:hover { color: var(--skin-taupe); }
+
+.nav-book {
+  padding: 0.65rem 1.6rem !important;
+  background: var(--ink); color: var(--bg) !important;
+  font-size: 0.68rem !important; font-weight: 600 !important;
+  letter-spacing: 0.12em !important; text-transform: uppercase;
+  transition: all .35s var(--ease);
+}
+.nav-book:hover { background: var(--skin-deep) !important; }
+
+.burger { display: none; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; background: none; }
+.burger span { width: 22px; height: 1.5px; background: var(--ink); display: block; }
+
+/* ---- BTN ---- */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 1.05rem 2.2rem; font-size: 0.74rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  border: none; cursor: pointer; transition: all .4s var(--ease);
+}
+.btn-dark { background: var(--ink); color: var(--bg); }
+.btn-dark:hover {
+  background: var(--skin-deep); transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(139,115,98,0.3);
+}
+.btn-ghost {
+  background: none; color: var(--ink-soft);
+  border: 1px solid var(--ink-muted);
+}
+.btn-ghost:hover { border-color: var(--skin-blush); color: var(--skin-taupe); }
+
+/* ---- PAGE HERO ---- */
+.page-hero {
+  height: 40vh; min-height: 320px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  background: var(--bg);
+  padding: 96px 2rem 2rem;
+  position: relative;
+}
+.page-hero::after {
+  content: ''; position: absolute; bottom: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--skin-sand), var(--skin-peach), var(--skin-sand), transparent);
+}
+.page-hero .label { color: var(--skin-taupe); margin-bottom: 1.2rem; display: block; }
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 400; line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.page-hero h1 i { font-style: italic; color: var(--skin-blush); }
+.page-hero p {
+  font-size: 1rem; font-weight: 300;
+  color: var(--ink-muted); max-width: 520px;
+  margin: 0 auto; line-height: 1.7;
+}
+
+/* ---- CONTENT SECTIONS ---- */
+.tx-detail {
+  padding: 5rem clamp(2rem, 6vw, 6rem);
+  max-width: 900px; margin: 0 auto;
+}
+.tx-detail h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 400; line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+.tx-detail h2 i { font-style: italic; color: var(--skin-taupe); }
+.tx-detail p {
+  font-size: 0.95rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.85;
+  margin-bottom: 1.2rem;
+}
+
+/* Treats list */
+.treats-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0.75rem; margin: 2rem 0 2.5rem;
+}
+.treats-item {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.9rem 1.1rem;
+  background: var(--white);
+  border: 1px solid var(--bg-deep);
+  font-size: 0.85rem; font-weight: 400;
+  color: var(--ink-soft);
+  transition: all .3s var(--ease);
+}
+.treats-item:hover {
+  border-color: var(--skin-blush);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+}
+.treats-item::before {
+  content: ''; width: 16px; height: 1px;
+  background: var(--skin-peach); flex-shrink: 0;
+}
+
+/* ---- TECH CALLOUT ---- */
+.tech-callout {
+  padding: 5rem clamp(2rem, 6vw, 6rem);
+  background: var(--ink); color: var(--bg);
+  position: relative; overflow: hidden;
+}
+.tech-callout::before {
+  content: ''; position: absolute;
+  top: -80px; right: -80px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(168,138,123,0.1) 0%, transparent 70%);
+}
+.tech-callout-inner {
+  max-width: 900px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.tech-callout .label { color: var(--skin-peach); margin-bottom: 1.2rem; display: block; }
+.tech-callout h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 400; line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+.tech-callout h2 i { font-style: italic; color: var(--skin-peach); }
+.tech-callout p {
+  font-size: 0.92rem; font-weight: 300;
+  color: rgba(246,243,238,0.6); line-height: 1.85;
+  margin-bottom: 1rem;
+}
+.tech-callout strong { color: rgba(246,243,238,0.9); font-weight: 500; }
+
+/* ---- WHAT TO EXPECT ---- */
+.expect {
+  padding: 5rem clamp(2rem, 6vw, 6rem);
+  max-width: 900px; margin: 0 auto;
+}
+.expect h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 400; line-height: 1.2;
+  margin-bottom: 3rem; text-align: center;
+}
+.expect h2 i { font-style: italic; color: var(--skin-blush); }
+
+.expect-steps {
+  display: grid; grid-template-columns: 1fr; gap: 0;
+  position: relative;
+}
+.expect-step {
+  display: grid; grid-template-columns: 56px 1fr;
+  gap: 1.5rem; padding-bottom: 2.5rem;
+  position: relative;
+}
+.expect-step:last-child { padding-bottom: 0; }
+.expect-num {
+  width: 56px; height: 56px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 1.2rem; font-weight: 400;
+  color: var(--skin-deep);
+  background: var(--white);
+  border: 1px solid var(--skin-sand);
+  border-radius: 50%;
+  position: relative; z-index: 1;
+}
+.expect-step:not(:last-child)::after {
+  content: ''; position: absolute;
+  left: 28px; top: 56px; bottom: 0;
+  width: 1px; background: var(--skin-sand);
+}
+.expect-step-content h3 {
+  font-family: var(--serif);
+  font-size: 1.15rem; font-weight: 400;
+  margin-bottom: 0.5rem; padding-top: 0.15rem;
+}
+.expect-step-content p {
+  font-size: 0.88rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.75;
+}
+
+/* ---- CTA SECTION ---- */
+.page-cta {
+  padding: 5rem clamp(2rem, 6vw, 6rem);
+  background: var(--white);
+  text-align: center;
+  position: relative;
+}
+.page-cta::before {
+  content: ''; position: absolute; top: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--skin-sand), var(--skin-peach), var(--skin-sand), transparent);
+}
+.page-cta h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400; line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.page-cta h2 i { font-style: italic; color: var(--skin-taupe); }
+.page-cta p {
+  font-size: 0.92rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.7;
+  max-width: 480px; margin: 0 auto 2rem;
+}
+
+/* ---- FOOTER ---- */
+footer {
+  padding: 1.5rem clamp(2rem, 6vw, 6rem);
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.footer-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-brand img { height: 28px; opacity: 0.4; }
+.footer-copy { font-size: 0.7rem; color: rgba(246,243,238,0.2); }
+
+/* ---- MODAL ---- */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(27,27,27,0.6);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .4s var(--ease);
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.modal {
+  background: var(--white);
+  width: 90%; max-width: 480px;
+  max-height: 90vh; overflow-y: auto;
+  transform: translateY(30px) scale(0.97);
+  transition: transform .5s var(--ease);
+  position: relative;
+  display: flex; flex-direction: column;
+}
+.modal-overlay.open .modal { transform: translateY(0) scale(1); }
+
+.modal-top {
+  padding: 2rem 2rem 0;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-shrink: 0;
+}
+.modal-close {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: none; border: 1px solid var(--bg-deep);
+  font-size: 1.1rem; color: var(--ink-muted);
+  cursor: pointer; transition: all .3s; flex-shrink: 0;
+}
+.modal-close:hover { border-color: var(--ink); color: var(--ink); }
+
+.modal-progress { display: flex; gap: 0.4rem; align-items: center; }
+.modal-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--bg-deep); transition: all .3s;
+}
+.modal-dot.active { background: var(--skin-taupe); width: 24px; border-radius: 4px; }
+.modal-dot.done { background: var(--skin-blush); }
+
+.modal-steps { flex: 1; overflow: visible; position: relative; }
+.modal-step {
+  padding: 1.5rem 2rem 2rem;
+  display: none; flex-direction: column;
+  animation: stepIn .4s var(--ease);
+}
+.modal-step.active { display: flex; }
+
+@keyframes stepIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.step-title {
+  font-family: var(--serif);
+  font-size: 1.4rem; font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+.step-title i { font-style: italic; color: var(--skin-blush); }
+.step-subtitle {
+  font-size: 0.82rem; color: var(--ink-muted);
+  margin-bottom: 1.5rem; line-height: 1.5;
+}
+
+.tx-options { display: flex; flex-direction: column; gap: 0.5rem; }
+.tx-option {
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--bg-deep);
+  background: var(--bg);
+  cursor: pointer; transition: all .3s;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.88rem; font-weight: 400; color: var(--ink-soft);
+}
+.tx-option:hover { border-color: var(--skin-blush); }
+.tx-option.selected {
+  border-color: var(--ink); background: var(--ink); color: var(--bg);
+}
+.tx-option::after {
+  content: ''; width: 18px; height: 18px; border-radius: 50%;
+  border: 1.5px solid var(--bg-deep); flex-shrink: 0;
+  transition: all .2s;
+}
+.tx-option.selected::after {
+  border-color: var(--skin-taupe); background: var(--skin-taupe);
+  box-shadow: inset 0 0 0 3px var(--ink);
+}
+
+.form-group { margin-bottom: 1.25rem; }
+.form-label {
+  display: block; font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-soft); margin-bottom: 0.5rem;
+}
+.form-input {
+  width: 100%; padding: 0.85rem 1rem;
+  border: 1px solid var(--bg-deep); background: var(--bg);
+  font-family: var(--sans); font-size: 0.88rem;
+  color: var(--ink); outline: none; transition: border-color .3s;
+}
+.form-input:focus { border-color: var(--skin-blush); }
+.form-input::placeholder { color: var(--ink-muted); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+.modal-nav {
+  padding: 0 2rem 2rem;
+  display: flex; gap: 0.75rem; flex-shrink: 0;
+}
+.modal-nav .btn { flex: 1; justify-content: center; }
+.btn-back {
+  background: none; color: var(--ink-soft);
+  border: 1px solid var(--bg-deep);
+  padding: 0.9rem 1.5rem; font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  cursor: pointer; transition: all .3s;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.btn-back:hover { border-color: var(--ink); color: var(--ink); }
+
+.confirm-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(168,138,123,0.1); color: var(--skin-deep);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; margin-bottom: 1.2rem;
+}
+.confirm-detail {
+  display: flex; justify-content: space-between;
+  padding: 0.6rem 0; border-bottom: 1px solid var(--bg-deep);
+  font-size: 0.82rem;
+}
+.confirm-detail .cd-label { color: var(--ink-muted); font-weight: 400; }
+.confirm-detail .cd-value { color: var(--ink-soft); font-weight: 500; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 1024px) {
+  .treats-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .burger { display: flex; }
+  .page-hero { height: auto; min-height: 280px; padding: 120px 1.75rem 3rem; }
+  .page-hero h1 { font-size: clamp(2rem, 8vw, 2.8rem); }
+  .tx-detail { padding: 3rem 1.75rem; }
+  .tech-callout { padding: 3rem 1.75rem; }
+  .expect { padding: 3rem 1.75rem; }
+  .page-cta { padding: 3rem 1.75rem; }
+  .treats-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* ---- GRAIN ---- */
+body::after {
+  content: ''; position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999; opacity: 0.5;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="../index-v2.html" class="nav-brand">
+    <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser & MedSpa" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index-v2.html#treatments">Treatments</a></li>
+    <li><a href="../index-v2.html#conditions">Conditions</a></li>
+    <li><a href="../index-v2.html#technology">Technology</a></li>
+    <li><a href="../index-v2.html#specials">Specials</a></li>
+    <li><a href="../index-v2.html#about">About</a></li>
+    <li><a href="../index-v2.html#contact">Contact</a></li>
+    <li><a href="#" class="nav-book" onclick="openModal(event)">Book Now</a></li>
+  </ul>
+  <button class="burger" onclick="this.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div>
+    <span class="label">Advanced Skin Resurfacing</span>
+    <h1>RF Microneedling with<br><i>Venus Viva</i></h1>
+    <p>NanoFractional RF with SmartScan technology. A highly customizable, non-surgical treatment that resurfaces skin from the inside out.</p>
+  </div>
+</section>
+
+<!-- DETAIL -->
+<section class="tx-detail reveal">
+  <h2>How <i>it works</i></h2>
+  <p>The Venus Viva uses NanoFractional Radio Frequency combined with SmartScan technology to deliver precise, controlled heat through tiny micro-channels in the skin's surface. This process triggers your body's natural healing response, repairing visible signs of damage while stimulating collagen and elastin production deep within the dermis.</p>
+  <p>Unlike traditional resurfacing methods, Venus Viva is highly customizable. Your provider adjusts the energy level, penetration depth, and coverage area to match your specific skin concerns, making it effective for everything from fine lines to deep scarring.</p>
+
+  <h2 style="margin-top: 3rem;">What it <i>treats</i></h2>
+  <div class="treats-grid">
+    <div class="treats-item">Photo-damaged skin</div>
+    <div class="treats-item">Lines & wrinkles</div>
+    <div class="treats-item">Acne scarring</div>
+    <div class="treats-item">Traumatic scars</div>
+    <div class="treats-item">Skin tightening</div>
+    <div class="treats-item">Fine lines</div>
+    <div class="treats-item">Hyperpigmentation</div>
+    <div class="treats-item">Uneven skin texture</div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY CALLOUT -->
+<section class="tech-callout reveal">
+  <div class="tech-callout-inner">
+    <span class="label">Enhanced Results</span>
+    <h2>Combined with <i>AnteAGE</i> regenerative science</h2>
+    <p>Every RF Microneedling session at Skin Laser & MedSpa is paired with <strong>AnteAGE Regenerative Stem Cell Growth Factors</strong> for optimal results. These lab-derived growth factors are delivered directly into the micro-channels created during treatment, accelerating healing and maximizing collagen production.</p>
+    <p>For patients dealing with hyperpigmentation, we add <strong>AnteAGE MD Brightening Solutions</strong>, which combines tranexamic acid, N-acetyl glucosamine (NAG), and melanostatin. This targeted formula works synergistically with the RF energy to inhibit melanin overproduction and even out skin tone over successive treatments.</p>
+  </div>
+</section>
+
+<!-- WHAT TO EXPECT -->
+<section class="expect">
+  <h2>What to <i>expect</i></h2>
+  <div class="expect-steps">
+    <div class="expect-step reveal d1">
+      <div class="expect-num">1</div>
+      <div class="expect-step-content">
+        <h3>Arrive early for numbing</h3>
+        <p>Plan to arrive 1 hour prior to your appointment. A topical numbing cream is applied to ensure your comfort throughout the treatment.</p>
+      </div>
+    </div>
+    <div class="expect-step reveal d2">
+      <div class="expect-num">2</div>
+      <div class="expect-step-content">
+        <h3>Customized treatment</h3>
+        <p>Your provider will calibrate the Venus Viva's SmartScan settings based on your skin type, concerns, and treatment goals. The NanoFractional RF energy is delivered precisely to targeted areas.</p>
+      </div>
+    </div>
+    <div class="expect-step reveal d3">
+      <div class="expect-num">3</div>
+      <div class="expect-step-content">
+        <h3>Growth factor application</h3>
+        <p>AnteAGE Regenerative Stem Cell Growth Factors are applied immediately after treatment, penetrating deep into the freshly created micro-channels for maximum absorption and repair.</p>
+      </div>
+    </div>
+    <div class="expect-step reveal d4">
+      <div class="expect-num">4</div>
+      <div class="expect-step-content">
+        <h3>Session details & series</h3>
+        <p>Each session takes 30 minutes to 1 hour depending on the treatment area. For optimal results, a series of 3 to 5 treatments is recommended, spaced several weeks apart to allow your skin to heal and rebuild between sessions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="page-cta">
+  <span class="label" style="display: block; margin-bottom: 1rem;">Ready to Get Started?</span>
+  <h2>See what Venus Viva can<br><i>do for your skin</i></h2>
+  <p>Book a free consultation to learn how RF Microneedling can be customized specifically for your skin concerns and goals.</p>
+  <a href="#" class="btn btn-dark" onclick="openModal(event)">Book a Free Consultation &#8594;</a>
+  <p style="margin-top: 1.5rem; font-size: 0.82rem;">Or call us directly at <a href="tel:3125395818" style="color: var(--skin-taupe); font-weight: 500;">(312) 539-5818</a></p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser" />
+    </div>
+    <span class="footer-copy">&copy; 2026 Skin Laser & MedSpa. All rights reserved.</span>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal">
+    <div class="modal-top">
+      <div class="modal-progress">
+        <span class="modal-dot active" data-step="0"></span>
+        <span class="modal-dot" data-step="1"></span>
+        <span class="modal-dot" data-step="2"></span>
+      </div>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+
+    <div class="modal-steps">
+      <div class="modal-step active" data-step="0">
+        <h3 class="step-title">What brings <i>you in?</i></h3>
+        <p class="step-subtitle">Select the treatment you're interested in.</p>
+        <div class="tx-options">
+          <div class="tx-option selected" onclick="selectTx(this)">RF Microneedling</div>
+          <div class="tx-option" onclick="selectTx(this)">Laser Hair Removal</div>
+          <div class="tx-option" onclick="selectTx(this)">CO2 Laser Resurfacing</div>
+          <div class="tx-option" onclick="selectTx(this)">Microneedling</div>
+          <div class="tx-option" onclick="selectTx(this)">Tattoo Removal</div>
+          <div class="tx-option" onclick="selectTx(this)">Laser Genesis Facial</div>
+          <div class="tx-option" onclick="selectTx(this)">Not sure yet</div>
+        </div>
+      </div>
+
+      <div class="modal-step" data-step="1">
+        <h3 class="step-title">Tell us about <i>you</i></h3>
+        <p class="step-subtitle">We'll reach out to schedule your free consultation.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input class="form-input" type="text" placeholder="Jane" id="fname" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input class="form-input" type="text" placeholder="Smith" id="lname" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="jane@email.com" id="email" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone</label>
+          <input class="form-input" type="tel" placeholder="(312) 555-0123" id="phone" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">How can we help you?</label>
+          <textarea class="form-input" rows="2" placeholder="Any goals, concerns, or questions..." id="helpMsg"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">How did you hear about us?</label>
+          <input class="form-input" type="text" placeholder="Google, friend, Instagram..." id="hearAbout" />
+        </div>
+      </div>
+
+      <div class="modal-step" data-step="2">
+        <div class="confirm-icon">&#10003;</div>
+        <h3 class="step-title">You're all <i>set!</i></h3>
+        <p class="step-subtitle">We'll be in touch within 24 hours to schedule your consultation. Questions? Call (312) 539-5818.</p>
+        <div style="margin-top: 0.5rem;">
+          <div class="confirm-detail">
+            <span class="cd-label">Treatment</span>
+            <span class="cd-value" id="confirmTx">--</span>
+          </div>
+          <div class="confirm-detail">
+            <span class="cd-label">Name</span>
+            <span class="cd-value" id="confirmName">--</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-nav" id="modalNav">
+      <button class="btn-back" id="btnBack" onclick="prevStep()" style="display:none;">Back</button>
+      <button class="btn btn-dark" id="btnNext" onclick="nextStep()" style="flex:1; justify-content:center;">Continue &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', scrollY > 60);
+});
+
+// Modal
+let currentStep = 0;
+const totalSteps = 3;
+let selectedTx = 'RF Microneedling';
+
+function openModal(e) {
+  if (e) e.preventDefault();
+  currentStep = 0;
+  updateStep();
+  document.getElementById('bookingModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('bookingModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('bookingModal').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+function updateStep() {
+  document.querySelectorAll('.modal-step').forEach(s => s.classList.remove('active'));
+  document.querySelector(`.modal-step[data-step="${currentStep}"]`).classList.add('active');
+
+  document.querySelectorAll('.modal-dot').forEach(d => {
+    const s = parseInt(d.dataset.step);
+    d.classList.remove('active', 'done');
+    if (s === currentStep) d.classList.add('active');
+    else if (s < currentStep) d.classList.add('done');
+  });
+
+  const back = document.getElementById('btnBack');
+  const next = document.getElementById('btnNext');
+  back.style.display = currentStep > 0 && currentStep < 2 ? '' : 'none';
+
+  if (currentStep === 2) {
+    next.textContent = 'Done';
+    next.onclick = closeModal;
+    populateConfirmation();
+  } else {
+    next.innerHTML = 'Continue &#8594;';
+    next.onclick = nextStep;
+  }
+}
+
+function nextStep() {
+  if (currentStep < totalSteps - 1) { currentStep++; updateStep(); }
+}
+function prevStep() {
+  if (currentStep > 0) { currentStep--; updateStep(); }
+}
+
+function selectTx(el) {
+  document.querySelectorAll('.tx-option.selected').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedTx = el.textContent;
+}
+
+function populateConfirmation() {
+  document.getElementById('confirmTx').textContent = selectedTx || '--';
+  const fn = document.getElementById('fname')?.value || '';
+  const ln = document.getElementById('lname')?.value || '';
+  document.getElementById('confirmName').textContent = (fn + ' ' + ln).trim() || '--';
+}
+</script>
+
+</body>
+</html>

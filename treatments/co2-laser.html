@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CO2 Laser Skin Resurfacing | Skin Laser & MedSpa Chicago</title>
+<meta name="description" content="FDA-cleared Phoenix CO2 Laser for skin resurfacing, acne scar reduction, and hand restoration. Erase up to a decade in under an hour. Streeterville, Chicago.">
+<link rel="icon" type="image/png" href="../skin-laser-assets/favicon.png">
+<link rel="apple-touch-icon" href="../skin-laser-assets/favicon.png">
+<meta name="theme-color" content="#fff4dc">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #F6F3EE;
+  --bg-warm: #EDE8E0;
+  --bg-deep: #E4DDD3;
+  --white: #FDFCFA;
+  --ink: #1B1B1B;
+  --ink-soft: #3A3632;
+  --ink-muted: #7A746B;
+  --gold: #A88A7B;
+  --gold-light: #C4A693;
+  --gold-pale: #D9C4B5;
+  --gold-wash: rgba(168, 138, 123, 0.08);
+  --skin-deep: #8B7362;
+  --skin-taupe: #A89080;
+  --skin-blush: #C9A992;
+  --skin-peach: #D4B8A4;
+  --skin-sand: #E2CDBF;
+  --skin-sage: #9CA08A;
+
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; }
+
+.reveal {
+  opacity: 0; transform: translateY(50px);
+  transition: opacity 1s var(--ease), transform 1s var(--ease);
+}
+.reveal.vis { opacity: 1; transform: none; }
+.d1 { transition-delay: .1s } .d2 { transition-delay: .2s }
+.d3 { transition-delay: .3s } .d4 { transition-delay: .4s }
+
+.label {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--skin-taupe);
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 96px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(1.5rem, 4vw, 3.5rem);
+  background: rgba(246, 243, 238, 0.8);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  transition: all .4s ease;
+}
+nav.scrolled { height: 64px; box-shadow: 0 1px 0 rgba(0,0,0,.06); }
+nav.scrolled .nav-brand img { height: 48px; }
+
+.nav-brand img { height: 80px; width: auto; }
+.nav-links {
+  display: flex; align-items: center; gap: 2.2rem; list-style: none;
+}
+.nav-links a {
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em;
+  color: var(--ink-soft); transition: color .3s;
+}
+.nav-links a:hover { color: var(--skin-taupe); }
+
+.nav-book {
+  padding: 0.65rem 1.6rem !important;
+  background: var(--ink); color: var(--bg) !important;
+  font-size: 0.68rem !important; font-weight: 600 !important;
+  letter-spacing: 0.12em !important; text-transform: uppercase;
+  transition: all .35s var(--ease);
+}
+.nav-book:hover { background: var(--skin-deep) !important; }
+
+.burger { display: none; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; background: none; }
+.burger span { width: 22px; height: 1.5px; background: var(--ink); display: block; }
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 1.05rem 2.2rem; font-size: 0.74rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  border: none; cursor: pointer; transition: all .4s var(--ease);
+}
+.btn-dark { background: var(--ink); color: var(--bg); }
+.btn-dark:hover {
+  background: var(--skin-deep); transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(139,115,98,0.3);
+}
+.btn-ghost {
+  background: none; color: var(--ink-soft);
+  border: 1px solid var(--ink-muted);
+}
+.btn-ghost:hover { border-color: var(--skin-blush); color: var(--skin-taupe); }
+
+/* ── PAGE HERO ── */
+.page-hero {
+  height: 40vh; min-height: 320px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 96px 2rem 2rem;
+  background: var(--bg);
+  position: relative;
+}
+.page-hero::after {
+  content: ''; position: absolute; bottom: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--skin-sand), var(--skin-peach), var(--skin-sand), transparent);
+}
+.page-hero .label { color: var(--skin-taupe); margin-bottom: 1rem; display: block; }
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 400; line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.page-hero h1 i { font-style: italic; color: var(--skin-blush); }
+.page-hero p {
+  font-size: 1rem; font-weight: 300;
+  color: var(--ink-muted); max-width: 520px;
+  margin: 0 auto; line-height: 1.7;
+}
+
+/* ── CONTENT LAYOUT ── */
+.content-section {
+  max-width: 1280px; margin: 0 auto;
+  padding: 5rem clamp(2rem, 6vw, 6rem);
+}
+.content-grid {
+  display: grid; grid-template-columns: 1.4fr 1fr;
+  gap: 5rem; align-items: start;
+}
+.content-main h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 400; line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+.content-main h2 i { font-style: italic; color: var(--skin-taupe); }
+.content-main p {
+  font-size: 0.92rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.85;
+  margin-bottom: 1.2rem;
+}
+.content-main h3 {
+  font-family: var(--serif);
+  font-size: 1.3rem; font-weight: 400;
+  margin: 2.5rem 0 1rem;
+  color: var(--ink);
+}
+
+/* Conditions list */
+.treats-list {
+  list-style: none;
+  margin: 1rem 0 1.5rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0.3rem 1.5rem;
+}
+.treats-list li {
+  font-size: 0.85rem; font-weight: 300;
+  color: var(--ink-muted); padding: 0.5rem 0;
+  display: flex; align-items: center; gap: 0.7rem;
+  border-bottom: 1px solid var(--bg-deep);
+}
+.treats-list li::before {
+  content: ''; width: 14px; height: 1px;
+  background: var(--skin-peach); flex-shrink: 0;
+}
+
+/* ── SIDEBAR ── */
+.sidebar-card {
+  padding: 2.5rem;
+  background: var(--ink); color: var(--bg);
+  position: sticky; top: 120px;
+}
+.sidebar-card .label {
+  color: var(--skin-peach); margin-bottom: 1.2rem; display: block;
+}
+.sidebar-card h3 {
+  font-family: var(--serif);
+  font-size: 1.5rem; font-weight: 400;
+  margin-bottom: 1rem;
+}
+.sidebar-card p {
+  font-size: 0.85rem; font-weight: 300;
+  color: rgba(246,243,238,0.55); line-height: 1.75;
+  margin-bottom: 1rem;
+}
+.sidebar-card ul { list-style: none; margin-bottom: 1.5rem; }
+.sidebar-card li {
+  font-size: 0.8rem; font-weight: 300;
+  color: rgba(246,243,238,0.5); padding: 0.4rem 0;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.sidebar-card li::before {
+  content: ''; width: 14px; height: 1px;
+  background: var(--skin-peach); flex-shrink: 0;
+}
+
+/* Second sidebar card */
+.sidebar-card + .sidebar-card {
+  margin-top: 1.5rem;
+}
+
+/* ── TREATMENTS CARDS ── */
+.tx-cards-section {
+  background: var(--white);
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+}
+.tx-cards-inner {
+  max-width: 1280px; margin: 0 auto;
+}
+.tx-cards-inner > .label { display: block; margin-bottom: 0.75rem; }
+.tx-cards-inner > h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 400; line-height: 1.2;
+  margin-bottom: 3.5rem;
+}
+.tx-cards-inner > h2 i { font-style: italic; color: var(--skin-blush); }
+
+.tx-detail-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.tx-detail-card {
+  padding: 2.5rem 2rem;
+  background: var(--bg);
+  position: relative; transition: all .4s var(--ease);
+  overflow: hidden;
+}
+.tx-detail-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.07);
+}
+.tx-detail-card::before {
+  content: ''; position: absolute;
+  left: 0; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(to bottom, var(--skin-taupe), var(--skin-peach));
+  transform: scaleY(0); transition: transform .4s var(--ease);
+}
+.tx-detail-card:hover::before { transform: scaleY(1); }
+
+.tx-detail-card h3 {
+  font-family: var(--serif);
+  font-size: 1.2rem; font-weight: 400;
+  margin-bottom: 0.8rem;
+}
+.tx-detail-card p {
+  font-size: 0.84rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.75;
+}
+.tx-detail-tag {
+  display: inline-block; width: fit-content;
+  font-size: 0.56rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--skin-deep); padding: 0.3rem 0.7rem;
+  background: rgba(139,115,98,0.08); margin-bottom: 1rem;
+}
+
+/* ── WHAT TO EXPECT ── */
+.expect-section {
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+  max-width: 1280px; margin: 0 auto;
+}
+.expect-section > .label { display: block; margin-bottom: 0.75rem; }
+.expect-section > h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 400; line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.expect-section > h2 i { font-style: italic; color: var(--skin-taupe); }
+.expect-section > p.intro {
+  font-size: 0.92rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.7;
+  max-width: 600px; margin-bottom: 3rem;
+}
+
+.expect-timeline {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.expect-item {
+  padding: 2rem;
+  background: var(--white);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  transition: all .4s var(--ease);
+}
+.expect-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.06);
+}
+.expect-num {
+  font-family: var(--serif); font-size: 2rem;
+  font-weight: 400; color: var(--skin-sand);
+  line-height: 1; margin-bottom: 0.8rem;
+}
+.expect-item h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem; font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+.expect-item p {
+  font-size: 0.82rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.7;
+}
+
+/* ── RESULTS SECTION ── */
+.results-section {
+  background: var(--white);
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+}
+.results-inner {
+  max-width: 1280px; margin: 0 auto;
+}
+.results-inner > .label { display: block; margin-bottom: 0.75rem; }
+.results-inner > h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 400; line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.results-inner > h2 i { font-style: italic; color: var(--skin-taupe); }
+.results-inner > p {
+  font-size: 0.92rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.7;
+  max-width: 600px; margin-bottom: 3rem;
+}
+
+.results-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.result-card {
+  background: var(--bg);
+  overflow: hidden; transition: all .4s var(--ease);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.result-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.08);
+}
+.result-placeholder {
+  height: 220px;
+  background: linear-gradient(135deg, var(--bg-warm), var(--bg-deep));
+  display: flex; align-items: center; justify-content: center;
+}
+.result-placeholder span {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--skin-taupe);
+}
+.result-card-body { padding: 1.5rem; }
+.result-card-body h4 {
+  font-family: var(--serif);
+  font-size: 1rem; font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+.result-card-body p {
+  font-size: 0.78rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.6;
+}
+
+/* ── CTA BAND ── */
+.cta-band {
+  position: relative;
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; min-height: 380px;
+  background: var(--ink);
+}
+.cta-band-content {
+  position: relative; z-index: 1;
+  max-width: 560px;
+}
+.cta-band-content .label { color: var(--skin-peach); display: block; margin-bottom: 0.75rem; }
+.cta-band-content h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400; line-height: 1.15;
+  color: var(--white); margin-bottom: 1.2rem;
+}
+.cta-band-content h2 i { font-style: italic; color: var(--skin-peach); }
+.cta-band-content p {
+  font-size: 0.92rem; font-weight: 300;
+  color: rgba(255,255,255,0.6); line-height: 1.7;
+  margin-bottom: 2rem;
+}
+.cta-band .btn-dark { background: var(--white); color: var(--ink); }
+.cta-band .btn-dark:hover { background: var(--skin-peach); }
+
+/* ── FOOTER ── */
+footer {
+  padding: 1.5rem clamp(2rem, 6vw, 6rem);
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.footer-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-brand img { height: 28px; opacity: 0.4; }
+.footer-copy { font-size: 0.7rem; color: rgba(246,243,238,0.2); }
+
+/* ── BOOKING MODAL ── */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(27,27,27,0.6);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .4s var(--ease);
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.modal {
+  background: var(--white);
+  width: 90%; max-width: 480px;
+  max-height: 90vh; overflow-y: auto;
+  transform: translateY(30px) scale(0.97);
+  transition: transform .5s var(--ease);
+  position: relative;
+  display: flex; flex-direction: column;
+}
+.modal-overlay.open .modal { transform: translateY(0) scale(1); }
+
+.modal-top {
+  padding: 2rem 2rem 0;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-shrink: 0;
+}
+.modal-close {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: none; border: 1px solid var(--bg-deep);
+  font-size: 1.1rem; color: var(--ink-muted);
+  cursor: pointer; transition: all .3s; flex-shrink: 0;
+}
+.modal-close:hover { border-color: var(--ink); color: var(--ink); }
+
+.modal-progress { display: flex; gap: 0.4rem; align-items: center; }
+.modal-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--bg-deep); transition: all .3s;
+}
+.modal-dot.active { background: var(--skin-taupe); width: 24px; border-radius: 4px; }
+.modal-dot.done { background: var(--skin-blush); }
+
+.modal-steps { flex: 1; overflow: visible; position: relative; }
+.modal-step {
+  padding: 1.5rem 2rem 2rem;
+  display: none; flex-direction: column;
+  animation: stepIn .4s var(--ease);
+}
+.modal-step.active { display: flex; }
+
+@keyframes stepIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.step-title {
+  font-family: var(--serif);
+  font-size: 1.4rem; font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+.step-title i { font-style: italic; color: var(--skin-blush); }
+.step-subtitle {
+  font-size: 0.82rem; color: var(--ink-muted);
+  margin-bottom: 1.5rem; line-height: 1.5;
+}
+
+.tx-options { display: flex; flex-direction: column; gap: 0.5rem; }
+.tx-option {
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--bg-deep);
+  background: var(--bg);
+  cursor: pointer; transition: all .3s;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.88rem; font-weight: 400; color: var(--ink-soft);
+}
+.tx-option:hover { border-color: var(--skin-blush); }
+.tx-option.selected {
+  border-color: var(--ink); background: var(--ink); color: var(--bg);
+}
+.tx-option::after {
+  content: ''; width: 18px; height: 18px; border-radius: 50%;
+  border: 1.5px solid var(--bg-deep); flex-shrink: 0; transition: all .2s;
+}
+.tx-option.selected::after {
+  border-color: var(--skin-taupe); background: var(--skin-taupe);
+  box-shadow: inset 0 0 0 3px var(--ink);
+}
+
+.form-group { margin-bottom: 1.25rem; }
+.form-label {
+  display: block; font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-soft); margin-bottom: 0.5rem;
+}
+.form-input {
+  width: 100%; padding: 0.85rem 1rem;
+  border: 1px solid var(--bg-deep); background: var(--bg);
+  font-family: var(--sans); font-size: 0.88rem;
+  color: var(--ink); outline: none; transition: border-color .3s;
+}
+.form-input:focus { border-color: var(--skin-blush); }
+.form-input::placeholder { color: var(--ink-muted); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+.modal-nav {
+  padding: 0 2rem 2rem;
+  display: flex; gap: 0.75rem; flex-shrink: 0;
+}
+.modal-nav .btn { flex: 1; justify-content: center; }
+.btn-back {
+  background: none; color: var(--ink-soft);
+  border: 1px solid var(--bg-deep);
+  padding: 0.9rem 1.5rem; font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  cursor: pointer; transition: all .3s;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.btn-back:hover { border-color: var(--ink); color: var(--ink); }
+
+.confirm-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(168,138,123,0.1); color: var(--skin-deep);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; margin-bottom: 1.2rem;
+}
+.confirm-detail {
+  display: flex; justify-content: space-between;
+  padding: 0.6rem 0; border-bottom: 1px solid var(--bg-deep);
+  font-size: 0.82rem;
+}
+.confirm-detail .cd-label { color: var(--ink-muted); font-weight: 400; }
+.confirm-detail .cd-value { color: var(--ink-soft); font-weight: 500; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .content-grid { grid-template-columns: 1fr; }
+  .sidebar-card { position: static; }
+  .tx-detail-grid { grid-template-columns: 1fr 1fr; }
+  .expect-timeline { grid-template-columns: 1fr 1fr; }
+  .results-grid { grid-template-columns: repeat(2, 1fr); }
+  .treats-list { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .burger { display: flex; }
+  .page-hero { height: auto; min-height: 280px; padding: 120px 1.75rem 2.5rem; }
+  .page-hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
+  .content-section { padding: 3rem 1.75rem; }
+  .tx-cards-section { padding: 4rem 1.75rem; }
+  .tx-detail-grid { grid-template-columns: 1fr; }
+  .expect-section { padding: 4rem 1.75rem; }
+  .expect-timeline { grid-template-columns: 1fr; }
+  .results-section { padding: 4rem 1.75rem; }
+  .results-grid { grid-template-columns: 1fr; }
+  .cta-band { min-height: 300px; padding: 4rem 1.75rem; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* ── GRAIN ── */
+body::after {
+  content: ''; position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999; opacity: 0.5;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="../index-v2.html" class="nav-brand">
+    <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser & MedSpa" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index-v2.html#treatments">Treatments</a></li>
+    <li><a href="../index-v2.html#conditions">Conditions</a></li>
+    <li><a href="../index-v2.html#technology">Technology</a></li>
+    <li><a href="../index-v2.html#specials">Specials</a></li>
+    <li><a href="../index-v2.html#about">About</a></li>
+    <li><a href="../index-v2.html#contact">Contact</a></li>
+    <li><a href="#" class="nav-book" onclick="openModal(event)">Book Now</a></li>
+  </ul>
+  <button class="burger" onclick="this.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div>
+    <span class="label">Advanced Skin Rejuvenation</span>
+    <h1>CO2 Laser <i>Resurfacing</i></h1>
+    <p>Many patients say the laser can erase up to a decade in a little less than an hour. FDA-cleared technology for dramatic skin renewal.</p>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<section class="content-section">
+  <div class="content-grid">
+    <div class="content-main reveal">
+      <h2>Turn back the clock on <i>your skin</i></h2>
+      <p>CO2 laser resurfacing is the gold standard for skin rejuvenation. The procedure works by vaporizing the top layers of damaged skin while simultaneously stimulating new collagen production in the sub-dermal tissue beneath. The result is dramatically smoother, tighter, more youthful skin.</p>
+      <p>Our Phoenix CO2 Laser system is FDA-cleared and delivers precise energy to target fine lines, wrinkles, sun damage, and scarring, particularly around the delicate areas of the eyes and mouth where aging shows first. The controlled removal of damaged skin triggers your body's natural healing response, producing fresh, healthy tissue and a renewed complexion.</p>
+
+      <h3>What it treats</h3>
+      <ul class="treats-list">
+        <li>Fine lines and wrinkles</li>
+        <li>Sun damage and age spots</li>
+        <li>Acne scarring</li>
+        <li>Hyperpigmentation</li>
+        <li>Uneven skin texture</li>
+        <li>Scarring around eyes and mouth</li>
+        <li>Rough or dull skin</li>
+        <li>Loss of skin elasticity</li>
+      </ul>
+
+      <h3>Acne scar reduction</h3>
+      <p>For patients with moderate to severe acne scarring, fractional CO2 laser offers a powerful solution. The fractional approach creates microscopic treatment zones surrounded by untouched skin, which accelerates healing time while still delivering significant improvement in scar depth and texture. Multiple sessions can dramatically transform scarred skin, restoring a smoother, more even surface.</p>
+
+      <h3>Hand restoration</h3>
+      <p>The hands are one of the first places to show age, yet they are often overlooked. We use the Symmetry Laser by Rohrer Aesthetics for hand rejuvenation, the first FDA-cleared device specifically designed for treating the hands. Powered by AI and SwiftScan technology, it delivers precise energy to reduce age spots, smooth crepey skin, and restore a more youthful appearance to your hands.</p>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="reveal d2">
+      <div class="sidebar-card">
+        <span class="label">Our Technology</span>
+        <h3>Phoenix CO2 Laser</h3>
+        <p>FDA-cleared CO2 laser system for precision skin resurfacing and collagen stimulation.</p>
+        <ul>
+          <li>FDA-cleared for skin resurfacing</li>
+          <li>Vaporizes damaged surface layers</li>
+          <li>Stimulates new collagen production</li>
+          <li>Fractional mode for faster healing</li>
+          <li>Precision targeting around eyes and mouth</li>
+        </ul>
+      </div>
+      <div class="sidebar-card">
+        <span class="label">Hand Rejuvenation</span>
+        <h3>Symmetry Laser</h3>
+        <p>By Rohrer Aesthetics. The first FDA-cleared device designed specifically for hand treatments.</p>
+        <ul>
+          <li>First FDA-cleared for hands</li>
+          <li>AI-powered SwiftScan technology</li>
+          <li>Treats age spots and crepey skin</li>
+          <li>Precise, comfortable treatments</li>
+        </ul>
+        <a href="#" class="btn btn-dark" onclick="openModal(event)" style="width:100%; justify-content:center; background:var(--white); color:var(--ink);">
+          Free Consultation &#8594;
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TREATMENT OPTIONS -->
+<section class="tx-cards-section">
+  <div class="tx-cards-inner">
+    <span class="label">Treatment Options</span>
+    <h2>Three ways to <i>renew</i></h2>
+    <div class="tx-detail-grid">
+      <div class="tx-detail-card reveal">
+        <span class="tx-detail-tag">Full Face</span>
+        <h3>Skin Resurfacing</h3>
+        <p>Complete facial rejuvenation targeting wrinkles, sun damage, and uneven texture. The CO2 laser vaporizes damaged layers and triggers collagen renewal for dramatically younger-looking skin.</p>
+      </div>
+      <div class="tx-detail-card reveal d1">
+        <span class="tx-detail-tag">Fractional</span>
+        <h3>Acne Scar Reduction</h3>
+        <p>Fractional CO2 creates microscopic treatment zones for faster healing while delivering significant improvement in scar depth. Ideal for moderate to severe acne scarring.</p>
+      </div>
+      <div class="tx-detail-card reveal d2">
+        <span class="tx-detail-tag">Hands</span>
+        <h3>Hand Restoration</h3>
+        <p>Using the Symmetry Laser with AI-powered SwiftScan, we treat age spots and crepey skin on the hands. The first FDA-cleared device designed specifically for hand rejuvenation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT TO EXPECT -->
+<section class="expect-section">
+  <span class="label">What to Expect</span>
+  <h2>Your treatment <i>journey</i></h2>
+  <p class="intro">From your initial consultation through recovery, here is what the CO2 laser experience looks like.</p>
+  <div class="expect-timeline">
+    <div class="expect-item reveal">
+      <div class="expect-num">01</div>
+      <h3>Consultation</h3>
+      <p>We assess your skin, discuss your goals, and determine if CO2 resurfacing is the right approach. We will explain what to expect and create a personalized plan.</p>
+    </div>
+    <div class="expect-item reveal d1">
+      <div class="expect-num">02</div>
+      <h3>Preparation</h3>
+      <p>A topical numbing cream is applied before treatment for your comfort. The treatment area is cleansed and prepared for the laser.</p>
+    </div>
+    <div class="expect-item reveal d2">
+      <div class="expect-num">03</div>
+      <h3>Treatment</h3>
+      <p>The CO2 laser is precisely applied to the treatment area. Most sessions take under an hour, even for full-face resurfacing. You may feel warmth and mild tingling.</p>
+    </div>
+    <div class="expect-item reveal d3">
+      <div class="expect-num">04</div>
+      <h3>Recovery</h3>
+      <p>Expect redness and some peeling for 5 to 7 days as new skin emerges. We provide detailed aftercare instructions and are available for any questions during your healing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results-section">
+  <div class="results-inner">
+    <span class="label">Results</span>
+    <h2>Dramatic, <i>lasting</i> renewal</h2>
+    <p>CO2 laser resurfacing delivers some of the most significant improvements available in non-surgical skin rejuvenation.</p>
+    <div class="results-grid">
+      <div class="result-card reveal">
+        <div class="result-placeholder"><span>Before &amp; After</span></div>
+        <div class="result-card-body">
+          <h4>Full Face Resurfacing</h4>
+          <p>Dramatic improvement in fine lines, texture, and overall skin tone after a single treatment.</p>
+        </div>
+      </div>
+      <div class="result-card reveal d1">
+        <div class="result-placeholder"><span>Before &amp; After</span></div>
+        <div class="result-card-body">
+          <h4>Acne Scar Treatment</h4>
+          <p>Significant reduction in scar depth and improved skin smoothness with fractional CO2.</p>
+        </div>
+      </div>
+      <div class="result-card reveal d2">
+        <div class="result-placeholder"><span>Before &amp; After</span></div>
+        <div class="result-card-body">
+          <h4>Hand Rejuvenation</h4>
+          <p>Reduced age spots and smoother skin texture on the hands with the Symmetry Laser.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-band-content">
+    <span class="label">Book Your Consultation</span>
+    <h2>Ready to reveal <i>younger</i> skin?</h2>
+    <p>Schedule your free consultation to learn how CO2 laser resurfacing can help you look and feel your best. Personalized treatment plans designed around your goals.</p>
+    <a href="#" class="btn btn-dark" onclick="openModal(event)">Book Free Consultation &#8594;</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser" />
+    </div>
+    <span class="footer-copy">&copy; 2026 Skin Laser & MedSpa. All rights reserved.</span>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal">
+    <div class="modal-top">
+      <div class="modal-progress">
+        <span class="modal-dot active" data-step="0"></span>
+        <span class="modal-dot" data-step="1"></span>
+        <span class="modal-dot" data-step="2"></span>
+      </div>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+
+    <div class="modal-steps">
+      <div class="modal-step active" data-step="0">
+        <h3 class="step-title">What brings <i>you in?</i></h3>
+        <p class="step-subtitle">Select the treatment you're interested in.</p>
+        <div class="tx-options">
+          <div class="tx-option" onclick="selectTx(this)">Laser Hair Removal</div>
+          <div class="tx-option selected" onclick="selectTx(this)">CO2 Laser Resurfacing</div>
+          <div class="tx-option" onclick="selectTx(this)">RF Microneedling</div>
+          <div class="tx-option" onclick="selectTx(this)">Tattoo Removal</div>
+          <div class="tx-option" onclick="selectTx(this)">Fractional Laser</div>
+          <div class="tx-option" onclick="selectTx(this)">Laser Genesis Facial</div>
+          <div class="tx-option" onclick="selectTx(this)">Not sure yet</div>
+        </div>
+      </div>
+
+      <div class="modal-step" data-step="1">
+        <h3 class="step-title">Tell us about <i>you</i></h3>
+        <p class="step-subtitle">We'll reach out to schedule your free consultation.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input class="form-input" type="text" placeholder="Jane" id="fname" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input class="form-input" type="text" placeholder="Smith" id="lname" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="jane@email.com" id="email" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone</label>
+          <input class="form-input" type="tel" placeholder="(312) 555-0123" id="phone" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">How can we help you?</label>
+          <textarea class="form-input" rows="2" placeholder="Any goals, concerns, or questions..." id="helpMsg"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">How did you hear about us?</label>
+          <input class="form-input" type="text" placeholder="Google, friend, Instagram..." id="hearAbout" />
+        </div>
+      </div>
+
+      <div class="modal-step" data-step="2">
+        <div class="confirm-icon">&#10003;</div>
+        <h3 class="step-title">You're all <i>set!</i></h3>
+        <p class="step-subtitle">We'll be in touch within 24 hours to schedule your consultation. Questions? Call (312) 539-5818.</p>
+        <div style="margin-top: 0.5rem;">
+          <div class="confirm-detail">
+            <span class="cd-label">Treatment</span>
+            <span class="cd-value" id="confirmTx">CO2 Laser Resurfacing</span>
+          </div>
+          <div class="confirm-detail">
+            <span class="cd-label">Name</span>
+            <span class="cd-value" id="confirmName">--</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-nav" id="modalNav">
+      <button class="btn-back" id="btnBack" onclick="prevStep()" style="display:none;">Back</button>
+      <button class="btn btn-dark" id="btnNext" onclick="nextStep()" style="flex:1; justify-content:center;">Continue &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', scrollY > 60);
+});
+
+let currentStep = 0;
+const totalSteps = 3;
+let selectedTx = 'CO2 Laser Resurfacing';
+
+function openModal(e) {
+  if (e) e.preventDefault();
+  currentStep = 0;
+  updateStep();
+  document.getElementById('bookingModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('bookingModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('bookingModal').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+function updateStep() {
+  document.querySelectorAll('.modal-step').forEach(s => s.classList.remove('active'));
+  document.querySelector(`.modal-step[data-step="${currentStep}"]`).classList.add('active');
+
+  document.querySelectorAll('.modal-dot').forEach(d => {
+    const s = parseInt(d.dataset.step);
+    d.classList.remove('active', 'done');
+    if (s === currentStep) d.classList.add('active');
+    else if (s < currentStep) d.classList.add('done');
+  });
+
+  const back = document.getElementById('btnBack');
+  const next = document.getElementById('btnNext');
+
+  back.style.display = currentStep > 0 && currentStep < 2 ? '' : 'none';
+
+  if (currentStep === 2) {
+    next.textContent = 'Done';
+    next.onclick = closeModal;
+    populateConfirmation();
+  } else {
+    next.innerHTML = 'Continue &#8594;';
+    next.onclick = nextStep;
+  }
+}
+
+function nextStep() {
+  if (currentStep < totalSteps - 1) { currentStep++; updateStep(); }
+}
+function prevStep() {
+  if (currentStep > 0) { currentStep--; updateStep(); }
+}
+
+function selectTx(el) {
+  document.querySelectorAll('.tx-option.selected').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedTx = el.textContent;
+}
+
+function populateConfirmation() {
+  document.getElementById('confirmTx').textContent = selectedTx || '--';
+  const fn = document.getElementById('fname')?.value || '';
+  const ln = document.getElementById('lname')?.value || '';
+  document.getElementById('confirmName').textContent = (fn + ' ' + ln).trim() || '--';
+}
+</script>
+
+</body>
+</html>

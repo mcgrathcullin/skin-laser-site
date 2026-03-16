@@ -57,6 +57,12 @@
 }
 
 html { scroll-behavior: smooth; }
+
+/* Botanical leaf SVG as reusable background */
+:root {
+  --leaf-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300' opacity='0.035'%3E%3Cpath d='M100 280c0 0-5-40-5-80s15-70 15-110c0-30-10-60-10-80 10 25 30 55 30 90s-15 75-15 110c0 30 5 50 5 70' fill='none' stroke='%23A89080' stroke-width='1.5'/%3E%3Cpath d='M100 90c-20-10-45-5-55 15 15-5 35-5 55 5' fill='%23A89080' opacity='0.4'/%3E%3Cpath d='M105 130c20-15 50-15 60 5-15-2-40 0-60 15' fill='%23A89080' opacity='0.35'/%3E%3Cpath d='M98 170c-25-5-50 5-55 25 18-8 38-10 55-5' fill='%23A89080' opacity='0.3'/%3E%3Cpath d='M103 60c15-12 40-15 50 0-12 0-35 2-50 15' fill='%23A89080' opacity='0.35'/%3E%3Cpath d='M97 210c-20-8-45-2-52 18 15-6 35-8 52-2' fill='%23A89080' opacity='0.25'/%3E%3C/svg%3E");
+}
+
 body {
   font-family: var(--sans);
   color: var(--ink);
@@ -322,6 +328,14 @@ nav.scrolled .nav-brand img { height: 48px; }
   display: grid; grid-template-columns: 1fr 480px;
   gap: 5rem; align-items: start;
   max-width: 1280px; margin: 0 auto;
+  position: relative;
+}
+.philosophy::before {
+  content: ''; position: absolute;
+  top: 2rem; right: -2rem; width: 200px; height: 300px;
+  background: var(--leaf-svg) no-repeat center;
+  background-size: contain; pointer-events: none;
+  opacity: 0.7;
 }
 
 .phil-text h2 {
@@ -420,7 +434,7 @@ nav.scrolled .nav-brand img { height: 48px; }
 .treatments::before {
   content: ''; position: absolute; top: 0; left: 10%; right: 10%;
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--skin-sand), var(--skin-peach), var(--skin-sand), transparent);
+  background: linear-gradient(to right, transparent, var(--teal), rgba(58,175,169,0.3), transparent);
 }
 
 .treatments-head {
@@ -525,6 +539,12 @@ nav.scrolled .nav-brand img { height: 48px; }
 .tx-card:hover .tx-link::after,
 .tx-featured:hover .tx-link::after { transform: translateX(4px); }
 
+/* Leaf divider */
+.leaf-divider {
+  text-align: center; padding: 2rem 0;
+  opacity: 0.6;
+}
+
 /* Organic divider */
 .organic-divider {
   height: 60px; margin: -1px 0;
@@ -540,6 +560,14 @@ nav.scrolled .nav-brand img { height: 48px; }
 .conditions {
   padding: 5rem clamp(2rem, 6vw, 6rem);
   max-width: 1280px; margin: 0 auto;
+  position: relative;
+}
+.conditions::after {
+  content: ''; position: absolute;
+  bottom: 0; left: -1rem; width: 180px; height: 270px;
+  background: var(--leaf-svg) no-repeat center;
+  background-size: contain; pointer-events: none;
+  opacity: 0.5; transform: scaleX(-1) rotate(15deg);
 }
 
 .cond-top {
@@ -640,7 +668,7 @@ nav.scrolled .nav-brand img { height: 48px; }
 }
 .cta-band-bg::after {
   content: ''; position: absolute; inset: 0;
-  background: rgba(27,27,27,0.75);
+  background: rgba(30,45,61,0.8);
 }
 .cta-band-content {
   position: relative; z-index: 1;
@@ -749,6 +777,14 @@ nav.scrolled .nav-brand img { height: 48px; }
 .specials {
   padding: 6rem clamp(2rem, 6vw, 6rem) 6rem;
   max-width: 1280px; margin: 0 auto;
+  position: relative;
+}
+.specials::after {
+  content: ''; position: absolute;
+  top: 2rem; right: 0; width: 160px; height: 240px;
+  background: var(--leaf-svg) no-repeat center;
+  background-size: contain; pointer-events: none;
+  opacity: 0.4; transform: rotate(20deg);
 }
 
 .spec-top {
@@ -822,6 +858,14 @@ nav.scrolled .nav-brand img { height: 48px; }
 .about {
   padding: 8rem clamp(2rem, 6vw, 6rem);
   max-width: 1280px; margin: 0 auto;
+  position: relative;
+}
+.about::before {
+  content: ''; position: absolute;
+  top: 4rem; left: -3rem; width: 220px; height: 330px;
+  background: var(--leaf-svg) no-repeat center;
+  background-size: contain; pointer-events: none;
+  opacity: 0.5; transform: rotate(-10deg);
 }
 
 .about-grid {
@@ -1421,6 +1465,15 @@ body::after {
   </div>
 </section>
 
+<div class="leaf-divider" aria-hidden="true">
+  <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 58c0-15-3-25-3-38S22 2 22 2s5 8 5 20-8 22-8 36" stroke="#D9C4B5" stroke-width="1" fill="none"/>
+    <path d="M20 18c-8-4-16-1-18 6 6-3 12-3 18 1" fill="#D9C4B5" opacity="0.4"/>
+    <path d="M21 30c8-5 17-3 19 5-6-2-13-1-19 4" fill="#D9C4B5" opacity="0.35"/>
+    <path d="M19 42c-7-3-15 0-17 8 6-3 12-3 17 0" fill="#D9C4B5" opacity="0.3"/>
+  </svg>
+</div>
+
 <!-- TESTIMONIAL BAND -->
 <section class="testimonial-band">
   <div class="testimonial-band-inner reveal">
@@ -1640,6 +1693,15 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
     </div>
   </div>
 </section>
+
+<div class="leaf-divider" aria-hidden="true">
+  <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 58c0-15-3-25-3-38S22 2 22 2s5 8 5 20-8 22-8 36" stroke="#D9C4B5" stroke-width="1" fill="none"/>
+    <path d="M20 18c-8-4-16-1-18 6 6-3 12-3 18 1" fill="#D9C4B5" opacity="0.4"/>
+    <path d="M21 30c8-5 17-3 19 5-6-2-13-1-19 4" fill="#D9C4B5" opacity="0.35"/>
+    <path d="M19 42c-7-3-15 0-17 8 6-3 12-3 17 0" fill="#D9C4B5" opacity="0.3"/>
+  </svg>
+</div>
 
 <!-- ABOUT -->
 <section class="about" id="about">

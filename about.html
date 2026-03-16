@@ -295,10 +295,16 @@ nav.scrolled .nav-brand img { height: 48px; }
   position: relative;
   box-shadow: 0 1px 8px rgba(0,0,0,0.03);
 }
+.team-member-photo {
+  width: 110px; height: 110px;
+  border-radius: 50%; overflow: hidden; background: var(--white);
+  margin-bottom: 1.5rem; flex-shrink: 0;
+}
+.team-member-photo img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top center;
+}
 .team-member-marker {
-  width: 3px; height: 48px;
-  background: var(--skin-taupe);
-  margin-bottom: 1.5rem;
+  display: none;
 }
 .team-member-content h3 {
   font-family: var(--serif);
@@ -608,12 +614,10 @@ body::after {
     <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser & MedSpa" />
   </a>
   <ul class="nav-links">
-    <li><a href="index.html#treatments">Treatments</a></li>
-    <li><a href="index.html#conditions">Conditions</a></li>
-    <li><a href="index.html#technology">Technology</a></li>
-    <li><a href="index.html#specials">Specials</a></li>
+    <li><a href="treatments.html">Treatments</a></li>
+    <li><a href="conditions.html">Conditions</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="contact.html">Contact</a></li>
     <li><a href="#" class="nav-book" onclick="openModal(event)">Book Now</a></li>
   </ul>
   <button class="burger" onclick="this.classList.toggle('open')">
@@ -651,7 +655,9 @@ body::after {
 <section class="team-members">
   <div class="team-members-inner">
     <div class="team-member reveal">
-      <div class="team-member-marker"></div>
+      <div class="team-member-photo">
+        <img src="skin-laser-assets/dr-alkadri.jpg" alt="Dr. Amjad Alkadri" />
+      </div>
       <div class="team-member-content">
         <span class="label">Vein Specialist</span>
         <h3>Dr. Amjad <i>Alkadri</i>, MD</h3>
@@ -661,7 +667,9 @@ body::after {
       </div>
     </div>
     <div class="team-member reveal d2">
-      <div class="team-member-marker"></div>
+      <div class="team-member-photo">
+        <img src="skin-laser-assets/yvonne.png" alt="Yvonne, RN" />
+      </div>
       <div class="team-member-content">
         <span class="label">Nurse Injector</span>
         <h3><i>Yvonne</i></h3>

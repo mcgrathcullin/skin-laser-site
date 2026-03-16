@@ -572,7 +572,7 @@ body::after {
 <section class="page-hero">
   <span class="label">Streeterville, Chicago</span>
   <h1>Get <i>In Touch</i></h1>
-  <p class="page-hero-sub">We would love to hear from you. Whether you have questions about a treatment, want to schedule a consultation, or just want to say hello, we are here for you.</p>
+  <p class="page-hero-sub">Visit our modern medspa for a free consultation with our top esthetician.</p>
 </section>
 
 <!-- CONTACT INFO + FORM -->
@@ -584,25 +584,26 @@ body::after {
       <div class="info-card reveal">
         <div class="info-card-label">Location</div>
         <h3>Skin Laser & MedSpa</h3>
-        <p>680 N Lake Shore Dr, Suite 1425</p>
+        <p>220 E Illinois St Suite 703</p>
         <p>Chicago, IL 60611</p>
-        <a href="https://maps.google.com/?q=680+N+Lake+Shore+Dr+Suite+1425+Chicago+IL+60611" target="_blank" rel="noopener" style="margin-top: 0.8rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--skin-taupe); display: inline-flex; align-items: center; gap: 0.4rem;">Get Directions &#8594;</a>
+        <p style="font-size: 0.82rem; color: var(--skin-taupe); margin-top: 0.3rem;">Located in the Optima Signature building, Streeterville</p>
+        <a href="https://maps.google.com/?q=220+E+Illinois+St+Suite+703+Chicago+IL+60611" target="_blank" rel="noopener" style="margin-top: 0.8rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--skin-taupe); display: inline-flex; align-items: center; gap: 0.4rem;">Get Directions &#8594;</a>
       </div>
 
       <div class="info-card reveal d1">
         <div class="info-card-label">Contact</div>
-        <a href="tel:3128365896" style="font-size: 1.1rem; font-weight: 400; color: var(--ink); margin-bottom: 0.4rem;">(312) 836-5896</a>
+        <a href="tel:3125395818" style="font-size: 1.1rem; font-weight: 400; color: var(--ink); margin-bottom: 0.4rem;">(312) 539-5818</a>
         <a href="mailto:skinlasermedspa@gmail.com">skinlasermedspa@gmail.com</a>
       </div>
 
       <div class="info-card reveal d2">
         <div class="info-card-label">Hours of Operation</div>
-        <div class="hours-row"><span class="day">Monday</span><span class="time">10 am - 7 pm</span></div>
-        <div class="hours-row"><span class="day">Tuesday</span><span class="time">10 am - 7 pm</span></div>
-        <div class="hours-row"><span class="day">Wednesday</span><span class="time">10 am - 7 pm</span></div>
-        <div class="hours-row"><span class="day">Thursday</span><span class="time">10 am - 7 pm</span></div>
-        <div class="hours-row"><span class="day">Friday</span><span class="time">10 am - 5 pm</span></div>
-        <div class="hours-row"><span class="day">Saturday</span><span class="time">By appointment</span></div>
+        <div class="hours-row"><span class="day">Monday</span><span class="time">10:00 am - 7:00 pm</span></div>
+        <div class="hours-row"><span class="day">Tuesday</span><span class="time">10:00 am - 7:00 pm</span></div>
+        <div class="hours-row"><span class="day">Wednesday</span><span class="time">10:00 am - 7:00 pm</span></div>
+        <div class="hours-row"><span class="day">Thursday</span><span class="time">10:00 am - 7:00 pm</span></div>
+        <div class="hours-row"><span class="day">Friday</span><span class="time">10:00 am - 5:00 pm</span></div>
+        <div class="hours-row"><span class="day">Saturday</span><span class="time">10:00 am - 3:00 pm</span></div>
         <div class="hours-row"><span class="day">Sunday</span><span class="time">Closed</span></div>
       </div>
     </div>
@@ -613,41 +614,31 @@ body::after {
       <p class="inquiry-form-sub">Fill out the form below and we will get back to you within 24 hours.</p>
 
       <form id="inquiryForm" onsubmit="handleInquiry(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="inq-fname">First Name</label>
-            <input class="form-input" type="text" id="inq-fname" placeholder="Jane" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="inq-lname">Last Name</label>
-            <input class="form-input" type="text" id="inq-lname" placeholder="Smith" required />
-          </div>
+        <div class="form-group">
+          <label class="form-label" for="inq-name">Name</label>
+          <input class="form-input" type="text" id="inq-name" placeholder="Jane Smith" required />
         </div>
         <div class="form-group">
           <label class="form-label" for="inq-email">Email</label>
           <input class="form-input" type="email" id="inq-email" placeholder="jane@email.com" required />
         </div>
         <div class="form-group">
-          <label class="form-label" for="inq-phone">Phone</label>
-          <input class="form-input" type="tel" id="inq-phone" placeholder="(312) 555-0123" />
+          <label class="form-label" for="inq-service">What Service Are You Looking For?</label>
+          <select class="form-select" id="inq-service">
+            <option value="" disabled selected>Select a service</option>
+            <option value="laser-hair-removal">Laser Hair Removal</option>
+            <option value="co2-laser">CO2 Laser Resurfacing</option>
+            <option value="rf-microneedling">RF Microneedling</option>
+            <option value="tattoo-removal">Tattoo Removal</option>
+            <option value="fractional-laser">Fractional Laser</option>
+            <option value="laser-genesis">Laser Genesis Facial</option>
+            <option value="not-sure">Not sure yet</option>
+            <option value="other">Other</option>
+          </select>
         </div>
         <div class="form-group">
           <label class="form-label" for="inq-message">Message</label>
           <textarea class="form-input" id="inq-message" rows="4" placeholder="Tell us about your goals, concerns, or questions..." required></textarea>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="inq-source">How did you hear about us?</label>
-          <select class="form-select" id="inq-source">
-            <option value="" disabled selected>Select an option</option>
-            <option value="google">Google Search</option>
-            <option value="instagram">Instagram</option>
-            <option value="facebook">Facebook</option>
-            <option value="friend">Friend or Family</option>
-            <option value="yelp">Yelp</option>
-            <option value="expertise">Expertise.com</option>
-            <option value="walk-in">Walked By</option>
-            <option value="other">Other</option>
-          </select>
         </div>
         <button type="submit" class="btn btn-dark form-submit">Send Message &#8594;</button>
       </form>
@@ -656,7 +647,7 @@ body::after {
       <div id="formSuccess" style="display: none; text-align: center; padding: 2rem 0;">
         <div class="confirm-icon" style="margin: 0 auto 1.2rem;">&#10003;</div>
         <h3 class="inquiry-form-title">Message <i>sent!</i></h3>
-        <p class="inquiry-form-sub" style="margin-bottom: 0;">Thank you for reaching out. We will get back to you within 24 hours. For immediate assistance, call <a href="tel:3128365896" style="color: var(--skin-taupe); font-weight: 500;">(312) 836-5896</a>.</p>
+        <p class="inquiry-form-sub" style="margin-bottom: 0;">Thank you for reaching out. We will get back to you within 24 hours. For immediate assistance, call <a href="tel:3125395818" style="color: var(--skin-taupe); font-weight: 500;">(312) 539-5818</a>.</p>
       </div>
     </div>
 
@@ -667,7 +658,7 @@ body::after {
 <section class="map-section reveal">
   <div class="map-wrap">
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.6!2d-87.6127!3d41.8946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDUzJzQwLjYiTiA4N8KwMzYnNDUuNyJX!5e0!3m2!1sen!2sus!4v1"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.5!2d-87.6230!3d41.8910!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2cad5e73cbd1%3A0x0!2s220+E+Illinois+St+Suite+703%2C+Chicago%2C+IL+60611!5e0!3m2!1sen!2sus!4v1"
       allowfullscreen=""
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
@@ -675,8 +666,8 @@ body::after {
     </iframe>
     <div class="map-overlay">
       <h3>Skin Laser & MedSpa</h3>
-      <p>680 N Lake Shore Dr, Suite 1425<br>Chicago, IL 60611</p>
-      <a href="https://maps.google.com/?q=680+N+Lake+Shore+Dr+Suite+1425+Chicago+IL+60611" target="_blank" rel="noopener">Get Directions</a>
+      <p>220 E Illinois St Suite 703<br>Chicago, IL 60611</p>
+      <a href="https://maps.google.com/?q=220+E+Illinois+St+Suite+703+Chicago+IL+60611" target="_blank" rel="noopener">Get Directions</a>
     </div>
   </div>
 </section>
@@ -693,23 +684,23 @@ body::after {
     <div class="reveal d1">
       <div class="contact-block">
         <div class="contact-block-label">Location</div>
-        <p>680 N Lake Shore Dr, Suite 1425</p>
+        <p>220 E Illinois St Suite 703</p>
         <p>Chicago, IL 60611</p>
       </div>
       <div class="contact-block">
         <div class="contact-block-label">Contact</div>
-        <a href="tel:3128365896">(312) 836-5896</a>
+        <a href="tel:3125395818">(312) 539-5818</a>
         <a href="mailto:skinlasermedspa@gmail.com">skinlasermedspa@gmail.com</a>
       </div>
     </div>
     <div class="footer-hours reveal d2">
       <h3>Hours</h3>
-      <div class="hours-row"><span class="day">Monday</span><span class="time">10 am - 7 pm</span></div>
-      <div class="hours-row"><span class="day">Tuesday</span><span class="time">10 am - 7 pm</span></div>
-      <div class="hours-row"><span class="day">Wednesday</span><span class="time">10 am - 7 pm</span></div>
-      <div class="hours-row"><span class="day">Thursday</span><span class="time">10 am - 7 pm</span></div>
-      <div class="hours-row"><span class="day">Friday</span><span class="time">10 am - 5 pm</span></div>
-      <div class="hours-row"><span class="day">Saturday</span><span class="time">By appt</span></div>
+      <div class="hours-row"><span class="day">Monday</span><span class="time">10:00 am - 7:00 pm</span></div>
+      <div class="hours-row"><span class="day">Tuesday</span><span class="time">10:00 am - 7:00 pm</span></div>
+      <div class="hours-row"><span class="day">Wednesday</span><span class="time">10:00 am - 7:00 pm</span></div>
+      <div class="hours-row"><span class="day">Thursday</span><span class="time">10:00 am - 7:00 pm</span></div>
+      <div class="hours-row"><span class="day">Friday</span><span class="time">10:00 am - 5:00 pm</span></div>
+      <div class="hours-row"><span class="day">Saturday</span><span class="time">10:00 am - 3:00 pm</span></div>
       <div class="hours-row"><span class="day">Sunday</span><span class="time">Closed</span></div>
     </div>
   </div>
@@ -789,7 +780,7 @@ body::after {
       <div class="modal-step" data-step="2">
         <div class="confirm-icon">&#10003;</div>
         <h3 class="step-title">You're all <i>set!</i></h3>
-        <p class="step-subtitle">We'll be in touch within 24 hours to schedule your consultation. Questions? Call (312) 836-5896.</p>
+        <p class="step-subtitle">We'll be in touch within 24 hours to schedule your consultation. Questions? Call (312) 539-5818.</p>
         <div style="margin-top: 0.5rem;">
           <div class="confirm-detail">
             <span class="cd-label">Treatment</span>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meet Kimberly | Skin Laser & MedSpa</title>
-<meta name="description" content="Meet Kimberly Mack, the expert behind Skin Laser & MedSpa. Licensed Cosmetologist, Certified Laser Technician, and Licensed Dietitian with over a decade of experience in advanced aesthetics.">
+<title>Meet Our Team | Skin Laser & MedSpa</title>
+<meta name="description" content="Meet the team behind Skin Laser & MedSpa: Kimberly Mack, Licensed Cosmetologist and Certified Clinical Laser Technician; Dr. Amjad Alkadri, Interventional Radiologist; and Yvonne, Registered Nurse and Nurse Injector.">
 <link rel="icon" type="image/png" href="skin-laser-assets/favicon.png">
 <link rel="apple-touch-icon" href="skin-laser-assets/favicon.png">
 
@@ -12,8 +12,8 @@
 
 <!-- Open Graph / Social Share -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Meet Kimberly | Skin Laser & MedSpa">
-<meta property="og:description" content="Meet the expert behind Chicago's premier medspa. Over a decade of experience in advanced laser aesthetics and personalized care.">
+<meta property="og:title" content="Meet Our Team | Skin Laser & MedSpa">
+<meta property="og:description" content="Meet the team behind Chicago's premier medspa in Streeterville. Advanced laser aesthetics and personalized care.">
 <meta property="og:image" content="skin-laser-assets/og-image.png">
 <meta property="og:site_name" content="Skin Laser & MedSpa">
 
@@ -280,6 +280,46 @@ nav.scrolled .nav-brand img { height: 48px; }
   color: var(--ink-muted); line-height: 1.65;
 }
 
+/* ─── TEAM MEMBERS ─── */
+.team-members {
+  padding: 0 clamp(2rem, 6vw, 6rem) 4rem;
+  max-width: 1280px; margin: 0 auto;
+}
+.team-members-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+.team-member {
+  padding: 2.5rem;
+  background: var(--white);
+  position: relative;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.03);
+}
+.team-member-marker {
+  width: 3px; height: 48px;
+  background: var(--skin-taupe);
+  margin-bottom: 1.5rem;
+}
+.team-member-content h3 {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  font-weight: 400; line-height: 1.15;
+  margin-top: 0.75rem; margin-bottom: 0.3rem;
+}
+.team-member-content h3 i { font-style: italic; color: var(--skin-taupe); }
+.team-member-content .about-role { margin-bottom: 1.5rem; }
+.team-member-content p {
+  font-size: 0.88rem; font-weight: 300;
+  line-height: 1.8; color: var(--ink-muted);
+  margin-bottom: 1rem;
+}
+.team-member-content p:last-child { margin-bottom: 0; }
+
+@media (max-width: 768px) {
+  .team-members { padding: 0 1.75rem 3rem; }
+  .team-members-inner { grid-template-columns: 1fr; }
+}
+
 /* ─── CREDENTIALS ─── */
 .credentials {
   padding: 6rem clamp(2rem, 6vw, 6rem);
@@ -297,7 +337,7 @@ nav.scrolled .nav-brand img { height: 48px; }
 .credentials-head h2 i { font-style: italic; color: var(--skin-taupe); }
 
 .creds-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 .cred-card {
@@ -583,9 +623,9 @@ body::after {
 
 <!-- PAGE HERO -->
 <section class="page-hero">
-  <span class="label">About Your Provider</span>
-  <h1>Meet <i>Kimberly</i></h1>
-  <p>Over a decade of experience in advanced aesthetics, dedicated to helping you look and feel your personal best.</p>
+  <span class="label">About Our Team</span>
+  <h1>Meet <i>Our Team</i></h1>
+  <p>Expert providers in advanced aesthetics, dedicated to helping you look and feel your personal best, every day.</p>
 </section>
 
 <!-- ABOUT DETAIL -->
@@ -597,12 +637,38 @@ body::after {
       </div>
     </div>
     <div class="about-bio reveal d2">
-      <span class="label">Your Provider</span>
+      <span class="label">Owner & Esthetician</span>
       <h2 style="margin-top: 0.75rem;">Kimberly <i>Mack</i></h2>
-      <p class="about-role">Cosmetologist & Certified Clinical Laser Technician</p>
-      <p>Kimberly's passion for beauty and wellness began at just 17, when she started her career as a licensed Cosmetologist. Her love for helping others led her to study Dietetics & Nutrition at Florida International University, where she earned a B.S. degree and became a Licensed Dietitian.</p>
-      <p>After gaining experience in both skincare and clinical nutrition while living abroad in Singapore, she discovered her true calling in advanced aesthetics. She trained at the world-renowned National Laser Institute, mastering the latest techniques in laser treatments and skin rejuvenation.</p>
+      <p class="about-role">Owner & Esthetician, Cosmetologist & Certified Clinical Laser Technician</p>
+      <p>Kimberly's passion for beauty and wellness began at age 17, when she started her career as a Licensed Cosmetologist. Her love for helping others led her to study Dietetics & Nutrition at Florida International University, where she studied Chemistry, Food Science, Anatomy and Physiology, earned her B.S. degree, and became a Licensed Dietitian.</p>
+      <p>After living abroad in Singapore and gaining experience in both skincare and clinical nutrition, she discovered her true calling in advanced aesthetics. She trained at the world-renowned National Laser Institute, becoming certified and clinically trained in laser hair removal, IPL photofacial, radiofrequency and laser skin tightening, non-ablative skin resurfacing, RF microneedling, microneedling, CO2 laser, tattoo removal, pico laser pigmentation reduction, and RF cellulite reduction.</p>
       <p>Today, Kimberly combines decades of experience in beauty, health, and wellness to create customized treatments that leave clients glowing from the inside out. Her mission is simple: to help you look and feel your personal best, every day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM MEMBERS -->
+<section class="team-members">
+  <div class="team-members-inner">
+    <div class="team-member reveal">
+      <div class="team-member-marker"></div>
+      <div class="team-member-content">
+        <span class="label">Vein Specialist</span>
+        <h3>Dr. Amjad <i>Alkadri</i>, MD</h3>
+        <p class="about-role">Interventional Radiologist and Vein Specialist</p>
+        <p>Dr. Alkadri received his medical degree from the University of Damascus. He completed his general surgery and radiology training at Providence Hospital in Michigan in 1999, followed by an Interventional Radiology fellowship at the University of Illinois Medical Center in Chicago.</p>
+        <p>Board Certified in Radiology, Dr. Alkadri brings deep expertise in minimally invasive surgery to our practice, ensuring patients receive the highest standard of care for vein treatments and related procedures.</p>
+      </div>
+    </div>
+    <div class="team-member reveal d2">
+      <div class="team-member-marker"></div>
+      <div class="team-member-content">
+        <span class="label">Nurse Injector</span>
+        <h3><i>Yvonne</i></h3>
+        <p class="about-role">Registered Nurse / Nurse Injector</p>
+        <p>Yvonne is a highly skilled nurse injector who brings together a background in general management and customer service with a deep passion for healthcare. She combines technical expertise with a warm, attentive approach that puts clients at ease.</p>
+        <p>Committed to continuous professional development, Yvonne stays current with the latest aesthetic treatments and injection techniques, ensuring every client receives safe, effective, and natural-looking results.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -655,8 +721,8 @@ body::after {
     </div>
     <div class="cred-card reveal d2">
       <div class="cred-icon">&#10003;</div>
-      <h3>Certified Laser Technician</h3>
-      <p>Trained at the National Laser Institute in advanced laser treatments and skin rejuvenation techniques.</p>
+      <h3>Certified Clinical Laser Technician</h3>
+      <p>Certified and clinically trained in advanced laser treatments and skin rejuvenation techniques.</p>
     </div>
     <div class="cred-card reveal d3">
       <div class="cred-icon">&#9826;</div>
@@ -665,8 +731,18 @@ body::after {
     </div>
     <div class="cred-card reveal d4">
       <div class="cred-icon">&#9734;</div>
-      <h3>B.S. Florida International</h3>
-      <p>Bachelor of Science in Dietetics & Nutrition from Florida International University.</p>
+      <h3>B.S. Florida International University</h3>
+      <p>Bachelor of Science in Dietetics & Nutrition, with studies in Chemistry, Food Science, Anatomy and Physiology.</p>
+    </div>
+    <div class="cred-card reveal d1">
+      <div class="cred-icon">&#10038;</div>
+      <h3>National Laser Institute</h3>
+      <p>Trained at the world-renowned National Laser Institute in the latest laser and aesthetic techniques.</p>
+    </div>
+    <div class="cred-card reveal d2">
+      <div class="cred-icon">&#9733;</div>
+      <h3>Expertise.com Featured</h3>
+      <p>Featured on Expertise.com as one of the Best Laser Hair Removal providers in Chicago.</p>
     </div>
   </div>
 </section>
@@ -679,7 +755,7 @@ body::after {
   <div class="cta-band-content reveal">
     <span class="label" style="color: var(--gold-light);">Ready to Start?</span>
     <h2>Your first consultation is <i>completely free</i></h2>
-    <p>No pressure, no obligation. Meet Kimberly, tour the studio, and get a personalized treatment plan built around your goals.</p>
+    <p>No pressure, no obligation. Meet our team at our Streeterville location in the Optima Signature building, and get a personalized treatment plan built around your goals.</p>
     <a href="#" class="btn" onclick="openModal(event)" style="background: var(--white); color: var(--ink);">Book Your Free Consultation &#8594;</a>
   </div>
 </section>

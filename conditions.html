@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conditions We Treat | Skin Laser & MedSpa</title>
+<meta name="description" content="From acne scarring to unwanted hair, hyperpigmentation to fine lines, Skin Laser & MedSpa treats a wide range of skin conditions with medical-grade laser technology.">
+<link rel="icon" type="image/png" href="skin-laser-assets/favicon.png">
+<link rel="apple-touch-icon" href="skin-laser-assets/favicon.png">
+
+<meta name="theme-color" content="#fff4dc">
+
+<!-- Open Graph / Social Share -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Conditions We Treat | Skin Laser & MedSpa">
+<meta property="og:description" content="From acne scarring to unwanted hair, hyperpigmentation to fine lines, Skin Laser & MedSpa treats a wide range of skin conditions with medical-grade laser technology.">
+<meta property="og:image" content="skin-laser-assets/og-image.png">
+<meta property="og:site_name" content="Skin Laser & MedSpa">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Conditions We Treat | Skin Laser & MedSpa">
+<meta name="twitter:description" content="From acne scarring to unwanted hair, we treat a wide range of skin conditions with medical-grade laser technology.">
+<meta name="twitter:image" content="skin-laser-assets/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #F6F3EE;
+  --bg-warm: #EDE8E0;
+  --bg-deep: #E4DDD3;
+  --white: #FDFCFA;
+  --ink: #1B1B1B;
+  --ink-soft: #3A3632;
+  --ink-muted: #7A746B;
+  --gold: #A88A7B;
+  --gold-light: #C4A693;
+  --gold-pale: #D9C4B5;
+  --gold-wash: rgba(168, 138, 123, 0.08);
+  --skin-deep: #8B7362;
+  --skin-taupe: #A89080;
+  --skin-blush: #C9A992;
+  --skin-peach: #D4B8A4;
+  --skin-sand: #E2CDBF;
+  --skin-sage: #9CA08A;
+
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; }
+
+/* ─── UTILITIES ─── */
+.reveal {
+  opacity: 0; transform: translateY(50px);
+  transition: opacity 1s var(--ease), transform 1s var(--ease);
+}
+.reveal.vis { opacity: 1; transform: none; }
+.d1 { transition-delay: .1s } .d2 { transition-delay: .2s }
+.d3 { transition-delay: .3s } .d4 { transition-delay: .4s }
+.d5 { transition-delay: .5s }
+
+.label {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--skin-taupe);
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 88px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(1.5rem, 4vw, 3.5rem);
+  background: rgba(246, 243, 238, 0.8);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  transition: all .4s ease;
+}
+nav.scrolled { height: 64px; box-shadow: 0 1px 0 rgba(0,0,0,.06); }
+nav.scrolled .nav-brand img { height: 48px; }
+
+.nav-brand img { height: 64px; width: auto; }
+.nav-links {
+  display: flex; align-items: center; gap: 2.2rem; list-style: none;
+}
+.nav-links a {
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em;
+  color: var(--ink-soft); transition: color .3s;
+}
+.nav-links a:hover { color: var(--skin-taupe); }
+
+.nav-book {
+  padding: 0.65rem 1.6rem !important;
+  background: var(--ink); color: var(--bg) !important;
+  font-size: 0.68rem !important; font-weight: 600 !important;
+  letter-spacing: 0.12em !important; text-transform: uppercase;
+  transition: all .35s var(--ease);
+}
+.nav-book:hover { background: var(--skin-deep) !important; }
+
+.burger { display: none; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; background: none; }
+.burger span { width: 22px; height: 1.5px; background: var(--ink); display: block; }
+
+/* ─── BUTTONS ─── */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 1.05rem 2.2rem; font-size: 0.74rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  border: none; cursor: pointer; transition: all .4s var(--ease);
+}
+.btn-dark { background: var(--ink); color: var(--bg); }
+.btn-dark:hover {
+  background: var(--skin-deep); transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(139,115,98,0.3);
+}
+.btn-ghost {
+  background: none; color: var(--ink-soft);
+  border: 1px solid var(--ink-muted);
+}
+.btn-ghost:hover { border-color: var(--skin-blush); color: var(--skin-taupe); }
+
+/* ─── PAGE HERO ─── */
+.page-hero {
+  min-height: 40vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 88px clamp(2rem, 6vw, 6rem) 3rem;
+  position: relative;
+}
+.page-hero::after {
+  content: ''; position: absolute;
+  bottom: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--skin-sand), var(--skin-peach), var(--skin-sand), transparent);
+}
+.page-hero .label {
+  margin-bottom: 1.2rem;
+  opacity: 0; animation: fadeIn .8s .2s var(--ease) forwards;
+}
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 400; line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.2rem;
+  opacity: 0; animation: fadeUp 1s .3s var(--ease) forwards;
+}
+.page-hero h1 i { font-style: italic; color: var(--skin-taupe); }
+.page-hero p {
+  font-size: 1rem; font-weight: 300;
+  line-height: 1.75; color: var(--ink-muted);
+  max-width: 540px;
+  opacity: 0; animation: fadeUp .8s .5s var(--ease) forwards;
+}
+
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ─── CONDITIONS GRID ─── */
+.conditions-page {
+  padding: 5rem clamp(2rem, 6vw, 6rem) 6rem;
+  max-width: 1280px; margin: 0 auto;
+}
+
+.cond-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.cond-card {
+  padding: 2.5rem 2.2rem;
+  text-decoration: none;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+  min-height: 260px;
+  transition: all .5s var(--ease);
+  position: relative; overflow: hidden;
+  border: none;
+}
+.cond-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; width: 3px; height: 100%;
+  opacity: 0; transition: opacity .4s var(--ease);
+}
+.cond-card:hover::before { opacity: 1; }
+.cond-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.07);
+}
+
+/* Skin tone card variants */
+.cond-card--1 { background: linear-gradient(135deg, #F2EBE4, #EDE4DA); }
+.cond-card--1::before { background: var(--skin-deep); }
+.cond-card--2 { background: linear-gradient(135deg, #F0E8DF, #E9DFCF); }
+.cond-card--2::before { background: var(--skin-taupe); }
+.cond-card--3 { background: linear-gradient(135deg, #F4ECE5, #EEE5DB); }
+.cond-card--3::before { background: var(--skin-blush); }
+.cond-card--4 { background: linear-gradient(135deg, #EFE7DE, #E8DDD1); }
+.cond-card--4::before { background: var(--skin-peach); }
+.cond-card--5 { background: linear-gradient(135deg, #F1EBE2, #EAE3D8); }
+.cond-card--5::before { background: var(--skin-sage); }
+.cond-card--6 { background: linear-gradient(135deg, #F0E9E1, #EAE1D6); }
+.cond-card--6::before { background: var(--skin-sand); }
+.cond-card--7 { background: linear-gradient(135deg, #F3ECE6, #ECE4DA); }
+.cond-card--7::before { background: var(--skin-taupe); }
+
+.cond-card h3 {
+  font-family: var(--serif);
+  font-size: 1.3rem; font-weight: 400;
+  color: var(--ink); margin-bottom: 0.8rem;
+  line-height: 1.3;
+}
+.cond-card p {
+  font-size: 0.84rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+.cond-card-arrow {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--skin-taupe); margin-top: auto;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  transition: all .3s var(--ease);
+}
+.cond-card-arrow::after { content: '\2192'; transition: transform .3s; }
+.cond-card:hover .cond-card-arrow { color: var(--skin-deep); }
+.cond-card:hover .cond-card-arrow::after { transform: translateX(4px); }
+
+/* Full-width last card when odd count */
+.cond-grid > .cond-card:last-child:nth-child(3n+1) {
+  grid-column: 1 / -1;
+  max-width: calc(33.333% - 0.833rem);
+  margin: 0 auto;
+}
+
+/* ─── CTA BAND ─── */
+.cta-band {
+  position: relative;
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; min-height: 420px;
+}
+.cta-band-bg {
+  position: absolute; inset: 0;
+}
+.cta-band-bg img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.cta-band-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(27,27,27,0.75);
+}
+.cta-band-content {
+  position: relative; z-index: 1;
+  max-width: 560px;
+}
+.cta-band-content h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400; line-height: 1.15;
+  color: var(--white); margin: 0.75rem 0 1.2rem;
+}
+.cta-band-content h2 i { font-style: italic; color: var(--skin-peach); }
+.cta-band-content p {
+  font-size: 0.92rem; font-weight: 300;
+  color: rgba(255,255,255,0.6); line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* ─── FOOTER ─── */
+.contact {
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+  background: var(--ink); color: var(--bg);
+}
+.contact-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 4rem;
+}
+
+.contact-main h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-weight: 400; line-height: 1.2; margin-bottom: 1.5rem;
+}
+.contact-main h2 i { font-style: italic; color: var(--skin-peach); }
+.contact-main p {
+  font-size: 0.9rem; font-weight: 300;
+  color: rgba(246,243,238,0.55); line-height: 1.75;
+  margin-bottom: 2rem; max-width: 360px;
+}
+
+.contact-block { margin-bottom: 2rem; }
+.contact-block-label {
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--skin-blush); margin-bottom: 0.6rem;
+}
+.contact-block p, .contact-block a {
+  font-size: 0.88rem; font-weight: 300;
+  color: rgba(246,243,238,0.6); line-height: 1.7; display: block;
+}
+.contact-block a:hover { color: var(--skin-peach); }
+
+.hours h3 {
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--skin-blush); margin-bottom: 1rem;
+}
+.hours-row {
+  display: flex; justify-content: space-between;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 0.82rem; font-weight: 300;
+}
+.hours-row .day { color: rgba(246,243,238,0.35); }
+.hours-row .time { color: rgba(246,243,238,0.6); }
+
+footer {
+  padding: 1.5rem clamp(2rem, 6vw, 6rem);
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.footer-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-brand img { height: 28px; opacity: 0.4; }
+.footer-copy { font-size: 0.7rem; color: rgba(246,243,238,0.2); }
+
+/* ─── BOOKING MODAL (multi-step) ─── */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(27,27,27,0.6);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .4s var(--ease);
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.modal {
+  background: var(--white);
+  width: 90%; max-width: 480px;
+  max-height: 90vh; overflow-y: auto;
+  transform: translateY(30px) scale(0.97);
+  transition: transform .5s var(--ease);
+  position: relative;
+  display: flex; flex-direction: column;
+}
+.modal-overlay.open .modal { transform: translateY(0) scale(1); }
+
+.modal-top {
+  padding: 2rem 2rem 0;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-shrink: 0;
+}
+.modal-close {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: none; border: 1px solid var(--bg-deep);
+  font-size: 1.1rem; color: var(--ink-muted);
+  cursor: pointer; transition: all .3s; flex-shrink: 0;
+}
+.modal-close:hover { border-color: var(--ink); color: var(--ink); }
+
+.modal-progress {
+  display: flex; gap: 0.4rem; align-items: center;
+}
+.modal-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--bg-deep); transition: all .3s;
+}
+.modal-dot.active { background: var(--skin-taupe); width: 24px; border-radius: 4px; }
+.modal-dot.done { background: var(--skin-blush); }
+
+.modal-steps {
+  flex: 1; overflow: visible; position: relative;
+}
+.modal-step {
+  padding: 1.5rem 2rem 2rem;
+  display: none; flex-direction: column;
+  animation: stepIn .4s var(--ease);
+}
+.modal-step.active { display: flex; }
+
+@keyframes stepIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.step-title {
+  font-family: var(--serif);
+  font-size: 1.4rem; font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+.step-title i { font-style: italic; color: var(--skin-blush); }
+.step-subtitle {
+  font-size: 0.82rem; color: var(--ink-muted);
+  margin-bottom: 1.5rem; line-height: 1.5;
+}
+
+.tx-options {
+  display: flex; flex-direction: column; gap: 0.5rem;
+}
+.tx-option {
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--bg-deep);
+  background: var(--bg);
+  cursor: pointer; transition: all .3s;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.88rem; font-weight: 400; color: var(--ink-soft);
+}
+.tx-option:hover { border-color: var(--skin-blush); }
+.tx-option.selected {
+  border-color: var(--ink); background: var(--ink); color: var(--bg);
+}
+.tx-option::after {
+  content: ''; width: 18px; height: 18px; border-radius: 50%;
+  border: 1.5px solid var(--bg-deep); flex-shrink: 0;
+  transition: all .2s;
+}
+.tx-option.selected::after {
+  border-color: var(--skin-taupe); background: var(--skin-taupe);
+  box-shadow: inset 0 0 0 3px var(--ink);
+}
+
+.form-group { margin-bottom: 1.25rem; }
+.form-label {
+  display: block; font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-soft); margin-bottom: 0.5rem;
+}
+.form-input {
+  width: 100%; padding: 0.85rem 1rem;
+  border: 1px solid var(--bg-deep); background: var(--bg);
+  font-family: var(--sans); font-size: 0.88rem;
+  color: var(--ink); outline: none; transition: border-color .3s;
+}
+.form-input:focus { border-color: var(--skin-blush); }
+.form-input::placeholder { color: var(--ink-muted); }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+.modal-nav {
+  padding: 0 2rem 2rem;
+  display: flex; gap: 0.75rem; flex-shrink: 0;
+}
+.modal-nav .btn { flex: 1; justify-content: center; }
+.btn-back {
+  background: none; color: var(--ink-soft);
+  border: 1px solid var(--bg-deep);
+  padding: 0.9rem 1.5rem; font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  cursor: pointer; transition: all .3s;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.btn-back:hover { border-color: var(--ink); color: var(--ink); }
+
+.confirm-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(168,138,123,0.1); color: var(--skin-deep);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; margin-bottom: 1.2rem;
+}
+.confirm-detail {
+  display: flex; justify-content: space-between;
+  padding: 0.6rem 0; border-bottom: 1px solid var(--bg-deep);
+  font-size: 0.82rem;
+}
+.confirm-detail .cd-label { color: var(--ink-muted); font-weight: 400; }
+.confirm-detail .cd-value { color: var(--ink-soft); font-weight: 500; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .cond-grid { grid-template-columns: 1fr 1fr; }
+  .cond-grid > .cond-card:last-child:nth-child(3n+1) {
+    max-width: none; grid-column: auto;
+  }
+  .contact-inner { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .burger { display: flex; }
+  .page-hero { min-height: 35vh; padding: 88px 1.75rem 2.5rem; }
+  .page-hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
+  .conditions-page { padding: 3rem 1.75rem 4rem; }
+  .cond-grid { grid-template-columns: 1fr; }
+  .cond-card { min-height: auto; padding: 2rem 1.5rem; }
+  .cta-band { min-height: 340px; padding: 4.5rem 1.75rem; }
+  .contact { padding: 5rem 1.75rem; }
+  .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* ─── GRAIN ─── */
+body::after {
+  content: ''; position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999; opacity: 0.5;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-brand">
+    <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser & MedSpa" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#treatments">Treatments</a></li>
+    <li><a href="conditions.html">Conditions</a></li>
+    <li><a href="index.html#technology">Technology</a></li>
+    <li><a href="index.html#specials">Specials</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="#" class="nav-book" onclick="openModal(event)">Book Now</a></li>
+  </ul>
+  <button class="burger" onclick="this.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <span class="label">Skin Laser & MedSpa</span>
+  <h1>Conditions <i>We Treat</i></h1>
+  <p>Every skin concern has a targeted solution. We combine medical-grade laser technology with personalized care to address a wide range of conditions, building a plan around your unique goals.</p>
+</section>
+
+<!-- CONDITIONS GRID -->
+<section class="conditions-page">
+  <div class="cond-grid">
+
+    <a href="#" class="cond-card cond-card--1 reveal">
+      <div>
+        <h3>Acne &amp; Acne Scarring</h3>
+        <p>Active breakouts and the scarring they leave behind can affect both your skin and your confidence. Our targeted laser treatments work on two fronts: reducing active acne by addressing bacteria and inflammation at its source, and remodeling scar tissue through controlled micro-injuries that stimulate your skin's natural collagen production. Over a series of sessions, uneven texture smooths out, pigmented marks fade, and your skin's overall tone becomes more balanced and clear.</p>
+      </div>
+      <span class="cond-card-arrow">Learn More</span>
+    </a>
+
+    <a href="#" class="cond-card cond-card--2 reveal d1">
+      <div>
+        <h3>Unwanted Hair</h3>
+        <p>Shaving, waxing, and plucking are time-consuming and often lead to ingrown hairs and irritation. Medical-grade laser hair removal offers a lasting alternative. The Cynosure Elite iQ+ delivers dual-wavelength energy that targets hair follicles at the root while leaving surrounding skin untouched. Safe and effective on all skin tones and body areas, treatments are fast and results become progressively more dramatic with each session, giving you permanently smooth skin.</p>
+      </div>
+      <span class="cond-card-arrow">Learn More</span>
+    </a>
+
+    <a href="#" class="cond-card cond-card--3 reveal d2">
+      <div>
+        <h3>Fine Lines &amp; Wrinkles</h3>
+        <p>As collagen production slows with age, fine lines and wrinkles begin to form around the eyes, forehead, and mouth. Our fractional laser and RF microneedling treatments stimulate deep collagen remodeling, prompting your skin to rebuild itself from within. The result is naturally firmer, smoother skin with improved elasticity. Unlike fillers, these treatments work with your body's own healing process for results that look and feel authentically yours.</p>
+      </div>
+      <span class="cond-card-arrow">Learn More</span>
+    </a>
+
+    <a href="#" class="cond-card cond-card--4 reveal">
+      <div>
+        <h3>Hyperpigmentation &amp; Sun Damage</h3>
+        <p>Dark spots, melasma, and sun damage can make your complexion look uneven and aged beyond its years. Precision laser treatments break down excess melanin deposits while encouraging healthy cell turnover, gradually restoring your skin's natural clarity. We tailor every protocol to your specific pigmentation type and skin tone, ensuring safe, effective correction without overcorrection. With consistent treatment, stubborn discoloration fades and a more luminous, even-toned complexion emerges.</p>
+      </div>
+      <span class="cond-card-arrow">Learn More</span>
+    </a>
+
+    <a href="#" class="cond-card cond-card--5 reveal d1">
+      <div>
+        <h3>Rosacea &amp; Spider Veins</h3>
+        <p>Persistent redness, visible blood vessels, and flushing can be both uncomfortable and difficult to conceal. Laser vascular treatments target the hemoglobin in dilated blood vessels, gently collapsing them without damaging surrounding tissue. Over a series of sessions, diffuse redness calms, spider veins fade, and your skin's overall tone becomes more even and comfortable. We customize settings for your specific sensitivity level to ensure a safe, controlled approach to lasting relief.</p>
+      </div>
+      <span class="cond-card-arrow">Learn More</span>
+    </a>
+
+    <a href="#" class="cond-card cond-card--6 reveal d2">
+      <div>
+        <h3>Large Pores &amp; Uneven Texture</h3>
+        <p>Enlarged pores and rough texture can make skin look dull and aged, even when it is otherwise healthy. Our resurfacing treatments, including Laser Genesis and fractional CO2, work at the dermal level to tighten pore structures and promote smoother cell renewal. As new collagen forms and old surface cells shed, your skin takes on a more refined, polished quality. The effect builds over time, with each session further improving clarity and that coveted smooth, poreless look.</p>
+      </div>
+      <span class="cond-card-arrow">Learn More</span>
+    </a>
+
+    <a href="#" class="cond-card cond-card--7 reveal">
+      <div>
+        <h3>Scars &amp; Tattoo Removal</h3>
+        <p>Whether it is an unwanted tattoo or scarring from surgery, injury, or acne, advanced laser technology can dramatically improve your skin's appearance. PicoWay laser delivers ultra-short pulses that shatter ink particles into fragments small enough for your body to naturally eliminate, effective on all ink colors. For scars, fractional lasers remodel damaged tissue by triggering controlled collagen regeneration, softening raised or depressed scars and blending them with surrounding skin over successive treatments.</p>
+      </div>
+      <span class="cond-card-arrow">Learn More</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-band-bg">
+    <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Model_Freeze_DiamondPolar_1-1920w.jpg" alt="Laser treatment" />
+  </div>
+  <div class="cta-band-content reveal">
+    <span class="label" style="color: var(--gold-light);">Ready to Start?</span>
+    <h2>Your first consultation is <i>completely free</i></h2>
+    <p>No pressure, no obligation. Meet Kimberly, tour the studio, and get a personalized treatment plan built around your goals.</p>
+    <a href="#" class="btn" onclick="openModal(event)" style="background: var(--white); color: var(--ink);">Book Your Free Consultation &#8594;</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-main reveal">
+      <span class="label" style="color: var(--gold-light);">Get Started</span>
+      <h2 style="margin-top: 0.75rem;">Ready to start your <i>journey?</i></h2>
+      <p>Schedule a consultation and let us create a personalized treatment plan designed around your goals.</p>
+      <a href="#" class="btn" onclick="openModal(event)" style="margin-top: 0.5rem; background: var(--white); color: var(--ink);">Free Consultation &#8594;</a>
+    </div>
+    <div class="contact-info reveal d1">
+      <div class="contact-block">
+        <div class="contact-block-label">Location</div>
+        <p>Optima Signature Building</p>
+        <p>330 E Illinois St, Suite 165</p>
+        <p>Chicago, IL 60611</p>
+      </div>
+      <div class="contact-block">
+        <div class="contact-block-label">Contact</div>
+        <a href="tel:3128365896">(312) 836-5896</a>
+        <a href="mailto:skinlasermedspa@gmail.com">skinlasermedspa@gmail.com</a>
+      </div>
+    </div>
+    <div class="hours reveal d2">
+      <h3>Hours</h3>
+      <div class="hours-row"><span class="day">Monday</span><span class="time">10 am - 7 pm</span></div>
+      <div class="hours-row"><span class="day">Tuesday</span><span class="time">10 am - 7 pm</span></div>
+      <div class="hours-row"><span class="day">Wednesday</span><span class="time">10 am - 7 pm</span></div>
+      <div class="hours-row"><span class="day">Thursday</span><span class="time">10 am - 7 pm</span></div>
+      <div class="hours-row"><span class="day">Friday</span><span class="time">10 am - 5 pm</span></div>
+      <div class="hours-row"><span class="day">Saturday</span><span class="time">By appt</span></div>
+      <div class="hours-row"><span class="day">Sunday</span><span class="time">Closed</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser" />
+    </div>
+    <span class="footer-copy">&copy; 2026 Skin Laser & MedSpa. All rights reserved.</span>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL (multi-step) -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal">
+    <div class="modal-top">
+      <div class="modal-progress">
+        <span class="modal-dot active" data-step="0"></span>
+        <span class="modal-dot" data-step="1"></span>
+        <span class="modal-dot" data-step="2"></span>
+      </div>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+
+    <div class="modal-steps">
+      <!-- Step 1: Treatment -->
+      <div class="modal-step active" data-step="0">
+        <h3 class="step-title">What brings <i>you in?</i></h3>
+        <p class="step-subtitle">Select the treatment you're interested in.</p>
+        <div class="tx-options">
+          <div class="tx-option" onclick="selectTx(this)">Laser Hair Removal</div>
+          <div class="tx-option" onclick="selectTx(this)">CO2 Laser Resurfacing</div>
+          <div class="tx-option" onclick="selectTx(this)">RF Microneedling</div>
+          <div class="tx-option" onclick="selectTx(this)">Tattoo Removal</div>
+          <div class="tx-option" onclick="selectTx(this)">Fractional Laser</div>
+          <div class="tx-option" onclick="selectTx(this)">Laser Genesis Facial</div>
+          <div class="tx-option" onclick="selectTx(this)">Not sure yet</div>
+        </div>
+      </div>
+
+      <!-- Step 2: Your Info -->
+      <div class="modal-step" data-step="1">
+        <h3 class="step-title">Tell us about <i>you</i></h3>
+        <p class="step-subtitle">We'll reach out to schedule your free consultation.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input class="form-input" type="text" placeholder="Jane" id="fname" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input class="form-input" type="text" placeholder="Smith" id="lname" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="jane@email.com" id="email" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone</label>
+          <input class="form-input" type="tel" placeholder="(312) 555-0123" id="phone" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">How can we help you?</label>
+          <textarea class="form-input" rows="2" placeholder="Any goals, concerns, or questions..." id="helpMsg"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">How did you hear about us?</label>
+          <input class="form-input" type="text" placeholder="Google, friend, Instagram..." id="hearAbout" />
+        </div>
+      </div>
+
+      <!-- Step 3: Confirmation -->
+      <div class="modal-step" data-step="2">
+        <div class="confirm-icon">&#10003;</div>
+        <h3 class="step-title">You're all <i>set!</i></h3>
+        <p class="step-subtitle">We'll be in touch within 24 hours to schedule your consultation. Questions? Call (312) 836-5896.</p>
+        <div style="margin-top: 0.5rem;">
+          <div class="confirm-detail">
+            <span class="cd-label">Treatment</span>
+            <span class="cd-value" id="confirmTx">--</span>
+          </div>
+          <div class="confirm-detail">
+            <span class="cd-label">Name</span>
+            <span class="cd-value" id="confirmName">--</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-nav" id="modalNav">
+      <button class="btn-back" id="btnBack" onclick="prevStep()" style="display:none;">Back</button>
+      <button class="btn btn-dark" id="btnNext" onclick="nextStep()" style="flex:1; justify-content:center;">Continue &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Nav
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', scrollY > 60);
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    const t = document.querySelector(href);
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+
+// Modal - multi-step
+let currentStep = 0;
+const totalSteps = 3;
+let selectedTxVal = '';
+
+function openModal(e) {
+  if (e) e.preventDefault();
+  currentStep = 0;
+  updateStep();
+  document.getElementById('bookingModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('bookingModal').classList.remove('open');
+  document.body.style.overflow = '';
+  document.querySelectorAll('.tx-option.selected').forEach(o => o.classList.remove('selected'));
+  selectedTxVal = '';
+}
+document.getElementById('bookingModal').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+function updateStep() {
+  document.querySelectorAll('.modal-step').forEach(s => s.classList.remove('active'));
+  document.querySelector(`.modal-step[data-step="${currentStep}"]`).classList.add('active');
+
+  document.querySelectorAll('.modal-dot').forEach(d => {
+    const s = parseInt(d.dataset.step);
+    d.classList.remove('active', 'done');
+    if (s === currentStep) d.classList.add('active');
+    else if (s < currentStep) d.classList.add('done');
+  });
+
+  const back = document.getElementById('btnBack');
+  const next = document.getElementById('btnNext');
+
+  back.style.display = currentStep > 0 && currentStep < 2 ? '' : 'none';
+
+  if (currentStep === 2) {
+    next.textContent = 'Done';
+    next.onclick = closeModal;
+    populateConfirmation();
+  } else {
+    next.innerHTML = 'Continue &#8594;';
+    next.onclick = nextStep;
+  }
+}
+
+function nextStep() {
+  if (currentStep < totalSteps - 1) {
+    currentStep++;
+    updateStep();
+  }
+}
+function prevStep() {
+  if (currentStep > 0) {
+    currentStep--;
+    updateStep();
+  }
+}
+
+function selectTx(el) {
+  document.querySelectorAll('.tx-option.selected').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedTxVal = el.textContent;
+}
+
+function populateConfirmation() {
+  document.getElementById('confirmTx').textContent = selectedTxVal || '--';
+  const fn = document.getElementById('fname')?.value || '';
+  const ln = document.getElementById('lname')?.value || '';
+  document.getElementById('confirmName').textContent = (fn + ' ' + ln).trim() || '--';
+}
+</script>
+
+</body>
+</html>

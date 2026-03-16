@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Skin Laser & MedSpa</title>
+<meta name="description" content="Get in touch with Skin Laser & MedSpa in Streeterville, Chicago. Schedule your free consultation, find our location, hours, and contact information.">
+<link rel="icon" type="image/png" href="skin-laser-assets/favicon.png">
+<link rel="apple-touch-icon" href="skin-laser-assets/favicon.png">
+
+<meta name="theme-color" content="#fff4dc">
+
+<!-- Open Graph / Social Share -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact Us | Skin Laser & MedSpa">
+<meta property="og:description" content="Get in touch with Skin Laser & MedSpa in Streeterville, Chicago. Schedule your free consultation today.">
+<meta property="og:image" content="skin-laser-assets/og-image.png">
+<meta property="og:site_name" content="Skin Laser & MedSpa">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact Us | Skin Laser & MedSpa">
+<meta name="twitter:description" content="Get in touch with Skin Laser & MedSpa in Streeterville, Chicago. Schedule your free consultation today.">
+<meta name="twitter:image" content="skin-laser-assets/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #F6F3EE;
+  --bg-warm: #EDE8E0;
+  --bg-deep: #E4DDD3;
+  --white: #FDFCFA;
+  --ink: #1B1B1B;
+  --ink-soft: #3A3632;
+  --ink-muted: #7A746B;
+  --gold: #A88A7B;
+  --gold-light: #C4A693;
+  --gold-pale: #D9C4B5;
+  --gold-wash: rgba(168, 138, 123, 0.08);
+  --skin-deep: #8B7362;
+  --skin-taupe: #A89080;
+  --skin-blush: #C9A992;
+  --skin-peach: #D4B8A4;
+  --skin-sand: #E2CDBF;
+  --skin-sage: #9CA08A;
+
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; }
+
+/* --- UTILITIES --- */
+.reveal {
+  opacity: 0; transform: translateY(50px);
+  transition: opacity 1s var(--ease), transform 1s var(--ease);
+}
+.reveal.vis { opacity: 1; transform: none; }
+.d1 { transition-delay: .1s } .d2 { transition-delay: .2s }
+.d3 { transition-delay: .3s } .d4 { transition-delay: .4s }
+.d5 { transition-delay: .5s }
+
+.label {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--skin-taupe);
+}
+
+/* --- NAV --- */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 88px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(1.5rem, 4vw, 3.5rem);
+  background: rgba(246, 243, 238, 0.8);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  transition: all .4s ease;
+}
+nav.scrolled { height: 64px; box-shadow: 0 1px 0 rgba(0,0,0,.06); }
+nav.scrolled .nav-brand img { height: 48px; }
+
+.nav-brand img { height: 64px; width: auto; }
+.nav-links {
+  display: flex; align-items: center; gap: 2.2rem; list-style: none;
+}
+.nav-links a {
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em;
+  color: var(--ink-soft); transition: color .3s;
+}
+.nav-links a:hover { color: var(--skin-taupe); }
+
+.nav-book {
+  padding: 0.65rem 1.6rem !important;
+  background: var(--ink); color: var(--bg) !important;
+  font-size: 0.68rem !important; font-weight: 600 !important;
+  letter-spacing: 0.12em !important; text-transform: uppercase;
+  transition: all .35s var(--ease);
+}
+.nav-book:hover { background: var(--skin-deep) !important; }
+
+.burger { display: none; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; background: none; }
+.burger span { width: 22px; height: 1.5px; background: var(--ink); display: block; }
+
+/* --- BUTTONS --- */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 1.05rem 2.2rem; font-size: 0.74rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  border: none; cursor: pointer; transition: all .4s var(--ease);
+}
+.btn-dark { background: var(--ink); color: var(--bg); }
+.btn-dark:hover {
+  background: var(--skin-deep); transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(139,115,98,0.3);
+}
+.btn-ghost {
+  background: none; color: var(--ink-soft);
+  border: 1px solid var(--ink-muted);
+}
+.btn-ghost:hover { border-color: var(--skin-blush); color: var(--skin-taupe); }
+
+/* --- PAGE HERO --- */
+.page-hero {
+  min-height: 40vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 88px clamp(2rem, 6vw, 6rem) 3rem;
+  position: relative;
+  background: var(--bg);
+}
+.page-hero::after {
+  content: ''; position: absolute;
+  bottom: 0; left: 10%; right: 10%; height: 1px;
+  background: linear-gradient(to right, transparent, var(--skin-sand), var(--skin-peach), var(--skin-sand), transparent);
+}
+.page-hero .label {
+  margin-bottom: 1.5rem;
+  opacity: 0; animation: fadeIn .8s .3s var(--ease) forwards;
+}
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-weight: 400; line-height: 1.1;
+  letter-spacing: -0.02em;
+  opacity: 0; animation: fadeUp 1s .4s var(--ease) forwards;
+}
+.page-hero h1 i { font-style: italic; color: var(--skin-taupe); }
+.page-hero-sub {
+  font-size: 1.05rem; font-weight: 300; line-height: 1.8;
+  color: var(--ink-muted); max-width: 520px; margin-top: 1.5rem;
+  opacity: 0; animation: fadeUp .8s .6s var(--ease) forwards;
+}
+
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+/* --- CONTACT INFO SECTION --- */
+.contact-section {
+  padding: 5rem clamp(2rem, 6vw, 6rem);
+  max-width: 1280px; margin: 0 auto;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+/* Left: Info cards */
+.contact-details {
+  display: flex; flex-direction: column; gap: 2.5rem;
+}
+
+.info-card {
+  padding: 2.2rem 2rem;
+  background: var(--white);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  transition: all .4s var(--ease);
+  position: relative; overflow: hidden;
+}
+.info-card::before {
+  content: ''; position: absolute;
+  left: 0; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(to bottom, var(--skin-taupe), var(--skin-peach));
+  transform: scaleY(0); transition: transform .4s var(--ease);
+}
+.info-card:hover::before { transform: scaleY(1); }
+.info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.06);
+}
+
+.info-card-label {
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--skin-blush); margin-bottom: 1rem;
+}
+.info-card h3 {
+  font-family: var(--serif);
+  font-size: 1.15rem; font-weight: 400;
+  margin-bottom: 0.6rem;
+}
+.info-card p, .info-card a {
+  font-size: 0.88rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.75; display: block;
+}
+.info-card a { transition: color .3s; }
+.info-card a:hover { color: var(--skin-taupe); }
+
+.hours-row {
+  display: flex; justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--bg-deep);
+  font-size: 0.84rem; font-weight: 300;
+}
+.hours-row:last-child { border-bottom: none; }
+.hours-row .day { color: var(--ink-soft); }
+.hours-row .time { color: var(--ink-muted); }
+
+/* Right: Inquiry form */
+.inquiry-form-wrap {
+  background: var(--white);
+  padding: 2.5rem;
+  box-shadow: 0 4px 24px rgba(168,138,123,0.12);
+  position: relative;
+}
+.inquiry-form-wrap::before {
+  content: ''; position: absolute;
+  inset: 0; border: 1px solid var(--skin-sand);
+  pointer-events: none;
+}
+
+.inquiry-form-title {
+  font-family: var(--serif);
+  font-size: 1.6rem; font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+.inquiry-form-title i { font-style: italic; color: var(--skin-blush); }
+.inquiry-form-sub {
+  font-size: 0.88rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* Form fields */
+.form-group { margin-bottom: 1.25rem; }
+.form-label {
+  display: block; font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-soft); margin-bottom: 0.5rem;
+}
+.form-input {
+  width: 100%; padding: 0.85rem 1rem;
+  border: 1px solid var(--bg-deep); background: var(--bg);
+  font-family: var(--sans); font-size: 0.88rem;
+  color: var(--ink); outline: none; transition: border-color .3s;
+}
+.form-input:focus { border-color: var(--skin-blush); }
+.form-input::placeholder { color: var(--ink-muted); }
+textarea.form-input { resize: vertical; min-height: 100px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+.form-select {
+  width: 100%; padding: 0.85rem 1rem;
+  border: 1px solid var(--bg-deep); background: var(--bg);
+  font-family: var(--sans); font-size: 0.88rem;
+  color: var(--ink); outline: none; transition: border-color .3s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A746B' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  cursor: pointer;
+}
+.form-select:focus { border-color: var(--skin-blush); }
+
+.form-submit {
+  width: 100%; margin-top: 0.5rem;
+}
+
+/* --- MAP SECTION --- */
+.map-section {
+  padding: 0 clamp(2rem, 6vw, 6rem) 5rem;
+  max-width: 1280px; margin: 0 auto;
+}
+.map-wrap {
+  position: relative;
+  width: 100%; height: 400px;
+  background: var(--bg-warm);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+.map-wrap iframe {
+  width: 100%; height: 100%;
+  border: 0; filter: saturate(0.8) contrast(1.05);
+}
+.map-overlay {
+  position: absolute; bottom: 2rem; left: 2rem;
+  background: var(--white);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  max-width: 320px;
+}
+.map-overlay h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem; font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+.map-overlay p {
+  font-size: 0.82rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+.map-overlay a {
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--skin-taupe);
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  transition: color .3s;
+}
+.map-overlay a:hover { color: var(--skin-deep); }
+.map-overlay a::after { content: '\2192'; transition: transform .3s; }
+.map-overlay a:hover::after { transform: translateX(3px); }
+
+/* --- FOOTER --- */
+.contact-footer {
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+  background: var(--ink); color: var(--bg);
+}
+.contact-footer-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 4rem;
+}
+.contact-footer-main h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-weight: 400; line-height: 1.2; margin-bottom: 1.5rem;
+}
+.contact-footer-main h2 i { font-style: italic; color: var(--skin-peach); }
+.contact-footer-main p {
+  font-size: 0.9rem; font-weight: 300;
+  color: rgba(246,243,238,0.55); line-height: 1.75;
+  margin-bottom: 2rem; max-width: 360px;
+}
+.contact-block { margin-bottom: 2rem; }
+.contact-block-label {
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--skin-blush); margin-bottom: 0.6rem;
+}
+.contact-block p, .contact-block a {
+  font-size: 0.88rem; font-weight: 300;
+  color: rgba(246,243,238,0.6); line-height: 1.7; display: block;
+}
+.contact-block a:hover { color: var(--skin-peach); }
+
+.footer-hours h3 {
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--skin-blush); margin-bottom: 1rem;
+}
+.footer-hours .hours-row {
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 0.82rem;
+}
+.footer-hours .hours-row .day { color: rgba(246,243,238,0.35); }
+.footer-hours .hours-row .time { color: rgba(246,243,238,0.6); }
+
+footer {
+  padding: 1.5rem clamp(2rem, 6vw, 6rem);
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.footer-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-brand img { height: 28px; opacity: 0.4; }
+.footer-copy { font-size: 0.7rem; color: rgba(246,243,238,0.2); }
+
+/* --- BOOKING MODAL (multi-step) --- */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(27,27,27,0.6);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .4s var(--ease);
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.modal {
+  background: var(--white);
+  width: 90%; max-width: 480px;
+  max-height: 90vh; overflow-y: auto;
+  transform: translateY(30px) scale(0.97);
+  transition: transform .5s var(--ease);
+  position: relative;
+  display: flex; flex-direction: column;
+}
+.modal-overlay.open .modal { transform: translateY(0) scale(1); }
+
+.modal-top {
+  padding: 2rem 2rem 0;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-shrink: 0;
+}
+.modal-close {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: none; border: 1px solid var(--bg-deep);
+  font-size: 1.1rem; color: var(--ink-muted);
+  cursor: pointer; transition: all .3s; flex-shrink: 0;
+}
+.modal-close:hover { border-color: var(--ink); color: var(--ink); }
+
+.modal-progress {
+  display: flex; gap: 0.4rem; align-items: center;
+}
+.modal-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--bg-deep); transition: all .3s;
+}
+.modal-dot.active { background: var(--skin-taupe); width: 24px; border-radius: 4px; }
+.modal-dot.done { background: var(--skin-blush); }
+
+.modal-steps {
+  flex: 1; overflow: visible; position: relative;
+}
+.modal-step {
+  padding: 1.5rem 2rem 2rem;
+  display: none; flex-direction: column;
+  animation: stepIn .4s var(--ease);
+}
+.modal-step.active { display: flex; }
+
+@keyframes stepIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.step-title {
+  font-family: var(--serif);
+  font-size: 1.4rem; font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+.step-title i { font-style: italic; color: var(--skin-blush); }
+.step-subtitle {
+  font-size: 0.82rem; color: var(--ink-muted);
+  margin-bottom: 1.5rem; line-height: 1.5;
+}
+
+.tx-options {
+  display: flex; flex-direction: column; gap: 0.5rem;
+}
+.tx-option {
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--bg-deep);
+  background: var(--bg);
+  cursor: pointer; transition: all .3s;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.88rem; font-weight: 400; color: var(--ink-soft);
+}
+.tx-option:hover { border-color: var(--skin-blush); }
+.tx-option.selected {
+  border-color: var(--ink); background: var(--ink); color: var(--bg);
+}
+.tx-option::after {
+  content: ''; width: 18px; height: 18px; border-radius: 50%;
+  border: 1.5px solid var(--bg-deep); flex-shrink: 0;
+  transition: all .2s;
+}
+.tx-option.selected::after {
+  border-color: var(--skin-taupe); background: var(--skin-taupe);
+  box-shadow: inset 0 0 0 3px var(--ink);
+}
+
+.modal-nav {
+  padding: 0 2rem 2rem;
+  display: flex; gap: 0.75rem; flex-shrink: 0;
+}
+.modal-nav .btn { flex: 1; justify-content: center; }
+.btn-back {
+  background: none; color: var(--ink-soft);
+  border: 1px solid var(--bg-deep);
+  padding: 0.9rem 1.5rem; font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  cursor: pointer; transition: all .3s;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.btn-back:hover { border-color: var(--ink); color: var(--ink); }
+
+.confirm-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(168,138,123,0.1); color: var(--skin-deep);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; margin-bottom: 1.2rem;
+}
+.confirm-detail {
+  display: flex; justify-content: space-between;
+  padding: 0.6rem 0; border-bottom: 1px solid var(--bg-deep);
+  font-size: 0.82rem;
+}
+.confirm-detail .cd-label { color: var(--ink-muted); font-weight: 400; }
+.confirm-detail .cd-value { color: var(--ink-soft); font-weight: 500; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .contact-footer-inner { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .burger { display: flex; }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-section { padding: 3rem 1.75rem; }
+  .map-section { padding: 0 1.75rem 3rem; }
+  .map-wrap { height: 300px; }
+  .map-overlay { position: relative; bottom: auto; left: auto; max-width: none; margin-top: -1px; }
+  .contact-footer { padding: 5rem 1.75rem; }
+  .contact-footer-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .inquiry-form-wrap { padding: 2rem 1.5rem; }
+}
+
+/* --- GRAIN --- */
+body::after {
+  content: ''; position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999; opacity: 0.5;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-brand">
+    <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser & MedSpa" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#treatments">Treatments</a></li>
+    <li><a href="index.html#conditions">Conditions</a></li>
+    <li><a href="index.html#technology">Technology</a></li>
+    <li><a href="index.html#specials">Specials</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="#" class="nav-book" onclick="openModal(event)">Book Now</a></li>
+  </ul>
+  <button class="burger" onclick="this.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <span class="label">Streeterville, Chicago</span>
+  <h1>Get <i>In Touch</i></h1>
+  <p class="page-hero-sub">We would love to hear from you. Whether you have questions about a treatment, want to schedule a consultation, or just want to say hello, we are here for you.</p>
+</section>
+
+<!-- CONTACT INFO + FORM -->
+<section class="contact-section">
+  <div class="contact-grid">
+
+    <!-- Left: Contact Details -->
+    <div class="contact-details">
+      <div class="info-card reveal">
+        <div class="info-card-label">Location</div>
+        <h3>Skin Laser & MedSpa</h3>
+        <p>680 N Lake Shore Dr, Suite 1425</p>
+        <p>Chicago, IL 60611</p>
+        <a href="https://maps.google.com/?q=680+N+Lake+Shore+Dr+Suite+1425+Chicago+IL+60611" target="_blank" rel="noopener" style="margin-top: 0.8rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--skin-taupe); display: inline-flex; align-items: center; gap: 0.4rem;">Get Directions &#8594;</a>
+      </div>
+
+      <div class="info-card reveal d1">
+        <div class="info-card-label">Contact</div>
+        <a href="tel:3128365896" style="font-size: 1.1rem; font-weight: 400; color: var(--ink); margin-bottom: 0.4rem;">(312) 836-5896</a>
+        <a href="mailto:skinlasermedspa@gmail.com">skinlasermedspa@gmail.com</a>
+      </div>
+
+      <div class="info-card reveal d2">
+        <div class="info-card-label">Hours of Operation</div>
+        <div class="hours-row"><span class="day">Monday</span><span class="time">10 am - 7 pm</span></div>
+        <div class="hours-row"><span class="day">Tuesday</span><span class="time">10 am - 7 pm</span></div>
+        <div class="hours-row"><span class="day">Wednesday</span><span class="time">10 am - 7 pm</span></div>
+        <div class="hours-row"><span class="day">Thursday</span><span class="time">10 am - 7 pm</span></div>
+        <div class="hours-row"><span class="day">Friday</span><span class="time">10 am - 5 pm</span></div>
+        <div class="hours-row"><span class="day">Saturday</span><span class="time">By appointment</span></div>
+        <div class="hours-row"><span class="day">Sunday</span><span class="time">Closed</span></div>
+      </div>
+    </div>
+
+    <!-- Right: Inquiry Form -->
+    <div class="inquiry-form-wrap reveal d1">
+      <h3 class="inquiry-form-title">Send us a <i>message</i></h3>
+      <p class="inquiry-form-sub">Fill out the form below and we will get back to you within 24 hours.</p>
+
+      <form id="inquiryForm" onsubmit="handleInquiry(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="inq-fname">First Name</label>
+            <input class="form-input" type="text" id="inq-fname" placeholder="Jane" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="inq-lname">Last Name</label>
+            <input class="form-input" type="text" id="inq-lname" placeholder="Smith" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="inq-email">Email</label>
+          <input class="form-input" type="email" id="inq-email" placeholder="jane@email.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="inq-phone">Phone</label>
+          <input class="form-input" type="tel" id="inq-phone" placeholder="(312) 555-0123" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="inq-message">Message</label>
+          <textarea class="form-input" id="inq-message" rows="4" placeholder="Tell us about your goals, concerns, or questions..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="inq-source">How did you hear about us?</label>
+          <select class="form-select" id="inq-source">
+            <option value="" disabled selected>Select an option</option>
+            <option value="google">Google Search</option>
+            <option value="instagram">Instagram</option>
+            <option value="facebook">Facebook</option>
+            <option value="friend">Friend or Family</option>
+            <option value="yelp">Yelp</option>
+            <option value="expertise">Expertise.com</option>
+            <option value="walk-in">Walked By</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-dark form-submit">Send Message &#8594;</button>
+      </form>
+
+      <!-- Success state (hidden by default) -->
+      <div id="formSuccess" style="display: none; text-align: center; padding: 2rem 0;">
+        <div class="confirm-icon" style="margin: 0 auto 1.2rem;">&#10003;</div>
+        <h3 class="inquiry-form-title">Message <i>sent!</i></h3>
+        <p class="inquiry-form-sub" style="margin-bottom: 0;">Thank you for reaching out. We will get back to you within 24 hours. For immediate assistance, call <a href="tel:3128365896" style="color: var(--skin-taupe); font-weight: 500;">(312) 836-5896</a>.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="map-section reveal">
+  <div class="map-wrap">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.6!2d-87.6127!3d41.8946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDUzJzQwLjYiTiA4N8KwMzYnNDUuNyJX!5e0!3m2!1sen!2sus!4v1"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Skin Laser & MedSpa location map">
+    </iframe>
+    <div class="map-overlay">
+      <h3>Skin Laser & MedSpa</h3>
+      <p>680 N Lake Shore Dr, Suite 1425<br>Chicago, IL 60611</p>
+      <a href="https://maps.google.com/?q=680+N+Lake+Shore+Dr+Suite+1425+Chicago+IL+60611" target="_blank" rel="noopener">Get Directions</a>
+    </div>
+  </div>
+</section>
+
+<!-- DARK FOOTER SECTION -->
+<section class="contact-footer">
+  <div class="contact-footer-inner">
+    <div class="contact-footer-main reveal">
+      <span class="label" style="color: var(--gold-light);">Get Started</span>
+      <h2 style="margin-top: 0.75rem;">Ready to start your <i>journey?</i></h2>
+      <p>Schedule a consultation and let us create a personalized treatment plan designed around your goals.</p>
+      <a href="#" class="btn" onclick="openModal(event)" style="margin-top: 0.5rem; background: var(--white); color: var(--ink);">Free Consultation &#8594;</a>
+    </div>
+    <div class="reveal d1">
+      <div class="contact-block">
+        <div class="contact-block-label">Location</div>
+        <p>680 N Lake Shore Dr, Suite 1425</p>
+        <p>Chicago, IL 60611</p>
+      </div>
+      <div class="contact-block">
+        <div class="contact-block-label">Contact</div>
+        <a href="tel:3128365896">(312) 836-5896</a>
+        <a href="mailto:skinlasermedspa@gmail.com">skinlasermedspa@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-hours reveal d2">
+      <h3>Hours</h3>
+      <div class="hours-row"><span class="day">Monday</span><span class="time">10 am - 7 pm</span></div>
+      <div class="hours-row"><span class="day">Tuesday</span><span class="time">10 am - 7 pm</span></div>
+      <div class="hours-row"><span class="day">Wednesday</span><span class="time">10 am - 7 pm</span></div>
+      <div class="hours-row"><span class="day">Thursday</span><span class="time">10 am - 7 pm</span></div>
+      <div class="hours-row"><span class="day">Friday</span><span class="time">10 am - 5 pm</span></div>
+      <div class="hours-row"><span class="day">Saturday</span><span class="time">By appt</span></div>
+      <div class="hours-row"><span class="day">Sunday</span><span class="time">Closed</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser" />
+    </div>
+    <span class="footer-copy">&copy; 2026 Skin Laser & MedSpa. All rights reserved.</span>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL (multi-step) -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal">
+    <div class="modal-top">
+      <div class="modal-progress">
+        <span class="modal-dot active" data-step="0"></span>
+        <span class="modal-dot" data-step="1"></span>
+        <span class="modal-dot" data-step="2"></span>
+      </div>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+
+    <div class="modal-steps">
+      <!-- Step 1: Treatment -->
+      <div class="modal-step active" data-step="0">
+        <h3 class="step-title">What brings <i>you in?</i></h3>
+        <p class="step-subtitle">Select the treatment you're interested in.</p>
+        <div class="tx-options">
+          <div class="tx-option" onclick="selectTx(this)">Laser Hair Removal</div>
+          <div class="tx-option" onclick="selectTx(this)">CO2 Laser Resurfacing</div>
+          <div class="tx-option" onclick="selectTx(this)">RF Microneedling</div>
+          <div class="tx-option" onclick="selectTx(this)">Tattoo Removal</div>
+          <div class="tx-option" onclick="selectTx(this)">Fractional Laser</div>
+          <div class="tx-option" onclick="selectTx(this)">Laser Genesis Facial</div>
+          <div class="tx-option" onclick="selectTx(this)">Not sure yet</div>
+        </div>
+      </div>
+
+      <!-- Step 2: Your Info -->
+      <div class="modal-step" data-step="1">
+        <h3 class="step-title">Tell us about <i>you</i></h3>
+        <p class="step-subtitle">We'll reach out to schedule your free consultation.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input class="form-input" type="text" placeholder="Jane" id="fname" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input class="form-input" type="text" placeholder="Smith" id="lname" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="jane@email.com" id="email" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone</label>
+          <input class="form-input" type="tel" placeholder="(312) 555-0123" id="phone" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">How can we help you?</label>
+          <textarea class="form-input" rows="2" placeholder="Any goals, concerns, or questions..." id="helpMsg"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">How did you hear about us?</label>
+          <input class="form-input" type="text" placeholder="Google, friend, Instagram..." id="hearAbout" />
+        </div>
+      </div>
+
+      <!-- Step 3: Confirmation -->
+      <div class="modal-step" data-step="2">
+        <div class="confirm-icon">&#10003;</div>
+        <h3 class="step-title">You're all <i>set!</i></h3>
+        <p class="step-subtitle">We'll be in touch within 24 hours to schedule your consultation. Questions? Call (312) 836-5896.</p>
+        <div style="margin-top: 0.5rem;">
+          <div class="confirm-detail">
+            <span class="cd-label">Treatment</span>
+            <span class="cd-value" id="confirmTx">--</span>
+          </div>
+          <div class="confirm-detail">
+            <span class="cd-label">Name</span>
+            <span class="cd-value" id="confirmName">--</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-nav" id="modalNav">
+      <button class="btn-back" id="btnBack" onclick="prevStep()" style="display:none;">Back</button>
+      <button class="btn btn-dark" id="btnNext" onclick="nextStep()" style="flex:1; justify-content:center;">Continue &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Reveal on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', scrollY > 60);
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    const t = document.querySelector(href);
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+
+// Inquiry form handler
+function handleInquiry(e) {
+  e.preventDefault();
+  // Hide form, show success
+  document.getElementById('inquiryForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+
+// Modal - multi-step
+let currentStep = 0;
+const totalSteps = 3;
+let selectedTx = '';
+
+function openModal(e) {
+  if (e) e.preventDefault();
+  currentStep = 0;
+  updateStep();
+  document.getElementById('bookingModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('bookingModal').classList.remove('open');
+  document.body.style.overflow = '';
+  document.querySelectorAll('.tx-option.selected').forEach(o => o.classList.remove('selected'));
+  selectedTx = '';
+}
+document.getElementById('bookingModal').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+function updateStep() {
+  document.querySelectorAll('.modal-step').forEach(s => s.classList.remove('active'));
+  document.querySelector(`.modal-step[data-step="${currentStep}"]`).classList.add('active');
+
+  document.querySelectorAll('.modal-dot').forEach(d => {
+    const s = parseInt(d.dataset.step);
+    d.classList.remove('active', 'done');
+    if (s === currentStep) d.classList.add('active');
+    else if (s < currentStep) d.classList.add('done');
+  });
+
+  const back = document.getElementById('btnBack');
+  const next = document.getElementById('btnNext');
+
+  back.style.display = currentStep > 0 && currentStep < 2 ? '' : 'none';
+
+  if (currentStep === 2) {
+    next.textContent = 'Done';
+    next.onclick = closeModal;
+    populateConfirmation();
+  } else {
+    next.innerHTML = 'Continue &#8594;';
+    next.onclick = nextStep;
+  }
+}
+
+function nextStep() {
+  if (currentStep < totalSteps - 1) {
+    currentStep++;
+    updateStep();
+  }
+}
+function prevStep() {
+  if (currentStep > 0) {
+    currentStep--;
+    updateStep();
+  }
+}
+
+function selectTx(el) {
+  document.querySelectorAll('.tx-option.selected').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedTx = el.textContent;
+}
+
+function populateConfirmation() {
+  document.getElementById('confirmTx').textContent = selectedTx || '--';
+  const fn = document.getElementById('fname')?.value || '';
+  const ln = document.getElementById('lname')?.value || '';
+  document.getElementById('confirmName').textContent = (fn + ' ' + ln).trim() || '--';
+}
+</script>
+
+</body>
+</html>

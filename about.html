@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meet Kimberly | Skin Laser & MedSpa</title>
+<meta name="description" content="Meet Kimberly Mack, the expert behind Skin Laser & MedSpa. Licensed Cosmetologist, Certified Laser Technician, and Licensed Dietitian with over a decade of experience in advanced aesthetics.">
+<link rel="icon" type="image/png" href="skin-laser-assets/favicon.png">
+<link rel="apple-touch-icon" href="skin-laser-assets/favicon.png">
+
+<meta name="theme-color" content="#fff4dc">
+
+<!-- Open Graph / Social Share -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Meet Kimberly | Skin Laser & MedSpa">
+<meta property="og:description" content="Meet the expert behind Chicago's premier medspa. Over a decade of experience in advanced laser aesthetics and personalized care.">
+<meta property="og:image" content="skin-laser-assets/og-image.png">
+<meta property="og:site_name" content="Skin Laser & MedSpa">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #F6F3EE;
+  --bg-warm: #EDE8E0;
+  --bg-deep: #E4DDD3;
+  --white: #FDFCFA;
+  --ink: #1B1B1B;
+  --ink-soft: #3A3632;
+  --ink-muted: #7A746B;
+  --gold: #A88A7B;
+  --gold-light: #C4A693;
+  --gold-pale: #D9C4B5;
+  --gold-wash: rgba(168, 138, 123, 0.08);
+  --skin-deep: #8B7362;
+  --skin-taupe: #A89080;
+  --skin-blush: #C9A992;
+  --skin-peach: #D4B8A4;
+  --skin-sand: #E2CDBF;
+  --skin-sage: #9CA08A;
+
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; }
+
+/* ─── UTILITIES ─── */
+.reveal {
+  opacity: 0; transform: translateY(50px);
+  transition: opacity 1s var(--ease), transform 1s var(--ease);
+}
+.reveal.vis { opacity: 1; transform: none; }
+.d1 { transition-delay: .1s } .d2 { transition-delay: .2s }
+.d3 { transition-delay: .3s } .d4 { transition-delay: .4s }
+.d5 { transition-delay: .5s }
+
+.label {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--skin-taupe);
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 88px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(1.5rem, 4vw, 3.5rem);
+  background: rgba(246, 243, 238, 0.8);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  transition: all .4s ease;
+}
+nav.scrolled { height: 64px; box-shadow: 0 1px 0 rgba(0,0,0,.06); }
+nav.scrolled .nav-brand img { height: 48px; }
+
+.nav-brand img { height: 64px; width: auto; }
+.nav-links {
+  display: flex; align-items: center; gap: 2.2rem; list-style: none;
+}
+.nav-links a {
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em;
+  color: var(--ink-soft); transition: color .3s;
+}
+.nav-links a:hover { color: var(--skin-taupe); }
+
+.nav-book {
+  padding: 0.65rem 1.6rem !important;
+  background: var(--ink); color: var(--bg) !important;
+  font-size: 0.68rem !important; font-weight: 600 !important;
+  letter-spacing: 0.12em !important; text-transform: uppercase;
+  transition: all .35s var(--ease);
+}
+.nav-book:hover { background: var(--skin-deep) !important; }
+
+.burger { display: none; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; background: none; }
+.burger span { width: 22px; height: 1.5px; background: var(--ink); display: block; }
+
+/* ─── BUTTONS ─── */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 1.05rem 2.2rem; font-size: 0.74rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  border: none; cursor: pointer; transition: all .4s var(--ease);
+}
+.btn-dark { background: var(--ink); color: var(--bg); }
+.btn-dark:hover {
+  background: var(--skin-deep); transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(139,115,98,0.3);
+}
+.btn-ghost {
+  background: none; color: var(--ink-soft);
+  border: 1px solid var(--ink-muted);
+}
+.btn-ghost:hover { border-color: var(--skin-blush); color: var(--skin-taupe); }
+
+/* ─── PAGE HERO ─── */
+.page-hero {
+  min-height: 40vh;
+  padding-top: 88px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-warm) 100%);
+}
+.page-hero::after {
+  content: ''; position: absolute;
+  bottom: 0; left: 10%; right: 10%; height: 1px;
+  background: linear-gradient(to right, transparent, var(--skin-sand), var(--skin-peach), var(--skin-sand), transparent);
+}
+.page-hero .label {
+  opacity: 0; animation: fadeIn .8s .3s var(--ease) forwards;
+}
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-weight: 400; line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 1rem 0 1.2rem;
+  opacity: 0; animation: fadeUp 1s .4s var(--ease) forwards;
+}
+.page-hero h1 i { font-style: italic; color: var(--skin-taupe); }
+.page-hero p {
+  font-size: 1.05rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.75;
+  max-width: 520px;
+  opacity: 0; animation: fadeUp .8s .6s var(--ease) forwards;
+}
+
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ─── ABOUT DETAIL ─── */
+.about-detail {
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+  max-width: 1280px; margin: 0 auto;
+}
+.about-detail-grid {
+  display: grid; grid-template-columns: 1fr 1.2fr;
+  gap: 5rem; align-items: start;
+}
+
+.about-portrait { position: relative; }
+.about-portrait-wrap {
+  position: relative; overflow: hidden;
+  aspect-ratio: 3/4; background: var(--bg-deep);
+}
+.about-portrait-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+}
+.about-portrait::after {
+  content: ''; position: absolute;
+  top: 1.5rem; right: -1.5rem;
+  bottom: -1.5rem; left: 1.5rem;
+  border: 1px solid var(--skin-sand);
+  pointer-events: none; z-index: -1;
+}
+
+.about-bio h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-weight: 400; line-height: 1.15;
+  margin-bottom: 0.4rem;
+}
+.about-bio h2 i { font-style: italic; color: var(--skin-taupe); }
+.about-role {
+  font-size: 0.85rem; font-weight: 400;
+  color: var(--ink-muted); margin-bottom: 2rem;
+}
+.about-bio p {
+  font-size: 0.92rem; font-weight: 300;
+  line-height: 1.85; color: var(--ink-muted);
+  margin-bottom: 1.2rem;
+}
+.about-bio p:last-of-type { margin-bottom: 0; }
+
+/* ─── PHILOSOPHY / APPROACH ─── */
+.approach {
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+  background: var(--white);
+  position: relative;
+}
+.approach::before {
+  content: ''; position: absolute; top: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--skin-sand), var(--skin-peach), var(--skin-sand), transparent);
+}
+
+.approach-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: center;
+}
+
+.approach-text h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-weight: 400; line-height: 1.15;
+  margin-bottom: 2rem;
+}
+.approach-text h2 i { font-style: italic; color: var(--skin-blush); }
+.approach-text p {
+  font-size: 0.92rem; font-weight: 300;
+  line-height: 1.85; color: var(--ink-muted);
+  margin-bottom: 1.2rem; max-width: 520px;
+}
+
+.approach-pillars {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.pillar {
+  padding: 2rem 1.8rem;
+  transition: all .4s var(--ease);
+  position: relative; overflow: hidden;
+}
+.pillar:nth-child(1) { background: linear-gradient(135deg, #F2EBE4, #EDE4DA); }
+.pillar:nth-child(2) { background: linear-gradient(135deg, #F0E8DF, #E9DFCF); }
+.pillar:nth-child(3) { background: linear-gradient(135deg, #F4ECE5, #EEE5DB); }
+.pillar:nth-child(4) { background: linear-gradient(135deg, #EFE7DE, #E8DDD1); }
+
+.pillar::before {
+  content: ''; position: absolute;
+  left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--skin-taupe);
+  transform: scaleY(0); transition: transform .4s var(--ease);
+}
+.pillar:hover::before { transform: scaleY(1); }
+.pillar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.06);
+}
+
+.pillar-icon {
+  font-size: 1.4rem; margin-bottom: 1rem;
+  color: var(--skin-taupe);
+}
+.pillar h3 {
+  font-family: var(--serif);
+  font-size: 1.05rem; font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+.pillar p {
+  font-size: 0.78rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.65;
+}
+
+/* ─── CREDENTIALS ─── */
+.credentials {
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+  max-width: 1280px; margin: 0 auto;
+}
+.credentials-head {
+  text-align: center; margin-bottom: 4rem;
+}
+.credentials-head h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 400; line-height: 1.15;
+  margin-top: 0.75rem;
+}
+.credentials-head h2 i { font-style: italic; color: var(--skin-taupe); }
+
+.creds-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.cred-card {
+  padding: 2.5rem 2rem;
+  background: var(--white);
+  text-align: center;
+  transition: all .4s var(--ease);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.03);
+  position: relative;
+}
+.cred-card::after {
+  content: ''; position: absolute;
+  bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 0; height: 2px;
+  background: var(--skin-taupe);
+  transition: width .4s var(--ease);
+}
+.cred-card:hover::after { width: 60%; }
+.cred-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.06);
+}
+
+.cred-icon {
+  font-size: 1.6rem; margin-bottom: 1.2rem;
+  color: var(--skin-taupe);
+}
+.cred-card h3 {
+  font-family: var(--serif);
+  font-size: 1.05rem; font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+.cred-card p {
+  font-size: 0.78rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.6;
+}
+
+/* ─── CTA BAND ─── */
+.cta-band {
+  position: relative;
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; min-height: 420px;
+}
+.cta-band-bg {
+  position: absolute; inset: 0;
+}
+.cta-band-bg img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.cta-band-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(27,27,27,0.75);
+}
+.cta-band-content {
+  position: relative; z-index: 1;
+  max-width: 560px;
+}
+.cta-band-content h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400; line-height: 1.15;
+  color: var(--white); margin: 0.75rem 0 1.2rem;
+}
+.cta-band-content h2 i { font-style: italic; color: var(--skin-peach); }
+.cta-band-content p {
+  font-size: 0.92rem; font-weight: 300;
+  color: rgba(255,255,255,0.6); line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  padding: 1.5rem clamp(2rem, 6vw, 6rem);
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.footer-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-brand img { height: 28px; opacity: 0.4; }
+.footer-copy { font-size: 0.7rem; color: rgba(246,243,238,0.2); }
+
+/* ─── BOOKING MODAL (multi-step) ─── */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(27,27,27,0.6);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .4s var(--ease);
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.modal {
+  background: var(--white);
+  width: 90%; max-width: 480px;
+  max-height: 90vh; overflow-y: auto;
+  transform: translateY(30px) scale(0.97);
+  transition: transform .5s var(--ease);
+  position: relative;
+  display: flex; flex-direction: column;
+}
+.modal-overlay.open .modal { transform: translateY(0) scale(1); }
+
+.modal-top {
+  padding: 2rem 2rem 0;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-shrink: 0;
+}
+.modal-close {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: none; border: 1px solid var(--bg-deep);
+  font-size: 1.1rem; color: var(--ink-muted);
+  cursor: pointer; transition: all .3s; flex-shrink: 0;
+}
+.modal-close:hover { border-color: var(--ink); color: var(--ink); }
+
+.modal-progress {
+  display: flex; gap: 0.4rem; align-items: center;
+}
+.modal-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--bg-deep); transition: all .3s;
+}
+.modal-dot.active { background: var(--skin-taupe); width: 24px; border-radius: 4px; }
+.modal-dot.done { background: var(--skin-blush); }
+
+.modal-steps {
+  flex: 1; overflow: visible; position: relative;
+}
+.modal-step {
+  padding: 1.5rem 2rem 2rem;
+  display: none; flex-direction: column;
+  animation: stepIn .4s var(--ease);
+}
+.modal-step.active { display: flex; }
+
+@keyframes stepIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.step-title {
+  font-family: var(--serif);
+  font-size: 1.4rem; font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+.step-title i { font-style: italic; color: var(--skin-blush); }
+.step-subtitle {
+  font-size: 0.82rem; color: var(--ink-muted);
+  margin-bottom: 1.5rem; line-height: 1.5;
+}
+
+.tx-options {
+  display: flex; flex-direction: column; gap: 0.5rem;
+}
+.tx-option {
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--bg-deep);
+  background: var(--bg);
+  cursor: pointer; transition: all .3s;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.88rem; font-weight: 400; color: var(--ink-soft);
+}
+.tx-option:hover { border-color: var(--skin-blush); }
+.tx-option.selected {
+  border-color: var(--ink); background: var(--ink); color: var(--bg);
+}
+.tx-option::after {
+  content: ''; width: 18px; height: 18px; border-radius: 50%;
+  border: 1.5px solid var(--bg-deep); flex-shrink: 0;
+  transition: all .2s;
+}
+.tx-option.selected::after {
+  border-color: var(--skin-taupe); background: var(--skin-taupe);
+  box-shadow: inset 0 0 0 3px var(--ink);
+}
+
+.form-group { margin-bottom: 1.25rem; }
+.form-label {
+  display: block; font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-soft); margin-bottom: 0.5rem;
+}
+.form-input {
+  width: 100%; padding: 0.85rem 1rem;
+  border: 1px solid var(--bg-deep); background: var(--bg);
+  font-family: var(--sans); font-size: 0.88rem;
+  color: var(--ink); outline: none; transition: border-color .3s;
+}
+.form-input:focus { border-color: var(--skin-blush); }
+.form-input::placeholder { color: var(--ink-muted); }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+.modal-nav {
+  padding: 0 2rem 2rem;
+  display: flex; gap: 0.75rem; flex-shrink: 0;
+}
+.modal-nav .btn { flex: 1; justify-content: center; }
+.btn-back {
+  background: none; color: var(--ink-soft);
+  border: 1px solid var(--bg-deep);
+  padding: 0.9rem 1.5rem; font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  cursor: pointer; transition: all .3s;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.btn-back:hover { border-color: var(--ink); color: var(--ink); }
+
+.confirm-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(168,138,123,0.1); color: var(--skin-deep);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; margin-bottom: 1.2rem;
+}
+.confirm-detail {
+  display: flex; justify-content: space-between;
+  padding: 0.6rem 0; border-bottom: 1px solid var(--bg-deep);
+  font-size: 0.82rem;
+}
+.confirm-detail .cd-label { color: var(--ink-muted); font-weight: 400; }
+.confirm-detail .cd-value { color: var(--ink-soft); font-weight: 500; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .about-detail-grid { grid-template-columns: 1fr; }
+  .about-portrait { max-width: 420px; }
+  .approach-inner { grid-template-columns: 1fr; }
+  .approach-pillars { max-width: 600px; }
+  .creds-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .burger { display: flex; }
+  .page-hero { min-height: 35vh; padding: 88px 1.75rem 2.5rem; }
+  .page-hero h1 { font-size: clamp(2.2rem, 8vw, 3.2rem); }
+  .about-detail { padding: 4rem 1.75rem; }
+  .about-detail-grid { gap: 3rem; }
+  .about-portrait { max-width: 320px; }
+  .approach { padding: 4rem 1.75rem; }
+  .approach-inner { gap: 3rem; }
+  .approach-pillars { grid-template-columns: 1fr; }
+  .credentials { padding: 4rem 1.75rem; }
+  .creds-grid { grid-template-columns: 1fr; }
+  .cta-band { min-height: 340px; padding: 4.5rem 1.75rem; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* ─── GRAIN ─── */
+body::after {
+  content: ''; position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999; opacity: 0.5;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-brand">
+    <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser & MedSpa" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#treatments">Treatments</a></li>
+    <li><a href="index.html#conditions">Conditions</a></li>
+    <li><a href="index.html#technology">Technology</a></li>
+    <li><a href="index.html#specials">Specials</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="#" class="nav-book" onclick="openModal(event)">Book Now</a></li>
+  </ul>
+  <button class="burger" onclick="this.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <span class="label">About Your Provider</span>
+  <h1>Meet <i>Kimberly</i></h1>
+  <p>Over a decade of experience in advanced aesthetics, dedicated to helping you look and feel your personal best.</p>
+</section>
+
+<!-- ABOUT DETAIL -->
+<section class="about-detail">
+  <div class="about-detail-grid">
+    <div class="about-portrait reveal">
+      <div class="about-portrait-wrap">
+        <img src="skin-laser-assets/kimberly-real.png" alt="Kimberly Mack, Cosmetologist & Certified Clinical Laser Technician" />
+      </div>
+    </div>
+    <div class="about-bio reveal d2">
+      <span class="label">Your Provider</span>
+      <h2 style="margin-top: 0.75rem;">Kimberly <i>Mack</i></h2>
+      <p class="about-role">Cosmetologist & Certified Clinical Laser Technician</p>
+      <p>Kimberly's passion for beauty and wellness began at just 17, when she started her career as a licensed Cosmetologist. Her love for helping others led her to study Dietetics & Nutrition at Florida International University, where she earned a B.S. degree and became a Licensed Dietitian.</p>
+      <p>After gaining experience in both skincare and clinical nutrition while living abroad in Singapore, she discovered her true calling in advanced aesthetics. She trained at the world-renowned National Laser Institute, mastering the latest techniques in laser treatments and skin rejuvenation.</p>
+      <p>Today, Kimberly combines decades of experience in beauty, health, and wellness to create customized treatments that leave clients glowing from the inside out. Her mission is simple: to help you look and feel your personal best, every day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY / APPROACH -->
+<section class="approach">
+  <div class="approach-inner">
+    <div class="approach-text reveal">
+      <span class="label">Our Approach</span>
+      <h2 style="margin-top: 0.75rem;">Personalized care,<br><i>every step</i> of the way</h2>
+      <p>At Skin Laser & MedSpa, there is no one-size-fits-all. Every treatment plan begins with a thorough consultation, because your skin is unique, and your care should be too.</p>
+      <p>Kimberly takes the time to understand your goals, your concerns, and your lifestyle before recommending a single treatment. From the first consultation to your final follow-up, you will work directly with the same provider who knows your history and your skin.</p>
+    </div>
+    <div class="approach-pillars reveal d2">
+      <div class="pillar">
+        <div class="pillar-icon">&#9672;</div>
+        <h3>One-on-One Care</h3>
+        <p>No revolving door of providers. Kimberly is with you from consultation through every session.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">&#10022;</div>
+        <h3>Tailored Plans</h3>
+        <p>Every treatment plan is built around your skin type, goals, and lifestyle for truly personalized results.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">&#9670;</div>
+        <h3>Medical-Grade Technology</h3>
+        <p>Only the highest-standard lasers and devices, selected for safety and effectiveness across all skin tones.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">&#10047;</div>
+        <h3>Holistic Perspective</h3>
+        <p>With a background in nutrition and wellness, Kimberly approaches beauty from the inside out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="credentials">
+  <div class="credentials-head reveal">
+    <span class="label">Education & Credentials</span>
+    <h2>Training & <i>Certifications</i></h2>
+  </div>
+  <div class="creds-grid">
+    <div class="cred-card reveal d1">
+      <div class="cred-icon">&#9733;</div>
+      <h3>Licensed Cosmetologist</h3>
+      <p>State-licensed since age 17, with decades of hands-on experience in skincare and beauty.</p>
+    </div>
+    <div class="cred-card reveal d2">
+      <div class="cred-icon">&#10003;</div>
+      <h3>Certified Laser Technician</h3>
+      <p>Trained at the National Laser Institute in advanced laser treatments and skin rejuvenation techniques.</p>
+    </div>
+    <div class="cred-card reveal d3">
+      <div class="cred-icon">&#9826;</div>
+      <h3>Licensed Dietitian</h3>
+      <p>Bringing a holistic, science-backed approach to skin health through nutrition and clinical wellness.</p>
+    </div>
+    <div class="cred-card reveal d4">
+      <div class="cred-icon">&#9734;</div>
+      <h3>B.S. Florida International</h3>
+      <p>Bachelor of Science in Dietetics & Nutrition from Florida International University.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-band-bg">
+    <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Model_Freeze_DiamondPolar_1-1920w.jpg" alt="Laser treatment" />
+  </div>
+  <div class="cta-band-content reveal">
+    <span class="label" style="color: var(--gold-light);">Ready to Start?</span>
+    <h2>Your first consultation is <i>completely free</i></h2>
+    <p>No pressure, no obligation. Meet Kimberly, tour the studio, and get a personalized treatment plan built around your goals.</p>
+    <a href="#" class="btn" onclick="openModal(event)" style="background: var(--white); color: var(--ink);">Book Your Free Consultation &#8594;</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser" />
+    </div>
+    <span class="footer-copy">&copy; 2026 Skin Laser & MedSpa. All rights reserved.</span>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL (multi-step) -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal">
+    <div class="modal-top">
+      <div class="modal-progress">
+        <span class="modal-dot active" data-step="0"></span>
+        <span class="modal-dot" data-step="1"></span>
+        <span class="modal-dot" data-step="2"></span>
+      </div>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+
+    <div class="modal-steps">
+      <!-- Step 1: Treatment -->
+      <div class="modal-step active" data-step="0">
+        <h3 class="step-title">What brings <i>you in?</i></h3>
+        <p class="step-subtitle">Select the treatment you're interested in.</p>
+        <div class="tx-options">
+          <div class="tx-option" onclick="selectTx(this)">Laser Hair Removal</div>
+          <div class="tx-option" onclick="selectTx(this)">CO2 Laser Resurfacing</div>
+          <div class="tx-option" onclick="selectTx(this)">RF Microneedling</div>
+          <div class="tx-option" onclick="selectTx(this)">Tattoo Removal</div>
+          <div class="tx-option" onclick="selectTx(this)">Fractional Laser</div>
+          <div class="tx-option" onclick="selectTx(this)">Laser Genesis Facial</div>
+          <div class="tx-option" onclick="selectTx(this)">Not sure yet</div>
+        </div>
+      </div>
+
+      <!-- Step 2: Your Info -->
+      <div class="modal-step" data-step="1">
+        <h3 class="step-title">Tell us about <i>you</i></h3>
+        <p class="step-subtitle">We'll reach out to schedule your free consultation.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input class="form-input" type="text" placeholder="Jane" id="fname" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input class="form-input" type="text" placeholder="Smith" id="lname" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="jane@email.com" id="email" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone</label>
+          <input class="form-input" type="tel" placeholder="(312) 555-0123" id="phone" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">How can we help you?</label>
+          <textarea class="form-input" rows="2" placeholder="Any goals, concerns, or questions..." id="helpMsg"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">How did you hear about us?</label>
+          <input class="form-input" type="text" placeholder="Google, friend, Instagram..." id="hearAbout" />
+        </div>
+      </div>
+
+      <!-- Step 3: Confirmation -->
+      <div class="modal-step" data-step="2">
+        <div class="confirm-icon">&#10003;</div>
+        <h3 class="step-title">You're all <i>set!</i></h3>
+        <p class="step-subtitle">We'll be in touch within 24 hours to schedule your consultation. Questions? Call (312) 836-5896.</p>
+        <div style="margin-top: 0.5rem;">
+          <div class="confirm-detail">
+            <span class="cd-label">Treatment</span>
+            <span class="cd-value" id="confirmTx">--</span>
+          </div>
+          <div class="confirm-detail">
+            <span class="cd-label">Name</span>
+            <span class="cd-value" id="confirmName">--</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-nav" id="modalNav">
+      <button class="btn-back" id="btnBack" onclick="prevStep()" style="display:none;">Back</button>
+      <button class="btn btn-dark" id="btnNext" onclick="nextStep()" style="flex:1; justify-content:center;">Continue &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Nav
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', scrollY > 60);
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    const t = document.querySelector(href);
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+
+// Modal - multi-step
+let currentStep = 0;
+const totalSteps = 3;
+let selectedTx = '';
+
+function openModal(e) {
+  if (e) e.preventDefault();
+  currentStep = 0;
+  updateStep();
+  document.getElementById('bookingModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('bookingModal').classList.remove('open');
+  document.body.style.overflow = '';
+  document.querySelectorAll('.tx-option.selected').forEach(o => o.classList.remove('selected'));
+  selectedTx = '';
+}
+document.getElementById('bookingModal').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+function updateStep() {
+  document.querySelectorAll('.modal-step').forEach(s => s.classList.remove('active'));
+  document.querySelector(`.modal-step[data-step="${currentStep}"]`).classList.add('active');
+
+  document.querySelectorAll('.modal-dot').forEach(d => {
+    const s = parseInt(d.dataset.step);
+    d.classList.remove('active', 'done');
+    if (s === currentStep) d.classList.add('active');
+    else if (s < currentStep) d.classList.add('done');
+  });
+
+  const back = document.getElementById('btnBack');
+  const next = document.getElementById('btnNext');
+
+  back.style.display = currentStep > 0 && currentStep < 2 ? '' : 'none';
+
+  if (currentStep === 2) {
+    next.textContent = 'Done';
+    next.onclick = closeModal;
+    populateConfirmation();
+  } else {
+    next.innerHTML = 'Continue &#8594;';
+    next.onclick = nextStep;
+  }
+}
+
+function nextStep() {
+  if (currentStep < totalSteps - 1) {
+    currentStep++;
+    updateStep();
+  }
+}
+function prevStep() {
+  if (currentStep > 0) {
+    currentStep--;
+    updateStep();
+  }
+}
+
+function selectTx(el) {
+  document.querySelectorAll('.tx-option.selected').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedTx = el.textContent;
+}
+
+function populateConfirmation() {
+  document.getElementById('confirmTx').textContent = selectedTx || '--';
+  const fn = document.getElementById('fname')?.value || '';
+  const ln = document.getElementById('lname')?.value || '';
+  document.getElementById('confirmName').textContent = (fn + ' ' + ln).trim() || '--';
+}
+</script>
+
+</body>
+</html>

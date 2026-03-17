@@ -56,11 +56,20 @@ async function handlePost(req, res) {
     return res.status(500).json({ error: 'Failed to save lead' });
   }
 
-  // Send notification email to Kimberly (non-blocking)
-  sendNotificationEmail(lead).catch(err => console.error('Notification email failed:', err));
-
-  // Send thank you email to submitter (non-blocking)
-  sendThankYouEmail(lead).catch(err => console.error('Thank you email failed:', err));
+  // Send emails (non-blocking)
+  // NOTE: Until a domain is verified in Resend, emails can only go to your own address.
+  // Once you verify skinlaserchicago.com in Resend, change the thank you email 'to' back to [lead.email]
+  // and update 'from' addresses to use @skinlaserchicago.com
+  try {
+    await sendNotificationEmail(lead);
+  } catch (err) {
+    console.error('Notification email failed:', err);
+  }
+  try {
+    await sendThankYouEmail(lead);
+  } catch (err) {
+    console.error('Thank you email failed:', err);
+  }
 
   res.status(201).json({ success: true, message: 'Consultation request received' });
 }
@@ -141,7 +150,8 @@ async function sendNotificationEmail(lead) {
 async function sendThankYouEmail(lead) {
   await sendEmail({
     from: 'Skin Laser & MedSpa <onboarding@resend.dev>',
-    to: [lead.email],
+    // TODO: Change back to [lead.email] after verifying domain in Resend
+    to: ['mcgrathcullin+skinlaser@gmail.com'],
     subject: `Thank you, ${lead.first_name}! Your consultation request is confirmed`,
     html: `
       <div style="font-family: 'DM Sans', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #F6F3EE;">

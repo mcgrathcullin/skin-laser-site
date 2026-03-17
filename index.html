@@ -1090,6 +1090,23 @@ nav.scrolled .nav-brand img { height: 48px; }
   color: rgba(246,243,238,0.6); line-height: 1.7; display: block;
 }
 .contact-block a:hover { color: var(--accent); }
+.directions-btn {
+  display: inline-flex !important; align-items: center; gap: 0.4rem;
+  margin-top: 0.75rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.7rem !important; font-weight: 600 !important;
+  letter-spacing: 0.06em;
+  color: var(--bg) !important;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  transition: all .3s;
+}
+.directions-btn:hover {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: var(--white) !important;
+}
 
 .hours h3 {
   font-size: 0.62rem; font-weight: 600;
@@ -1929,6 +1946,7 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
         <p>Optima Signature Building</p>
         <p>220 E Illinois St, Suite 703</p>
         <p>Chicago, IL 60611</p>
+        <a href="https://maps.apple.com/?q=220+E+Illinois+St+Suite+703+Chicago+IL+60611" class="directions-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Get Directions</a>
       </div>
       <div class="contact-block">
         <div class="contact-block-label">Contact</div>
@@ -1938,12 +1956,12 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
     </div>
     <div class="hours reveal d2">
       <h3>Hours</h3>
-      <div class="hours-row"><span class="day">Monday</span><span class="time">10 am - 7 pm</span></div>
-      <div class="hours-row"><span class="day">Tuesday</span><span class="time">10 am - 7 pm</span></div>
-      <div class="hours-row"><span class="day">Wednesday</span><span class="time">10 am - 7 pm</span></div>
-      <div class="hours-row"><span class="day">Thursday</span><span class="time">10 am - 7 pm</span></div>
-      <div class="hours-row"><span class="day">Friday</span><span class="time">10 am - 5 pm</span></div>
-      <div class="hours-row"><span class="day">Saturday</span><span class="time">By appt</span></div>
+      <div class="hours-row"><span class="day">Monday</span><span class="time">Closed</span></div>
+      <div class="hours-row"><span class="day">Tuesday</span><span class="time">10:00 am - 7:00 pm</span></div>
+      <div class="hours-row"><span class="day">Wednesday</span><span class="time">10:00 am - 7:00 pm</span></div>
+      <div class="hours-row"><span class="day">Thursday</span><span class="time">10:00 am - 7:00 pm</span></div>
+      <div class="hours-row"><span class="day">Friday</span><span class="time">10:00 am - 5:00 pm</span></div>
+      <div class="hours-row"><span class="day">Saturday</span><span class="time">10:00 am - 3:00 pm</span></div>
       <div class="hours-row"><span class="day">Sunday</span><span class="time">Closed</span></div>
     </div>
   </div>

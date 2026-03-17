@@ -123,6 +123,7 @@ nav.scrolled .nav-brand img { height: 48px; }
 }
 .nav-book:hover { background: var(--accent) !important; color: var(--white) !important; }
 
+.nav-quick-actions { display: none; }
 .burger { display: none; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; background: none; }
 .burger span { width: 22px; height: 1.5px; background: var(--ink); display: block; }
 
@@ -1224,6 +1225,8 @@ footer {
   letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--ink-soft); margin-bottom: 0.5rem;
 }
+.required { color: var(--accent); font-weight: 400;
+}
 .form-input {
   width: 100%; padding: 0.85rem 1rem;
   border: 1px solid var(--bg-deep); background: var(--bg);
@@ -1287,8 +1290,11 @@ footer {
 
 /* Modal nav buttons */
 .modal-nav {
-  padding: 0 2rem 2rem;
+  padding: 1rem 2rem 1.5rem;
   display: flex; gap: 0.75rem; flex-shrink: 0;
+  border-top: 1px solid var(--bg-deep);
+  background: var(--white);
+  position: sticky; bottom: 0;
 }
 .modal-nav .btn { flex: 1; justify-content: center; }
 .btn-back {
@@ -1298,6 +1304,7 @@ footer {
   letter-spacing: 0.14em; text-transform: uppercase;
   cursor: pointer; transition: all .3s;
   display: inline-flex; align-items: center; justify-content: center;
+  flex: 0 0 auto;
 }
 .btn-back:hover { border-color: var(--ink); color: var(--ink); }
 
@@ -1358,6 +1365,33 @@ footer {
   }
   .burger { display: flex; }
   nav.menu-open .nav-links { display: flex !important; }
+  .nav-quick-actions {
+    display: flex !important; gap: 0;
+    margin-top: 1rem; padding: 0;
+    list-style: none;
+    border: 1px solid var(--bg-deep);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .nav-quick-btn {
+    flex: 1;
+    display: flex !important; align-items: center; justify-content: center; gap: 0.4rem;
+    padding: 0.9rem 0.5rem !important;
+    font-size: 0.72rem !important; font-weight: 500 !important;
+    letter-spacing: 0.02em !important;
+    background: var(--white) !important; color: var(--ink-soft) !important;
+    border: none !important; border-radius: 0 !important;
+    border-right: 1px solid var(--bg-deep) !important;
+    transition: all .3s;
+    text-decoration: none !important;
+    white-space: nowrap;
+  }
+  .nav-quick-btn:last-child { border-right: none !important; }
+  .nav-quick-btn svg { flex-shrink: 0; }
+  .nav-quick-btn:hover {
+    background: var(--accent) !important;
+    color: var(--white) !important;
+  }
   .hero-left { padding: 2.5rem 1.75rem 2.5rem; min-height: auto; }
   .hero h1 { font-size: clamp(2.8rem, 11vw, 3.75rem); line-height: 1.05; margin-bottom: 1.75rem; font-weight: 500; }
   .hero-sub { font-size: 0.95rem; margin-bottom: 2.25rem; }
@@ -1462,8 +1496,14 @@ body::after {
     <li><a href="conditions.html">Conditions</a></li>
     <li><a href="https://skin-laser-medspa.myshopify.com/" target="_blank">Skincare</a></li>
     <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
     <li><a href="contact.html">Contact</a></li>
     <li><a href="#" class="nav-book" onclick="openModal(event)">Book Now</a></li>
+    <li class="nav-quick-actions">
+      <a href="tel:3125395818" class="nav-quick-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call</a>
+      <a href="https://maps.google.com/?q=220+E+Illinois+St+Suite+703+Chicago+IL+60611" target="_blank" class="nav-quick-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Directions</a>
+      <a href="mailto:skinlasermedspa@gmail.com" class="nav-quick-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Email</a>
+    </li>
   </ul>
   <button class="burger" onclick="this.classList.toggle('open'); this.closest('nav').classList.toggle('menu-open')">
     <span></span><span></span><span></span>
@@ -1953,29 +1993,31 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
         <p class="step-subtitle">We'll reach out to schedule your free consultation.</p>
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">First Name</label>
-            <input class="form-input" type="text" placeholder="Jane" id="fname" />
+            <label class="form-label">First Name <span class="required">*</span></label>
+            <input class="form-input" type="text" placeholder="Jane" id="fname" required />
           </div>
           <div class="form-group">
-            <label class="form-label">Last Name</label>
-            <input class="form-input" type="text" placeholder="Smith" id="lname" />
+            <label class="form-label">Last Name <span class="required">*</span></label>
+            <input class="form-input" type="text" placeholder="Smith" id="lname" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Email <span class="required">*</span></label>
+            <input class="form-input" type="email" placeholder="jane@email.com" id="email" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone <span class="required">*</span></label>
+            <input class="form-input" type="tel" placeholder="(312) 555-0123" id="phone" required />
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Email</label>
-          <input class="form-input" type="email" placeholder="jane@email.com" id="email" />
+          <label class="form-label">How can we help you? <span class="required">*</span></label>
+          <textarea class="form-input" rows="2" placeholder="Any goals, concerns, or questions..." id="helpMsg" required></textarea>
         </div>
         <div class="form-group">
-          <label class="form-label">Phone</label>
-          <input class="form-input" type="tel" placeholder="(312) 555-0123" id="phone" />
-        </div>
-        <div class="form-group">
-          <label class="form-label">How can we help you?</label>
-          <textarea class="form-input" rows="2" placeholder="Any goals, concerns, or questions..." id="helpMsg"></textarea>
-        </div>
-        <div class="form-group">
-          <label class="form-label">How did you hear about us?</label>
-          <input class="form-input" type="text" placeholder="Google, friend, Instagram..." id="hearAbout" />
+          <label class="form-label">How did you hear about us? <span class="required">*</span></label>
+          <input class="form-input" type="text" placeholder="Google, friend, Instagram..." id="hearAbout" required />
         </div>
       </div>
 
@@ -2116,6 +2158,10 @@ function updateStep() {
     next.textContent = 'Done';
     next.onclick = closeModal;
     populateConfirmation();
+  } else if (currentStep === 1) {
+    // Form step - show submit
+    next.innerHTML = 'Submit &#8594;';
+    next.onclick = nextStep;
   } else {
     next.innerHTML = 'Continue &#8594;';
     next.onclick = nextStep;

@@ -2114,6 +2114,13 @@ let currentStep = 0;
 const totalSteps = 3;
 let selectedTx = '', selectedDate = '', selectedTimeVal = '';
 
+// Auto-open modal if ?book is in URL
+if (window.location.search.includes('book') || window.location.hash === '#book') {
+  window.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() { openModal(); }, 500);
+  });
+}
+
 function openModal(e) {
   if (e) e.preventDefault();
   currentStep = 0;

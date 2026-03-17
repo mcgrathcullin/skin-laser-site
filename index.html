@@ -2176,6 +2176,45 @@ function updateStep() {
 }
 
 function nextStep() {
+  // If on form step, submit the lead before advancing
+  if (currentStep === 1) {
+    const fname = document.getElementById('fname').value.trim();
+    const lname = document.getElementById('lname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const helpMsg = document.getElementById('helpMsg').value.trim();
+    const hearAbout = document.getElementById('hearAbout').value.trim();
+
+    if (!fname || !lname || !email || !phone || !helpMsg || !hearAbout) {
+      alert('Please fill out all fields.');
+      return;
+    }
+
+    const btn = document.getElementById('btnNext');
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
+
+    fetch('/api/leads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        first_name: fname, last_name: lname,
+        email: email, phone: phone,
+        service: selectedTx, message: helpMsg,
+        hear_about: hearAbout
+      })
+    }).then(function(r) { return r.json(); })
+    .then(function() {
+      btn.disabled = false;
+      currentStep++;
+      updateStep();
+    }).catch(function() {
+      btn.disabled = false;
+      currentStep++;
+      updateStep();
+    });
+    return;
+  }
   if (currentStep < totalSteps - 1) {
     currentStep++;
     updateStep();

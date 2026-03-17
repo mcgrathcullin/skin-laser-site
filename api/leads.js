@@ -97,7 +97,7 @@ async function sendNotificationEmail(lead) {
 
   await sendEmail({
     from: 'Skin Laser & MedSpa <onboarding@resend.dev>',
-    to: ['mcgrathcullin+skinlaser@gmail.com'],
+    to: ['mcgrathcullin@gmail.com'],
     subject: `New Lead: ${fullName} - ${lead.service || 'General Inquiry'}`,
     html: `
       <div style="font-family: 'DM Sans', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #F6F3EE;">
@@ -151,7 +151,7 @@ async function sendThankYouEmail(lead) {
   await sendEmail({
     from: 'Skin Laser & MedSpa <onboarding@resend.dev>',
     // TODO: Change back to [lead.email] after verifying domain in Resend
-    to: ['mcgrathcullin+skinlaser@gmail.com'],
+    to: ['mcgrathcullin@gmail.com'],
     subject: `Thank you, ${lead.first_name}! Your consultation request is confirmed`,
     html: `
       <div style="font-family: 'DM Sans', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #F6F3EE;">

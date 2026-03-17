@@ -46,10 +46,10 @@
   --skin-peach: #D4B8A4;
   --skin-sand: #E2CDBF;
   --skin-sage: #9CA08A;
-  --teal: #3AAFA9;
-  --teal-deep: #2B8A85;
-  --teal-soft: rgba(58, 175, 169, 0.08);
-  --navy: #1E2D3D;
+  --accent: #9E7C5E;
+  --accent-deep: #846549;
+  --accent-soft: rgba(158, 124, 94, 0.08);
+  --navy: #2C2825;
 
   --serif: 'Playfair Display', Georgia, serif;
   --sans: 'DM Sans', system-ui, sans-serif;
@@ -60,7 +60,7 @@ html { scroll-behavior: smooth; }
 
 /* Botanical leaf SVG as reusable background */
 :root {
-  --leaf-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300' opacity='0.035'%3E%3Cpath d='M100 280c0 0-5-40-5-80s15-70 15-110c0-30-10-60-10-80 10 25 30 55 30 90s-15 75-15 110c0 30 5 50 5 70' fill='none' stroke='%23A89080' stroke-width='1.5'/%3E%3Cpath d='M100 90c-20-10-45-5-55 15 15-5 35-5 55 5' fill='%23A89080' opacity='0.4'/%3E%3Cpath d='M105 130c20-15 50-15 60 5-15-2-40 0-60 15' fill='%23A89080' opacity='0.35'/%3E%3Cpath d='M98 170c-25-5-50 5-55 25 18-8 38-10 55-5' fill='%23A89080' opacity='0.3'/%3E%3Cpath d='M103 60c15-12 40-15 50 0-12 0-35 2-50 15' fill='%23A89080' opacity='0.35'/%3E%3Cpath d='M97 210c-20-8-45-2-52 18 15-6 35-8 52-2' fill='%23A89080' opacity='0.25'/%3E%3C/svg%3E");
+  --leaf-img: url('skin-laser-assets/leaf-decoration.png');
 }
 
 body {
@@ -120,7 +120,7 @@ nav.scrolled .nav-brand img { height: 48px; }
   letter-spacing: 0.12em !important; text-transform: uppercase;
   transition: all .35s var(--ease);
 }
-.nav-book:hover { background: var(--teal) !important; color: var(--white) !important; }
+.nav-book:hover { background: var(--accent) !important; color: var(--white) !important; }
 
 .burger { display: none; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; background: none; }
 .burger span { width: 22px; height: 1.5px; background: var(--ink); display: block; }
@@ -129,12 +129,12 @@ nav.scrolled .nav-brand img { height: 48px; }
 .hero {
   min-height: 100vh;
   position: relative;
-  padding: 96px 1.5rem 1.5rem;
+  padding: 108px 1.5rem 1.5rem;
   background: var(--bg);
 }
 .hero-frame {
   position: relative;
-  min-height: calc(100vh - 96px - 1.5rem);
+  min-height: calc(100vh - 108px - 1.5rem);
   border-radius: 16px;
   overflow: hidden;
 }
@@ -145,14 +145,14 @@ nav.scrolled .nav-brand img { height: 48px; }
 @keyframes kenBurns { from { transform: scale(1); } to { transform: scale(1.08); } }
 .hero-overlay {
   position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(135deg, rgba(30,45,61,0.82) 0%, rgba(30,45,61,0.5) 40%, rgba(30,45,61,0.3) 100%);
+  background: linear-gradient(135deg, rgba(44,40,37,0.82) 0%, rgba(44,40,37,0.5) 40%, rgba(44,40,37,0.28) 100%);
 }
 
 .hero-left {
   display: flex; flex-direction: column; justify-content: center;
   padding: 3.5rem clamp(2.5rem, 5vw, 5rem) 3.5rem clamp(2.5rem, 6vw, 5.5rem);
   position: relative; z-index: 2; max-width: 860px;
-  min-height: calc(100vh - 96px - 1.5rem);
+  min-height: calc(100vh - 108px - 1.5rem);
 }
 .hero-left::after { display: none; }
 
@@ -196,10 +196,10 @@ nav.scrolled .nav-brand img { height: 48px; }
   letter-spacing: 0.14em; text-transform: uppercase;
   border: none; cursor: pointer; transition: all .4s var(--ease);
 }
-.btn-dark { background: var(--teal); color: var(--white); }
+.btn-dark { background: var(--accent); color: var(--white); }
 .btn-dark:hover {
-  background: var(--teal-deep); transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(58,175,169,0.3);
+  background: var(--accent-deep); transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(158,124,94,0.3);
 }
 .btn-ghost {
   background: none; color: var(--ink-soft);
@@ -208,8 +208,8 @@ nav.scrolled .nav-brand img { height: 48px; }
 .btn-ghost:hover { border-color: var(--skin-blush); color: var(--skin-taupe); }
 
 /* Hero button overrides for dark bg */
-.hero .btn-dark { background: var(--teal); color: var(--white); }
-.hero .btn-dark:hover { background: var(--teal-deep); }
+.hero .btn-dark { background: var(--accent); color: var(--white); }
+.hero .btn-dark:hover { background: var(--accent-deep); }
 .hero .btn-ghost { color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.3); }
 .hero .btn-ghost:hover { border-color: var(--skin-blush); color: var(--white); }
 
@@ -316,7 +316,7 @@ nav.scrolled .nav-brand img { height: 48px; }
 .marquee-track span {
   white-space: nowrap; font-size: 0.68rem; font-weight: 400;
   letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--teal);
+  color: var(--accent);
   display: flex; align-items: center; gap: 2.5rem;
 }
 .marquee-track span::after { content: '\2726'; font-size: 0.5rem; opacity: 0.4; color: var(--skin-peach); }
@@ -333,9 +333,9 @@ nav.scrolled .nav-brand img { height: 48px; }
 .philosophy::before {
   content: ''; position: absolute;
   top: 2rem; right: -2rem; width: 200px; height: 300px;
-  background: var(--leaf-svg) no-repeat center;
+  background: var(--leaf-img) no-repeat center;
   background-size: contain; pointer-events: none;
-  opacity: 0.7;
+  opacity: 0.15; z-index: 0;
 }
 
 .phil-text h2 {
@@ -373,11 +373,25 @@ nav.scrolled .nav-brand img { height: 48px; }
   background: var(--navy);
   border-radius: 16px;
   padding: 4rem clamp(2.5rem, 5vw, 5rem);
-  max-width: 100%; margin: 0 auto;
   text-align: center;
+  position: relative; overflow: hidden;
+}
+.testimonial-band-inner::before {
+  content: ''; position: absolute;
+  top: -20px; right: -20px; width: 180px; height: 140px;
+  background: var(--leaf-img) no-repeat center;
+  background-size: contain; pointer-events: none;
+  opacity: 0.06; transform: rotate(30deg);
+}
+.testimonial-band-inner::after {
+  content: ''; position: absolute;
+  bottom: -15px; left: -15px; width: 140px; height: 110px;
+  background: var(--leaf-img) no-repeat center;
+  background-size: contain; pointer-events: none;
+  opacity: 0.05; transform: scaleX(-1) rotate(20deg);
 }
 .testimonial-band .label {
-  color: var(--teal);
+  color: var(--accent);
   font-size: 1rem; font-weight: 600; letter-spacing: 0.22em;
   margin-bottom: 1.5rem; display: block;
 }
@@ -403,7 +417,7 @@ nav.scrolled .nav-brand img { height: 48px; }
 .testimonial-band-author {
   font-size: 0.68rem; font-weight: 500;
   letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--teal);
+  color: var(--accent);
 }
 
 .phil-images {
@@ -418,23 +432,32 @@ nav.scrolled .nav-brand img { height: 48px; }
   border-left: 1px solid var(--skin-sand);
   pointer-events: none;
 }
-.phil-img-main { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.phil-img-main { width: 75%; aspect-ratio: 4/3; object-fit: cover; }
 .phil-img-secondary {
-  width: 70%; aspect-ratio: 1; object-fit: cover;
-  margin-left: auto; margin-top: -4rem;
+  width: 52%; aspect-ratio: 1; object-fit: cover;
+  margin-left: auto; margin-top: -3rem;
   position: relative; z-index: 2;
   box-shadow: 0 20px 60px rgba(0,0,0,0.08);
 }
 
 /* ─── TREATMENTS (featured + grid) ─── */
 .treatments {
-  padding: 6rem 0 8rem; background: var(--white);
+  padding: 6rem 0 8rem;
+  background: url('skin-laser-assets/leaf-pattern-bg.png') repeat center;
+  background-size: 600px;
   position: relative;
+}
+.treatments > * { position: relative; z-index: 1; }
+.treatments > * { position: relative; z-index: 1; }
+.treatments::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(253,252,250,0.45);
+  pointer-events: none; z-index: 0;
 }
 .treatments::before {
   content: ''; position: absolute; top: 0; left: 10%; right: 10%;
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--teal), rgba(58,175,169,0.3), transparent);
+  background: linear-gradient(to right, transparent, var(--accent), rgba(158,124,94,0.3), transparent);
 }
 
 .treatments-head {
@@ -480,7 +503,7 @@ nav.scrolled .nav-brand img { height: 48px; }
 }
 .tx-trio > .tx-featured:first-child::before {
   content: ''; position: absolute; inset: 0;
-  border: 2px solid var(--teal);
+  border: 2px solid var(--accent);
   pointer-events: none; z-index: 1;
 }
 .tx-featured-img {
@@ -495,7 +518,7 @@ nav.scrolled .nav-brand img { height: 48px; }
   display: inline-block; width: fit-content;
   font-size: 0.58rem; font-weight: 600;
   letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--white); background: var(--teal);
+  color: var(--white); background: var(--accent);
   padding: 0.4rem 0.85rem; margin-bottom: 1.2rem;
 }
 .tx-featured-content h3 {
@@ -532,7 +555,7 @@ nav.scrolled .nav-brand img { height: 48px; }
 .tx-link {
   font-size: 0.68rem; font-weight: 600;
   letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--teal);
+  color: var(--accent);
   display: inline-flex; align-items: center; gap: 0.5rem;
 }
 .tx-link::after { content: '\2192'; transition: transform .3s ease; }
@@ -541,8 +564,12 @@ nav.scrolled .nav-brand img { height: 48px; }
 
 /* Leaf divider */
 .leaf-divider {
-  text-align: center; padding: 2rem 0;
-  opacity: 0.6;
+  text-align: center; padding: 1.5rem 0;
+}
+.leaf-divider img {
+  width: 80px; height: auto;
+  opacity: 0.3;
+  display: inline-block;
 }
 
 /* Organic divider */
@@ -565,9 +592,10 @@ nav.scrolled .nav-brand img { height: 48px; }
 .conditions::after {
   content: ''; position: absolute;
   bottom: 0; left: -1rem; width: 180px; height: 270px;
-  background: var(--leaf-svg) no-repeat center;
+  background: var(--leaf-img) no-repeat center;
   background-size: contain; pointer-events: none;
-  opacity: 0.5; transform: scaleX(-1) rotate(15deg);
+  opacity: 0.12; z-index: 0;
+  transform: scaleX(-1) rotate(15deg);
 }
 
 .cond-top {
@@ -603,6 +631,17 @@ nav.scrolled .nav-brand img { height: 48px; }
   position: relative; overflow: hidden;
   border: none;
 }
+.cond-card::after {
+  content: ''; position: absolute; inset: 0;
+  background: url('skin-laser-assets/watercolor-texture.png') center;
+  background-size: cover;
+  opacity: 0.4; pointer-events: none;
+}
+.cond-card .cond-card-leaf {
+  position: absolute; top: -8px; right: -8px;
+  width: 60px; height: auto; opacity: 0.12;
+  transform: rotate(30deg); pointer-events: none;
+}
 .cond-card::before {
   content: ''; position: absolute;
   top: 0; left: 0; width: 3px; height: 100%;
@@ -632,7 +671,7 @@ nav.scrolled .nav-brand img { height: 48px; }
 
 .cond-card h3 {
   font-family: var(--serif);
-  font-size: 1.15rem; font-weight: 400;
+  font-size: 1.2rem; font-weight: 600;
   color: var(--ink); margin-bottom: 0.6rem;
   line-height: 1.3;
 }
@@ -649,7 +688,35 @@ nav.scrolled .nav-brand img { height: 48px; }
   transition: all .3s var(--ease);
 }
 .cond-card-arrow::after { content: '\2192'; transition: transform .3s; }
-.cond-card:hover .cond-card-arrow { color: var(--teal); }
+.cond-card:hover .cond-card-arrow { color: var(--accent); }
+
+/* See All card */
+.cond-card--see-all {
+  background: linear-gradient(135deg, var(--ink) 0%, var(--navy) 100%);
+  border: none; position: relative; overflow: hidden;
+}
+.cond-card--see-all::before { display: none; }
+.cond-card--see-all::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.06) 45%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.06) 55%, transparent 60%);
+  background-size: 200% 100%;
+  animation: shimmer 8s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.cond-card--see-all h3 {
+  color: var(--white);
+  font-size: 1.3rem;
+}
+.cond-card--see-all p { color: rgba(255,255,255,0.5); }
+.cond-card--see-all .cond-card-arrow { color: var(--skin-peach); }
+.cond-card--see-all:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+}
+.cond-card--see-all:hover .cond-card-arrow { color: var(--white); }
 .cond-card:hover .cond-card-arrow::after { transform: translateX(4px); }
 
 /* ─── CTA BAND ─── */
@@ -668,7 +735,7 @@ nav.scrolled .nav-brand img { height: 48px; }
 }
 .cta-band-bg::after {
   content: ''; position: absolute; inset: 0;
-  background: rgba(30,45,61,0.8);
+  background: rgba(44,40,37,0.8);
 }
 .cta-band-content {
   position: relative; z-index: 1;
@@ -782,9 +849,10 @@ nav.scrolled .nav-brand img { height: 48px; }
 .specials::after {
   content: ''; position: absolute;
   top: 2rem; right: 0; width: 160px; height: 240px;
-  background: var(--leaf-svg) no-repeat center;
+  background: var(--leaf-img) no-repeat center;
   background-size: contain; pointer-events: none;
-  opacity: 0.4; transform: rotate(20deg);
+  opacity: 0.12; z-index: 0;
+  transform: rotate(20deg);
 }
 
 .spec-top {
@@ -805,52 +873,73 @@ nav.scrolled .nav-brand img { height: 48px; }
 .spec-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .spec-card {
   background: var(--white);
-  padding: 2rem 1.8rem;
+  padding: 2.2rem 2rem;
   transition: all .4s var(--ease);
   position: relative; overflow: hidden;
   display: flex; flex-direction: column;
-  box-shadow: 0 1px 8px rgba(0,0,0,0.03);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  border: 1px solid var(--bg-deep);
 }
 .spec-card::before {
   content: ''; position: absolute;
-  left: 0; top: 0; bottom: 0; width: 3px;
-  background: linear-gradient(to bottom, var(--teal), var(--teal-deep));
-  transform: scaleY(0); transition: transform .4s var(--ease);
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(to right, var(--skin-taupe), var(--skin-peach));
 }
-.spec-card:hover::before { transform: scaleY(1); }
 .spec-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 36px rgba(0,0,0,0.06);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  border-color: var(--skin-blush);
+}
+.spec-card--featured {
+  border-color: var(--accent);
+}
+.spec-card--featured::before {
+  background: linear-gradient(to right, var(--accent), var(--accent-deep));
+  height: 4px;
 }
 
 .spec-card h3 {
   font-family: var(--serif);
-  font-size: 1.1rem; font-weight: 400; margin-bottom: 0.5rem;
+  font-size: 1.2rem; font-weight: 500; margin-bottom: 0.6rem;
 }
 .spec-card p {
-  font-size: 0.8rem; font-weight: 300;
-  color: var(--ink-muted); line-height: 1.6; margin-bottom: 1.2rem;
+  font-size: 0.82rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.65; margin-bottom: 1.5rem;
 }
 .spec-tag {
   display: inline-block; width: fit-content;
   font-size: 0.56rem; font-weight: 600;
   letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--skin-deep); padding: 0.25rem 0.6rem;
-  background: rgba(139,115,98,0.08); margin-bottom: 0.8rem;
+  color: var(--white); padding: 0.3rem 0.7rem;
+  background: var(--accent); margin-bottom: 1rem;
+}
+.spec-pricing {
+  display: flex; align-items: baseline; gap: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+.spec-price {
+  font-family: var(--serif);
+  font-size: 1.6rem; font-weight: 500;
+  color: var(--ink);
+}
+.spec-original {
+  font-size: 0.82rem; font-weight: 400;
+  color: var(--ink-muted);
+  text-decoration: line-through;
 }
 .spec-book {
   display: inline-flex; align-items: center; gap: 0.4rem;
-  font-size: 0.68rem; font-weight: 600;
+  font-size: 0.7rem; font-weight: 600;
   letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--ink-soft); transition: color .3s;
+  color: var(--accent); transition: color .3s;
   margin-top: auto;
 }
-.spec-book:hover { color: var(--teal); }
+.spec-book:hover { color: var(--accent-deep); }
 .spec-book::after { content: '\2192'; transition: transform .3s; }
 .spec-book:hover::after { transform: translateX(3px); }
 
@@ -863,9 +952,10 @@ nav.scrolled .nav-brand img { height: 48px; }
 .about::before {
   content: ''; position: absolute;
   top: 4rem; left: -3rem; width: 220px; height: 330px;
-  background: var(--leaf-svg) no-repeat center;
+  background: var(--leaf-img) no-repeat center;
   background-size: contain; pointer-events: none;
-  opacity: 0.5; transform: rotate(-10deg);
+  opacity: 0.12; z-index: 0;
+  transform: rotate(-10deg);
 }
 
 .about-grid {
@@ -911,7 +1001,7 @@ nav.scrolled .nav-brand img { height: 48px; }
   font-size: 0.62rem; font-weight: 600;
   letter-spacing: 0.12em; text-transform: uppercase;
   padding: 0.5rem 0.9rem;
-  border: 1px solid rgba(58,175,169,0.25); color: var(--teal-deep);
+  border: 1px solid rgba(158,124,94,0.25); color: var(--accent-deep);
 }
 
 /* ─── TEAM ─── */
@@ -962,7 +1052,7 @@ nav.scrolled .nav-brand img { height: 48px; }
   font-size: 0.58rem; font-weight: 600;
   letter-spacing: 0.1em; text-transform: uppercase;
   padding: 0.4rem 0.7rem;
-  border: 1px solid rgba(58,175,169,0.25); color: var(--teal-deep);
+  border: 1px solid rgba(158,124,94,0.25); color: var(--accent-deep);
 }
 
 /* ─── CONTACT ─── */
@@ -991,18 +1081,18 @@ nav.scrolled .nav-brand img { height: 48px; }
 .contact-block-label {
   font-size: 0.62rem; font-weight: 600;
   letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--teal); margin-bottom: 0.6rem;
+  color: var(--accent); margin-bottom: 0.6rem;
 }
 .contact-block p, .contact-block a {
   font-size: 0.88rem; font-weight: 300;
   color: rgba(246,243,238,0.6); line-height: 1.7; display: block;
 }
-.contact-block a:hover { color: var(--teal); }
+.contact-block a:hover { color: var(--accent); }
 
 .hours h3 {
   font-size: 0.62rem; font-weight: 600;
   letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--teal); margin-bottom: 1rem;
+  color: var(--accent); margin-bottom: 1rem;
 }
 .hours-row {
   display: flex; justify-content: space-between;
@@ -1245,8 +1335,28 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .nav-links { display: none; }
+  .nav-links {
+    display: none;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--bg);
+    flex-direction: column; padding: 1.5rem 2rem 2rem;
+    gap: 0.2rem; box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+  }
+  .nav-links li { list-style: none; }
+  .nav-links a {
+    display: block; padding: 0.75rem 0;
+    font-size: 0.85rem !important; color: var(--ink-soft) !important;
+    border-bottom: 1px solid var(--bg-deep);
+    letter-spacing: 0.04em !important;
+  }
+  .nav-links .nav-book {
+    margin-top: 0.75rem; text-align: center;
+    border-bottom: none; padding: 0.85rem 1.5rem !important;
+    background: var(--accent) !important; color: var(--white) !important;
+    display: block;
+  }
   .burger { display: flex; }
+  nav.menu-open .nav-links { display: flex !important; }
   .hero-left { padding: 2.5rem 1.75rem 2.5rem; min-height: auto; }
   .hero h1 { font-size: clamp(2.8rem, 11vw, 3.75rem); line-height: 1.05; margin-bottom: 1.75rem; font-weight: 500; }
   .hero-sub { font-size: 0.95rem; margin-bottom: 2.25rem; }
@@ -1286,6 +1396,11 @@ footer {
   .conditions { padding: 3rem 1.75rem; }
   .specials { padding: 5rem 1.75rem; }
   .about { padding: 5rem 1.75rem; }
+  .testimonial-band { padding: 0 1rem; }
+  .testimonial-band-inner { padding: 2.5rem 1.5rem; border-radius: 12px; }
+  .testimonial-band-quote { font-size: 0.92rem; }
+  .testimonial-band-quote::before,
+  .testimonial-band-quote::after { font-size: 2.5rem; }
   .team-row { grid-template-columns: 1fr; padding: 0 1.75rem; margin-top: 3rem; }
   .team-photo-wrap img { height: 300px; object-fit: cover; }
   .team-card:first-child .team-photo-wrap img { object-fit: contain; height: 300px; }
@@ -1321,8 +1436,8 @@ footer {
   .tx-sub-row { grid-template-columns: 1fr; }
   .tx-secondary .tx-featured-img { height: 180px; min-height: 180px; max-height: 200px; }
   .tx-secondary .tx-featured-content { padding: 1.5rem; }
-  .spec-grid { grid-template-columns: 1fr 1fr; }
-  .spec-card { padding: 1.5rem 1.3rem; }
+  .spec-grid { grid-template-columns: 1fr; }
+  .spec-card { padding: 1.8rem 1.5rem; }
   .form-row { grid-template-columns: 1fr; }
 }
 
@@ -1349,7 +1464,7 @@ body::after {
     <li><a href="contact.html">Contact</a></li>
     <li><a href="#" class="nav-book" onclick="openModal(event)">Book Now</a></li>
   </ul>
-  <button class="burger" onclick="this.classList.toggle('open')">
+  <button class="burger" onclick="this.classList.toggle('open'); this.closest('nav').classList.toggle('menu-open')">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -1358,10 +1473,10 @@ body::after {
 <section class="hero">
   <div class="hero-frame">
   <div class="hero-slides">
-    <div class="hero-slide active"><img src="skin-laser-assets/interior.jpg" alt="" /></div>
+    <div class="hero-slide active"><img src="skin-laser-assets/hero-treatment.png" alt="" /></div>
+    <div class="hero-slide"><img src="skin-laser-assets/interior.jpg" alt="" /></div>
     <div class="hero-slide"><img src="skin-laser-assets/interior2.jpeg" alt="" /></div>
     <div class="hero-slide"><img src="skin-laser-assets/pexels-spa.jpeg" alt="" /></div>
-    <div class="hero-slide"><img src="skin-laser-assets/model-treatment.jpg" alt="" /></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-left">
@@ -1423,13 +1538,13 @@ body::after {
 <div class="marquee-wrap">
   <div class="marquee-track">
     <span>Boutique Private Experience</span>
-    <span>Board-Certified Technician</span>
+    <span>Licensed Cosmetologist &amp; Certified Medical Laser Tech</span>
     <span>Personalized Treatment Plans</span>
     <span>State-of-the-Art Technology</span>
     <span>Gold Standard Results</span>
     <span>All Skin Types Welcome</span>
     <span>Boutique Private Experience</span>
-    <span>Board-Certified Technician</span>
+    <span>Licensed Cosmetologist &amp; Certified Medical Laser Tech</span>
     <span>Personalized Treatment Plans</span>
     <span>State-of-the-Art Technology</span>
     <span>Gold Standard Results</span>
@@ -1454,24 +1569,19 @@ body::after {
         <div class="phil-stat-label">Clients Treated</div>
       </div>
       <div class="phil-stat reveal d3">
-        <div class="phil-stat-num">4.9</div>
+        <div class="phil-stat-num">5.0</div>
         <div class="phil-stat-label">Star Rating</div>
       </div>
     </div>
   </div>
   <div class="phil-images reveal d2">
-    <img class="phil-img-main" src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/2021-04-20+%282%29-1920w.jpg" alt="Treatment room" />
+    <img class="phil-img-main" src="skin-laser-assets/lobby.jpg" alt="Skin Laser MedSpa lobby" />
     <img class="phil-img-secondary" src="https://lirp.cdn-website.com/md/pexels/dms3rep/multi/opt/pexels-photo-5069612-1920w.jpeg" alt="Facial treatment" />
   </div>
 </section>
 
 <div class="leaf-divider" aria-hidden="true">
-  <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 58c0-15-3-25-3-38S22 2 22 2s5 8 5 20-8 22-8 36" stroke="#D9C4B5" stroke-width="1" fill="none"/>
-    <path d="M20 18c-8-4-16-1-18 6 6-3 12-3 18 1" fill="#D9C4B5" opacity="0.4"/>
-    <path d="M21 30c8-5 17-3 19 5-6-2-13-1-19 4" fill="#D9C4B5" opacity="0.35"/>
-    <path d="M19 42c-7-3-15 0-17 8 6-3 12-3 17 0" fill="#D9C4B5" opacity="0.3"/>
-  </svg>
+  <img src="skin-laser-assets/leaf-decoration.png" alt="" />
 </div>
 
 <!-- TESTIMONIAL BAND -->
@@ -1496,6 +1606,7 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
   </div>
   <div class="cond-grid reveal d1">
     <a href="conditions/acne-scarring.html" class="cond-card cond-card--1">
+      <img class="cond-card-leaf" src="skin-laser-assets/leaf-decoration.png" alt="" />
       <div>
         <h3>Acne &amp; Acne Scarring</h3>
         <p>Reduce active breakouts and smooth scarring with targeted laser treatments</p>
@@ -1503,6 +1614,7 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
       <span class="cond-card-arrow">Learn More</span>
     </a>
     <a href="conditions/excess-hair.html" class="cond-card cond-card--2">
+      <img class="cond-card-leaf" src="skin-laser-assets/leaf-decoration.png" alt="" />
       <div>
         <h3>Unwanted Hair</h3>
         <p>Medical-grade laser removal for all skin tones with lasting results</p>
@@ -1510,6 +1622,7 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
       <span class="cond-card-arrow">Learn More</span>
     </a>
     <a href="conditions/fine-lines-wrinkles.html" class="cond-card cond-card--3">
+      <img class="cond-card-leaf" src="skin-laser-assets/leaf-decoration.png" alt="" />
       <div>
         <h3>Fine Lines &amp; Wrinkles</h3>
         <p>Stimulate your skin's own collagen for naturally smoother, firmer skin</p>
@@ -1517,35 +1630,34 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
       <span class="cond-card-arrow">Learn More</span>
     </a>
     <a href="conditions/hyperpigmentation.html" class="cond-card cond-card--4">
+      <img class="cond-card-leaf" src="skin-laser-assets/leaf-decoration.png" alt="" />
       <div>
         <h3>Hyperpigmentation &amp; Sun Damage</h3>
         <p>Even out dark spots and melasma with precision laser treatments</p>
       </div>
       <span class="cond-card-arrow">Learn More</span>
     </a>
-    <a href="conditions/rosacea-spider-veins.html" class="cond-card cond-card--5">
-      <div>
-        <h3>Rosacea &amp; Spider Veins</h3>
-        <p>Calm redness and reduce visible veins for a more even, comfortable tone</p>
-      </div>
-      <span class="cond-card-arrow">Learn More</span>
-    </a>
-    <a href="conditions/large-pores-texture.html" class="cond-card cond-card--6">
-      <div>
-        <h3>Large Pores &amp; Texture</h3>
-        <p>Refine texture and minimize pores for a smoother, more polished look</p>
-      </div>
-      <span class="cond-card-arrow">Learn More</span>
-    </a>
-    <a href="conditions/scars-tattoo-removal.html" class="cond-card cond-card--7">
+    <a href="conditions/scars-tattoo-removal.html" class="cond-card cond-card--5">
+      <img class="cond-card-leaf" src="skin-laser-assets/leaf-decoration.png" alt="" />
       <div>
         <h3>Scars &amp; Tattoo Removal</h3>
         <p>Break down ink and remodel scar tissue for clearer skin, session by session</p>
       </div>
       <span class="cond-card-arrow">Learn More</span>
     </a>
+    <a href="conditions.html" class="cond-card cond-card--see-all">
+      <div>
+        <h3>See All Conditions</h3>
+        <p>Explore every condition we treat and find the right solution for you</p>
+      </div>
+      <span class="cond-card-arrow">View All &#8594;</span>
+    </a>
   </div>
 </section>
+
+<div class="leaf-divider" aria-hidden="true">
+  <img src="skin-laser-assets/leaf-decoration.png" alt="" />
+</div>
 
 <!-- TREATMENTS -->
 <section class="treatments" id="treatments">
@@ -1599,7 +1711,7 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
     <span class="label" style="color: var(--gold-light);">Ready to Start?</span>
     <h2>Your first consultation is <i>completely free</i></h2>
     <p>No pressure, no obligation. Meet Kimberly, tour the studio, and get a personalized treatment plan built around your goals.</p>
-    <a href="#" class="btn" onclick="openModal(event)" style="background: var(--teal); color: var(--white);">Book Your Free Consultation &#8594;</a>
+    <a href="#" class="btn" onclick="openModal(event)" style="background: var(--accent); color: var(--white);">Book Your Free Consultation &#8594;</a>
   </div>
 </section>
 
@@ -1659,48 +1771,43 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
     </div>
   </div>
   <div class="spec-grid reveal d1">
-    <div class="spec-card">
+    <div class="spec-card spec-card--featured">
       <span class="spec-tag">Best Value</span>
       <h3>Laser Hair Removal Package</h3>
       <p>6 Brazilian Treatments + 4 FREE Underarm Treatments</p>
-      <a href="#" class="spec-book" onclick="openModal(event)">Reserve Now</a>
-    </div>
-    <div class="spec-card">
-      <h3>Half Face Laser Hair Removal</h3>
-      <p>6 treatments for half face area</p>
+      <div class="spec-pricing">
+        <span class="spec-price">$1,200</span>
+        <span class="spec-original">$1,700</span>
+      </div>
       <a href="#" class="spec-book" onclick="openModal(event)">Reserve Now</a>
     </div>
     <div class="spec-card">
       <span class="spec-tag">Includes Kit</span>
       <h3>Acne Scarring Treatment</h3>
       <p>CO2 Laser, 3 Treatments + 3 FREE AnteAGE MD Growth Factor Treatments with take-home products</p>
-      <a href="#" class="spec-book" onclick="openModal(event)">Reserve Now</a>
-    </div>
-    <div class="spec-card">
-      <h3>Microneedling + Growth Factor</h3>
-      <p>Microneedling treatment with free AnteAGE MD Growth Factor + take-home kit</p>
+      <div class="spec-pricing">
+        <span class="spec-price">$3,600</span>
+        <span class="spec-original">$4,050</span>
+      </div>
       <a href="#" class="spec-book" onclick="openModal(event)">Reserve Now</a>
     </div>
     <div class="spec-card">
       <h3>Laser Genesis Facial</h3>
       <p>Single session rejuvenation treatment for radiant, glowing skin</p>
+      <div class="spec-pricing">
+        <span class="spec-price">$299</span>
+        <span class="spec-original">$499</span>
+      </div>
       <a href="#" class="spec-book" onclick="openModal(event)">Reserve Now</a>
     </div>
-    <div class="spec-card">
-      <h3>Laser Hair Removal &ndash; 6 Underarm</h3>
-      <p>6 underarm laser hair removal sessions</p>
-      <a href="#" class="spec-book" onclick="openModal(event)">Reserve Now</a>
-    </div>
+  </div>
+  <div style="text-align: center; margin-top: 2rem;" class="reveal">
+    <a href="#" class="btn btn-ghost">See All Specials &#8594;</a>
   </div>
 </section>
 
 <div class="leaf-divider" aria-hidden="true">
-  <svg width="40" height="60" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 58c0-15-3-25-3-38S22 2 22 2s5 8 5 20-8 22-8 36" stroke="#D9C4B5" stroke-width="1" fill="none"/>
-    <path d="M20 18c-8-4-16-1-18 6 6-3 12-3 18 1" fill="#D9C4B5" opacity="0.4"/>
-    <path d="M21 30c8-5 17-3 19 5-6-2-13-1-19 4" fill="#D9C4B5" opacity="0.35"/>
-    <path d="M19 42c-7-3-15 0-17 8 6-3 12-3 17 0" fill="#D9C4B5" opacity="0.3"/>
-  </svg>
+  <img src="skin-laser-assets/leaf-decoration.png" alt="" />
 </div>
 
 <!-- ABOUT -->

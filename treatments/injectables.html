@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Large Pores & Skin Texture | Skin Laser & MedSpa</title>
-<meta name="description" content="Reduce large pores, oily skin, and rough texture with advanced laser treatments at Skin Laser & MedSpa in Chicago. Safe for all skin tones.">
+<title>Botox & Dermal Fillers | Skin Laser & MedSpa Chicago</title>
+<meta name="description" content="Expert Botox and dermal filler treatments administered by Yvonne, RN. Natural-looking anti-aging results for forehead lines, crow's feet, lip enhancement, and more. Streeterville, Chicago.">
 <link rel="icon" type="image/png" href="../skin-laser-assets/favicon.png">
 <link rel="apple-touch-icon" href="../skin-laser-assets/favicon.png">
+<meta name="theme-color" content="#fff4dc">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
@@ -49,7 +50,7 @@ a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 button { font-family: inherit; cursor: pointer; border: none; }
 
-/* ---- UTILITIES ---- */
+/* ── UTILITIES ── */
 .reveal {
   opacity: 0; transform: translateY(50px);
   transition: opacity 1s var(--ease), transform 1s var(--ease);
@@ -64,7 +65,36 @@ button { font-family: inherit; cursor: pointer; border: none; }
   color: var(--skin-taupe);
 }
 
-/* ---- NAV ---- */
+
+/* ── HERO CROSS-REFS ── */
+.hero-xref {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  justify-content: center; margin-top: 1.5rem;
+}
+.hero-xref-label {
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-muted); align-self: center;
+  margin-right: 0.25rem;
+}
+.hero-xref a {
+  font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--skin-deep);
+  border: 1px solid var(--skin-sand);
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  transition: all 0.3s var(--ease);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.hero-xref a:hover {
+  background: var(--skin-taupe);
+  color: var(--white);
+  border-color: var(--skin-taupe);
+}
+
+/* ── NAV ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   height: 96px;
@@ -101,12 +131,29 @@ nav.scrolled .nav-brand img { height: 48px; }
 .burger { display: none; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; background: none; }
 .burger span { width: 22px; height: 1.5px; background: var(--ink); display: block; }
 
-/* ---- PAGE HERO ---- */
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 1.05rem 2.2rem; font-size: 0.74rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  border: none; cursor: pointer; transition: all .4s var(--ease);
+}
+.btn-dark { background: var(--ink); color: var(--bg); }
+.btn-dark:hover {
+  background: var(--skin-deep); transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(139,115,98,0.3);
+}
+.btn-ghost {
+  background: none; color: var(--ink-soft);
+  border: 1px solid var(--ink-muted);
+}
+.btn-ghost:hover { border-color: var(--skin-blush); color: var(--skin-taupe); }
+
+/* ── PAGE HERO ── */
 .page-hero {
-  min-height: 40vh;
+  height: 40vh; min-height: 320px;
   display: flex; align-items: center; justify-content: center;
-  text-align: center;
-  padding: 96px 2rem 4rem;
+  text-align: center; padding: 96px 2rem 2rem;
   background: var(--bg);
   position: relative;
 }
@@ -115,109 +162,201 @@ nav.scrolled .nav-brand img { height: 48px; }
   height: 1px;
   background: linear-gradient(to right, transparent, var(--skin-sand), var(--skin-peach), var(--skin-sand), transparent);
 }
-.page-hero-content { max-width: 680px; }
-.page-hero .label { display: block; margin-bottom: 1.5rem; }
+.page-hero .label { color: var(--skin-taupe); margin-bottom: 1rem; display: block; }
 .page-hero h1 {
   font-family: var(--serif);
-  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 400; line-height: 1.1;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 .page-hero h1 i { font-style: italic; color: var(--skin-blush); }
 .page-hero p {
-  font-size: 1.05rem; font-weight: 300;
-  line-height: 1.8; color: var(--ink-muted);
-  max-width: 520px; margin: 0 auto;
+  font-size: 1rem; font-weight: 300;
+  color: var(--ink-muted); max-width: 520px;
+  margin: 0 auto; line-height: 1.7;
 }
 
-/* ---- MAIN CONTENT ---- */
-.condition-content {
+/* ── CONTENT LAYOUT ── */
+.content-section {
+  max-width: 1280px; margin: 0 auto;
   padding: 5rem clamp(2rem, 6vw, 6rem);
-  max-width: 860px; margin: 0 auto;
 }
-.condition-content h2 {
+.content-grid {
+  display: grid; grid-template-columns: 1.4fr 1fr;
+  gap: 5rem; align-items: start;
+}
+.content-main h2 {
   font-family: var(--serif);
   font-size: clamp(1.8rem, 3vw, 2.4rem);
   font-weight: 400; line-height: 1.2;
   margin-bottom: 1.5rem;
 }
-.condition-content h2 i { font-style: italic; color: var(--skin-taupe); }
-.condition-content p {
-  font-size: 0.95rem; font-weight: 300;
-  line-height: 1.85; color: var(--ink-muted);
+.content-main h2 i { font-style: italic; color: var(--skin-taupe); }
+.content-main p {
+  font-size: 0.92rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.85;
   margin-bottom: 1.2rem;
 }
-
-/* ---- TREATMENTS SECTION ---- */
-.treatments-section {
-  padding: 5rem clamp(2rem, 6vw, 6rem);
-  background: var(--white);
-}
-.treatments-section-inner {
-  max-width: 1080px; margin: 0 auto;
-}
-.treatments-section .label { display: block; margin-bottom: 1rem; }
-.treatments-section h2 {
+.content-main h3 {
   font-family: var(--serif);
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  font-weight: 400; line-height: 1.2;
+  font-size: 1.3rem; font-weight: 400;
+  margin: 2.5rem 0 1rem;
+  color: var(--ink);
+}
+
+/* Areas list */
+.areas-grid {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin: 1rem 0 1.5rem;
+}
+.area-tag {
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--skin-sand); color: var(--skin-deep);
+  transition: all .3s var(--ease);
+}
+.area-tag:hover { background: var(--skin-sand); }
+
+/* ── SIDEBAR ── */
+.sidebar-card {
+  padding: 2.5rem;
+  background: var(--ink); color: var(--bg);
+  position: sticky; top: 120px;
+}
+.sidebar-card .label {
+  color: var(--skin-peach); margin-bottom: 1.2rem; display: block;
+}
+.sidebar-card h3 {
+  font-family: var(--serif);
+  font-size: 1.5rem; font-weight: 400;
   margin-bottom: 1rem;
 }
-.treatments-section h2 i { font-style: italic; color: var(--skin-blush); }
-.treatments-section > .treatments-section-inner > p {
-  font-size: 0.92rem; font-weight: 300;
-  line-height: 1.8; color: var(--ink-muted);
-  max-width: 600px; margin-bottom: 3rem;
+.sidebar-card p {
+  font-size: 0.85rem; font-weight: 300;
+  color: rgba(246,243,238,0.55); line-height: 1.75;
+  margin-bottom: 1rem;
+}
+.sidebar-card ul { list-style: none; margin-bottom: 1.5rem; }
+.sidebar-card li {
+  font-size: 0.8rem; font-weight: 300;
+  color: rgba(246,243,238,0.5); padding: 0.4rem 0;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.sidebar-card li::before {
+  content: ''; width: 14px; height: 1px;
+  background: var(--skin-peach); flex-shrink: 0;
 }
 
-.tx-cards {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+/* ── PROCESS SECTION ── */
+.process-section {
+  background: var(--white);
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+}
+.process-inner {
+  max-width: 1280px; margin: 0 auto;
+}
+.process-inner > .label { display: block; margin-bottom: 0.75rem; }
+.process-inner > h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 400; line-height: 1.2;
+  margin-bottom: 3.5rem;
+}
+.process-inner > h2 i { font-style: italic; color: var(--skin-blush); }
+
+.process-steps {
+  display: grid; grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
-.tx-card-item {
+.process-step {
+  padding: 2rem 1.8rem;
   background: var(--bg);
-  padding: 2.5rem 2rem;
-  transition: all .5s var(--ease);
-  position: relative; overflow: hidden;
+  position: relative; transition: all .4s var(--ease);
 }
-.tx-card-item::before {
+.process-step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.06);
+}
+.process-step::before {
   content: ''; position: absolute;
   left: 0; top: 0; bottom: 0; width: 3px;
   background: linear-gradient(to bottom, var(--skin-taupe), var(--skin-peach));
   transform: scaleY(0); transition: transform .4s var(--ease);
 }
-.tx-card-item:hover::before { transform: scaleY(1); }
-.tx-card-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 36px rgba(0,0,0,0.06);
+.process-step:hover::before { transform: scaleY(1); }
+
+.step-num {
+  font-family: var(--serif); font-size: 2.4rem;
+  font-weight: 400; color: var(--skin-sand);
+  line-height: 1; margin-bottom: 1rem;
 }
-.tx-card-item h3 {
+.process-step h3 {
   font-family: var(--serif);
-  font-size: 1.3rem; font-weight: 400;
-  margin-bottom: 0.8rem;
+  font-size: 1.1rem; font-weight: 400;
+  margin-bottom: 0.6rem;
 }
-.tx-card-item p {
-  font-size: 0.85rem; font-weight: 300;
-  color: var(--ink-muted); line-height: 1.75;
+.process-step p {
+  font-size: 0.82rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.7;
 }
 
-/* ---- APPROACH ---- */
-.approach {
-  padding: 4rem clamp(2rem, 6vw, 6rem);
-  max-width: 860px; margin: 0 auto;
+/* ── RESULTS SECTION ── */
+.results-section {
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+  max-width: 1280px; margin: 0 auto;
 }
-.approach-box {
-  padding: 2.5rem;
-  border: 1px solid var(--skin-sand);
-  background: var(--white);
+.results-section > .label { display: block; margin-bottom: 0.75rem; }
+.results-section > h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 400; line-height: 1.2;
+  margin-bottom: 1rem;
 }
-.approach-box p {
+.results-section > h2 i { font-style: italic; color: var(--skin-taupe); }
+.results-section > p {
   font-size: 0.92rem; font-weight: 300;
-  line-height: 1.85; color: var(--ink-muted);
-  text-align: center;
+  color: var(--ink-muted); line-height: 1.7;
+  max-width: 600px; margin-bottom: 3rem;
 }
 
-/* ---- CTA BAND ---- */
+.results-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.result-card {
+  background: var(--white);
+  overflow: hidden; transition: all .4s var(--ease);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.result-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.08);
+}
+.result-placeholder {
+  height: 220px;
+  background: linear-gradient(135deg, var(--bg-warm), var(--bg-deep));
+  display: flex; align-items: center; justify-content: center;
+}
+.result-placeholder span {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--skin-taupe);
+}
+.result-card-body {
+  padding: 1.5rem;
+}
+.result-card-body h4 {
+  font-family: var(--serif);
+  font-size: 1rem; font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+.result-card-body p {
+  font-size: 0.78rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.6;
+}
+
+/* ── CTA BAND ── */
 .cta-band {
   position: relative;
   padding: 6rem clamp(2rem, 6vw, 6rem);
@@ -235,7 +374,7 @@ nav.scrolled .nav-brand img { height: 48px; }
   font-family: var(--serif);
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 400; line-height: 1.15;
-  color: var(--white); margin: 0.75rem 0 1.2rem;
+  color: var(--white); margin-bottom: 1.2rem;
 }
 .cta-band-content h2 i { font-style: italic; color: var(--skin-peach); }
 .cta-band-content p {
@@ -243,75 +382,10 @@ nav.scrolled .nav-brand img { height: 48px; }
   color: rgba(255,255,255,0.6); line-height: 1.7;
   margin-bottom: 2rem;
 }
+.cta-band .btn-dark { background: var(--white); color: var(--ink); }
+.cta-band .btn-dark:hover { background: var(--skin-peach); }
 
-.btn {
-  display: inline-flex; align-items: center; gap: 0.6rem;
-  padding: 1.05rem 2.2rem; font-size: 0.74rem; font-weight: 600;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  border: none; cursor: pointer; transition: all .4s var(--ease);
-}
-.btn-light { background: var(--white); color: var(--ink); }
-.btn-light:hover {
-  background: var(--skin-peach); transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(139,115,98,0.3);
-}
-.btn-dark { background: var(--ink); color: var(--bg); }
-.btn-dark:hover {
-  background: var(--skin-deep); transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(139,115,98,0.3);
-}
-.btn-ghost {
-  background: none; color: rgba(255,255,255,0.85);
-  border: 1px solid rgba(255,255,255,0.3);
-}
-.btn-ghost:hover { border-color: var(--skin-blush); color: var(--white); }
-
-/* ---- CONTACT ---- */
-.contact {
-  padding: 6rem clamp(2rem, 6vw, 6rem);
-  background: var(--ink); color: var(--bg);
-}
-.contact-inner {
-  max-width: 1280px; margin: 0 auto;
-  display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 4rem;
-}
-.contact-main h2 {
-  font-family: var(--serif);
-  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
-  font-weight: 400; line-height: 1.2; margin-bottom: 1.5rem;
-}
-.contact-main h2 i { font-style: italic; color: var(--skin-peach); }
-.contact-main p {
-  font-size: 0.9rem; font-weight: 300;
-  color: rgba(246,243,238,0.55); line-height: 1.75;
-  margin-bottom: 2rem; max-width: 360px;
-}
-.contact-block { margin-bottom: 2rem; }
-.contact-block-label {
-  font-size: 0.62rem; font-weight: 600;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--skin-blush); margin-bottom: 0.6rem;
-}
-.contact-block p, .contact-block a {
-  font-size: 0.88rem; font-weight: 300;
-  color: rgba(246,243,238,0.6); line-height: 1.7; display: block;
-}
-.contact-block a:hover { color: var(--skin-peach); }
-.hours h3 {
-  font-size: 0.62rem; font-weight: 600;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--skin-blush); margin-bottom: 1rem;
-}
-.hours-row {
-  display: flex; justify-content: space-between;
-  padding: 0.4rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  font-size: 0.82rem; font-weight: 300;
-}
-.hours-row .day { color: rgba(246,243,238,0.35); }
-.hours-row .time { color: rgba(246,243,238,0.6); }
-
-/* ---- FOOTER ---- */
+/* ── FOOTER ── */
 footer {
   padding: 1.5rem clamp(2rem, 6vw, 6rem);
   background: var(--ink);
@@ -324,7 +398,7 @@ footer {
 .footer-brand img { height: 28px; opacity: 0.4; }
 .footer-copy { font-size: 0.7rem; color: rgba(246,243,238,0.2); }
 
-/* ---- BOOKING MODAL ---- */
+/* ── BOOKING MODAL ── */
 .modal-overlay {
   position: fixed; inset: 0; z-index: 200;
   background: rgba(27,27,27,0.6);
@@ -334,6 +408,7 @@ footer {
   transition: opacity .4s var(--ease);
 }
 .modal-overlay.open { opacity: 1; pointer-events: all; }
+
 .modal {
   background: var(--white);
   width: 90%; max-width: 480px;
@@ -344,6 +419,7 @@ footer {
   display: flex; flex-direction: column;
 }
 .modal-overlay.open .modal { transform: translateY(0) scale(1); }
+
 .modal-top {
   padding: 2rem 2rem 0;
   display: flex; justify-content: space-between; align-items: center;
@@ -357,6 +433,7 @@ footer {
   cursor: pointer; transition: all .3s; flex-shrink: 0;
 }
 .modal-close:hover { border-color: var(--ink); color: var(--ink); }
+
 .modal-progress { display: flex; gap: 0.4rem; align-items: center; }
 .modal-dot {
   width: 8px; height: 8px; border-radius: 50%;
@@ -364,6 +441,7 @@ footer {
 }
 .modal-dot.active { background: var(--skin-taupe); width: 24px; border-radius: 4px; }
 .modal-dot.done { background: var(--skin-blush); }
+
 .modal-steps { flex: 1; overflow: visible; position: relative; }
 .modal-step {
   padding: 1.5rem 2rem 2rem;
@@ -371,10 +449,12 @@ footer {
   animation: stepIn .4s var(--ease);
 }
 .modal-step.active { display: flex; }
+
 @keyframes stepIn {
   from { opacity: 0; transform: translateX(20px); }
   to { opacity: 1; transform: translateX(0); }
 }
+
 .step-title {
   font-family: var(--serif);
   font-size: 1.4rem; font-weight: 400;
@@ -385,6 +465,7 @@ footer {
   font-size: 0.82rem; color: var(--ink-muted);
   margin-bottom: 1.5rem; line-height: 1.5;
 }
+
 .tx-options { display: flex; flex-direction: column; gap: 0.5rem; }
 .tx-option {
   padding: 1rem 1.2rem;
@@ -407,6 +488,7 @@ footer {
   border-color: var(--skin-taupe); background: var(--skin-taupe);
   box-shadow: inset 0 0 0 3px var(--ink);
 }
+
 .form-group { margin-bottom: 1.25rem; }
 .form-label {
   display: block; font-size: 0.68rem; font-weight: 600;
@@ -422,6 +504,7 @@ footer {
 .form-input:focus { border-color: var(--skin-blush); }
 .form-input::placeholder { color: var(--ink-muted); }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
 .modal-nav {
   padding: 0 2rem 2rem;
   display: flex; gap: 0.75rem; flex-shrink: 0;
@@ -436,6 +519,7 @@ footer {
   display: inline-flex; align-items: center; justify-content: center;
 }
 .btn-back:hover { border-color: var(--ink); color: var(--ink); }
+
 .confirm-icon {
   width: 56px; height: 56px; border-radius: 50%;
   background: rgba(168,138,123,0.1); color: var(--skin-deep);
@@ -450,11 +534,14 @@ footer {
 .confirm-detail .cd-label { color: var(--ink-muted); font-weight: 400; }
 .confirm-detail .cd-value { color: var(--ink-soft); font-weight: 500; }
 
-/* ---- RESPONSIVE ---- */
+/* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
-  .contact-inner { grid-template-columns: 1fr 1fr; }
-  .tx-cards { grid-template-columns: 1fr; }
+  .content-grid { grid-template-columns: 1fr; }
+  .sidebar-card { position: static; }
+  .process-steps { grid-template-columns: repeat(2, 1fr); }
+  .results-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-links {
@@ -504,18 +591,18 @@ footer {
   }
   nav.menu-open .nav-links { display: flex !important; }
   .burger { display: flex; }
-  .page-hero { min-height: 35vh; padding: 96px 1.75rem 3rem; }
-  .page-hero h1 { font-size: clamp(2rem, 9vw, 3rem); }
-  .condition-content { padding: 3rem 1.75rem; }
-  .treatments-section { padding: 3rem 1.75rem; }
-  .approach { padding: 2rem 1.75rem; }
+  .page-hero { height: auto; min-height: 280px; padding: 120px 1.75rem 2.5rem; }
+  .page-hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
+  .content-section { padding: 3rem 1.75rem; }
+  .process-section { padding: 4rem 1.75rem; }
+  .process-steps { grid-template-columns: 1fr; }
+  .results-section { padding: 4rem 1.75rem; }
+  .results-grid { grid-template-columns: 1fr; }
   .cta-band { min-height: 300px; padding: 4rem 1.75rem; }
-  .contact { padding: 4rem 1.75rem; }
-  .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
   .form-row { grid-template-columns: 1fr; }
 }
 
-/* ---- GRAIN ---- */
+/* ── GRAIN ── */
 body::after {
   content: ''; position: fixed; inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
@@ -551,86 +638,146 @@ body::after {
 
 <!-- PAGE HERO -->
 <section class="page-hero">
-  <div class="page-hero-content">
-    <span class="label">Condition</span>
-    <h1>Large Pores &<br><i>Skin Texture</i></h1>
-    <p>Enlarged pores and uneven texture can make skin look dull and aged. You deserve a smoother, more refined complexion.</p>
+  <div>
+    <span class="label">Anti-Aging Treatments</span>
+    <h1>Botox & Dermal <i>Fillers</i></h1>
+    <p>Natural-looking results from our skilled nurse injector. Smooth wrinkles, restore volume, and refresh your appearance with minimal downtime.</p>
+    <div class="hero-xref">
+      <span class="hero-xref-label">Treats</span>
+      
+<a href="../conditions/anti-aging.html">Anti-Aging</a>
+    </div>
+
   </div>
 </section>
 
-<!-- CONDITION INFO -->
-<section class="condition-content reveal">
-  <h2>Understanding <i>Large Pores</i></h2>
-  <p>Large pores are a common concern, especially for those with oily or combination skin. When pores become clogged with excess oil, dead skin cells, and debris, they stretch and appear more visible. Blackheads form when this buildup oxidizes, creating dark spots that further emphasize pore size.</p>
-  <p>Genetics, sun damage, and aging all play a role. As we age, the skin loses collagen and elasticity, causing pores to sag and look larger. Oily skin types tend to have naturally larger pores because the sebaceous glands are more active. Environmental factors like humidity and pollution can also contribute to congestion and rough texture.</p>
-  <p>Beyond aesthetics, rough texture and enlarged pores can affect how makeup sits, how skincare absorbs, and how confident you feel in your own skin. Many over-the-counter products promise to shrink pores but fall short. Professional treatments that work beneath the surface are the most effective way to refine pore size and restore smooth, even texture.</p>
-</section>
+<!-- MAIN CONTENT -->
+<section class="content-section">
+  <div class="content-grid">
+    <div class="content-main reveal">
+      <h2>Expert injections for <i>natural results</i></h2>
+      <p>Our injectable treatments are administered by Yvonne, RN, a skilled and experienced nurse injector with a refined eye for facial aesthetics. Whether you are looking to soften fine lines, smooth deeper wrinkles, or restore lost volume, Yvonne takes a personalized approach to every treatment, ensuring results that look natural and feel like you.</p>
+      <p>Botox works by temporarily relaxing the muscles responsible for dynamic wrinkles, the lines that form from repeated facial expressions like squinting, frowning, and raising your eyebrows. The result is smoother, more relaxed skin that still allows for natural expression. Results typically appear within 3 to 5 days and last 3 to 4 months.</p>
+      <p>Dermal fillers take a different approach, using hyaluronic acid-based gels to restore volume, smooth static wrinkles, and enhance facial contours. Fillers are ideal for addressing volume loss in the cheeks, smoothing nasolabial folds (smile lines), enhancing the lips, and softening under-eye hollows. Results are immediate and can last 6 to 18 months depending on the product and treatment area.</p>
 
-<!-- TREATMENTS -->
-<section class="treatments-section">
-  <div class="treatments-section-inner reveal">
-    <span class="label">How We Treat It</span>
-    <h2>Recommended <i>Treatments</i></h2>
-    <p>Our advanced laser and collagen-stimulating treatments target large pores and uneven texture at the source, and are safe and effective for all skin tones.</p>
-
-    <div class="tx-cards">
-      <div class="tx-card-item reveal d1">
-        <h3>Laser Genesis Facial</h3>
-        <p>This gentle, non-invasive laser treatment heats the upper dermis to stimulate collagen production and reduce pore size. Laser Genesis treats oily skin, blackheads, and large pores by gently heating the skin's surface to boost healing and remove dead skin cells. The Pico laser technology is safe and effective for all skin tones, delivering noticeable refinement with no downtime.</p>
+      <h3>Botox treatment areas</h3>
+      <div class="areas-grid">
+        <span class="area-tag">Forehead Lines</span>
+        <span class="area-tag">Crow's Feet</span>
+        <span class="area-tag">Frown Lines (11s)</span>
+        <span class="area-tag">Brow Lift</span>
+        <span class="area-tag">Bunny Lines</span>
+        <span class="area-tag">Lip Flip</span>
+        <span class="area-tag">Chin Dimpling</span>
+        <span class="area-tag">Jawline Slimming</span>
       </div>
-      <div class="tx-card-item reveal d2">
-        <h3>Microneedling</h3>
-        <p>Microneedling creates controlled micro-injuries that trigger the skin's natural healing response, boosting collagen and elastin production. As new, firmer tissue forms, pores tighten and skin texture becomes smoother and more refined. A series of sessions delivers cumulative improvement for a visibly poreless, polished complexion.</p>
+
+      <h3>Filler treatment areas</h3>
+      <div class="areas-grid">
+        <span class="area-tag">Lips</span>
+        <span class="area-tag">Cheeks</span>
+        <span class="area-tag">Nasolabial Folds</span>
+        <span class="area-tag">Marionette Lines</span>
+        <span class="area-tag">Under Eyes</span>
+        <span class="area-tag">Jawline</span>
+        <span class="area-tag">Chin</span>
+        <span class="area-tag">Temples</span>
+      </div>
+
+      <h3>What to expect</h3>
+      <p>Both Botox and filler treatments are quick, typically taking 15 to 30 minutes. Yvonne will discuss your goals during a consultation and develop a treatment plan tailored to your facial anatomy and desired outcome. Most patients return to their normal activities immediately after treatment.</p>
+      <p>Minor redness, swelling, or bruising at the injection site is normal and typically resolves within a day or two. Yvonne uses precise injection techniques and, when appropriate, topical numbing to ensure your comfort throughout the procedure.</p>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="reveal d2">
+      <div class="sidebar-card">
+        <span class="label">Your Injector</span>
+        <h3>Yvonne, RN</h3>
+        <p>Experienced nurse injector with advanced training in facial aesthetics and a commitment to natural-looking results.</p>
+        <ul>
+          <li>Botox for dynamic wrinkles and fine lines</li>
+          <li>Dermal fillers for volume and contouring</li>
+          <li>Quick procedures, 15 to 30 minutes</li>
+          <li>Minimal downtime</li>
+          <li>Natural-looking, personalized results</li>
+          <li>Complimentary consultations available</li>
+        </ul>
+        <a href="#" class="btn btn-dark" onclick="openModal(event)" style="width:100%; justify-content:center; background:var(--white); color:var(--ink);">
+          Free Consultation &#8594;
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- APPROACH -->
-<section class="approach reveal">
-  <div class="approach-box">
-    <p>At Skin Laser & Med Spa, we focus on what conditions you are facing, and then recommend the best treatment options. We always provide one cost effective & affordable solution, one quick solution, and one long term solution.</p>
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="process-inner">
+    <span class="label">How It Works</span>
+    <h2>Your path to a <i>refreshed look</i></h2>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num">01</div>
+        <h3>Consultation</h3>
+        <p>Meet with Yvonne to discuss your goals and concerns. She will assess your facial anatomy and recommend a customized treatment plan.</p>
+      </div>
+      <div class="process-step reveal d1">
+        <div class="step-num">02</div>
+        <h3>Treatment</h3>
+        <p>Precise injections administered with expert technique. Most treatments take just 15 to 30 minutes with minimal discomfort.</p>
+      </div>
+      <div class="process-step reveal d2">
+        <div class="step-num">03</div>
+        <h3>Recovery</h3>
+        <p>Return to your day immediately. Minor redness or swelling may occur but typically resolves within 24 to 48 hours.</p>
+      </div>
+      <div class="process-step reveal d3">
+        <div class="step-num">04</div>
+        <h3>Results</h3>
+        <p>Botox results appear within 3 to 5 days. Filler results are immediate. Enjoy a refreshed, natural-looking appearance.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- CTA -->
+<!-- RESULTS -->
+<section class="results-section">
+  <span class="label">Results</span>
+  <h2>Subtle enhancements, <i>real impact</i></h2>
+  <p>Our patients love that their results look natural and refreshed, never overdone. The goal is always to enhance your features, not change them.</p>
+  <div class="results-grid">
+    <div class="result-card reveal">
+      <div class="result-placeholder"><span>Before &amp; After</span></div>
+      <div class="result-card-body">
+        <h4>Forehead & Crow's Feet</h4>
+        <p>Smoothed forehead lines and crow's feet with Botox, maintaining natural expression.</p>
+      </div>
+    </div>
+    <div class="result-card reveal d1">
+      <div class="result-placeholder"><span>Before &amp; After</span></div>
+      <div class="result-card-body">
+        <h4>Lip Enhancement</h4>
+        <p>Natural lip volume and definition using hyaluronic acid dermal fillers.</p>
+      </div>
+    </div>
+    <div class="result-card reveal d2">
+      <div class="result-placeholder"><span>Before &amp; After</span></div>
+      <div class="result-card-body">
+        <h4>Cheek & Jawline</h4>
+        <p>Restored cheek volume and defined jawline contour for a more youthful profile.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
 <section class="cta-band">
-  <div class="cta-band-content reveal">
-    <span class="label">Free Consultation</span>
-    <h2>Ready for <i>smoother skin?</i></h2>
-    <p>Schedule your complimentary consultation and let us build a personalized treatment plan to refine your pores and restore your glow.</p>
-    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-      <a href="#" class="btn btn-light" onclick="openModal(event)">Book Consultation</a>
-      <a href="tel:3125395818" class="btn btn-ghost">Call (312) 539-5818</a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="contact-inner">
-    <div class="contact-main">
-      <h2>Visit <i>our studio</i></h2>
-      <p>Located in the heart of Streeterville, steps from the Magnificent Mile.</p>
-      <div class="contact-block">
-        <div class="contact-block-label">Address</div>
-        <p>220 E Illinois St, Suite 703<br>Chicago, IL 60611</p>
-      </div>
-      <div class="contact-block">
-        <div class="contact-block-label">Contact</div>
-        <a href="tel:3125395818">(312) 539-5818</a>
-      </div>
-    </div>
-    <div class="hours">
-      <h3>Hours</h3>
-      <div class="hours-row"><span class="day">Monday</span><span class="time">Closed</span></div>
-      <div class="hours-row"><span class="day">Tuesday</span><span class="time">10:00 am - 7:00 pm</span></div>
-      <div class="hours-row"><span class="day">Wednesday</span><span class="time">10:00 am - 7:00 pm</span></div>
-      <div class="hours-row"><span class="day">Thursday</span><span class="time">10:00 am - 7:00 pm</span></div>
-      <div class="hours-row"><span class="day">Friday</span><span class="time">10:00 am - 5:00 pm</span></div>
-      <div class="hours-row"><span class="day">Saturday</span><span class="time">10:00 am - 3:00 pm</span></div>
-      <div class="hours-row"><span class="day">Sunday</span><span class="time">Closed</span></div>
-    </div>
+  <div class="cta-band-content">
+    <span class="label">Get Started Today</span>
+    <h2>Ready to refresh your <i>look?</i></h2>
+    <p>Schedule your complimentary consultation with Yvonne and discover how injectables can help you look and feel your best, naturally.</p>
+    <a href="#" class="btn btn-dark" onclick="openModal(event)">Book Free Consultation &#8594;</a>
   </div>
 </section>
 
@@ -661,12 +808,12 @@ body::after {
         <h3 class="step-title">What brings <i>you in?</i></h3>
         <p class="step-subtitle">Select the treatment you're interested in.</p>
         <div class="tx-options">
-          <div class="tx-option" onclick="selectTx(this)">Laser Genesis Facial</div>
-          <div class="tx-option" onclick="selectTx(this)">Microneedling</div>
-          <div class="tx-option" onclick="selectTx(this)">RF Microneedling</div>
-          <div class="tx-option" onclick="selectTx(this)">CO2 Laser Resurfacing</div>
+          <div class="tx-option selected" onclick="selectTx(this)">Botox</div>
+          <div class="tx-option" onclick="selectTx(this)">Dermal Fillers</div>
           <div class="tx-option" onclick="selectTx(this)">Laser Hair Removal</div>
-          <div class="tx-option" onclick="selectTx(this)">Tattoo Removal</div>
+          <div class="tx-option" onclick="selectTx(this)">CO2 Laser Resurfacing</div>
+          <div class="tx-option" onclick="selectTx(this)">RF Microneedling</div>
+          <div class="tx-option" onclick="selectTx(this)">Medical Grade Skincare</div>
           <div class="tx-option" onclick="selectTx(this)">Not sure yet</div>
         </div>
       </div>
@@ -709,7 +856,7 @@ body::after {
         <div style="margin-top: 0.5rem;">
           <div class="confirm-detail">
             <span class="cd-label">Treatment</span>
-            <span class="cd-value" id="confirmTx">--</span>
+            <span class="cd-value" id="confirmTx">Botox</span>
           </div>
           <div class="confirm-detail">
             <span class="cd-label">Name</span>
@@ -727,7 +874,7 @@ body::after {
 </div>
 
 <script>
-// Reveal
+// Reveal on scroll
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
 }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
@@ -741,7 +888,7 @@ window.addEventListener('scroll', () => {
 // Modal
 let currentStep = 0;
 const totalSteps = 3;
-let selectedTx = '';
+let selectedTx = 'Botox';
 
 function openModal(e) {
   if (e) e.preventDefault();
@@ -753,8 +900,6 @@ function openModal(e) {
 function closeModal() {
   document.getElementById('bookingModal').classList.remove('open');
   document.body.style.overflow = '';
-  document.querySelectorAll('.tx-option.selected').forEach(o => o.classList.remove('selected'));
-  selectedTx = '';
 }
 document.getElementById('bookingModal').addEventListener('click', e => {
   if (e.target === e.currentTarget) closeModal();
@@ -763,15 +908,19 @@ document.getElementById('bookingModal').addEventListener('click', e => {
 function updateStep() {
   document.querySelectorAll('.modal-step').forEach(s => s.classList.remove('active'));
   document.querySelector(`.modal-step[data-step="${currentStep}"]`).classList.add('active');
+
   document.querySelectorAll('.modal-dot').forEach(d => {
     const s = parseInt(d.dataset.step);
     d.classList.remove('active', 'done');
     if (s === currentStep) d.classList.add('active');
     else if (s < currentStep) d.classList.add('done');
   });
+
   const back = document.getElementById('btnBack');
   const next = document.getElementById('btnNext');
+
   back.style.display = currentStep > 0 && currentStep < 2 ? '' : 'none';
+
   if (currentStep === 2) {
     next.textContent = 'Done';
     next.onclick = closeModal;
@@ -781,17 +930,20 @@ function updateStep() {
     next.onclick = nextStep;
   }
 }
+
 function nextStep() {
   if (currentStep < totalSteps - 1) { currentStep++; updateStep(); }
 }
 function prevStep() {
   if (currentStep > 0) { currentStep--; updateStep(); }
 }
+
 function selectTx(el) {
   document.querySelectorAll('.tx-option.selected').forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
   selectedTx = el.textContent;
 }
+
 function populateConfirmation() {
   document.getElementById('confirmTx').textContent = selectedTx || '--';
   const fn = document.getElementById('fname')?.value || '';
@@ -799,5 +951,6 @@ function populateConfirmation() {
   document.getElementById('confirmName').textContent = (fn + ' ' + ln).trim() || '--';
 }
 </script>
+
 </body>
 </html>

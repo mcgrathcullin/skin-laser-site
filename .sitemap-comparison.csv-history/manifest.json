@@ -1,0 +1,12 @@
+{
+  "formatVersion" : 1,
+  "snapshots" : [
+    {
+      "byteSize" : 1940,
+      "cellCount" : 186,
+      "id" : "2026-03-17T13-25-11",
+      "timestamp" : "2026-03-17T18:25:11Z",
+      "trigger" : "auto"
+    }
+  ]
+}

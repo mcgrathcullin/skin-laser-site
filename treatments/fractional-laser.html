@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Microneedling | SkinCeuticals B5 Gel & AnteAGE | Skin Laser & MedSpa</title>
-<meta name="description" content="Professional microneedling with SkinCeuticals B5 Gel and AnteAGE Growth Factors at Skin Laser & MedSpa in Chicago. Treats acne scars, dark spots, stretch marks, and more on all skin types.">
+<title>Fractional Laser Skin Resurfacing | Skin Laser & MedSpa Chicago</title>
+<meta name="description" content="Venus Viva NanoFractional RF skin resurfacing with SmartScan technology. Treats acne scarring, fine lines, wrinkles, stretch marks, and uneven texture. Streeterville, Chicago.">
 <link rel="icon" type="image/png" href="../skin-laser-assets/favicon.png">
 <link rel="apple-touch-icon" href="../skin-laser-assets/favicon.png">
 <meta name="theme-color" content="#fff4dc">
@@ -50,6 +50,7 @@ a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 button { font-family: inherit; cursor: pointer; border: none; }
 
+/* ── UTILITIES ── */
 .reveal {
   opacity: 0; transform: translateY(50px);
   transition: opacity 1s var(--ease), transform 1s var(--ease);
@@ -57,7 +58,6 @@ button { font-family: inherit; cursor: pointer; border: none; }
 .reveal.vis { opacity: 1; transform: none; }
 .d1 { transition-delay: .1s } .d2 { transition-delay: .2s }
 .d3 { transition-delay: .3s } .d4 { transition-delay: .4s }
-.d5 { transition-delay: .5s }
 
 .label {
   font-size: 0.65rem; font-weight: 600;
@@ -65,7 +65,36 @@ button { font-family: inherit; cursor: pointer; border: none; }
   color: var(--skin-taupe);
 }
 
-/* ---- NAV ---- */
+
+/* ── HERO CROSS-REFS ── */
+.hero-xref {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  justify-content: center; margin-top: 1.5rem;
+}
+.hero-xref-label {
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-muted); align-self: center;
+  margin-right: 0.25rem;
+}
+.hero-xref a {
+  font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--skin-deep);
+  border: 1px solid var(--skin-sand);
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  transition: all 0.3s var(--ease);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.hero-xref a:hover {
+  background: var(--skin-taupe);
+  color: var(--white);
+  border-color: var(--skin-taupe);
+}
+
+/* ── NAV ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   height: 96px;
@@ -102,7 +131,7 @@ nav.scrolled .nav-brand img { height: 48px; }
 .burger { display: none; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; background: none; }
 .burger span { width: 22px; height: 1.5px; background: var(--ink); display: block; }
 
-/* ---- BTN ---- */
+/* ── BUTTONS ── */
 .btn {
   display: inline-flex; align-items: center; gap: 0.6rem;
   padding: 1.05rem 2.2rem; font-size: 0.74rem; font-weight: 600;
@@ -120,13 +149,12 @@ nav.scrolled .nav-brand img { height: 48px; }
 }
 .btn-ghost:hover { border-color: var(--skin-blush); color: var(--skin-taupe); }
 
-/* ---- PAGE HERO ---- */
+/* ── PAGE HERO ── */
 .page-hero {
   height: 40vh; min-height: 320px;
   display: flex; align-items: center; justify-content: center;
-  text-align: center;
+  text-align: center; padding: 96px 2rem 2rem;
   background: var(--bg);
-  padding: 96px 2rem 2rem;
   position: relative;
 }
 .page-hero::after {
@@ -134,10 +162,10 @@ nav.scrolled .nav-brand img { height: 48px; }
   height: 1px;
   background: linear-gradient(to right, transparent, var(--skin-sand), var(--skin-peach), var(--skin-sand), transparent);
 }
-.page-hero .label { color: var(--skin-taupe); margin-bottom: 1.2rem; display: block; }
+.page-hero .label { color: var(--skin-taupe); margin-bottom: 1rem; display: block; }
 .page-hero h1 {
   font-family: var(--serif);
-  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 400; line-height: 1.1;
   margin-bottom: 1rem;
 }
@@ -148,51 +176,38 @@ nav.scrolled .nav-brand img { height: 48px; }
   margin: 0 auto; line-height: 1.7;
 }
 
-/* ---- CONTENT SECTIONS ---- */
-.tx-detail {
+/* ── CONTENT LAYOUT ── */
+.content-section {
+  max-width: 1280px; margin: 0 auto;
   padding: 5rem clamp(2rem, 6vw, 6rem);
-  max-width: 900px; margin: 0 auto;
 }
-.tx-detail h2 {
+.content-grid {
+  display: grid; grid-template-columns: 1.4fr 1fr;
+  gap: 5rem; align-items: start;
+}
+.content-main h2 {
   font-family: var(--serif);
-  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
   font-weight: 400; line-height: 1.2;
   margin-bottom: 1.5rem;
 }
-.tx-detail h2 i { font-style: italic; color: var(--skin-taupe); }
-.tx-detail p {
-  font-size: 0.95rem; font-weight: 300;
+.content-main h2 i { font-style: italic; color: var(--skin-taupe); }
+.content-main p {
+  font-size: 0.92rem; font-weight: 300;
   color: var(--ink-muted); line-height: 1.85;
   margin-bottom: 1.2rem;
 }
-
-.treats-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 0.75rem; margin: 2rem 0 2.5rem;
-}
-.treats-item {
-  display: flex; align-items: center; gap: 0.75rem;
-  padding: 0.9rem 1.1rem;
-  background: var(--white);
-  border: 1px solid var(--bg-deep);
-  font-size: 0.85rem; font-weight: 400;
-  color: var(--ink-soft);
-  transition: all .3s var(--ease);
-}
-.treats-item:hover {
-  border-color: var(--skin-blush);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
-}
-.treats-item::before {
-  content: ''; width: 16px; height: 1px;
-  background: var(--skin-peach); flex-shrink: 0;
+.content-main h3 {
+  font-family: var(--serif);
+  font-size: 1.3rem; font-weight: 400;
+  margin: 2.5rem 0 1rem;
+  color: var(--ink);
 }
 
-/* Body areas highlight */
-.area-tags {
+/* Areas list */
+.areas-grid {
   display: flex; flex-wrap: wrap; gap: 0.5rem;
-  margin: 1.5rem 0 2rem;
+  margin: 1rem 0 1.5rem;
 }
 .area-tag {
   font-size: 0.68rem; font-weight: 600;
@@ -201,115 +216,176 @@ nav.scrolled .nav-brand img { height: 48px; }
   border: 1px solid var(--skin-sand); color: var(--skin-deep);
   transition: all .3s var(--ease);
 }
-.area-tag:hover {
-  background: var(--skin-sand); color: var(--ink);
-}
+.area-tag:hover { background: var(--skin-sand); }
 
-/* ---- TECH CALLOUT ---- */
-.tech-callout {
-  padding: 5rem clamp(2rem, 6vw, 6rem);
+/* ── SIDEBAR ── */
+.sidebar-card {
+  padding: 2.5rem;
   background: var(--ink); color: var(--bg);
-  position: relative; overflow: hidden;
+  position: sticky; top: 120px;
 }
-.tech-callout::before {
-  content: ''; position: absolute;
-  top: -80px; right: -80px;
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(168,138,123,0.1) 0%, transparent 70%);
+.sidebar-card .label {
+  color: var(--skin-peach); margin-bottom: 1.2rem; display: block;
 }
-.tech-callout-inner {
-  max-width: 900px; margin: 0 auto;
-  position: relative; z-index: 1;
-}
-.tech-callout .label { color: var(--skin-peach); margin-bottom: 1.2rem; display: block; }
-.tech-callout h2 {
+.sidebar-card h3 {
   font-family: var(--serif);
-  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
-  font-weight: 400; line-height: 1.2;
-  margin-bottom: 1.5rem;
-}
-.tech-callout h2 i { font-style: italic; color: var(--skin-peach); }
-.tech-callout p {
-  font-size: 0.92rem; font-weight: 300;
-  color: rgba(246,243,238,0.6); line-height: 1.85;
+  font-size: 1.5rem; font-weight: 400;
   margin-bottom: 1rem;
 }
-.tech-callout strong { color: rgba(246,243,238,0.9); font-weight: 500; }
-
-/* ---- WHAT TO EXPECT ---- */
-.expect {
-  padding: 5rem clamp(2rem, 6vw, 6rem);
-  max-width: 900px; margin: 0 auto;
+.sidebar-card p {
+  font-size: 0.85rem; font-weight: 300;
+  color: rgba(246,243,238,0.55); line-height: 1.75;
+  margin-bottom: 1rem;
 }
-.expect h2 {
+.sidebar-card ul { list-style: none; margin-bottom: 1.5rem; }
+.sidebar-card li {
+  font-size: 0.8rem; font-weight: 300;
+  color: rgba(246,243,238,0.5); padding: 0.4rem 0;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.sidebar-card li::before {
+  content: ''; width: 14px; height: 1px;
+  background: var(--skin-peach); flex-shrink: 0;
+}
+
+/* ── PROCESS SECTION ── */
+.process-section {
+  background: var(--white);
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+}
+.process-inner {
+  max-width: 1280px; margin: 0 auto;
+}
+.process-inner > .label { display: block; margin-bottom: 0.75rem; }
+.process-inner > h2 {
   font-family: var(--serif);
-  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-size: clamp(2rem, 3vw, 2.6rem);
   font-weight: 400; line-height: 1.2;
-  margin-bottom: 3rem; text-align: center;
+  margin-bottom: 3.5rem;
 }
-.expect h2 i { font-style: italic; color: var(--skin-blush); }
+.process-inner > h2 i { font-style: italic; color: var(--skin-blush); }
 
-.expect-steps {
-  display: grid; grid-template-columns: 1fr; gap: 0;
-  position: relative;
+.process-steps {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
 }
-.expect-step {
-  display: grid; grid-template-columns: 56px 1fr;
-  gap: 1.5rem; padding-bottom: 2.5rem;
-  position: relative;
+.process-step {
+  padding: 2rem 1.8rem;
+  background: var(--bg);
+  position: relative; transition: all .4s var(--ease);
 }
-.expect-step:last-child { padding-bottom: 0; }
-.expect-num {
-  width: 56px; height: 56px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--serif); font-size: 1.2rem; font-weight: 400;
-  color: var(--skin-deep);
-  background: var(--white);
-  border: 1px solid var(--skin-sand);
-  border-radius: 50%;
-  position: relative; z-index: 1;
+.process-step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.06);
 }
-.expect-step:not(:last-child)::after {
+.process-step::before {
   content: ''; position: absolute;
-  left: 28px; top: 56px; bottom: 0;
-  width: 1px; background: var(--skin-sand);
+  left: 0; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(to bottom, var(--skin-taupe), var(--skin-peach));
+  transform: scaleY(0); transition: transform .4s var(--ease);
 }
-.expect-step-content h3 {
+.process-step:hover::before { transform: scaleY(1); }
+
+.step-num {
+  font-family: var(--serif); font-size: 2.4rem;
+  font-weight: 400; color: var(--skin-sand);
+  line-height: 1; margin-bottom: 1rem;
+}
+.process-step h3 {
   font-family: var(--serif);
-  font-size: 1.15rem; font-weight: 400;
-  margin-bottom: 0.5rem; padding-top: 0.15rem;
+  font-size: 1.1rem; font-weight: 400;
+  margin-bottom: 0.6rem;
 }
-.expect-step-content p {
-  font-size: 0.88rem; font-weight: 300;
-  color: var(--ink-muted); line-height: 1.75;
+.process-step p {
+  font-size: 0.82rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.7;
 }
 
-/* ---- CTA SECTION ---- */
-.page-cta {
-  padding: 5rem clamp(2rem, 6vw, 6rem);
+/* ── RESULTS SECTION ── */
+.results-section {
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+  max-width: 1280px; margin: 0 auto;
+}
+.results-section > .label { display: block; margin-bottom: 0.75rem; }
+.results-section > h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 400; line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.results-section > h2 i { font-style: italic; color: var(--skin-taupe); }
+.results-section > p {
+  font-size: 0.92rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.7;
+  max-width: 600px; margin-bottom: 3rem;
+}
+
+.results-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.result-card {
   background: var(--white);
-  text-align: center;
+  overflow: hidden; transition: all .4s var(--ease);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.result-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.08);
+}
+.result-placeholder {
+  height: 220px;
+  background: linear-gradient(135deg, var(--bg-warm), var(--bg-deep));
+  display: flex; align-items: center; justify-content: center;
+}
+.result-placeholder span {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--skin-taupe);
+}
+.result-card-body {
+  padding: 1.5rem;
+}
+.result-card-body h4 {
+  font-family: var(--serif);
+  font-size: 1rem; font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+.result-card-body p {
+  font-size: 0.78rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.6;
+}
+
+/* ── CTA BAND ── */
+.cta-band {
   position: relative;
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; min-height: 380px;
+  background: var(--ink);
 }
-.page-cta::before {
-  content: ''; position: absolute; top: 0; left: 10%; right: 10%;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--skin-sand), var(--skin-peach), var(--skin-sand), transparent);
+.cta-band-content {
+  position: relative; z-index: 1;
+  max-width: 560px;
 }
-.page-cta h2 {
+.cta-band-content .label { color: var(--skin-peach); display: block; margin-bottom: 0.75rem; }
+.cta-band-content h2 {
   font-family: var(--serif);
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 400; line-height: 1.15;
-  margin-bottom: 1rem;
+  color: var(--white); margin-bottom: 1.2rem;
 }
-.page-cta h2 i { font-style: italic; color: var(--skin-taupe); }
-.page-cta p {
+.cta-band-content h2 i { font-style: italic; color: var(--skin-peach); }
+.cta-band-content p {
   font-size: 0.92rem; font-weight: 300;
-  color: var(--ink-muted); line-height: 1.7;
-  max-width: 480px; margin: 0 auto 2rem;
+  color: rgba(255,255,255,0.6); line-height: 1.7;
+  margin-bottom: 2rem;
 }
+.cta-band .btn-dark { background: var(--white); color: var(--ink); }
+.cta-band .btn-dark:hover { background: var(--skin-peach); }
 
-/* ---- FOOTER ---- */
+/* ── FOOTER ── */
 footer {
   padding: 1.5rem clamp(2rem, 6vw, 6rem);
   background: var(--ink);
@@ -322,7 +398,7 @@ footer {
 .footer-brand img { height: 28px; opacity: 0.4; }
 .footer-copy { font-size: 0.7rem; color: rgba(246,243,238,0.2); }
 
-/* ---- MODAL ---- */
+/* ── BOOKING MODAL ── */
 .modal-overlay {
   position: fixed; inset: 0; z-index: 200;
   background: rgba(27,27,27,0.6);
@@ -458,9 +534,12 @@ footer {
 .confirm-detail .cd-label { color: var(--ink-muted); font-weight: 400; }
 .confirm-detail .cd-value { color: var(--ink-soft); font-weight: 500; }
 
-/* ---- RESPONSIVE ---- */
+/* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
-  .treats-grid { grid-template-columns: 1fr 1fr; }
+  .content-grid { grid-template-columns: 1fr; }
+  .sidebar-card { position: static; }
+  .process-steps { grid-template-columns: repeat(2, 1fr); }
+  .results-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -512,53 +591,23 @@ footer {
   }
   nav.menu-open .nav-links { display: flex !important; }
   .burger { display: flex; }
-  .page-hero { height: auto; min-height: 280px; padding: 120px 1.75rem 3rem; }
-  .page-hero h1 { font-size: clamp(2rem, 8vw, 2.8rem); }
-  .tx-detail { padding: 3rem 1.75rem; }
-  .tech-callout { padding: 3rem 1.75rem; }
-  .expect { padding: 3rem 1.75rem; }
-  .page-cta { padding: 3rem 1.75rem; }
-  .treats-grid { grid-template-columns: 1fr; }
+  .page-hero { height: auto; min-height: 280px; padding: 120px 1.75rem 2.5rem; }
+  .page-hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
+  .content-section { padding: 3rem 1.75rem; }
+  .process-section { padding: 4rem 1.75rem; }
+  .process-steps { grid-template-columns: 1fr; }
+  .results-section { padding: 4rem 1.75rem; }
+  .results-grid { grid-template-columns: 1fr; }
+  .cta-band { min-height: 300px; padding: 4rem 1.75rem; }
   .form-row { grid-template-columns: 1fr; }
-  .area-tags { gap: 0.35rem; }
-  .area-tag { font-size: 0.6rem; padding: 0.4rem 0.75rem; }
 }
 
-/* ---- GRAIN ---- */
+/* ── GRAIN ── */
 body::after {
   content: ''; position: fixed; inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
   pointer-events: none; z-index: 9999; opacity: 0.5;
 }
-
-/* ── HERO CROSS-REFS ── */
-.hero-xref {
-  display: flex; flex-wrap: wrap; gap: 0.5rem;
-  justify-content: center; margin-top: 1.5rem;
-}
-.hero-xref-label {
-  font-size: 0.6rem; font-weight: 600;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--ink-muted); align-self: center;
-  margin-right: 0.25rem;
-}
-.hero-xref a {
-  font-size: 0.65rem; font-weight: 500;
-  letter-spacing: 0.06em;
-  color: var(--skin-deep);
-  border: 1px solid var(--skin-sand);
-  padding: 0.35rem 0.9rem;
-  border-radius: 20px;
-  transition: all 0.3s var(--ease);
-  text-decoration: none;
-  white-space: nowrap;
-}
-.hero-xref a:hover {
-  background: var(--skin-taupe);
-  color: var(--white);
-  border-color: var(--skin-taupe);
-}
-
 </style>
 </head>
 <body>
@@ -590,9 +639,9 @@ body::after {
 <!-- PAGE HERO -->
 <section class="page-hero">
   <div>
-    <span class="label">Collagen Induction Therapy</span>
-    <h1>Microneedling with<br><i>SkinCeuticals B5 Gel</i></h1>
-    <p>Promote your body's natural healing response with precision micro-punctures that boost collagen and elastin production. Safe for all skin types and tones.</p>
+    <span class="label">Venus Viva Technology</span>
+    <h1>Fractional Laser <i>Resurfacing</i></h1>
+    <p>Highly customizable, non-surgical skin resurfacing with NanoFractional RF and SmartScan technology. Visible results from the very first treatment.</p>
     <div class="hero-xref">
       <span class="hero-xref-label">Treats</span>
       
@@ -602,91 +651,122 @@ body::after {
   </div>
 </section>
 
-<!-- DETAIL -->
-<section class="tx-detail reveal">
-  <h2>How <i>it works</i></h2>
-  <p>During your microneedling session, a specialized pen creates controlled micro-punctures through the epidermis and into the dermis. As the pen travels in a cross-hatching pattern across the treatment area, SkinCeuticals B5 Gel is infused directly into the skin, delivering deep hydration and supporting your body's repair process.</p>
-  <p>These micro-injuries trigger your body's natural healing cascade, stimulating increased production of collagen and elastin. As new tissue forms, skin becomes firmer, smoother, and more evenly toned. A healing cream and serum are applied after treatment to nourish the freshly treated skin.</p>
-  <p>Microneedling works on all skin types and tones, making it one of the most versatile treatments we offer. It can be used all over the body, though it is most commonly performed on the face.</p>
+<!-- MAIN CONTENT -->
+<section class="content-section">
+  <div class="content-grid">
+    <div class="content-main reveal">
+      <h2>NanoFractional RF for <i>renewed skin</i></h2>
+      <p>The Venus Viva is a non-surgical skin resurfacing device that uses NanoFractional RF (radio frequency) combined with SmartScan technology to deliver precise, controlled heat to the skin. This advanced system creates tiny micro-channels in the skin's surface, allowing RF energy to penetrate and stimulate your body's natural healing response.</p>
+      <p>As the micro-channels deliver heat deep into the dermis, your body begins repairing the visible signs of damage from the inside out. Collagen production is triggered, new healthy skin cells replace damaged ones, and the overall tone and texture of your skin improves dramatically over the course of your treatment plan.</p>
+      <p>What makes the Venus Viva truly stand out is its high degree of customization. The SmartScan technology allows your provider to adjust the depth, density, and distribution of RF energy to precisely target your specific concerns. Whether you are addressing deep acne scars or subtle fine lines, the treatment can be tailored to your unique skin.</p>
 
-  <h2 style="margin-top: 3rem;">What it <i>treats</i></h2>
-  <div class="treats-grid">
-    <div class="treats-item">Acne scarring</div>
-    <div class="treats-item">Hair loss</div>
-    <div class="treats-item">Dark spots</div>
-    <div class="treats-item">Sun damaged patches</div>
-    <div class="treats-item">Large pores</div>
-    <div class="treats-item">Reduced skin elasticity</div>
-    <div class="treats-item">Scars</div>
-    <div class="treats-item">Stretch marks</div>
-    <div class="treats-item">Fine lines & wrinkles</div>
-    <div class="treats-item">Uneven skin texture</div>
-  </div>
-
-  <h2 style="margin-top: 3rem;">Treatment <i>areas</i></h2>
-  <p>While most commonly done on the face, microneedling can be performed on nearly any area of the body.</p>
-  <div class="area-tags">
-    <span class="area-tag">Face</span>
-    <span class="area-tag">Neck</span>
-    <span class="area-tag">Chest</span>
-    <span class="area-tag">Stomach</span>
-    <span class="area-tag">Thighs</span>
-    <span class="area-tag">Arms</span>
-  </div>
-</section>
-
-<!-- TECHNOLOGY CALLOUT -->
-<section class="tech-callout reveal">
-  <div class="tech-callout-inner">
-    <span class="label">Advanced Growth Factors</span>
-    <h2>Paired with <i>AnteAGE MD</i> Growth Factor & Exosomes</h2>
-    <p>Every microneedling treatment at Skin Laser & MedSpa is combined with <strong>AnteAGE MD Growth Factor & Exosomes</strong> to supercharge your results. These cutting-edge biologics are applied during the treatment, taking advantage of the thousands of micro-channels to deliver regenerative factors deep into the skin.</p>
-    <p>Exosomes are cell-derived vesicles that carry growth factors, cytokines, and signaling molecules directly to your cells. They accelerate the healing process, enhance collagen synthesis, and help regulate inflammation, resulting in <strong>faster recovery and more dramatic improvements</strong> in skin tone, texture, and firmness.</p>
-  </div>
-</section>
-
-<!-- WHAT TO EXPECT -->
-<section class="expect">
-  <h2>What to <i>expect</i></h2>
-  <div class="expect-steps">
-    <div class="expect-step reveal d1">
-      <div class="expect-num">1</div>
-      <div class="expect-step-content">
-        <h3>Arrive early for numbing</h3>
-        <p>Plan to arrive 1 hour before your scheduled treatment time. A topical numbing cream is applied to ensure your comfort throughout the session.</p>
+      <h3>What it treats</h3>
+      <p>The Venus Viva is effective across a wide range of skin concerns, making it one of the most versatile resurfacing treatments available.</p>
+      <div class="areas-grid">
+        <span class="area-tag">Acne Scarring</span>
+        <span class="area-tag">Fine Lines</span>
+        <span class="area-tag">Wrinkles</span>
+        <span class="area-tag">Scars</span>
+        <span class="area-tag">Tone &amp; Texture</span>
+        <span class="area-tag">Stretch Marks</span>
+        <span class="area-tag">Skin Resurfacing</span>
+        <span class="area-tag">Enlarged Pores</span>
       </div>
+
+      <h3>Results you can see</h3>
+      <p>Most patients notice visible improvement after their very first treatment. The skin appears smoother, more even, and refreshed. For optimal results, we recommend a series of 3 to 5 treatments spaced several weeks apart. Each session builds on the last, progressively refining your skin's appearance as new collagen continues to form beneath the surface.</p>
     </div>
-    <div class="expect-step reveal d2">
-      <div class="expect-num">2</div>
-      <div class="expect-step-content">
-        <h3>Cross-hatching technique</h3>
-        <p>Your provider guides the microneedling pen across the treatment area in a precise cross-hatching pattern. SkinCeuticals B5 Gel is infused as the pen works, ensuring deep penetration of hydrating ingredients.</p>
-      </div>
-    </div>
-    <div class="expect-step reveal d3">
-      <div class="expect-num">3</div>
-      <div class="expect-step-content">
-        <h3>Growth factor application</h3>
-        <p>AnteAGE MD Growth Factor & Exosomes are applied to the treated skin, followed by a healing cream and serum. Your skin absorbs these regenerative ingredients through the freshly created micro-channels.</p>
-      </div>
-    </div>
-    <div class="expect-step reveal d4">
-      <div class="expect-num">4</div>
-      <div class="expect-step-content">
-        <h3>Session details & series</h3>
-        <p>Each session takes 20 minutes to 1 hour depending on the treatment area. For optimal results, a series of 4 to 6 treatments is recommended, spaced several weeks apart to allow your skin to complete its healing and rebuilding cycle.</p>
+
+    <!-- SIDEBAR -->
+    <div class="reveal d2">
+      <div class="sidebar-card">
+        <span class="label">Our Technology</span>
+        <h3>Venus Viva</h3>
+        <p>Advanced NanoFractional RF skin resurfacing with SmartScan technology for highly customizable, non-surgical treatments.</p>
+        <ul>
+          <li>NanoFractional Radio Frequency energy</li>
+          <li>SmartScan technology for precision</li>
+          <li>Highly customizable treatment parameters</li>
+          <li>Non-surgical, minimal downtime</li>
+          <li>Results visible after first session</li>
+          <li>3-5 treatments for optimal results</li>
+        </ul>
+        <a href="#" class="btn btn-dark" onclick="openModal(event)" style="width:100%; justify-content:center; background:var(--white); color:var(--ink);">
+          Free Consultation &#8594;
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="page-cta">
-  <span class="label" style="display: block; margin-bottom: 1rem;">Ready to Get Started?</span>
-  <h2>Unlock your skin's natural<br><i>healing power</i></h2>
-  <p>Book a free consultation to learn how microneedling can help restore collagen, smooth texture, and give you a more radiant complexion.</p>
-  <a href="#" class="btn btn-dark" onclick="openModal(event)">Book a Free Consultation &#8594;</a>
-  <p style="margin-top: 1.5rem; font-size: 0.82rem;">Or call us directly at <a href="tel:3125395818" style="color: var(--skin-taupe); font-weight: 500;">(312) 539-5818</a></p>
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="process-inner">
+    <span class="label">How It Works</span>
+    <h2>Your path to <i>renewed skin</i></h2>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num">01</div>
+        <h3>Consultation</h3>
+        <p>Meet with your provider to discuss your skin concerns and goals. We will assess your skin and design a customized treatment plan using the Venus Viva.</p>
+      </div>
+      <div class="process-step reveal d1">
+        <div class="step-num">02</div>
+        <h3>Preparation</h3>
+        <p>A topical numbing cream is applied to ensure your comfort during the procedure. Your provider calibrates the SmartScan settings for your specific needs.</p>
+      </div>
+      <div class="process-step reveal d2">
+        <div class="step-num">03</div>
+        <h3>Treatment</h3>
+        <p>The Venus Viva handpiece delivers NanoFractional RF energy through tiny pins, creating micro-channels that stimulate your body's natural repair process.</p>
+      </div>
+      <div class="process-step reveal d3">
+        <div class="step-num">04</div>
+        <h3>Recovery &amp; Results</h3>
+        <p>Mild redness may occur for 1-2 days. Your skin begins its renewal process immediately, with visible improvement continuing for weeks after each session.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results-section">
+  <span class="label">Results</span>
+  <h2>Smoother, refined, <i>renewed</i></h2>
+  <p>Our patients see dramatic improvements in skin texture, scarring, and overall complexion with Venus Viva treatments.</p>
+  <div class="results-grid">
+    <div class="result-card reveal">
+      <div class="result-placeholder"><span>Before &amp; After</span></div>
+      <div class="result-card-body">
+        <h4>Acne Scarring</h4>
+        <p>Significant reduction in acne scar depth and visibility after a series of treatments.</p>
+      </div>
+    </div>
+    <div class="result-card reveal d1">
+      <div class="result-placeholder"><span>Before &amp; After</span></div>
+      <div class="result-card-body">
+        <h4>Fine Lines &amp; Wrinkles</h4>
+        <p>Smoother, more youthful skin with reduced fine lines around the eyes and mouth.</p>
+      </div>
+    </div>
+    <div class="result-card reveal d2">
+      <div class="result-placeholder"><span>Before &amp; After</span></div>
+      <div class="result-card-body">
+        <h4>Skin Texture</h4>
+        <p>Improved overall tone and texture with a more even, radiant complexion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-band-content">
+    <span class="label">Get Started Today</span>
+    <h2>Ready to reveal <i>your best skin?</i></h2>
+    <p>Schedule your free consultation and discover how the Venus Viva can transform your skin's texture and appearance. Customized treatments tailored to your goals.</p>
+    <a href="#" class="btn btn-dark" onclick="openModal(event)">Book Free Consultation &#8594;</a>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -716,11 +796,11 @@ body::after {
         <h3 class="step-title">What brings <i>you in?</i></h3>
         <p class="step-subtitle">Select the treatment you're interested in.</p>
         <div class="tx-options">
-          <div class="tx-option selected" onclick="selectTx(this)">Microneedling</div>
           <div class="tx-option" onclick="selectTx(this)">Laser Hair Removal</div>
           <div class="tx-option" onclick="selectTx(this)">CO2 Laser Resurfacing</div>
           <div class="tx-option" onclick="selectTx(this)">RF Microneedling</div>
           <div class="tx-option" onclick="selectTx(this)">Tattoo Removal</div>
+          <div class="tx-option selected" onclick="selectTx(this)">Fractional Laser</div>
           <div class="tx-option" onclick="selectTx(this)">Laser Genesis Facial</div>
           <div class="tx-option" onclick="selectTx(this)">Not sure yet</div>
         </div>
@@ -764,7 +844,7 @@ body::after {
         <div style="margin-top: 0.5rem;">
           <div class="confirm-detail">
             <span class="cd-label">Treatment</span>
-            <span class="cd-value" id="confirmTx">--</span>
+            <span class="cd-value" id="confirmTx">Fractional Laser</span>
           </div>
           <div class="confirm-detail">
             <span class="cd-label">Name</span>
@@ -782,7 +862,7 @@ body::after {
 </div>
 
 <script>
-// Reveal
+// Reveal on scroll
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
 }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
@@ -796,7 +876,7 @@ window.addEventListener('scroll', () => {
 // Modal
 let currentStep = 0;
 const totalSteps = 3;
-let selectedTx = 'Microneedling';
+let selectedTx = 'Fractional Laser';
 
 function openModal(e) {
   if (e) e.preventDefault();
@@ -826,6 +906,7 @@ function updateStep() {
 
   const back = document.getElementById('btnBack');
   const next = document.getElementById('btnNext');
+
   back.style.display = currentStep > 0 && currentStep < 2 ? '' : 'none';
 
   if (currentStep === 2) {

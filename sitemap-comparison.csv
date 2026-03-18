@@ -1,0 +1,54 @@
+Old Site URL,New Site URL,Status,Notes
+https://www.skinlaserchicago.com,https://skinlaserchicago.com/,Migrated,Homepage
+https://www.skinlaserchicago.com/treatments,https://skinlaserchicago.com/treatments.html,Migrated,Treatments listing
+https://www.skinlaserchicago.com/conditions,https://skinlaserchicago.com/conditions.html,Migrated,Conditions listing
+https://www.skinlaserchicago.com/about,https://skinlaserchicago.com/about.html,Migrated,About page
+https://www.skinlaserchicago.com/contact,https://skinlaserchicago.com/contact.html,Migrated,Contact page
+https://www.skinlaserchicago.com/specials,https://skinlaserchicago.com/specials.html,Migrated,Specials page
+https://www.skinlaserchicago.com/tatoo-removal-chicago,https://skinlaserchicago.com/treatments/tattoo-removal.html,Migrated - URL changed,Needs redirect
+https://www.skinlaserchicago.com/c02-laser,https://skinlaserchicago.com/treatments/co2-laser.html,Migrated - URL changed,Needs redirect
+https://www.skinlaserchicago.com/rf-microneedling,https://skinlaserchicago.com/treatments/rf-microneedling.html,Migrated - URL changed,Needs redirect
+https://www.skinlaserchicago.com/pixel-8-rf,https://skinlaserchicago.com/treatments/rf-microneedling.html,Migrated - URL changed,Same treatment different name. Needs redirect
+https://www.skinlaserchicago.com/microneedling,https://skinlaserchicago.com/treatments/microneedling.html,Migrated - URL changed,Needs redirect
+https://www.skinlaserchicago.com/medical-laser-facial,https://skinlaserchicago.com/treatments/laser-genesis.html,Migrated - URL changed,Same treatment different name. Needs redirect
+https://www.skinlaserchicago.com/facial-peels,https://skinlaserchicago.com/treatments/facial-peels.html,Migrated - URL changed,Needs redirect
+https://www.skinlaserchicago.com/ipl-photorejuvenation,https://skinlaserchicago.com/treatments/ipl-photofacial.html,Migrated - URL changed,Needs redirect
+https://www.skinlaserchicago.com/hydrafacial,https://skinlaserchicago.com/treatments/hydrafacial.html,Migrated - URL changed,Needs redirect
+https://www.skinlaserchicago.com/excess-hair,https://skinlaserchicago.com/conditions/excess-hair.html,Migrated - URL changed,Needs redirect
+https://www.skinlaserchicago.com/acne-scarring,https://skinlaserchicago.com/conditions/acne-scarring.html,Migrated - URL changed,Needs redirect
+https://www.skinlaserchicago.com/sagging-skin,https://skinlaserchicago.com/conditions/sagging-skin.html,Migrated - URL changed,Needs redirect
+https://www.skinlaserchicago.com/stretch-marks,https://skinlaserchicago.com/conditions/stretch-marks.html,Migrated - URL changed,Needs redirect
+https://www.skinlaserchicago.com/facial-scars,https://skinlaserchicago.com/conditions/facial-scars.html,Migrated - URL changed,Needs redirect
+https://www.skinlaserchicago.com/cellulite,https://skinlaserchicago.com/conditions/cellulite.html,Migrated - URL changed,Needs redirect
+https://www.skinlaserchicago.com/age-spots,https://skinlaserchicago.com/conditions/age-spots.html,Migrated - URL changed,Needs redirect
+https://www.skinlaserchicago.com/hypermigmentation,https://skinlaserchicago.com/conditions/hyperpigmentation.html,Migrated - URL changed,Note: old URL had typo (hypermigmentation). Needs redirect
+https://www.skinlaserchicago.com/stubborn-fat,https://skinlaserchicago.com/conditions/stubborn-fat.html,Migrated - URL changed,Needs redirect
+https://www.skinlaserchicago.com/thigh-reduction,https://skinlaserchicago.com/conditions/thigh-reduction.html,Migrated - URL changed,Needs redirect
+https://www.skinlaserchicago.com/bra-bulge,https://skinlaserchicago.com/conditions/body-contouring.html,Migrated - URL changed,Combined into body contouring. Needs redirect
+https://www.skinlaserchicago.com/men,,Not migrated,Men's page - could create or redirect to treatments
+https://www.skinlaserchicago.com/memberships,,Not migrated,Memberships page - needs decision
+https://www.skinlaserchicago.com/store,https://skin-laser-medspa.myshopify.com/,Migrated to Shopify,Redirect to Shopify store
+https://www.skinlaserchicago.com/treatments8e92bad4,https://skinlaserchicago.com/treatments.html,Redirect,Old CMS duplicate of treatments
+https://www.skinlaserchicago.com/newpage,https://skinlaserchicago.com/conditions/acne-scarring.html,Redirect,Was Acne page
+https://www.skinlaserchicago.com/newpaged82d2c69,https://skinlaserchicago.com/conditions/stubborn-fat.html,Redirect,Was Mommy Tummy / Belly Fat
+https://www.skinlaserchicago.com/newpage720d009a,https://skinlaserchicago.com/conditions/fine-lines-wrinkles.html,Redirect,Was Eye Wrinkles & Fine Lines
+https://www.skinlaserchicago.com/newpagec9ec7e70,https://skinlaserchicago.com/conditions/rosacea-spider-veins.html,Redirect,Was Rosacea / Facial Spider Veins
+https://www.skinlaserchicago.com/newpage8e542806,https://skinlaserchicago.com/conditions/body-contouring.html,Redirect,Was Muffin Top / Love Handles
+https://www.skinlaserchicago.com/make-the-most-of-the-season-by-following-these-simple-guidelines,,Blog post - not migrated,Auto-generated blog post. Redirect to /blog.html
+https://www.skinlaserchicago.com/keep-in-touch-with-site-visitors-and-boost-loyalty,,Blog post - not migrated,Auto-generated blog post. Redirect to /blog.html
+https://www.skinlaserchicago.com/tips-for-writing-great-posts-that-increase-your-site-traffic,,Blog post - not migrated,Auto-generated blog post. Redirect to /blog.html
+https://www.skinlaserchicago.com/category/Memberships,,Category - not migrated,Redirect to Shopify or homepage
+https://www.skinlaserchicago.com/category/Products,,Category - not migrated,Redirect to Shopify store
+https://www.skinlaserchicago.com/category/Hyperpigmentation,,Category - not migrated,Redirect to /conditions/hyperpigmentation.html
+https://www.skinlaserchicago.com/category/Face-&-Body,,Category - not migrated,Redirect to Shopify store
+https://www.skinlaserchicago.com/category/Teen-Acne,,Category - not migrated,Redirect to Shopify store
+https://www.skinlaserchicago.com/category/Anti-Aging,,Category - not migrated,Redirect to Shopify store
+https://www.skinlaserchicago.com/category/Adult-Acne,,Category - not migrated,Redirect to Shopify store
+https://www.skinlaserchicago.com/category/Specials,,Category - not migrated,Redirect to /specials.html
+https://www.skinlaserchicago.com/product/*,,Products - not migrated,All products redirect to Shopify store
+,https://skinlaserchicago.com/blog.html,New page,Blog placeholder - not on old site
+,https://skinlaserchicago.com/conditions/fine-lines-wrinkles.html,New page,New condition page - not on old site
+,https://skinlaserchicago.com/conditions/large-pores-texture.html,New page,New condition page - not on old site
+,https://skinlaserchicago.com/conditions/rosacea-spider-veins.html,New page,New condition page - not on old site
+,https://skinlaserchicago.com/conditions/scars-tattoo-removal.html,New page,New condition page - not on old site
+,https://skinlaserchicago.com/treatments/laser-hair-removal.html,New page,Dedicated LHR page - old site used /treatments as the LHR page

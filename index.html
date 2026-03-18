@@ -564,6 +564,97 @@ nav.scrolled .nav-brand img { height: 48px; }
 .tx-card:hover .tx-link::after,
 .tx-featured:hover .tx-link::after { transform: translateX(4px); }
 
+/* ─── TREATMENT HOME GRID ─── */
+.tx-home-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  max-width: 1280px; margin: 0 auto;
+  padding: 0 clamp(2rem, 6vw, 6rem);
+}
+.tx-home-card {
+  padding: 2.5rem 2.2rem;
+  text-decoration: none;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  transition: all .5s var(--ease);
+  position: relative; overflow: hidden;
+  border: none;
+}
+.tx-home-card::after {
+  content: ''; position: absolute; inset: 0;
+  background: url('skin-laser-assets/watercolor-texture.png') center;
+  background-size: cover;
+  opacity: 0.25; pointer-events: none;
+}
+.tx-home-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; width: 3px; height: 100%;
+  opacity: 0; transition: opacity .4s var(--ease);
+  z-index: 1;
+}
+.tx-home-card:hover::before { opacity: 1; }
+.tx-home-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.07);
+}
+
+.tx-home-card--1 { background: linear-gradient(135deg, #F2EBE4, #EDE4DA); }
+.tx-home-card--1::before { background: var(--skin-deep); }
+.tx-home-card--2 { background: linear-gradient(135deg, #F0E8DF, #E9DFCF); }
+.tx-home-card--2::before { background: var(--skin-taupe); }
+.tx-home-card--3 { background: linear-gradient(135deg, #F4ECE5, #EEE5DB); }
+.tx-home-card--3::before { background: var(--skin-blush); }
+.tx-home-card--4 { background: linear-gradient(135deg, #EFE7DE, #E8DDD1); }
+.tx-home-card--4::before { background: var(--skin-peach); }
+.tx-home-card--5 { background: linear-gradient(135deg, #F1EBE2, #EAE3D8); }
+.tx-home-card--5::before { background: var(--skin-sage); }
+
+.tx-home-card h3 {
+  font-family: var(--serif);
+  font-size: 1.3rem; font-weight: 400;
+  color: var(--ink); margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+.tx-home-card p {
+  font-size: 0.84rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+.tx-home-arrow {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--skin-taupe); margin-top: auto;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  transition: all .3s var(--ease);
+}
+.tx-home-arrow::after { content: '\2192'; transition: transform .3s; }
+.tx-home-card:hover .tx-home-arrow { color: var(--accent); }
+.tx-home-card:hover .tx-home-arrow::after { transform: translateX(4px); }
+
+.tx-home-card--see-all {
+  background: var(--ink);
+  position: relative; overflow: hidden;
+}
+.tx-home-card--see-all::before { display: none; }
+.tx-home-card--see-all::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(158,124,94,0.15), rgba(168,138,123,0.08));
+  pointer-events: none;
+}
+.tx-home-card--see-all h3 {
+  color: var(--white);
+  font-size: 1.4rem;
+}
+.tx-home-card--see-all p { color: rgba(255,255,255,0.5); }
+.tx-home-card--see-all .tx-home-arrow { color: var(--skin-peach); }
+.tx-home-card--see-all:hover {
+  background: var(--accent);
+  box-shadow: 0 16px 48px rgba(158,124,94,0.3);
+}
+.tx-home-card--see-all:hover .tx-home-arrow { color: var(--white); }
+
 /* Leaf divider */
 .leaf-divider {
   text-align: center; padding: 1.5rem 0;
@@ -1350,6 +1441,7 @@ footer {
   .cond-top > p { text-align: left; }
   .cond-grid { grid-template-columns: 1fr; }
   .cond-card { min-height: auto; padding: 1.5rem 1.3rem; }
+  .tx-home-grid { grid-template-columns: 1fr 1fr; }
   .tech-cards { grid-template-columns: 1fr; }
   .tech-card { grid-template-columns: 150px 1fr; }
   .about-grid { grid-template-columns: 1fr; }
@@ -1443,6 +1535,8 @@ footer {
     80%, 96% { transform: translateY(-340px); }
     100% { transform: translateY(0); }
   }
+  .tx-home-grid { grid-template-columns: 1fr; padding: 0 1.75rem; }
+  .tx-home-card { min-height: auto; padding: 1.5rem 1.3rem; }
   .tx-trio { padding: 0 1.75rem; }
   .treatments { padding: 4rem 0 3rem; }
   .conditions { padding: 3rem 1.75rem; }
@@ -1663,43 +1757,43 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
     <p>From persistent acne to signs of aging, every concern has a targeted solution. We'll match the right technology to your skin and build a plan around your goals.</p>
   </div>
   <div class="cond-grid reveal d1">
-    <a href="conditions/acne-scarring.html" class="cond-card cond-card--1">
+    <a href="conditions/excess-hair.html" class="cond-card cond-card--1">
       <img class="cond-card-leaf" src="skin-laser-assets/leaf-decoration.png" alt="" />
       <div>
-        <h3>Acne &amp; Acne Scarring</h3>
-        <p>Reduce active breakouts and smooth scarring with targeted laser treatments</p>
-      </div>
-      <span class="cond-card-arrow">Learn More</span>
-    </a>
-    <a href="conditions/excess-hair.html" class="cond-card cond-card--2">
-      <img class="cond-card-leaf" src="skin-laser-assets/leaf-decoration.png" alt="" />
-      <div>
-        <h3>Unwanted Hair</h3>
+        <h3>Excess Hair</h3>
         <p>Medical-grade laser removal for all skin tones with lasting results</p>
       </div>
       <span class="cond-card-arrow">Learn More</span>
     </a>
-    <a href="conditions/fine-lines-wrinkles.html" class="cond-card cond-card--3">
+    <a href="conditions/acne-scarring.html" class="cond-card cond-card--2">
       <img class="cond-card-leaf" src="skin-laser-assets/leaf-decoration.png" alt="" />
       <div>
-        <h3>Fine Lines &amp; Wrinkles</h3>
+        <h3>Acne Scarring</h3>
+        <p>Smooth scarring with targeted laser treatments and advanced resurfacing</p>
+      </div>
+      <span class="cond-card-arrow">Learn More</span>
+    </a>
+    <a href="conditions/tattoo-removal.html" class="cond-card cond-card--3">
+      <img class="cond-card-leaf" src="skin-laser-assets/leaf-decoration.png" alt="" />
+      <div>
+        <h3>Tattoo Removal</h3>
+        <p>Break down ink with PicoWay laser for clearer skin, session by session</p>
+      </div>
+      <span class="cond-card-arrow">Learn More</span>
+    </a>
+    <a href="conditions/facial-scars.html" class="cond-card cond-card--4">
+      <img class="cond-card-leaf" src="skin-laser-assets/leaf-decoration.png" alt="" />
+      <div>
+        <h3>Facial Scars</h3>
+        <p>Resurface and remodel scarred tissue for a smoother, more even complexion</p>
+      </div>
+      <span class="cond-card-arrow">Learn More</span>
+    </a>
+    <a href="conditions/anti-aging.html" class="cond-card cond-card--5">
+      <img class="cond-card-leaf" src="skin-laser-assets/leaf-decoration.png" alt="" />
+      <div>
+        <h3>Anti Aging (Skin Rejuvenation)</h3>
         <p>Stimulate your skin's own collagen for naturally smoother, firmer skin</p>
-      </div>
-      <span class="cond-card-arrow">Learn More</span>
-    </a>
-    <a href="conditions/hyperpigmentation.html" class="cond-card cond-card--4">
-      <img class="cond-card-leaf" src="skin-laser-assets/leaf-decoration.png" alt="" />
-      <div>
-        <h3>Hyperpigmentation &amp; Sun Damage</h3>
-        <p>Even out dark spots and melasma with precision laser treatments</p>
-      </div>
-      <span class="cond-card-arrow">Learn More</span>
-    </a>
-    <a href="conditions/scars-tattoo-removal.html" class="cond-card cond-card--5">
-      <img class="cond-card-leaf" src="skin-laser-assets/leaf-decoration.png" alt="" />
-      <div>
-        <h3>Scars &amp; Tattoo Removal</h3>
-        <p>Break down ink and remodel scar tissue for clearer skin, session by session</p>
       </div>
       <span class="cond-card-arrow">Learn More</span>
     </a>
@@ -1726,37 +1820,49 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
     </div>
     <p class="reveal d2">Advanced aesthetic treatments delivered with precision, care, and the latest technology.</p>
   </div>
-  <div class="tx-trio">
-    <div class="tx-featured reveal">
-      <img class="tx-featured-img" src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Model_Freeze_DiamondPolar_1-1920w.jpg" alt="Laser hair removal treatment" />
-      <div class="tx-featured-content">
-        <span class="tx-featured-tag">Most Popular</span>
+  <div class="tx-home-grid">
+    <a href="treatments/laser-hair-removal.html" class="tx-home-card tx-home-card--1 reveal">
+      <div>
         <h3>Laser Hair Removal</h3>
-        <p>Our signature service. The Cynosure Elite iQ+ delivers fast, safe treatments with lasting results on all skin types and tones.</p>
-        <a href="treatments/laser-hair-removal.html" class="tx-link">Learn More</a>
+        <p>Fast, safe removal on all skin types with the Cynosure Elite iQ+</p>
       </div>
-    </div>
-    <div class="tx-sub-row">
-    <div class="tx-featured tx-secondary reveal d1">
-      <img class="tx-featured-img" src="skin-laser-assets/interior.jpg" alt="Tattoo removal treatment" />
-      <div class="tx-featured-content">
-        <h3>Tattoo Removal</h3>
-        <p>PicoWay laser technology breaks down all ink colors more effectively than traditional methods, with fewer sessions and less discomfort.</p>
-        <a href="treatments/tattoo-removal.html" class="tx-link">Learn More</a>
+      <span class="tx-home-arrow">Learn More</span>
+    </a>
+    <a href="treatments/co2-laser.html" class="tx-home-card tx-home-card--2 reveal d1">
+      <div>
+        <h3>CO2 Laser</h3>
+        <p>Resurface skin and erase scarring, wrinkles, and sun damage</p>
       </div>
-    </div>
-    <div class="tx-featured tx-secondary reveal d2">
-      <img class="tx-featured-img" src="skin-laser-assets/interior2.jpeg" alt="CO2 laser resurfacing treatment" />
-      <div class="tx-featured-content">
-        <h3>CO2 Laser Resurfacing</h3>
-        <p>Advanced fractional CO2 laser that dramatically improves acne scarring, texture, pigmentation, and fine lines in as few as one session.</p>
-        <a href="treatments/co2-laser.html" class="tx-link">Learn More</a>
+      <span class="tx-home-arrow">Learn More</span>
+    </a>
+    <a href="treatments/fractional-laser.html" class="tx-home-card tx-home-card--3 reveal d2">
+      <div>
+        <h3>Fractional Laser</h3>
+        <p>Stimulate collagen remodeling to smooth texture and scarring</p>
       </div>
-    </div>
-    </div>
-    <div class="tx-all reveal" style="text-align: center; margin-top: 2.5rem;">
-      <a href="treatments.html" class="btn btn-ghost">See All Treatments &#8594;</a>
-    </div>
+      <span class="tx-home-arrow">Learn More</span>
+    </a>
+    <a href="treatments/microneedling.html" class="tx-home-card tx-home-card--4 reveal">
+      <div>
+        <h3>Microneedling</h3>
+        <p>Boost collagen and elastin for smoother, more radiant skin</p>
+      </div>
+      <span class="tx-home-arrow">Learn More</span>
+    </a>
+    <a href="treatments/pico-lazer.html" class="tx-home-card tx-home-card--5 reveal d1">
+      <div>
+        <h3>Pico Lazer</h3>
+        <p>Ultra-short pulses to target pigmentation, tattoos, and skin renewal</p>
+      </div>
+      <span class="tx-home-arrow">Learn More</span>
+    </a>
+    <a href="treatments.html" class="tx-home-card tx-home-card--see-all reveal d2">
+      <div>
+        <h3>See All Treatments</h3>
+        <p>Explore our full menu of advanced laser and skin rejuvenation treatments</p>
+      </div>
+      <span class="tx-home-arrow">View All &#8594;</span>
+    </a>
   </div>
 </section>
 

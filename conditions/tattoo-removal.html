@@ -225,6 +225,18 @@ nav.scrolled .nav-brand img { height: 48px; }
   font-size: 0.85rem; font-weight: 300;
   color: var(--ink-muted); line-height: 1.7;
 }
+.tx-item h3 a {
+  color: inherit; text-decoration: none;
+}
+.tx-item h3 a:hover { color: var(--skin-taupe); }
+.tx-item .tx-link {
+  display: inline-block; margin-top: 1rem;
+  font-size: 0.8rem; font-weight: 400;
+  color: var(--skin-taupe); text-decoration: none;
+  transition: color .3s ease;
+}
+.tx-item .tx-link:hover { color: var(--ink); }
+.tx-item .tx-link::after { content: ' \2192'; }
 
 /* ─── APPROACH ─── */
 .approach {
@@ -557,12 +569,14 @@ body::after {
     <h2>Recommended <i>treatment</i></h2>
     <div class="tx-grid">
       <div class="tx-item">
-        <h3>Pico Laser: Full Removal</h3>
+        <h3><a href="/treatments/pico-lazer.html">Pico Laser: Full Removal</a></h3>
         <p>For those who want their tattoo completely gone. The Pico Laser delivers ultra-fast pulses that shatter ink into microscopic particles your immune system can eliminate naturally. Multiple sessions are spaced 6 to 8 weeks apart to allow full clearing between treatments. Most tattoos require 6 to 12 sessions depending on ink density, depth, and colors used.</p>
+        <a href="/treatments/pico-lazer.html" class="tx-link">Learn more</a>
       </div>
       <div class="tx-item">
-        <h3>Pico Laser: Cover-Up Lightening</h3>
+        <h3><a href="/treatments/pico-lazer.html">Pico Laser: Cover-Up Lightening</a></h3>
         <p>If you are planning a cover-up tattoo, we can selectively lighten the existing ink to give your tattoo artist a cleaner canvas. This typically requires fewer sessions than full removal, usually 3 to 5, and focuses on reducing ink density enough that new artwork can be placed over it with more freedom in design and color choices.</p>
+        <a href="/treatments/pico-lazer.html" class="tx-link">Learn more</a>
       </div>
       <div class="tx-item">
         <h3>All Ink Colors Treatable</h3>

@@ -224,6 +224,18 @@ nav.scrolled .nav-brand img { height: 48px; }
   font-size: 0.85rem; font-weight: 300;
   color: var(--ink-muted); line-height: 1.7;
 }
+.tx-item h3 a {
+  color: inherit; text-decoration: none;
+}
+.tx-item h3 a:hover { color: var(--skin-taupe); }
+.tx-item .tx-link {
+  display: inline-block; margin-top: 1rem;
+  font-size: 0.8rem; font-weight: 400;
+  color: var(--skin-taupe); text-decoration: none;
+  transition: color .3s ease;
+}
+.tx-item .tx-link:hover { color: var(--ink); }
+.tx-item .tx-link::after { content: ' \2192'; }
 
 /* ─── APPROACH ─── */
 .approach {
@@ -556,12 +568,14 @@ body::after {
     <h2>Recommended <i>treatments</i></h2>
     <div class="tx-grid">
       <div class="tx-item">
-        <h3>Laser Vein Therapy</h3>
+        <h3><a href="/treatments/laser-vein-therapy.html">Laser Vein Therapy</a></h3>
         <p>A non-surgical, non-invasive treatment that uses targeted laser energy to heat and collapse visible spider veins. The laser light is absorbed by the hemoglobin in the blood vessel, causing it to coagulate and gradually fade from view. Surrounding tissue is left unharmed. Most spider veins on the legs and face respond well within one to three sessions, and treated veins are permanently eliminated as the body naturally reabsorbs them.</p>
+        <a href="/treatments/laser-vein-therapy.html" class="tx-link">Learn more</a>
       </div>
       <div class="tx-item">
-        <h3>Laser Genesis</h3>
+        <h3><a href="/treatments/laser-genesis.html">Laser Genesis</a></h3>
         <p>A gentle, non-invasive treatment that uses Nd:YAG laser technology to diffusely heat the upper dermis, stimulating collagen regrowth and reducing redness. Laser Genesis is particularly effective for rosacea, as it targets the underlying vascular component that causes chronic facial redness. The treatment is comfortable with no downtime, and patients typically see progressive improvement over a series of four to six sessions, with skin becoming calmer, smoother, and more even-toned.</p>
+        <a href="/treatments/laser-genesis.html" class="tx-link">Learn more</a>
       </div>
     </div>
   </div>

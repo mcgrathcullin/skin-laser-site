@@ -192,6 +192,18 @@ nav.scrolled .nav-brand img { height: 48px; }
   font-size: 0.85rem; font-weight: 300;
   color: var(--ink-muted); line-height: 1.75;
 }
+.tx-card-item h3 a {
+  color: inherit; text-decoration: none;
+}
+.tx-card-item h3 a:hover { color: var(--skin-taupe); }
+.tx-card-item .tx-link {
+  display: inline-block; margin-top: 1rem;
+  font-size: 0.8rem; font-weight: 400;
+  color: var(--skin-taupe); text-decoration: none;
+  transition: color .3s ease;
+}
+.tx-card-item .tx-link:hover { color: var(--ink); }
+.tx-card-item .tx-link::after { content: ' \2192'; }
 
 .approach {
   padding: 4rem clamp(2rem, 6vw, 6rem);
@@ -595,12 +607,14 @@ body::after {
 
     <div class="tx-cards">
       <div class="tx-card-item reveal d1">
-        <h3>RF Microneedling</h3>
+        <h3><a href="/treatments/rf-microneedling.html">RF Microneedling</a></h3>
         <p>Radiofrequency microneedling delivers targeted energy through tiny needles directly into the stretch mark tissue, triggering a powerful healing response. The combination of micro-injuries and RF heat stimulates robust collagen and elastin production right where it is needed most. Over a series of sessions, the indented texture fills in and the color fades as healthy new tissue replaces the scarred area.</p>
+        <a href="/treatments/rf-microneedling.html" class="tx-link">Learn more</a>
       </div>
       <div class="tx-card-item reveal d2">
-        <h3>CO2 Laser</h3>
+        <h3><a href="/treatments/co2-laser.html">CO2 Laser</a></h3>
         <p>Fractional CO2 laser creates thousands of microscopic treatment zones within the stretch mark, vaporizing damaged tissue and triggering the body's natural wound-healing cascade. As the skin repairs itself, fresh collagen fills in the depressed areas while the surface smooths and blends with surrounding skin. CO2 laser is particularly effective for mature, white stretch marks that have been resistant to other treatments.</p>
+        <a href="/treatments/co2-laser.html" class="tx-link">Learn more</a>
       </div>
     </div>
   </div>

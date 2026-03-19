@@ -225,6 +225,18 @@ nav.scrolled .nav-brand img { height: 48px; }
   font-size: 0.85rem; font-weight: 300;
   color: var(--ink-muted); line-height: 1.7;
 }
+.tx-item h3 a {
+  color: inherit; text-decoration: none;
+}
+.tx-item h3 a:hover { color: var(--skin-taupe); }
+.tx-item .tx-link {
+  display: inline-block; margin-top: 1rem;
+  font-size: 0.8rem; font-weight: 400;
+  color: var(--skin-taupe); text-decoration: none;
+  transition: color .3s ease;
+}
+.tx-item .tx-link:hover { color: var(--ink); }
+.tx-item .tx-link::after { content: ' \2192'; }
 
 /* ─── APPROACH ─── */
 .approach {
@@ -557,9 +569,10 @@ body::after {
     <h2>Recommended <i>treatment</i></h2>
     <div class="tx-grid tx-grid--single">
       <div class="tx-item">
-        <h3>Laser Hair Removal with Cynosure Elite IQ</h3>
+        <h3><a href="/treatments/laser-hair-removal.html">Laser Hair Removal with Cynosure Elite IQ</a></h3>
         <p>The Cynosure Elite IQ is the gold standard in laser hair removal technology. This intelligent workstation features dual wavelengths (Alexandrite 755nm and Nd:YAG 1064nm) that can safely and effectively treat all skin types, including darker skin tones that were previously difficult to treat with older laser systems.</p>
         <p style="margin-top: 0.8rem;">The system's Skintel melanin reader automatically calibrates the treatment to your unique skin, ensuring maximum efficacy with maximum safety. Most clients see significant hair reduction after 6 to 8 sessions, with each treatment taking just minutes for smaller areas like underarms, and under an hour for larger areas like full legs or back. The result is permanent hair reduction that frees you from the cycle of shaving and waxing for good.</p>
+        <a href="/treatments/laser-hair-removal.html" class="tx-link">Learn more</a>
       </div>
     </div>
   </div>

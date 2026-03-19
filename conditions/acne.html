@@ -225,6 +225,18 @@ nav.scrolled .nav-brand img { height: 48px; }
   font-size: 0.85rem; font-weight: 300;
   color: var(--ink-muted); line-height: 1.7;
 }
+.tx-item h3 a {
+  color: inherit; text-decoration: none;
+}
+.tx-item h3 a:hover { color: var(--skin-taupe); }
+.tx-item .tx-link {
+  display: inline-block; margin-top: 1rem;
+  font-size: 0.8rem; font-weight: 400;
+  color: var(--skin-taupe); text-decoration: none;
+  transition: color .3s ease;
+}
+.tx-item .tx-link:hover { color: var(--ink); }
+.tx-item .tx-link::after { content: ' \2192'; }
 
 /* ─── APPROACH ─── */
 .approach {
@@ -557,20 +569,24 @@ body::after {
     <h2>Recommended <i>treatments</i></h2>
     <div class="tx-grid">
       <div class="tx-item">
-        <h3>Medical-Grade Facials</h3>
+        <h3><a href="/treatments/facials.html">Medical-Grade Facials</a></h3>
         <p>Professional extractions combined with deep cleansing and targeted serums that clear congested pores and calm active inflammation. Regular facials help regulate oil production and prevent new breakouts from forming, giving your skin a consistent baseline of clarity.</p>
+        <a href="/treatments/facials.html" class="tx-link">Learn more</a>
       </div>
       <div class="tx-item">
-        <h3>Laser Genesis</h3>
+        <h3><a href="/treatments/laser-genesis.html">Laser Genesis</a></h3>
         <p>A gentle, non-invasive laser that heats the upper dermis to reduce inflammation and kill acne-causing bacteria. Laser Genesis also promotes collagen remodeling, which helps minimize the redness and uneven texture that active acne leaves behind between breakouts.</p>
+        <a href="/treatments/laser-genesis.html" class="tx-link">Learn more</a>
       </div>
       <div class="tx-item">
-        <h3>Hydrafacial</h3>
+        <h3><a href="/treatments/hydrafacial.html">Hydrafacial</a></h3>
         <p>A multi-step treatment that cleanses, exfoliates, extracts, and hydrates in one session. The vortex suction technology removes impurities from deep within your pores while infusing the skin with acne-fighting serums, leaving your skin clear, balanced, and refreshed.</p>
+        <a href="/treatments/hydrafacial.html" class="tx-link">Learn more</a>
       </div>
       <div class="tx-item">
-        <h3>VI Peel Purify</h3>
+        <h3><a href="/treatments/vi-peels.html">VI Peel Purify</a></h3>
         <p>Specifically formulated for acne-prone skin, this medical-grade chemical peel combines salicylic acid, benzoyl peroxide, and other active ingredients to penetrate clogged pores, eliminate bacteria, and accelerate cell turnover. It targets both active breakouts and the congestion that leads to future ones.</p>
+        <a href="/treatments/vi-peels.html" class="tx-link">Learn more</a>
       </div>
     </div>
   </div>

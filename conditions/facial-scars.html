@@ -225,6 +225,18 @@ nav.scrolled .nav-brand img { height: 48px; }
   font-size: 0.85rem; font-weight: 300;
   color: var(--ink-muted); line-height: 1.7;
 }
+.tx-item h3 a {
+  color: inherit; text-decoration: none;
+}
+.tx-item h3 a:hover { color: var(--skin-taupe); }
+.tx-item .tx-link {
+  display: inline-block; margin-top: 1rem;
+  font-size: 0.8rem; font-weight: 400;
+  color: var(--skin-taupe); text-decoration: none;
+  transition: color .3s ease;
+}
+.tx-item .tx-link:hover { color: var(--ink); }
+.tx-item .tx-link::after { content: ' \2192'; }
 
 /* ─── APPROACH ─── */
 .approach {
@@ -557,16 +569,19 @@ body::after {
     <h2>Recommended <i>treatments</i></h2>
     <div class="tx-grid">
       <div class="tx-item">
-        <h3>RF Microneedling</h3>
+        <h3><a href="/treatments/rf-microneedling.html">RF Microneedling</a></h3>
         <p>Combines precision microneedling with radiofrequency energy to deliver controlled heat deep into the dermis. This dual-action approach breaks down scar tissue while triggering intensive collagen and elastin production, gradually smoothing and resurfacing even stubborn facial scars over a series of treatments.</p>
+        <a href="/treatments/rf-microneedling.html" class="tx-link">Learn more</a>
       </div>
       <div class="tx-item">
-        <h3>Fractional Laser</h3>
+        <h3><a href="/treatments/fractional-laser.html">Fractional Laser</a></h3>
         <p>Creates thousands of microscopic treatment zones across the scarred area, stimulating the body's natural wound-healing response while leaving surrounding tissue intact for faster recovery. Particularly effective for both shallow and moderate scars, producing visible improvement in texture and tone with each session.</p>
+        <a href="/treatments/fractional-laser.html" class="tx-link">Learn more</a>
       </div>
       <div class="tx-item">
-        <h3>CO2 Laser</h3>
+        <h3><a href="/treatments/co2-laser.html">CO2 Laser</a></h3>
         <p>The gold standard for more aggressive facial scarring. Fractional CO2 laser precisely removes damaged skin layers and stimulates intensive collagen regeneration deep within the dermis. Many patients see dramatic improvement in as few as one to three sessions, with results continuing to develop over months as new collagen forms.</p>
+        <a href="/treatments/co2-laser.html" class="tx-link">Learn more</a>
       </div>
     </div>
   </div>

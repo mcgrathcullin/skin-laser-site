@@ -354,6 +354,18 @@ nav.scrolled .nav-brand img { height: 48px; }
   font-size: 0.78rem; font-weight: 300;
   color: var(--ink-muted); line-height: 1.6;
 }
+.result-card-body h4 a {
+  color: inherit; text-decoration: none;
+}
+.result-card-body h4 a:hover { color: var(--skin-taupe); }
+.result-card-body .tx-link {
+  display: inline-block; margin-top: 1rem;
+  font-size: 0.8rem; font-weight: 400;
+  color: var(--skin-taupe); text-decoration: none;
+  transition: color .3s ease;
+}
+.result-card-body .tx-link:hover { color: var(--ink); }
+.result-card-body .tx-link::after { content: ' \2192'; }
 
 /* ── CTA BAND ── */
 .cta-band {
@@ -738,22 +750,25 @@ body::after {
     <div class="result-card reveal">
       <div class="result-placeholder"><span>Before &amp; After</span></div>
       <div class="result-card-body">
-        <h4>Tattoo Removal</h4>
+        <h4><a href="/conditions/tattoo-removal.html">Tattoo Removal</a></h4>
         <p>Progressive fading of tattoo ink with visible results after each session, including stubborn colors.</p>
+        <a href="/conditions/tattoo-removal.html" class="tx-link">Learn more</a>
       </div>
     </div>
     <div class="result-card reveal d1">
       <div class="result-placeholder"><span>Before &amp; After</span></div>
       <div class="result-card-body">
-        <h4>Hyperpigmentation</h4>
+        <h4><a href="/conditions/hyperpigmentation.html">Hyperpigmentation</a></h4>
         <p>Faded sun damage, age spots, and brown spots for a more even, clear complexion.</p>
+        <a href="/conditions/hyperpigmentation.html" class="tx-link">Learn more</a>
       </div>
     </div>
     <div class="result-card reveal d2">
       <div class="result-placeholder"><span>Before &amp; After</span></div>
       <div class="result-card-body">
-        <h4>Melasma Treatment</h4>
+        <h4><a href="/conditions/hyperpigmentation.html">Melasma Treatment</a></h4>
         <p>Reduced appearance of melasma patches with gentle, precise picosecond energy.</p>
+        <a href="/conditions/hyperpigmentation.html" class="tx-link">Learn more</a>
       </div>
     </div>
   </div>

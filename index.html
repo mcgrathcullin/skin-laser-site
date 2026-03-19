@@ -1217,7 +1217,7 @@ nav.scrolled .nav-brand img { height: 48px; }
 .location-band {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 420px;
+  height: 420px;
 }
 .location-photo {
   position: relative;
@@ -1226,8 +1226,9 @@ nav.scrolled .nav-brand img { height: 48px; }
 .location-photo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 40%;
+  object-fit: contain;
+  object-position: center bottom;
+  background: var(--bg-warm);
 }
 .location-photo-overlay {
   position: absolute;
@@ -1272,11 +1273,7 @@ nav.scrolled .nav-brand img { height: 48px; }
   height: 100%;
   border: none;
   display: block;
-  filter: saturate(0.3) contrast(1.05) brightness(1.05);
-  transition: filter 0.5s ease;
-}
-.location-map:hover iframe {
-  filter: saturate(0.6) contrast(1.02) brightness(1.02);
+  border: none;
 }
 .location-map::after {
   content: '';
@@ -2115,6 +2112,22 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
   </div>
 </section>
 
+<!-- LOCATION BAND -->
+<section class="location-band">
+  <div class="location-photo">
+    <img src="skin-laser-assets/optima-building.jpg" alt="Optima Signature Building, Streeterville, Chicago" loading="lazy" />
+    <div class="location-photo-overlay"></div>
+    <div class="location-photo-text">
+      <span class="label">Find Us</span>
+      <h3>Optima Signature <i>Building</i></h3>
+      <p>220 E Illinois St, Suite 703<br>Streeterville, Chicago</p>
+    </div>
+  </div>
+  <div class="location-map">
+    <iframe src="https://maps.google.com/maps?q=220+E+Illinois+St+Suite+703+Chicago+IL+60611&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="contact-inner">
@@ -2148,22 +2161,6 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
       <div class="hours-row"><span class="day">Saturday</span><span class="time">10:00 am - 3:00 pm</span></div>
       <div class="hours-row"><span class="day">Sunday</span><span class="time">Closed</span></div>
     </div>
-  </div>
-</section>
-
-<!-- LOCATION BAND -->
-<section class="location-band">
-  <div class="location-photo">
-    <img src="skin-laser-assets/optima-building.jpg" alt="Optima Signature Building, Streeterville, Chicago" loading="lazy" />
-    <div class="location-photo-overlay"></div>
-    <div class="location-photo-text">
-      <span class="label">Find Us</span>
-      <h3>Optima Signature <i>Building</i></h3>
-      <p>220 E Illinois St, Suite 703<br>Streeterville, Chicago</p>
-    </div>
-  </div>
-  <div class="location-map">
-    <iframe src="https://maps.google.com/maps?q=220+E+Illinois+St+Suite+703+Chicago+IL+60611&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 </section>
 

@@ -225,6 +225,18 @@ nav.scrolled .nav-brand img { height: 48px; }
   font-size: 0.85rem; font-weight: 300;
   color: var(--ink-muted); line-height: 1.7;
 }
+.tx-item h3 a {
+  color: inherit; text-decoration: none;
+}
+.tx-item h3 a:hover { color: var(--skin-taupe); }
+.tx-item .tx-link {
+  display: inline-block; margin-top: 1rem;
+  font-size: 0.8rem; font-weight: 400;
+  color: var(--skin-taupe); text-decoration: none;
+  transition: color .3s ease;
+}
+.tx-item .tx-link:hover { color: var(--ink); }
+.tx-item .tx-link::after { content: ' \2192'; }
 
 /* ─── APPROACH ─── */
 .approach {
@@ -557,28 +569,34 @@ body::after {
     <h2>Recommended <i>treatments</i></h2>
     <div class="tx-grid">
       <div class="tx-item">
-        <h3>Laser Genesis</h3>
+        <h3><a href="/treatments/laser-genesis.html">Laser Genesis</a></h3>
         <p>A gentle, non-ablative laser that stimulates collagen production in the upper dermis without downtime. Over a series of sessions, Laser Genesis smooths fine lines, evens out skin tone, and restores a natural glow by promoting healthy cell turnover from the inside out.</p>
+        <a href="/treatments/laser-genesis.html" class="tx-link">Learn more</a>
       </div>
       <div class="tx-item">
-        <h3>Fractional Laser</h3>
+        <h3><a href="/treatments/fractional-laser.html">Fractional Laser</a></h3>
         <p>Creates microscopic treatment zones that trigger the skin's repair process, generating fresh collagen and replacing damaged tissue with smoother, firmer skin. Fractional laser is highly effective for moderate wrinkles, sun damage, and overall texture improvement.</p>
+        <a href="/treatments/fractional-laser.html" class="tx-link">Learn more</a>
       </div>
       <div class="tx-item">
-        <h3>CO2 Laser Resurfacing</h3>
+        <h3><a href="/treatments/co2-laser.html">CO2 Laser Resurfacing</a></h3>
         <p>The most powerful resurfacing option available. Fractional CO2 laser precisely removes damaged outer layers while stimulating deep collagen remodeling. Ideal for deeper wrinkles, significant sun damage, and lax skin that needs a dramatic reset.</p>
+        <a href="/treatments/co2-laser.html" class="tx-link">Learn more</a>
       </div>
       <div class="tx-item">
-        <h3>Chemical Peels</h3>
+        <h3><a href="/treatments/vi-peels.html">Chemical Peels</a></h3>
         <p>Medical-grade peels remove dull, damaged surface layers to reveal brighter, smoother skin underneath. Depending on the depth, peels can address fine lines, rough texture, and uneven pigmentation while stimulating collagen renewal for continued improvement over weeks.</p>
+        <a href="/treatments/vi-peels.html" class="tx-link">Learn more</a>
       </div>
       <div class="tx-item">
-        <h3>Microneedling</h3>
+        <h3><a href="/treatments/microneedling.html">Microneedling</a></h3>
         <p>Controlled micro-injuries trigger the body's natural healing cascade, producing new collagen and elastin that tighten and firm the skin over time. Microneedling is excellent for fine lines, pore size, and overall skin quality, with minimal downtime and progressive results.</p>
+        <a href="/treatments/microneedling.html" class="tx-link">Learn more</a>
       </div>
       <div class="tx-item">
-        <h3>Injectables (Botox & Fillers)</h3>
+        <h3><a href="/treatments/injectables.html">Injectables (Botox & Fillers)</a></h3>
         <p>Botox relaxes the muscles responsible for expression lines like crow's feet and forehead furrows, while dermal fillers restore volume to hollowed cheeks, thin lips, and deep folds. Together, they provide immediate, visible rejuvenation that complements longer-term collagen-building treatments.</p>
+        <a href="/treatments/injectables.html" class="tx-link">Learn more</a>
       </div>
     </div>
   </div>

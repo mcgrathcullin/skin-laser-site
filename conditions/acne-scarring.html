@@ -221,10 +221,22 @@ nav.scrolled .nav-brand img { height: 48px; }
   font-size: 1.2rem; font-weight: 400;
   margin-bottom: 0.6rem;
 }
+.tx-item h3 a {
+  color: inherit; text-decoration: none;
+}
+.tx-item h3 a:hover { color: var(--skin-taupe); }
 .tx-item p {
   font-size: 0.85rem; font-weight: 300;
   color: var(--ink-muted); line-height: 1.7;
 }
+.tx-item .tx-link {
+  display: inline-block; margin-top: 1rem;
+  font-size: 0.8rem; font-weight: 400;
+  color: var(--skin-taupe); text-decoration: none;
+  transition: color .3s ease;
+}
+.tx-item .tx-link:hover { color: var(--ink); }
+.tx-item .tx-link::after { content: ' \2192'; }
 
 /* ─── APPROACH ─── */
 .approach {
@@ -557,20 +569,24 @@ body::after {
     <h2>Recommended <i>treatments</i></h2>
     <div class="tx-grid">
       <div class="tx-item">
-        <h3>VI Peel</h3>
+        <h3><a href="/treatments/vi-peels.html">VI Peel</a></h3>
         <p>A medical-grade chemical peel that penetrates the deeper layers of skin to promote cellular turnover. The VI Peel helps break down scar tissue and stimulate new collagen production, resulting in smoother texture and more even skin tone with minimal downtime.</p>
+        <a href="/treatments/vi-peels.html" class="tx-link">Learn more</a>
       </div>
       <div class="tx-item">
-        <h3>RF Microneedling</h3>
+        <h3><a href="/treatments/rf-microneedling.html">RF Microneedling</a></h3>
         <p>Combines the collagen-stimulating benefits of microneedling with radiofrequency energy that heats the deeper layers of skin. This dual-action approach remodels scar tissue from the inside out, dramatically improving the appearance of pitted and textured acne scars over a series of sessions.</p>
+        <a href="/treatments/rf-microneedling.html" class="tx-link">Learn more</a>
       </div>
       <div class="tx-item">
-        <h3>Fractional Laser</h3>
+        <h3><a href="/treatments/fractional-laser.html">Fractional Laser</a></h3>
         <p>Creates thousands of microscopic treatment zones in the skin, triggering the body's natural healing response while leaving surrounding tissue intact. This promotes rapid collagen remodeling and skin resurfacing, effectively smoothing out both shallow and moderate acne scars.</p>
+        <a href="/treatments/fractional-laser.html" class="tx-link">Learn more</a>
       </div>
       <div class="tx-item">
-        <h3>CO2 Laser</h3>
+        <h3><a href="/treatments/co2-laser.html">CO2 Laser</a></h3>
         <p>The gold standard for aggressive acne scarring. Fractional CO2 laser precisely ablates damaged skin and stimulates intensive collagen regeneration. Many patients see dramatic improvement in as few as one to three sessions, with results that continue to improve over months as new collagen forms.</p>
+        <a href="/treatments/co2-laser.html" class="tx-link">Learn more</a>
       </div>
     </div>
   </div>

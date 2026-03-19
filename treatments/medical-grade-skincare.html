@@ -358,6 +358,18 @@ nav.scrolled .nav-brand img { height: 48px; }
   font-size: 0.78rem; font-weight: 300;
   color: var(--ink-muted); line-height: 1.6;
 }
+.result-card-body h4 a {
+  color: inherit; text-decoration: none;
+}
+.result-card-body h4 a:hover { color: var(--skin-taupe); }
+.result-card-body .tx-link {
+  display: inline-block; margin-top: 1rem;
+  font-size: 0.8rem; font-weight: 400;
+  color: var(--skin-taupe); text-decoration: none;
+  transition: color .3s ease;
+}
+.result-card-body .tx-link:hover { color: var(--ink); }
+.result-card-body .tx-link::after { content: ' \2192'; }
 
 /* ── CTA BAND ── */
 .cta-band {
@@ -757,15 +769,17 @@ body::after {
     <div class="result-card reveal d1">
       <div class="result-placeholder"><span>Before &amp; After</span></div>
       <div class="result-card-body">
-        <h4>Hyperpigmentation</h4>
+        <h4><a href="/conditions/hyperpigmentation.html">Hyperpigmentation</a></h4>
         <p>Visible brightening and evening of skin tone using prescription-strength lightening agents.</p>
+        <a href="/conditions/hyperpigmentation.html" class="tx-link">Learn more</a>
       </div>
     </div>
     <div class="result-card reveal d2">
       <div class="result-placeholder"><span>Before &amp; After</span></div>
       <div class="result-card-body">
-        <h4>Anti-Aging</h4>
+        <h4><a href="/conditions/anti-aging.html">Anti-Aging</a></h4>
         <p>Smoother texture, reduced fine lines, and improved radiance with a medical grade anti-aging routine.</p>
+        <a href="/conditions/anti-aging.html" class="tx-link">Learn more</a>
       </div>
     </div>
   </div>

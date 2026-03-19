@@ -224,6 +224,18 @@ nav.scrolled .nav-brand img { height: 48px; }
   font-size: 0.85rem; font-weight: 300;
   color: var(--ink-muted); line-height: 1.7;
 }
+.tx-item h3 a {
+  color: inherit; text-decoration: none;
+}
+.tx-item h3 a:hover { color: var(--skin-taupe); }
+.tx-item .tx-link {
+  display: inline-block; margin-top: 1rem;
+  font-size: 0.8rem; font-weight: 400;
+  color: var(--skin-taupe); text-decoration: none;
+  transition: color .3s ease;
+}
+.tx-item .tx-link:hover { color: var(--ink); }
+.tx-item .tx-link::after { content: ' \2192'; }
 
 /* ─── APPROACH ─── */
 .approach {
@@ -556,16 +568,19 @@ body::after {
     <h2>Recommended <i>treatments</i></h2>
     <div class="tx-grid">
       <div class="tx-item">
-        <h3>Pico Laser</h3>
+        <h3><a href="/treatments/pico-lazer.html">Pico Laser</a></h3>
         <p>Delivers ultra-short pulses of energy that shatter pigment particles into tiny fragments your body naturally eliminates. The Pico laser is highly effective for sun spots, age spots, and stubborn brown patches, with minimal downtime and lower risk of post-treatment pigment changes compared to older laser technologies.</p>
+        <a href="/treatments/pico-lazer.html" class="tx-link">Learn more</a>
       </div>
       <div class="tx-item">
-        <h3>IPL Photofacial</h3>
+        <h3><a href="/treatments/ipl-photofacial.html">IPL Photofacial</a></h3>
         <p>Intense Pulsed Light targets melanin deposits across broader areas of skin, making it ideal for diffuse sun damage, freckles, and uneven skin tone. The light energy is absorbed by pigmented cells, which then rise to the surface and flake away over the following days, revealing clearer, more even-toned skin beneath.</p>
+        <a href="/treatments/ipl-photofacial.html" class="tx-link">Learn more</a>
       </div>
       <div class="tx-item">
-        <h3>VI Peel</h3>
+        <h3><a href="/treatments/vi-peels.html">VI Peel</a></h3>
         <p>A medical-grade chemical peel that accelerates cellular turnover and breaks up pigment in the upper layers of skin. The VI Peel is particularly effective for melasma and post-inflammatory hyperpigmentation, and is safe for all skin types. Results become visible within a week as the old, pigmented skin exfoliates to reveal fresh, more evenly toned skin.</p>
+        <a href="/treatments/vi-peels.html" class="tx-link">Learn more</a>
       </div>
     </div>
   </div>

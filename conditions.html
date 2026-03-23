@@ -182,77 +182,109 @@ nav.scrolled .nav-brand img { height: 48px; }
 .cond-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
+
 .cond-card {
-  padding: 2.5rem 2.2rem;
-  text-decoration: none;
-  display: flex; flex-direction: column;
-  justify-content: space-between;
-  min-height: 260px;
+  background: var(--white);
+  overflow: hidden;
   transition: all .5s var(--ease);
-  position: relative; overflow: hidden;
-  border: none;
+  position: relative;
+  display: flex; flex-direction: column;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  text-decoration: none;
 }
 .cond-card::before {
   content: ''; position: absolute;
-  top: 0; left: 0; width: 3px; height: 100%;
-  opacity: 0; transition: opacity .4s var(--ease);
+  top: 0; left: 0; right: 0; height: 3px;
+  transform: scaleX(0); transition: transform .4s var(--ease);
 }
-.cond-card:hover::before { opacity: 1; }
+.cond-card:hover::before { transform: scaleX(1); }
 .cond-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.07);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.08);
 }
 
-/* Skin tone card variants */
-.cond-card--1 { background: linear-gradient(135deg, #F2EBE4, #EDE4DA); }
+/* Skin tone card accents */
 .cond-card--1::before { background: var(--skin-deep); }
-.cond-card--2 { background: linear-gradient(135deg, #F0E8DF, #E9DFCF); }
 .cond-card--2::before { background: var(--skin-taupe); }
-.cond-card--3 { background: linear-gradient(135deg, #F4ECE5, #EEE5DB); }
 .cond-card--3::before { background: var(--skin-blush); }
-.cond-card--4 { background: linear-gradient(135deg, #EFE7DE, #E8DDD1); }
 .cond-card--4::before { background: var(--skin-peach); }
-.cond-card--5 { background: linear-gradient(135deg, #F1EBE2, #EAE3D8); }
-.cond-card--5::before { background: var(--skin-sage); }
-.cond-card--6 { background: linear-gradient(135deg, #F0E9E1, #EAE1D6); }
-.cond-card--6::before { background: var(--skin-sand); }
-.cond-card--7 { background: linear-gradient(135deg, #F3ECE6, #ECE4DA); }
-.cond-card--7::before { background: var(--skin-taupe); }
-.cond-card--8 { background: linear-gradient(135deg, #F1E9E0, #EAE0D4); }
-.cond-card--8::before { background: var(--skin-blush); }
-.cond-card--9 { background: linear-gradient(135deg, #F0E7DD, #E9DDD0); }
+.cond-card--5::before { background: var(--skin-sand); }
+.cond-card--6::before { background: var(--skin-sage); }
+.cond-card--7::before { background: var(--gold); }
+.cond-card--8::before { background: var(--gold-light); }
 .cond-card--9::before { background: var(--skin-deep); }
 
-.cond-card h3 {
-  font-family: var(--serif);
-  font-size: 1.3rem; font-weight: 400;
-  color: var(--ink); margin-bottom: 0.8rem;
-  line-height: 1.3;
+.cond-card-img {
+  width: 100%; height: 220px;
+  object-fit: cover;
+  background: var(--bg-warm);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
 }
-.cond-card p {
-  font-size: 0.84rem; font-weight: 300;
+.cond-card-img-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--skin-taupe);
+}
+
+/* Gradient overlays for image placeholders */
+.cond-card--1 .cond-card-img { background: linear-gradient(135deg, #EDE4DA, #E4DDD3); }
+.cond-card--2 .cond-card-img { background: linear-gradient(135deg, #F0E8DF, #E9DFCF); }
+.cond-card--3 .cond-card-img { background: linear-gradient(135deg, #F4ECE5, #EEE5DB); }
+.cond-card--4 .cond-card-img { background: linear-gradient(135deg, #EFE7DE, #E8DDD1); }
+.cond-card--5 .cond-card-img { background: linear-gradient(135deg, #F1EBE2, #EAE3D8); }
+.cond-card--6 .cond-card-img { background: linear-gradient(135deg, #F0E9E1, #EAE1D6); }
+.cond-card--7 .cond-card-img { background: linear-gradient(135deg, #EDE4DA, #E6D9CC); }
+.cond-card--8 .cond-card-img { background: linear-gradient(135deg, #F2EBE3, #EBE2D7); }
+.cond-card--9 .cond-card-img { background: linear-gradient(135deg, #EFE6DC, #E7DCD0); }
+
+.cond-card-body {
+  padding: 2rem;
+  display: flex; flex-direction: column;
+  flex: 1;
+}
+.cond-card-tag {
+  display: inline-block; width: fit-content;
+  font-size: 0.56rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 0.35rem 0.7rem; margin-bottom: 1rem;
+}
+.cond-card--1 .cond-card-tag { color: var(--skin-deep); background: rgba(139,115,98,0.1); }
+.cond-card--2 .cond-card-tag { color: var(--skin-taupe); background: rgba(168,144,128,0.1); }
+.cond-card--3 .cond-card-tag { color: var(--skin-blush); background: rgba(201,169,146,0.1); }
+.cond-card--4 .cond-card-tag { color: var(--skin-deep); background: rgba(212,184,164,0.12); }
+.cond-card--5 .cond-card-tag { color: var(--skin-taupe); background: rgba(226,205,191,0.15); }
+.cond-card--6 .cond-card-tag { color: var(--skin-sage); background: rgba(156,160,138,0.12); }
+.cond-card--7 .cond-card-tag { color: var(--gold); background: rgba(168,138,123,0.1); }
+.cond-card--8 .cond-card-tag { color: var(--gold-light); background: rgba(196,166,147,0.12); }
+.cond-card--9 .cond-card-tag { color: var(--skin-deep); background: rgba(139,115,98,0.1); }
+
+.cond-card-body h3 {
+  font-family: var(--serif);
+  font-size: 1.35rem; font-weight: 400;
+  line-height: 1.25; margin-bottom: 0.75rem;
+}
+.cond-card-body p {
+  font-size: 0.85rem; font-weight: 300;
   color: var(--ink-muted); line-height: 1.75;
   margin-bottom: 1.5rem;
+  flex: 1;
 }
-.cond-card-arrow {
-  font-size: 0.65rem; font-weight: 600;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--skin-taupe); margin-top: auto;
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  transition: all .3s var(--ease);
+.cond-card-link {
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--skin-taupe);
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  transition: color .3s var(--ease);
+  margin-top: auto;
 }
-.cond-card-arrow::after { content: '\2192'; transition: transform .3s; }
-.cond-card:hover .cond-card-arrow { color: var(--skin-deep); }
-.cond-card:hover .cond-card-arrow::after { transform: translateX(4px); }
-
-/* Full-width last card when odd count */
-.cond-grid > .cond-card:last-child:nth-child(3n+1) {
-  grid-column: 1 / -1;
-  max-width: calc(33.333% - 0.833rem);
-  margin: 0 auto;
-}
+.cond-card-link::after { content: '\2192'; transition: transform .3s ease; }
+.cond-card:hover .cond-card-link { color: var(--skin-deep); }
+.cond-card:hover .cond-card-link::after { transform: translateX(4px); }
 
 /* ─── CTA BAND ─── */
 .cta-band {
@@ -495,9 +527,6 @@ footer {
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
   .cond-grid { grid-template-columns: 1fr 1fr; }
-  .cond-grid > .cond-card:last-child:nth-child(3n+1) {
-    max-width: none; grid-column: auto;
-  }
   .contact-inner { grid-template-columns: 1fr 1fr; }
 }
 
@@ -554,7 +583,6 @@ footer {
   .page-hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
   .conditions-page { padding: 3rem 1.75rem 4rem; }
   .cond-grid { grid-template-columns: 1fr; }
-  .cond-card { min-height: auto; padding: 2rem 1.5rem; }
   .cta-band { min-height: 340px; padding: 4.5rem 1.75rem; }
   .contact { padding: 5rem 1.75rem; }
   .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
@@ -606,94 +634,134 @@ body::after {
 <section class="conditions-page">
   <div class="cond-grid">
 
+    <!-- 1. Excess Hair -->
     <a href="conditions/excess-hair.html" class="cond-card cond-card--1 reveal">
-      <div>
+      <div class="cond-card-img">
+        <div class="cond-card-img-placeholder">Image Placeholder</div>
+      </div>
+      <div class="cond-card-body">
+        <span class="cond-card-tag">Hair Removal</span>
         <h3>Excess Hair</h3>
         <p>Tired of spending time and money to remove excess hair from waxing, shaving, and electrolysis? We all have unwanted hair, both male &amp; females, and we can help you remove it.</p>
-        <p style="font-size:0.75rem; color:var(--skin-taupe); font-weight:500; margin-bottom:0;">Treatment: Laser Hair Removal with Cynosure Elite IQ</p>
+        <span class="cond-card-link">Learn More</span>
       </div>
-      <span class="cond-card-arrow">Learn More</span>
     </a>
 
+    <!-- 2. Acne Scarring -->
     <a href="conditions/acne-scarring.html" class="cond-card cond-card--2 reveal d1">
-      <div>
+      <div class="cond-card-img">
+        <div class="cond-card-img-placeholder">Image Placeholder</div>
+      </div>
+      <div class="cond-card-body">
+        <span class="cond-card-tag">Scarring</span>
         <h3>Acne Scarring</h3>
         <p>Often after vicious acne breakout cycles, many leave behind darker scarring on your face and visible body parts that linger for an extended period of time. While treating your root cause for acne, we help you to remove the scarring that you may currently have.</p>
-        <p style="font-size:0.75rem; color:var(--skin-taupe); font-weight:500; margin-bottom:0;">Treatments: VI Peel, RF Microneedling, Fractional Laser, CO2 Laser</p>
+        <span class="cond-card-link">Learn More</span>
       </div>
-      <span class="cond-card-arrow">Learn More</span>
     </a>
 
+    <!-- 3. Tattoo Removal -->
     <a href="conditions/tattoo-removal.html" class="cond-card cond-card--3 reveal d2">
-      <div>
+      <div class="cond-card-img">
+        <div class="cond-card-img-placeholder">Image Placeholder</div>
+      </div>
+      <div class="cond-card-body">
+        <span class="cond-card-tag">Laser</span>
         <h3>Tattoo Removal</h3>
         <p>The PicoWay laser breaks down ink into tiny particles that are naturally eliminated by your immune system. It treats the full spectrum of tattoo ink colors, including stubborn greens that other lasers struggle with.</p>
-        <p style="font-size:0.75rem; color:var(--skin-taupe); font-weight:500; margin-bottom:0;">Treatment: PicoWay Laser</p>
+        <span class="cond-card-link">Learn More</span>
       </div>
-      <span class="cond-card-arrow">Learn More</span>
     </a>
 
+    <!-- 4. Facial Scars -->
     <a href="conditions/facial-scars.html" class="cond-card cond-card--4 reveal">
-      <div>
+      <div class="cond-card-img">
+        <div class="cond-card-img-placeholder">Image Placeholder</div>
+      </div>
+      <div class="cond-card-body">
+        <span class="cond-card-tag">Scarring</span>
         <h3>Facial Scars</h3>
         <p>Accidents, surgeries, and severe acne can leave lasting facial scars that affect confidence. Venus Viva Nano-Fractional RF, RF Microneedling, Fractional Laser, and CO2 Laser resurface and remodel scarred tissue for a smoother, more even complexion.</p>
-        <p style="font-size:0.75rem; color:var(--skin-taupe); font-weight:500; margin-bottom:0;">Treatments: Venus Viva RF, RF Microneedling, Fractional Laser, CO2 Laser</p>
+        <span class="cond-card-link">Learn More</span>
       </div>
-      <span class="cond-card-arrow">Learn More</span>
     </a>
 
+    <!-- 5. Anti Aging -->
     <a href="conditions/anti-aging.html" class="cond-card cond-card--5 reveal d1">
-      <div>
+      <div class="cond-card-img">
+        <div class="cond-card-img-placeholder">Image Placeholder</div>
+      </div>
+      <div class="cond-card-body">
+        <span class="cond-card-tag">Rejuvenation</span>
         <h3>Anti Aging (Skin Rejuvenation)</h3>
         <p>Sun exposure and aging break down collagen. CO2 laser, RF microneedling, and fractional laser stimulate new collagen to smooth lines and restore youthful firmness. Many patients say the laser can erase up to a decade in a little less than an hour.</p>
-        <p style="font-size:0.75rem; color:var(--skin-taupe); font-weight:500; margin-bottom:0;">Treatments: CO2 Laser, RF Microneedling, Fractional Laser</p>
+        <span class="cond-card-link">Learn More</span>
       </div>
-      <span class="cond-card-arrow">Learn More</span>
     </a>
 
+    <!-- 6. Acne -->
     <a href="conditions/acne.html" class="cond-card cond-card--6 reveal d2">
-      <div>
+      <div class="cond-card-img">
+        <div class="cond-card-img-placeholder">Image Placeholder</div>
+      </div>
+      <div class="cond-card-body">
+        <span class="cond-card-tag">Skin Health</span>
         <h3>Acne</h3>
         <p>Active acne can be persistent and frustrating. Our targeted laser and light-based treatments kill acne-causing bacteria, reduce inflammation, and help prevent future breakouts for clearer skin.</p>
-        <p style="font-size:0.75rem; color:var(--skin-taupe); font-weight:500; margin-bottom:0;">Treatments: Laser Genesis, HydraFacial, VI Peel</p>
+        <span class="cond-card-link">Learn More</span>
       </div>
-      <span class="cond-card-arrow">Learn More</span>
     </a>
 
+    <!-- 7. Hyperpigmentation -->
     <a href="conditions/hyperpigmentation.html" class="cond-card cond-card--7 reveal">
-      <div>
+      <div class="cond-card-img">
+        <div class="cond-card-img-placeholder">Image Placeholder</div>
+      </div>
+      <div class="cond-card-body">
+        <span class="cond-card-tag">Pigmentation</span>
         <h3>Hyperpigmentation (Melasma)</h3>
         <p>Increased melanocytes or hyperactive melanocytes over produce melanin in certain areas of skin resulting in a brown patch. Most is caused by over exposure from the sun, but some may be caused by hormones and aging.</p>
-        <p style="font-size:0.75rem; color:var(--skin-taupe); font-weight:500; margin-bottom:0;">Treatments: Pico Laser, IPL Photofacial, VI Peel</p>
+        <span class="cond-card-link">Learn More</span>
       </div>
-      <span class="cond-card-arrow">Learn More</span>
     </a>
 
+    <!-- 8. Cellulite -->
     <a href="conditions/cellulite.html" class="cond-card cond-card--8 reveal d1">
-      <div>
+      <div class="cond-card-img">
+        <div class="cond-card-img-placeholder">Image Placeholder</div>
+      </div>
+      <div class="cond-card-body">
+        <span class="cond-card-tag">Body Contouring</span>
         <h3>Cellulite Smoothing &amp; Toning</h3>
         <p>Cellulite creates a dimpled, uneven texture on the thighs, buttocks, and abdomen that diet and exercise alone often cannot resolve. RF technology and body contouring treatments smooth, tone, and tighten the skin for visibly improved results.</p>
-        <p style="font-size:0.75rem; color:var(--skin-taupe); font-weight:500; margin-bottom:0;">Treatments: Venus MP2</p>
+        <span class="cond-card-link">Learn More</span>
       </div>
-      <span class="cond-card-arrow">Learn More</span>
     </a>
 
+    <!-- 9. Rosacea / Spider Veins -->
     <a href="conditions/rosacea-spider-veins.html" class="cond-card cond-card--9 reveal d2">
-      <div>
+      <div class="cond-card-img">
+        <div class="cond-card-img-placeholder">Image Placeholder</div>
+      </div>
+      <div class="cond-card-body">
+        <span class="cond-card-tag">Vascular</span>
         <h3>Rosacea / Facial Spider Veins</h3>
         <p>Spider veins occur in both men and women, usually on legs and ankles, but also other body parts. Laser vein therapy is a non-surgical, non-invasive method to reduce and eliminate spider veins and redness.</p>
-        <p style="font-size:0.75rem; color:var(--skin-taupe); font-weight:500; margin-bottom:0;">Treatments: Laser Vein Therapy, Laser Genesis</p>
+        <span class="cond-card-link">Learn More</span>
       </div>
-      <span class="cond-card-arrow">Learn More</span>
     </a>
 
+    <!-- 10. Stretch Marks -->
     <a href="conditions/stretch-marks.html" class="cond-card cond-card--1 reveal">
-      <div>
+      <div class="cond-card-img">
+        <div class="cond-card-img-placeholder">Image Placeholder</div>
+      </div>
+      <div class="cond-card-body">
+        <span class="cond-card-tag">Skin Repair</span>
         <h3>Stretch Marks</h3>
         <p>Stretch marks are reddened streaks, sometimes whitish in color, indented, usually appear on skin from pregnancy, weight gain, growth spurts in teens, and rapid muscle gain through weightlifting. Many topical products promise to rid, but don't live up to the hype.</p>
-        <p style="font-size:0.75rem; color:var(--skin-taupe); font-weight:500; margin-bottom:0;">Treatments: RF Microneedling, CO2 Laser</p>
+        <span class="cond-card-link">Learn More</span>
       </div>
-      <span class="cond-card-arrow">Learn More</span>
     </a>
 
   </div>

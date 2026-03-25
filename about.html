@@ -193,23 +193,33 @@ nav.scrolled .nav-brand img { height: 48px; }
   pointer-events: none; z-index: -1;
 }
 
-.about-bio h2 {
+.about-content h2 {
   font-family: var(--serif);
   font-size: clamp(2rem, 3.2vw, 2.8rem);
   font-weight: 400; line-height: 1.15;
   margin-bottom: 0.4rem;
 }
-.about-bio h2 i { font-style: italic; color: var(--skin-taupe); }
+.about-content h2 i { font-style: italic; color: var(--skin-taupe); }
 .about-role {
   font-size: 0.85rem; font-weight: 400;
   color: var(--ink-muted); margin-bottom: 2rem;
 }
-.about-bio p {
+.about-content p {
   font-size: 0.92rem; font-weight: 300;
   line-height: 1.85; color: var(--ink-muted);
   margin-bottom: 1.2rem;
 }
-.about-bio p:last-of-type { margin-bottom: 0; }
+.about-content p:last-of-type { margin-bottom: 0; }
+.about-creds {
+  display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 2rem;
+}
+.about-cred {
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--ink-faint, rgba(0,0,0,0.12));
+  border-radius: 100px; color: var(--ink-muted);
+}
 
 /* ─── PHILOSOPHY / APPROACH ─── */
 .approach {
@@ -695,13 +705,19 @@ body::after {
         <img src="skin-laser-assets/kimberly-real.png" alt="Kimberly Mack, Cosmetologist & Certified Clinical Laser Technician" />
       </div>
     </div>
-    <div class="about-bio reveal d2">
-      <span class="label">Owner & Esthetician</span>
+    <div class="about-content reveal d2">
+      <span class="label">Meet Your Provider</span>
       <h2 style="margin-top: 0.75rem;">Kimberly <i>Mack</i></h2>
-      <p class="about-role">Owner & Esthetician, Cosmetologist & Certified Clinical Laser Technician</p>
-      <p>Kimberly's passion for beauty and wellness began at age 17, when she started her career as a Licensed Cosmetologist. Her love for helping others led her to study Dietetics & Nutrition at Florida International University, where she studied Chemistry, Food Science, Anatomy and Physiology, earned her B.S. degree, and became a Licensed Dietitian.</p>
-      <p>After living abroad in Singapore and gaining experience in both skincare and clinical nutrition, she discovered her true calling in advanced aesthetics. She trained at the world-renowned National Laser Institute, becoming certified and clinically trained in laser hair removal, IPL photofacial, radiofrequency and laser skin tightening, non-ablative skin resurfacing, RF microneedling, microneedling, CO2 laser, tattoo removal, pico laser pigmentation reduction, and RF cellulite reduction.</p>
+      <p class="about-role">Cosmetologist & Certified Clinical Laser Technician</p>
+      <p>Kimberly's passion for beauty and wellness began at just 17, when she started her career as a licensed Cosmetologist. Her love for helping others led her to study Dietetics & Nutrition at Florida International University, where she earned a B.S. degree and became a Licensed Dietitian.</p>
+      <p>After gaining experience in both skincare and clinical nutrition while living abroad in Singapore, she discovered her true calling in advanced aesthetics. She trained at the world-renowned National Laser Institute, mastering the latest techniques in laser treatments and skin rejuvenation.</p>
       <p>Today, Kimberly combines decades of experience in beauty, health, and wellness to create customized treatments that leave clients glowing from the inside out. Her mission is simple: to help you look and feel your personal best, every day.</p>
+      <div class="about-creds">
+        <span class="about-cred">Licensed Cosmetologist (MI, FL, IL)</span>
+        <span class="about-cred">Certified Laser Technician</span>
+        <span class="about-cred">Licensed Dietitian</span>
+        <span class="about-cred">B.S. Florida International</span>
+      </div>
     </div>
   </div>
 </section>

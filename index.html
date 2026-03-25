@@ -231,16 +231,23 @@ nav.scrolled .nav-brand img { height: 48px; }
   flex-shrink: 0;
   padding-right: 1.5rem;
   border-right: 1px solid rgba(255,255,255,0.12);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  max-width: 200px; text-align: center;
 }
 .hero-badge--text { display: none; }
 .hero-badge-img {
-  width: 162px; height: auto;
+  width: 140px; height: auto;
   object-fit: contain;
-  filter: brightness(1.2);
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.45)) drop-shadow(0 0 20px rgba(255,255,255,0.15));
+}
+.hero-badge-award {
+  font-size: 0.72rem; font-weight: 500;
+  color: rgba(255,255,255,0.75); line-height: 1.35;
+  letter-spacing: 0.02em;
 }
 .hero-badge-icon {
-  width: 64px; height: 64px;
-  object-fit: contain; filter: brightness(1.2); flex-shrink: 0;
+  width: 48px; height: auto;
+  object-fit: contain; flex-shrink: 0;
 }
 .hero-badge-copy { display: flex; flex-direction: column; }
 .hero-badge-title {
@@ -1590,7 +1597,7 @@ footer {
   .hero-badge {
     border-right: none; padding-right: 0;
     padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.12);
-    width: 100%;
+    width: 100%; flex-direction: row; align-items: center; max-width: none; text-align: left;
   }
   .hero-badge--img { display: none; }
   .hero-badge--text {
@@ -1700,8 +1707,9 @@ body::after {
 <section class="hero">
   <div class="hero-frame">
   <div class="hero-slides">
-    <div class="hero-slide active"><img src="skin-laser-assets/hero-treatment.png" alt="" /></div>
-    <div class="hero-slide"><img src="skin-laser-assets/interior.jpg" alt="" /></div>
+    <div class="hero-slide active"><img src="skin-laser-assets/hero-new.jpg" alt="" /></div>
+    <div class="hero-slide"><img src="skin-laser-assets/hero-treatment.png" alt="" /></div>
+    <!-- <div class="hero-slide"><img src="skin-laser-assets/interior.jpg" alt="" /></div> -->
     <div class="hero-slide"><img src="skin-laser-assets/interior2.jpeg" alt="" /></div>
     <div class="hero-slide"><img src="skin-laser-assets/pexels-spa.jpeg" alt="" /></div>
   </div>
@@ -1718,13 +1726,14 @@ body::after {
     </div>
     <div class="hero-proof">
       <div class="hero-badge hero-badge--img">
-        <img class="hero-badge-img" src="skin-laser-assets/expertise-badge.webp" alt="Expertise.com Best Laser Hair Removal Services in Chicago 2023" />
+        <img class="hero-badge-img" src="skin-laser-assets/expertise-logo-transparent.png" alt="Expertise.com" />
+        <span class="hero-badge-award">Best Laser Hair Removal<br>in Downtown Chicago<br>2022, 2023, 2026</span>
       </div>
       <div class="hero-badge hero-badge--text">
-        <img class="hero-badge-icon" src="skin-laser-assets/expertise-badge.webp" alt="" />
+        <img class="hero-badge-icon" src="skin-laser-assets/expertise-logo-transparent.png" alt="" />
         <div class="hero-badge-copy">
           <span class="hero-badge-title">Expertise.com</span>
-          <span class="hero-badge-desc">Best Laser Hair Removal Services in Chicago</span>
+          <span class="hero-badge-desc">Best Laser Hair Removal Service in Downtown Chicago 2022, 2023, 2026</span>
         </div>
       </div>
       <div class="review-slider">
@@ -2065,7 +2074,7 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
       <p>After gaining experience in both skincare and clinical nutrition while living abroad in Singapore, she discovered her true calling in advanced aesthetics. She trained at the world-renowned National Laser Institute, mastering the latest techniques in laser treatments and skin rejuvenation.</p>
       <p>Today, Kimberly combines decades of experience in beauty, health, and wellness to create customized treatments that leave clients glowing from the inside out. Her mission is simple: to help you look and feel your personal best, every day.</p>
       <div class="about-creds">
-        <span class="about-cred">Licensed Cosmetologist</span>
+        <span class="about-cred">Licensed Cosmetologist (MI, FL, IL)</span>
         <span class="about-cred">Certified Laser Technician</span>
         <span class="about-cred">Licensed Dietitian</span>
         <span class="about-cred">B.S. Florida International</span>

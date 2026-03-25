@@ -151,9 +151,9 @@ nav.scrolled .nav-brand img { height: 48px; }
 
 /* ── PAGE HERO ── */
 .page-hero {
-  height: 40vh; min-height: 320px;
+  min-height: 320px;
   display: flex; align-items: center; justify-content: center;
-  text-align: center; padding: 96px 2rem 2rem;
+  text-align: center; padding: 140px 2rem 3rem;
   background: var(--bg);
   position: relative;
 }
@@ -247,6 +247,37 @@ nav.scrolled .nav-brand img { height: 48px; }
   content: ''; width: 14px; height: 1px;
   background: var(--skin-peach); flex-shrink: 0;
 }
+
+/* ── TECH CALLOUT ── */
+.tech-callout {
+  padding: 5rem clamp(2rem, 6vw, 6rem);
+  background: var(--ink); color: var(--bg);
+  position: relative; overflow: hidden;
+}
+.tech-callout::before {
+  content: ''; position: absolute;
+  top: -80px; right: -80px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(168,138,123,0.1) 0%, transparent 70%);
+}
+.tech-callout-inner {
+  max-width: 900px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.tech-callout .label { color: var(--skin-peach); margin-bottom: 1.2rem; display: block; }
+.tech-callout h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 400; line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+.tech-callout h2 i { font-style: italic; color: var(--skin-peach); }
+.tech-callout p {
+  font-size: 0.92rem; font-weight: 300;
+  color: rgba(246,243,238,0.6); line-height: 1.85;
+  margin-bottom: 1rem;
+}
+.tech-callout strong { color: rgba(246,243,238,0.9); font-weight: 500; }
 
 /* ── PROCESS SECTION ── */
 .process-section {
@@ -591,9 +622,10 @@ footer {
   }
   nav.menu-open .nav-links { display: flex !important; }
   .burger { display: flex; }
-  .page-hero { height: auto; min-height: 280px; padding: 120px 1.75rem 2.5rem; }
+  .page-hero { min-height: 280px; padding: 120px 1.75rem 2.5rem; }
   .page-hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
   .content-section { padding: 3rem 1.75rem; }
+  .tech-callout { padding: 3rem 1.75rem; }
   .process-section { padding: 4rem 1.75rem; }
   .process-steps { grid-template-columns: 1fr; }
   .results-section { padding: 4rem 1.75rem; }
@@ -657,7 +689,7 @@ body::after {
     <div class="content-main reveal">
       <h2>Clear, vein-free skin <i>without surgery</i></h2>
       <p>Spider veins and visible facial veins can be more than a cosmetic concern. They can affect your confidence and how you feel about your appearance. Our laser vein therapy offers a non-surgical, non-invasive solution that targets unwanted veins with precision, causing them to gradually fade and be reabsorbed by your body.</p>
-      <p>The treatment works by delivering concentrated light energy directly into the targeted vein. The hemoglobin in the blood absorbs the laser energy, which heats the vein wall and causes it to collapse and seal shut. Over the following weeks, your body naturally clears the treated vein, leaving behind clearer, smoother skin.</p>
+      <p>The treatment works by delivering concentrated light energy directly into the targeted vein. The hemoglobin in the blood absorbs the laser energy, which heats and coagulates the vein. Over the following weeks, your body naturally clears the treated vein, leaving behind clearer, smoother skin.</p>
       <p>Because the laser selectively targets the pigment in blood vessels, surrounding tissue remains unharmed. This makes the treatment both safe and effective for delicate areas like the face, as well as larger treatment zones on the legs and ankles.</p>
 
       <h3>Treatment areas</h3>
@@ -681,22 +713,32 @@ body::after {
     <!-- SIDEBAR -->
     <div class="reveal d2">
       <div class="sidebar-card">
-        <span class="label">The Technology</span>
-        <h3>Targeted Laser Vein Removal</h3>
-        <p>Precision laser energy designed to eliminate unwanted veins without affecting surrounding skin or tissue.</p>
+        <span class="label">Our Technology</span>
+        <h3>Cynosure Elite IQ</h3>
+        <p>Dual-wavelength laser platform with real-time melanin reading for safe, precise vein treatment on all skin types.</p>
         <ul>
-          <li>Non-surgical, non-invasive treatment</li>
-          <li>Targets spider veins and facial redness</li>
-          <li>Safe for face, legs, and ankles</li>
+          <li>1064nm Nd:YAG for deep vein targeting</li>
+          <li>Skintel Melanin Reader for safe settings</li>
+          <li>Integrated cooling for comfort</li>
+          <li>Safe for face, legs, and body</li>
           <li>No downtime required</li>
           <li>Visible results within weeks</li>
-          <li>Minimal discomfort during treatment</li>
         </ul>
         <a href="#" class="btn btn-dark" onclick="openModal(event)" style="width:100%; justify-content:center; background:var(--white); color:var(--ink);">
           Free Consultation &#8594;
         </a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY CALLOUT -->
+<section class="tech-callout reveal">
+  <div class="tech-callout-inner">
+    <span class="label">Our Technology</span>
+    <h2>Powered by the <i>Cynosure Elite IQ</i></h2>
+    <p>Our laser vein therapy is performed with the <strong>Cynosure Elite IQ</strong>, a dual-wavelength laser platform combining the 755nm Alexandrite and 1064nm Nd:YAG wavelengths. The 1064nm wavelength penetrates deeper into the skin to precisely target hemoglobin in blood vessels, coagulating unwanted veins without damaging surrounding tissue.</p>
+    <p>The Elite IQ's <strong>FDA-cleared Skintel Melanin Reader</strong> measures your skin's melanin density in real time, ensuring optimal energy settings for safe, effective treatment across all skin types. Combined with integrated cooling technology, the treatment is comfortable and well-tolerated.</p>
   </div>
 </section>
 

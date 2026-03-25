@@ -202,7 +202,7 @@ async function sendThankYouEmail(lead) {
               <td style="background: #FDFCFA; border: 1px solid #E4DDD3; border-radius: 6px; padding: 16px 20px;">
                 <a href="https://skin-laser-medspa.myshopify.com/" style="text-decoration: none;">
                   <p style="margin: 0 0 4px; font-weight: 600; color: #1B1B1B; font-size: 14px;">Shop Skincare</p>
-                  <p style="margin: 0; color: #7A746B; font-size: 12px;">Professional-grade products for your skin routine</p>
+                  <p style="margin: 0; color: #7A746B; font-size: 12px;">Medical-grade products for your skin routine</p>
                 </a>
               </td>
             </tr>

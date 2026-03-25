@@ -279,6 +279,27 @@ nav.scrolled .nav-brand img { height: 48px; }
   margin-bottom: 2rem;
 }
 
+/* No solicitation notice */
+.no-solicitation-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  background: var(--bg);
+  border-left: 3px solid var(--skin-blush);
+  padding: 0.65rem 1rem;
+  margin-bottom: 1.75rem;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--ink-soft);
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+}
+.notice-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  opacity: 0.55;
+}
+
 /* Form fields */
 .form-group { margin-bottom: 1.25rem; }
 .form-label {
@@ -314,6 +335,94 @@ textarea.form-input { resize: vertical; min-height: 100px; }
 .form-submit {
   width: 100%; margin-top: 0.5rem;
 }
+
+/* Fake captcha overlay — scoped to form container */
+.captcha-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.85);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+  animation: captchaFadeIn 0.25s ease;
+}
+@keyframes captchaFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.captcha-popup {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1.5rem 1.75rem 1.25rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  min-width: 280px;
+  animation: captchaSlideUp 0.3s ease;
+}
+@keyframes captchaSlideUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.captcha-popup-header {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.captcha-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.captcha-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--ink);
+  font-weight: 400;
+}
+.captcha-label input[type="checkbox"] {
+  display: none;
+}
+.captcha-checkbox {
+  width: 24px; height: 24px;
+  border: 2px solid #c1c1c1;
+  border-radius: 3px;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.captcha-label input:checked + .captcha-checkbox {
+  background: var(--skin-blush);
+  border-color: var(--skin-blush);
+}
+.captcha-label input:checked + .captcha-checkbox::after {
+  content: '\2713';
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+}
+.captcha-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--ink-muted);
+  font-size: 0.6rem;
+  line-height: 1.3;
+  opacity: 0.6;
+}
+.captcha-brand small { font-size: 0.5rem; }
 
 /* --- MAP SECTION --- */
 .map-section {
@@ -689,6 +798,10 @@ body::after {
     <div class="inquiry-form-wrap reveal d1">
       <h3 class="inquiry-form-title">Send us a <i>message</i></h3>
       <p class="inquiry-form-sub">Fill out the form below and we will get back to you within 24 hours.</p>
+      <div class="no-solicitation-notice">
+        <svg class="notice-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span>We love hearing from our clients and those considering a visit. Please note this form is reserved for patient inquiries only.</span>
+      </div>
 
       <form id="inquiryForm" onsubmit="handleInquiry(event)">
         <div class="form-group">
@@ -718,7 +831,26 @@ body::after {
           <textarea class="form-input" id="inq-message" rows="4" placeholder="Tell us about your goals, concerns, or questions..." required></textarea>
         </div>
         <button type="submit" class="btn btn-dark form-submit">Send Message &#8594;</button>
+
       </form>
+
+      <!-- Fake captcha overlay (scoped to form container) -->
+      <div id="captchaOverlay" class="captcha-overlay" style="display:none;" onclick="closeCaptcha(event)">
+        <div class="captcha-popup">
+          <div class="captcha-popup-header">One quick step</div>
+          <div class="captcha-inner">
+            <label class="captcha-label" for="captcha-check">
+              <input type="checkbox" id="captcha-check" onchange="completeCaptcha()" />
+              <span class="captcha-checkbox"></span>
+              <span class="captcha-text">I'm not a robot</span>
+            </label>
+            <div class="captcha-brand">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--ink-muted)" stroke-width="1.2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              <span>reCAPTCHA<br><small>Privacy - Terms</small></span>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- Success state (hidden by default) -->
       <div id="formSuccess" style="display: none; text-align: center; padding: 2rem 0;">
@@ -903,9 +1035,19 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 // Inquiry form handler
 function handleInquiry(e) {
   e.preventDefault();
-  // Hide form, show success
-  document.getElementById('inquiryForm').style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
+  document.getElementById('captchaOverlay').style.display = 'flex';
+}
+function closeCaptcha(e) {
+  if (e.target === e.currentTarget) {
+    document.getElementById('captchaOverlay').style.display = 'none';
+  }
+}
+function completeCaptcha() {
+  setTimeout(function() {
+    document.getElementById('captchaOverlay').style.display = 'none';
+    document.getElementById('inquiryForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }, 600);
 }
 
 // Modal - multi-step

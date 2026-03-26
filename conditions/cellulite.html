@@ -199,6 +199,7 @@ nav.scrolled .nav-brand img { height: 48px; }
   display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
+.tx-grid.tx-grid--single { grid-template-columns: 1fr; max-width: 640px; }
 .tx-item {
   padding: 2.2rem 2rem;
   background: var(--bg);
@@ -446,7 +447,7 @@ footer {
 .confirm-detail .cd-value { color: var(--ink-soft); font-weight: 500; }
 
 /* ─── RESPONSIVE ─── */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .nav-links { display: none; }
   .nav-links {
     display: none;
@@ -495,6 +496,9 @@ footer {
   }
   nav.menu-open .nav-links { display: flex !important; }
   .burger { display: flex; }
+}
+
+@media (max-width: 768px) {
   .page-hero { min-height: 280px; padding: 120px 1.75rem 2.5rem; }
   .page-hero-content h1 { font-size: clamp(2rem, 8vw, 2.8rem); }
   .condition-content { padding: 3rem 1.75rem; }
@@ -521,6 +525,7 @@ body::after {
     <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser & MedSpa" />
   </a>
   <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
     <li><a href="../treatments.html">Treatments</a></li>
     <li><a href="../conditions.html">Conditions</a></li>
     <li><a href="https://skin-laser-medspa.myshopify.com/">Skincare</a></li>
@@ -567,14 +572,12 @@ body::after {
   <div class="treatments-section-inner reveal">
     <span class="label">How We Treat It</span>
     <h2>Recommended <i>treatments</i></h2>
-    <div class="tx-grid">
+    <div class="tx-grid tx-grid--single">
       <div class="tx-item">
-        <h3>RF Body Contouring</h3>
-        <p>Radiofrequency energy heats the deeper layers of skin to stimulate collagen production and tighten connective tissue. This non-invasive approach smooths the dimpled appearance of cellulite while improving overall skin tone and firmness, with no downtime and comfortable treatment sessions.</p>
-      </div>
-      <div class="tx-item">
-        <h3>Body Shaping</h3>
-        <p>Advanced body sculpting technology targets stubborn fat deposits and loose skin simultaneously. By combining multiple modalities, we can reduce the volume of fat cells pushing against the skin while strengthening the connective tissue that holds everything in place, resulting in a visibly smoother contour.</p>
+        <h3><a href="../treatments/venus-mp2.html">RF Body Contouring with Venus MP2</a></h3>
+        <p>Our Venus MP2 system uses a patented combination of Multi-Polar Radio Frequency and Pulsed Electro Magnetic Fields to target cellulite, stubborn fat, and loose skin all in one comfortable, non-surgical treatment. The RF energy reaches deep beneath the skin to break down fat cells, smooth out dimples and bumps, and tighten connective tissue by stimulating your body's natural production of collagen and elastin fibers.</p>
+        <p style="margin-top: 0.8rem;">This same technology reshapes problem areas that diet and exercise can't fix on their own, naturally reducing the circumference of bulges around the thighs, buttocks, arms, and abdomen. Most patients see a noticeably smoother, more even skin texture in just six to eight painless treatment sessions, with no downtime.</p>
+        <a href="../treatments/venus-mp2.html" class="tx-link">Learn more</a>
       </div>
     </div>
   </div>
@@ -626,7 +629,6 @@ body::after {
         <p class="step-subtitle">Select the treatment you're interested in.</p>
         <div class="tx-options">
           <div class="tx-option" onclick="selectTx(this)">RF Body Contouring</div>
-          <div class="tx-option" onclick="selectTx(this)">Body Shaping</div>
           <div class="tx-option" onclick="selectTx(this)">Not sure yet</div>
         </div>
       </div>

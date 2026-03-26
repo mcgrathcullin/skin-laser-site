@@ -64,8 +64,6 @@ button { font-family: inherit; cursor: pointer; border: none; }
   letter-spacing: 0.28em; text-transform: uppercase;
   color: var(--skin-taupe);
 }
-
-
 /* ── HERO CROSS-REFS ── */
 .hero-xref {
   display: flex; flex-wrap: wrap; gap: 0.5rem;
@@ -125,8 +123,6 @@ nav.scrolled .nav-brand img { height: 48px; }
   transition: all .35s var(--ease);
 }
 .nav-book:hover { background: var(--skin-deep) !important; }
-
-
 .nav-quick-actions { display: none; }
 .burger { display: none; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; background: none; }
 .burger span { width: 22px; height: 1.5px; background: var(--ink); display: block; }
@@ -219,10 +215,13 @@ nav.scrolled .nav-brand img { height: 48px; }
 .area-tag:hover { background: var(--skin-sand); }
 
 /* ── SIDEBAR ── */
+.sidebar-wrap {
+  position: sticky; top: 120px;
+}
 .sidebar-card {
   padding: 2.5rem;
   background: var(--ink); color: var(--bg);
-  position: sticky; top: 120px;
+
 }
 .sidebar-card .label {
   color: var(--skin-peach); margin-bottom: 1.2rem; display: block;
@@ -537,12 +536,9 @@ footer {
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .content-grid { grid-template-columns: 1fr; }
-  .sidebar-card { position: static; }
+  .sidebar-wrap { position: static; }
   .process-steps { grid-template-columns: repeat(2, 1fr); }
   .results-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-links {
     display: none;
@@ -591,6 +587,9 @@ footer {
   }
   nav.menu-open .nav-links { display: flex !important; }
   .burger { display: flex; }
+}
+
+@media (max-width: 768px) {
   .page-hero { min-height: 280px; padding: 120px 1.75rem 2.5rem; }
   .page-hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
   .content-section { padding: 3rem 1.75rem; }
@@ -618,6 +617,7 @@ body::after {
     <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser & MedSpa" />
   </a>
   <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
     <li><a href="../treatments.html">Treatments</a></li>
     <li><a href="../conditions.html">Conditions</a></li>
     <li><a href="https://skin-laser-medspa.myshopify.com/">Skincare</a></li>
@@ -658,6 +658,7 @@ body::after {
       <h2>The smartest laser for <i>every skin type</i></h2>
       <p>Our Cynosure Elite IQ is a dual-wavelength laser system that combines the 755nm Alexandrite and 1064nm Nd:YAG wavelengths in a single platform. This means we can treat the full spectrum of skin types safely and effectively, from the lightest to the darkest complexions on the Fitzpatrick scale.</p>
       <p>What truly sets the Elite IQ apart is the FDA-cleared Skintel Melanin Reader, the first and only device of its kind. It reads your skin's melanin density in real time and identifies the optimal energy settings for your specific skin type, lifestyle, and ethnicity. There is no guesswork, just precision.</p>
+      <p>For patients with hyperpigmentation, the Elite IQ is an especially strong choice. The Skintel Melanin Reader precisely calibrates energy levels to your skin's melanin density, allowing safe and effective treatment on hyperpigmented areas where other lasers risk making discoloration worse. Many patients find that as they stop shaving and waxing, the irritation-driven hyperpigmentation they've been dealing with begins to fade on its own.</p>
       <p>Combined with Zimmer cooling technology, treatments are far less painful and more comfortable than older laser systems. The cooling system protects the skin's surface while the laser energy targets hair follicles beneath, delivering results without the discomfort you might expect.</p>
 
       <h3>Treatment areas</h3>
@@ -683,7 +684,7 @@ body::after {
     </div>
 
     <!-- SIDEBAR -->
-    <div class="reveal d2">
+    <div class="sidebar-wrap reveal d2">
       <div class="sidebar-card">
         <span class="label">Our Technology</span>
         <h3>Cynosure Elite IQ</h3>

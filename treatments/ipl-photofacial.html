@@ -64,8 +64,6 @@ button { font-family: inherit; cursor: pointer; border: none; }
   letter-spacing: 0.28em; text-transform: uppercase;
   color: var(--skin-taupe);
 }
-
-
 /* ── HERO CROSS-REFS ── */
 .hero-xref {
   display: flex; flex-wrap: wrap; gap: 0.5rem;
@@ -125,8 +123,6 @@ nav.scrolled .nav-brand img { height: 48px; }
   transition: all .35s var(--ease);
 }
 .nav-book:hover { background: var(--skin-deep) !important; }
-
-
 .nav-quick-actions { display: none; }
 .burger { display: none; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; background: none; }
 .burger span { width: 22px; height: 1.5px; background: var(--ink); display: block; }
@@ -219,10 +215,13 @@ nav.scrolled .nav-brand img { height: 48px; }
 .area-tag:hover { background: var(--skin-sand); }
 
 /* ── SIDEBAR ── */
+.sidebar-wrap {
+  position: sticky; top: 120px;
+}
 .sidebar-card {
   padding: 2.5rem;
   background: var(--ink); color: var(--bg);
-  position: sticky; top: 120px;
+
 }
 .sidebar-card .label {
   color: var(--skin-peach); margin-bottom: 1.2rem; display: block;
@@ -549,12 +548,9 @@ footer {
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .content-grid { grid-template-columns: 1fr; }
-  .sidebar-card { position: static; }
+  .sidebar-wrap { position: static; }
   .process-steps { grid-template-columns: repeat(2, 1fr); }
   .results-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-links {
     display: none;
@@ -603,6 +599,9 @@ footer {
   }
   nav.menu-open .nav-links { display: flex !important; }
   .burger { display: flex; }
+}
+
+@media (max-width: 768px) {
   .page-hero { min-height: 280px; padding: 120px 1.75rem 2.5rem; }
   .page-hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
   .content-section { padding: 3rem 1.75rem; }
@@ -630,6 +629,7 @@ body::after {
     <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser & MedSpa" />
   </a>
   <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
     <li><a href="../treatments.html">Treatments</a></li>
     <li><a href="../conditions.html">Conditions</a></li>
     <li><a href="https://skin-laser-medspa.myshopify.com/">Skincare</a></li>
@@ -670,7 +670,7 @@ body::after {
       <h2>Brighter, healthier skin through <i>light-based rejuvenation</i></h2>
       <p>IPL Photorejuvenation is an advanced light-based treatment that combines the best features of laser technology and dermatology into one highly effective device. By delivering targeted pulses of broad-spectrum light into the skin, IPL breaks down discoloration and stimulates collagen production, leaving you with noticeably brighter, healthier, and more vibrant skin.</p>
       <p>If you experience frequent sun damage, rosacea, or other environmental effects that affect your complexion, the IPL photofacial works exceptionally well at removing discoloration, improving skin texture and tone, and providing a tightening effect to the skin. The treatment is non-invasive with minimal downtime, making it an ideal option for those with active lifestyles.</p>
-      <p>One of the greatest advantages of IPL Photorejuvenation is its versatility. We can treat many different skin conditions across a wide range of skin tones on the Fitzpatrick scale, making it an accessible solution for virtually anyone looking to improve their complexion and restore their confidence.</p>
+      <p>IPL Photorejuvenation is versatile in the range of conditions it can address, but it is important to note that IPL is not suitable for all skin tones. Because the light energy targets pigment, darker skin tones may not be candidates for this treatment. A consultation is required to determine if IPL is right for your specific skin type and concerns.</p>
 
       <h3>Conditions treated</h3>
       <p>IPL photofacials are highly effective at addressing a wide range of skin concerns, from superficial discoloration to deeper textural irregularities.</p>
@@ -693,7 +693,7 @@ body::after {
     </div>
 
     <!-- SIDEBAR -->
-    <div class="reveal d2">
+    <div class="sidebar-wrap reveal d2">
       <div class="sidebar-card">
         <span class="label">Our Technology</span>
         <h3>IPL Photorejuvenation</h3>

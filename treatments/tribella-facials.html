@@ -63,8 +63,6 @@ button { font-family: inherit; cursor: pointer; border: none; }
   letter-spacing: 0.28em; text-transform: uppercase;
   color: var(--skin-taupe);
 }
-
-
 /* ── HERO CROSS-REFS ── */
 .hero-xref {
   display: flex; flex-wrap: wrap; gap: 0.5rem;
@@ -124,8 +122,6 @@ nav.scrolled .nav-brand img { height: 48px; }
   transition: all .35s var(--ease);
 }
 .nav-book:hover { background: var(--skin-deep) !important; }
-
-
 .nav-quick-actions { display: none; }
 .burger { display: none; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; background: none; }
 .burger span { width: 22px; height: 1.5px; background: var(--ink); display: block; }
@@ -218,10 +214,13 @@ nav.scrolled .nav-brand img { height: 48px; }
 .area-tag:hover { background: var(--skin-sand); }
 
 /* ── SIDEBAR ── */
+.sidebar-wrap {
+  position: sticky; top: 120px;
+}
 .sidebar-card {
   padding: 2.5rem;
   background: var(--ink); color: var(--bg);
-  position: sticky; top: 120px;
+
 }
 .sidebar-card .label {
   color: var(--skin-peach); margin-bottom: 1.2rem; display: block;
@@ -536,12 +535,9 @@ footer {
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .content-grid { grid-template-columns: 1fr; }
-  .sidebar-card { position: static; }
+  .sidebar-wrap { position: static; }
   .process-steps { grid-template-columns: repeat(2, 1fr); }
   .results-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-links {
     display: none;
@@ -590,6 +586,9 @@ footer {
   }
   nav.menu-open .nav-links { display: flex !important; }
   .burger { display: flex; }
+}
+
+@media (max-width: 768px) {
   .page-hero { min-height: 280px; padding: 120px 1.75rem 2.5rem; }
   .page-hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
   .content-section { padding: 3rem 1.75rem; }
@@ -617,6 +616,7 @@ body::after {
     <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser & MedSpa" />
   </a>
   <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
     <li><a href="../treatments.html">Treatments</a></li>
     <li><a href="../conditions.html">Conditions</a></li>
     <li><a href="https://skin-laser-medspa.myshopify.com/">Skincare</a></li>
@@ -659,7 +659,7 @@ body::after {
       <p>Developed by Venus Treatments, the TriBella protocol leverages the full capabilities of the Venus platform to provide a complete facial rejuvenation experience. Each of the three treatment phases targets a different layer and concern, working together to create results that no single technology could achieve alone.</p>
 
       <h3>The three phases</h3>
-      <p><strong>Phase 1: Veins &amp; Pigmentation.</strong> The first phase uses intense pulsed light (IPL) to target and break down unwanted pigmentation, including sun damage, age spots, brown spots, and visible veins. The light energy is absorbed by the pigmented areas and vascular lesions, gradually fading them over the days following treatment.</p>
+      <p><strong>Phase 1: Veins &amp; Pigmentation.</strong> The first phase uses intense pulsed light (IPL) to target and break down unwanted pigmentation, including sun damage, age spots, brown spots, and visible veins. The light energy is absorbed by the pigmented areas and vascular lesions, gradually fading them over the days following treatment. Note: because this phase uses IPL, TriBella is not suitable for all skin tones. A consultation is required to determine if this treatment is right for you.</p>
       <p><strong>Phase 2: Skin Toning &amp; Tightening.</strong> Powered by (MP)&sup2; technology, a combination of Multi-Polar Radio Frequency (RF) and Pulsed Electro Magnetic Fields, this phase heats the deeper layers of skin to stimulate collagen and elastin production. This tightens existing collagen fibers and promotes the growth of new ones, resulting in firmer, more toned skin with improved elasticity.</p>
       <p><strong>Phase 3: Skin Resurfacing.</strong> The final phase uses NanoFractional RF to resurface the skin, improving overall texture, reducing the appearance of fine lines, and refining pores. Micro-channels created during this phase also enhance the skin's ability to absorb topical products in the days that follow.</p>
 
@@ -677,7 +677,7 @@ body::after {
     </div>
 
     <!-- SIDEBAR -->
-    <div class="reveal d2">
+    <div class="sidebar-wrap reveal d2">
       <div class="sidebar-card">
         <span class="label">Our Technology</span>
         <h3>Venus TriBella</h3>

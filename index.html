@@ -575,6 +575,7 @@ nav.scrolled .nav-brand img { height: 48px; }
 .tx-home-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: dense;
   gap: 1.25rem;
   max-width: 1280px; margin: 0 auto;
   padding: 0 clamp(2rem, 6vw, 6rem);
@@ -625,8 +626,8 @@ nav.scrolled .nav-brand img { height: 48px; }
   line-height: 1.3;
 }
 .tx-home-card p {
-  font-size: 0.84rem; font-weight: 300;
-  color: var(--ink-muted); line-height: 1.75;
+  font-size: 0.84rem; font-weight: 400;
+  color: var(--ink-soft); line-height: 1.75;
   margin-bottom: 1.5rem;
 }
 .tx-home-arrow {
@@ -640,27 +641,73 @@ nav.scrolled .nav-brand img { height: 48px; }
 .tx-home-card:hover .tx-home-arrow { color: var(--accent); }
 .tx-home-card:hover .tx-home-arrow::after { transform: translateX(4px); }
 
-.tx-home-card--see-all {
-  background: var(--ink);
-  position: relative; overflow: hidden;
+/* ── Featured treatment card (mirrors cond-card--featured) ── */
+.tx-featured {
+  grid-column: 2 / 4;
+  grid-row: 2 / 4;
+  min-height: 400px;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  border: none;
+  transition: all .5s var(--ease);
 }
-.tx-home-card--see-all::before { display: none; }
-.tx-home-card--see-all::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(158,124,94,0.15), rgba(168,138,123,0.08));
-  pointer-events: none;
+.tx-featured:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
 }
-.tx-home-card--see-all h3 {
+.tx-featured img.cond-featured-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease);
+}
+.tx-featured:hover img.cond-featured-img {
+  transform: scale(1.04);
+}
+.tx-featured .cond-featured-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(27,27,27,0.92) 0%, rgba(27,27,27,0.6) 45%, rgba(27,27,27,0.15) 100%);
+  z-index: 1;
+}
+.tx-featured .cond-featured-content {
+  position: relative; z-index: 2;
+  margin-top: auto;
+  padding: 2.5rem;
+  display: flex; flex-direction: column;
+}
+.tx-featured .cond-featured-tag {
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--skin-peach);
+  margin-bottom: 0.75rem;
+}
+.tx-featured h3 {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 2.5vw, 2rem);
+  font-weight: 400; line-height: 1.15;
   color: var(--white);
-  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
 }
-.tx-home-card--see-all p { color: rgba(255,255,255,0.5); }
-.tx-home-card--see-all .tx-home-arrow { color: var(--skin-peach); }
-.tx-home-card--see-all:hover {
-  background: var(--accent);
-  box-shadow: 0 16px 48px rgba(158,124,94,0.3);
+.tx-featured h3 i { font-style: italic; color: var(--skin-peach); }
+.tx-featured p {
+  font-size: 0.88rem; font-weight: 400;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.7; max-width: 420px;
+  margin-bottom: 1rem;
 }
-.tx-home-card--see-all:hover .tx-home-arrow { color: var(--white); }
+.tx-featured .cond-card-arrow {
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--skin-peach);
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  transition: all .3s var(--ease);
+}
+.tx-featured .cond-card-arrow::after { content: '\2192'; transition: transform .3s; }
+.tx-featured:hover .cond-card-arrow { color: var(--white); }
+.tx-featured:hover .cond-card-arrow::after { transform: translateX(4px); }
 
 /* Leaf divider */
 .leaf-divider {
@@ -721,6 +768,75 @@ nav.scrolled .nav-brand img { height: 48px; }
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
+
+/* ── Featured condition card ── */
+.cond-card--featured {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+  min-height: 400px;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  border: none;
+  transition: all .5s var(--ease);
+}
+.cond-card--featured:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+.cond-card--featured img.cond-featured-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease);
+}
+.cond-card--featured:hover img.cond-featured-img {
+  transform: scale(1.04);
+}
+.cond-card--featured .cond-featured-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(27,27,27,0.92) 0%, rgba(27,27,27,0.6) 45%, rgba(27,27,27,0.15) 100%);
+  z-index: 1;
+}
+.cond-card--featured .cond-featured-content {
+  position: relative; z-index: 2;
+  margin-top: auto;
+  padding: 2.5rem;
+  display: flex; flex-direction: column;
+}
+.cond-card--featured .cond-featured-tag {
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--skin-peach);
+  margin-bottom: 0.75rem;
+}
+.cond-card--featured h3 {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 2.5vw, 2rem);
+  font-weight: 400; line-height: 1.15;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+}
+.cond-card--featured h3 i { font-style: italic; color: var(--skin-peach); }
+.cond-card--featured p {
+  font-size: 0.88rem; font-weight: 400;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.7; max-width: 400px;
+  margin-bottom: 1rem;
+}
+.cond-card--featured .cond-card-arrow {
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--skin-peach);
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  transition: all .3s var(--ease);
+}
+.cond-card--featured .cond-card-arrow::after { content: '\2192'; transition: transform .3s; }
+.cond-card--featured:hover .cond-card-arrow { color: var(--white); }
+.cond-card--featured:hover .cond-card-arrow::after { transform: translateX(4px); }
+
 .cond-card {
   padding: 2.2rem 2rem;
   text-decoration: none;
@@ -776,8 +892,8 @@ nav.scrolled .nav-brand img { height: 48px; }
   line-height: 1.3;
 }
 .cond-card p {
-  font-size: 0.78rem; font-weight: 300;
-  color: var(--ink-muted); line-height: 1.65;
+  font-size: 0.78rem; font-weight: 400;
+  color: var(--ink-soft); line-height: 1.65;
   margin-bottom: 1.2rem;
 }
 .cond-card-arrow {
@@ -1289,10 +1405,14 @@ nav.scrolled .nav-brand img { height: 48px; }
   background: linear-gradient(135deg, rgba(168,138,123,0.08), transparent);
   pointer-events: none;
 }
-@media (max-width: 768px) {
-  .location-band { grid-template-columns: 1fr; }
-  .location-photo { min-height: 320px; }
+@media (max-width: 1024px) {
+  .location-band { grid-template-columns: 1fr; height: auto; }
+  .location-photo { min-height: 280px; }
   .location-map { min-height: 300px; }
+}
+@media (max-width: 768px) {
+  .location-photo { min-height: 240px; }
+  .location-map { min-height: 260px; }
 }
 
 /* ─── FOOTER ─── */
@@ -1522,18 +1642,17 @@ footer {
   .cond-top { grid-template-columns: 1fr; gap: 1.5rem; }
   .cond-top > p { text-align: left; }
   .cond-grid { grid-template-columns: 1fr; }
+  .cond-card--featured { grid-column: 1; grid-row: auto; min-height: 300px; }
   .cond-card { min-height: auto; padding: 1.5rem 1.3rem; }
   .tx-home-grid { grid-template-columns: 1fr 1fr; }
+  .tx-featured { grid-column: 1 / 3; grid-row: auto; min-height: 320px; }
   .tech-cards { grid-template-columns: 1fr; }
   .tech-card { grid-template-columns: 150px 1fr; }
   .about-grid { grid-template-columns: 1fr; }
   .about-portrait { max-width: 380px; order: -1; }
-  .contact-inner { grid-template-columns: 1fr 1fr; }
+  .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
   .tx-featured { grid-template-columns: 1fr; }
   .tx-featured-img { min-height: 280px; }
-}
-
-@media (max-width: 768px) {
   .nav-links {
     display: none;
     position: absolute; top: 100%; left: 0; right: 0;
@@ -1583,6 +1702,9 @@ footer {
     background: var(--accent) !important;
     color: var(--white) !important;
   }
+}
+
+@media (max-width: 768px) {
   .hero-left { padding: 2.5rem 1.75rem 2.5rem; min-height: auto; }
   .hero h1 { font-size: clamp(2.8rem, 11vw, 3.75rem); line-height: 1.05; margin-bottom: 1.75rem; font-weight: 500; }
   .hero-sub { font-size: 0.95rem; margin-bottom: 2.25rem; }
@@ -1618,6 +1740,7 @@ footer {
     100% { transform: translateY(0); }
   }
   .tx-home-grid { grid-template-columns: 1fr; padding: 0 1.75rem; }
+  .tx-featured { grid-column: 1; grid-row: auto; min-height: 300px; }
   .tx-home-card { min-height: auto; padding: 1.5rem 1.3rem; }
   .tx-trio { padding: 0 1.75rem; }
   .treatments { padding: 4rem 0 3rem; }
@@ -1635,7 +1758,6 @@ footer {
   .team-content { padding: 1.5rem; }
   .cta-band { min-height: 340px; padding: 4.5rem 1.75rem; }
   .form-row { grid-template-columns: 1fr; }
-  .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
   .contact { padding: 5rem 1.75rem; }
   .technology { padding: 5rem 1.75rem; }
   .tech-top { margin-bottom: 1.5rem; align-items: center; }
@@ -1685,6 +1807,7 @@ body::after {
     <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser & MedSpa" />
   </a>
   <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
     <li><a href="treatments.html">Treatments</a></li>
     <li><a href="conditions.html">Conditions</a></li>
     <li><a href="https://skin-laser-medspa.myshopify.com/">Skincare</a></li>
@@ -1841,13 +1964,15 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
     <p>From persistent acne to signs of aging, every concern has a targeted solution. We'll match the right technology to your skin and build a plan around your goals.</p>
   </div>
   <div class="cond-grid reveal d1">
-    <a href="conditions/excess-hair.html" class="cond-card cond-card--1">
-      <img class="cond-card-leaf" src="skin-laser-assets/leaf-decoration.png" alt="" />
-      <div>
-        <h3>Excess Hair</h3>
-        <p>Medical-grade laser removal for all skin tones with lasting results</p>
+    <a href="conditions/excess-hair.html" class="cond-card--featured reveal">
+      <img class="cond-featured-img" src="skin-laser-assets/cond-excess-hair.jpg" alt="Laser hair removal treatment" />
+      <div class="cond-featured-overlay"></div>
+      <div class="cond-featured-content">
+        <span class="cond-featured-tag">Most Popular Condition</span>
+        <h3>Excess <i>Hair</i></h3>
+        <p>Medical-grade laser removal safe for all skin tones. Silky smooth results that last, powered by the Cynosure Elite IQ.</p>
+        <span class="cond-card-arrow">Learn More</span>
       </div>
-      <span class="cond-card-arrow">Learn More</span>
     </a>
     <a href="conditions/acne-scarring.html" class="cond-card cond-card--2">
       <img class="cond-card-leaf" src="skin-laser-assets/leaf-decoration.png" alt="" />
@@ -1940,12 +2065,15 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
       </div>
       <span class="tx-home-arrow">Learn More</span>
     </a>
-    <a href="treatments.html" class="tx-home-card tx-home-card--see-all reveal d2">
-      <div>
-        <h3>See All Treatments</h3>
-        <p>Explore our full menu of advanced laser and skin rejuvenation treatments</p>
+    <a href="treatments.html" class="tx-featured reveal d2">
+      <img class="cond-featured-img" src="skin-laser-assets/laser-hair-removal-treatment.png" alt="Laser treatment in progress" />
+      <div class="cond-featured-overlay"></div>
+      <div class="cond-featured-content">
+        <span class="cond-featured-tag">17 Treatments Available</span>
+        <h3>Explore All <i>Treatments</i></h3>
+        <p>From laser hair removal to skin resurfacing, RF microneedling to injectables. Find the right treatment for your goals.</p>
+        <span class="cond-card-arrow">View All Treatments</span>
       </div>
-      <span class="tx-home-arrow">View All &#8594;</span>
     </a>
   </div>
 </section>
@@ -2063,7 +2191,7 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
   <div class="about-grid">
     <div class="about-portrait reveal">
       <div class="about-portrait-wrap">
-        <img src="skin-laser-assets/kimberly-real.png" alt="Kimberly Mack" />
+        <img src="skin-laser-assets/kimberly-new.jpg" alt="Kimberly Mack" />
       </div>
     </div>
     <div class="about-content reveal d2">
@@ -2079,44 +2207,7 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
         <span class="about-cred">Licensed Dietitian</span>
         <span class="about-cred">B.S. Florida International</span>
       </div>
-    </div>
-  </div>
-  <div class="team-row reveal">
-    <div class="team-card">
-      <div class="team-photo-wrap">
-        <img src="skin-laser-assets/dr-alkadri.jpg" alt="Dr. Amjad Alkadri" />
-      </div>
-      <div class="team-content">
-      <div class="team-info">
-        <h3>Dr. Amjad Alkadri, MD</h3>
-        <span class="team-role">Interventional Radiologist &amp; Medical Director</span>
-        <p>Dr. Alkadri brings decades of medical expertise to Skin Laser &amp; MedSpa. After earning his medical degree from the University of Damascus, he completed general surgery and radiology training at Providence Hospital in Michigan, followed by an Interventional Radiology fellowship at the University of Illinois Medical Center in Chicago.</p>
-        <p>His specialization in minimally invasive procedures and deep understanding of vascular conditions makes him an invaluable part of our team, particularly for laser vein therapy and complex skin treatments.</p>
-        <div class="team-creds">
-          <span class="team-cred">Board Certified Radiology</span>
-          <span class="team-cred">Interventional Radiology</span>
-          <span class="team-cred">U of I Chicago Fellowship</span>
-        </div>
-      </div>
-      </div>
-    </div>
-    <div class="team-card">
-      <div class="team-photo-wrap">
-        <img src="skin-laser-assets/yvonne.png" alt="Yvonne, RN" />
-      </div>
-      <div class="team-content">
-      <div class="team-info">
-        <h3>Yvonne, RN</h3>
-        <span class="team-role">Registered Nurse / Nurse Injector / Laser Technician</span>
-        <p>Yvonne is a highly skilled nurse injector and laser technician whose background spans both healthcare and client relations. She brings a rare combination of clinical precision and warm, personalized service to every treatment, specializing in neuromodulators, dermal fillers, and laser procedures.</p>
-        <p>Her commitment to continuous professional development keeps her at the forefront of the latest aesthetic treatments and injection techniques, ensuring every client receives safe, effective, and natural-looking results.</p>
-        <div class="team-creds">
-          <span class="team-cred">Registered Nurse</span>
-          <span class="team-cred">Certified Nurse Injector</span>
-          <span class="team-cred">Laser Technician</span>
-        </div>
-      </div>
-      </div>
+      <a href="about.html" class="btn btn-dark" style="margin-top: 1.5rem;">Meet Our Team &#8594;</a>
     </div>
   </div>
 </section>

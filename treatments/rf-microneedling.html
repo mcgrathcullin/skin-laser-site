@@ -446,9 +446,6 @@ footer {
 /* ---- RESPONSIVE ---- */
 @media (max-width: 1024px) {
   .treats-grid { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-links {
     display: none;
@@ -497,6 +494,9 @@ footer {
   }
   nav.menu-open .nav-links { display: flex !important; }
   .burger { display: flex; }
+}
+
+@media (max-width: 768px) {
   .page-hero { min-height: 280px; padding: 120px 1.75rem 2.5rem; }
   .page-hero h1 { font-size: clamp(2rem, 8vw, 2.8rem); }
   .tx-detail { padding: 3rem 1.75rem; }
@@ -552,6 +552,7 @@ body::after {
     <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser & MedSpa" />
   </a>
   <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
     <li><a href="../treatments.html">Treatments</a></li>
     <li><a href="../conditions.html">Conditions</a></li>
     <li><a href="https://skin-laser-medspa.myshopify.com/">Skincare</a></li>

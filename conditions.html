@@ -528,9 +528,6 @@ footer {
 @media (max-width: 1024px) {
   .cond-grid { grid-template-columns: 1fr 1fr; }
   .contact-inner { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-links {
     display: none;
@@ -579,6 +576,9 @@ footer {
   }
   nav.menu-open .nav-links { display: flex !important; }
   .burger { display: flex; }
+}
+
+@media (max-width: 768px) {
   .page-hero { min-height: 35vh; padding: 88px 1.75rem 2.5rem; }
   .page-hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
   .conditions-page { padding: 3rem 1.75rem 4rem; }
@@ -605,6 +605,7 @@ body::after {
     <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser & MedSpa" />
   </a>
   <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
     <li><a href="treatments.html">Treatments</a></li>
     <li><a href="conditions.html">Conditions</a></li>
     <li><a href="https://skin-laser-medspa.myshopify.com/">Skincare</a></li>
@@ -637,7 +638,7 @@ body::after {
     <!-- 1. Excess Hair -->
     <a href="conditions/excess-hair.html" class="cond-card cond-card--1 reveal">
       <div class="cond-card-img">
-        <div class="cond-card-img-placeholder">Image Placeholder</div>
+        <img src="skin-laser-assets/cond-excess-hair.jpg" alt="Smooth skin after laser hair removal" style="width:100%;height:100%;object-fit:cover;" />
       </div>
       <div class="cond-card-body">
         <span class="cond-card-tag">Hair Removal</span>
@@ -650,7 +651,7 @@ body::after {
     <!-- 2. Acne Scarring -->
     <a href="conditions/acne-scarring.html" class="cond-card cond-card--2 reveal d1">
       <div class="cond-card-img">
-        <div class="cond-card-img-placeholder">Image Placeholder</div>
+        <img src="skin-laser-assets/cond-acne-scarring.jpg" alt="Clear skin after acne scar treatment" style="width:100%;height:100%;object-fit:cover;" />
       </div>
       <div class="cond-card-body">
         <span class="cond-card-tag">Scarring</span>
@@ -663,7 +664,7 @@ body::after {
     <!-- 3. Tattoo Removal -->
     <a href="conditions/tattoo-removal.html" class="cond-card cond-card--3 reveal d2">
       <div class="cond-card-img">
-        <div class="cond-card-img-placeholder">Image Placeholder</div>
+        <img src="skin-laser-assets/cond-tattoo-removal.jpg" alt="Laser tattoo removal treatment" style="width:100%;height:100%;object-fit:cover;" />
       </div>
       <div class="cond-card-body">
         <span class="cond-card-tag">Laser</span>
@@ -676,7 +677,7 @@ body::after {
     <!-- 4. Facial Scars -->
     <a href="conditions/facial-scars.html" class="cond-card cond-card--4 reveal">
       <div class="cond-card-img">
-        <div class="cond-card-img-placeholder">Image Placeholder</div>
+        <img src="skin-laser-assets/cond-facial-scars.jpg" alt="Smooth skin after facial scar treatment" style="width:100%;height:100%;object-fit:cover;" />
       </div>
       <div class="cond-card-body">
         <span class="cond-card-tag">Scarring</span>
@@ -689,7 +690,7 @@ body::after {
     <!-- 5. Anti Aging -->
     <a href="conditions/anti-aging.html" class="cond-card cond-card--5 reveal d1">
       <div class="cond-card-img">
-        <div class="cond-card-img-placeholder">Image Placeholder</div>
+        <img src="skin-laser-assets/cond-anti-aging.jpg" alt="Youthful radiant skin" style="width:100%;height:100%;object-fit:cover;" />
       </div>
       <div class="cond-card-body">
         <span class="cond-card-tag">Rejuvenation</span>
@@ -702,7 +703,7 @@ body::after {
     <!-- 6. Acne -->
     <a href="conditions/acne.html" class="cond-card cond-card--6 reveal d2">
       <div class="cond-card-img">
-        <div class="cond-card-img-placeholder">Image Placeholder</div>
+        <img src="skin-laser-assets/cond-acne.jpg" alt="Clear healthy skin after acne treatment" style="width:100%;height:100%;object-fit:cover;" />
       </div>
       <div class="cond-card-body">
         <span class="cond-card-tag">Skin Health</span>
@@ -715,7 +716,7 @@ body::after {
     <!-- 7. Hyperpigmentation -->
     <a href="conditions/hyperpigmentation.html" class="cond-card cond-card--7 reveal">
       <div class="cond-card-img">
-        <div class="cond-card-img-placeholder">Image Placeholder</div>
+        <img src="skin-laser-assets/cond-hyperpigmentation.jpg" alt="Even skin tone after hyperpigmentation treatment" style="width:100%;height:100%;object-fit:cover;" />
       </div>
       <div class="cond-card-body">
         <span class="cond-card-tag">Pigmentation</span>
@@ -728,7 +729,7 @@ body::after {
     <!-- 8. Cellulite -->
     <a href="conditions/cellulite.html" class="cond-card cond-card--8 reveal d1">
       <div class="cond-card-img">
-        <div class="cond-card-img-placeholder">Image Placeholder</div>
+        <img src="skin-laser-assets/cond-cellulite.jpg" alt="RF body contouring treatment" style="width:100%;height:100%;object-fit:cover;" />
       </div>
       <div class="cond-card-body">
         <span class="cond-card-tag">Body Contouring</span>
@@ -741,7 +742,7 @@ body::after {
     <!-- 9. Rosacea / Spider Veins -->
     <a href="conditions/rosacea-spider-veins.html" class="cond-card cond-card--9 reveal d2">
       <div class="cond-card-img">
-        <div class="cond-card-img-placeholder">Image Placeholder</div>
+        <img src="skin-laser-assets/cond-rosacea.jpg" alt="Clear skin after rosacea treatment" style="width:100%;height:100%;object-fit:cover;" />
       </div>
       <div class="cond-card-body">
         <span class="cond-card-tag">Vascular</span>
@@ -754,7 +755,7 @@ body::after {
     <!-- 10. Stretch Marks -->
     <a href="conditions/stretch-marks.html" class="cond-card cond-card--1 reveal">
       <div class="cond-card-img">
-        <div class="cond-card-img-placeholder">Image Placeholder</div>
+        <img src="skin-laser-assets/cond-stretch-marks.jpg" alt="Smooth toned skin after stretch mark treatment" style="width:100%;height:100%;object-fit:cover;" />
       </div>
       <div class="cond-card-body">
         <span class="cond-card-tag">Skin Repair</span>

@@ -550,6 +550,7 @@ footer {
 @media (max-width: 768px) {
   .page-hero { min-height: 280px; padding: 120px 1.75rem 2.5rem; }
   .page-hero-content h1 { font-size: clamp(2rem, 8vw, 2.8rem); }
+  .site-contact-inner { grid-template-columns: 1fr; gap: 3rem; }
   .condition-content { padding: 3rem 1.75rem; }
   .treatments-section { padding: 3rem 1.75rem; }
   .tx-grid { grid-template-columns: 1fr; }
@@ -564,6 +565,69 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
   pointer-events: none; z-index: 9999; opacity: 0.5;
 }
+
+/* ── SITE CONTACT FOOTER ── */
+.site-contact {
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+  background: #2C2825; color: #F6F3EE;
+}
+.site-contact-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 4rem;
+}
+.site-contact-main h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-weight: 400; line-height: 1.2; margin-bottom: 1.5rem;
+}
+.site-contact-main h2 i { font-style: italic; color: var(--skin-peach); }
+.site-contact-main p {
+  font-size: 0.9rem; font-weight: 300;
+  color: rgba(246,243,238,0.55); line-height: 1.75;
+  margin-bottom: 2rem; max-width: 360px;
+}
+.site-contact-block { margin-bottom: 2rem; }
+.site-contact-block-label {
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: #9E7C5E; margin-bottom: 0.6rem;
+}
+.site-contact-block p, .site-contact-block a {
+  font-size: 0.88rem; font-weight: 300;
+  color: rgba(246,243,238,0.6); line-height: 1.7; display: block;
+}
+.site-contact-block a:hover { color: #9E7C5E; }
+.directions-btn {
+  display: inline-flex !important; align-items: center; gap: 0.4rem;
+  margin-top: 0.75rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.7rem !important; font-weight: 600 !important;
+  letter-spacing: 0.06em;
+  color: #F6F3EE !important;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  transition: all .3s;
+}
+.directions-btn:hover {
+  background: #9E7C5E !important;
+  border-color: #9E7C5E !important;
+  color: #FDFCFA !important;
+}
+.site-hours h3 {
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: #9E7C5E; margin-bottom: 1rem;
+}
+.hours-row {
+  display: flex; justify-content: space-between;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 0.82rem; font-weight: 300;
+}
+.hours-row .day { color: rgba(246,243,238,0.35); }
+.hours-row .time { color: rgba(246,243,238,0.6); }
+
 </style>
 </head>
 <body>
@@ -705,6 +769,42 @@ body::after {
     <h2>Your consultation is <i>completely free</i></h2>
     <p>Let us evaluate your skin and design a personalized anti-aging plan that addresses your unique concerns and delivers natural-looking, lasting results.</p>
     <a href="#" class="btn btn-light" onclick="openModal(event)">Book Your Free Consultation &#8594;</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="site-contact" id="contact">
+  <div class="site-contact-inner">
+    <div class="site-contact-main reveal">
+      <span class="label" style="color: #C4A693;">Get Started</span>
+      <h2 style="margin-top: 0.75rem;">Ready to start your <i>journey?</i></h2>
+      <p>Schedule a consultation and let us create a personalized treatment plan designed around your goals.</p>
+      <a href="#" class="btn" onclick="openModal(event)" style="margin-top: 0.5rem; background: #FDFCFA; color: #1B1B1B;">Free Consultation &#8594;</a>
+    </div>
+    <div class="site-contact-info reveal d1">
+      <div class="site-contact-block">
+        <div class="site-contact-block-label">Location</div>
+        <p>Optima Signature Building</p>
+        <p>220 E Illinois St, Suite 703</p>
+        <p>Chicago, IL 60611</p>
+        <a href="https://maps.apple.com/?q=220+E+Illinois+St+Suite+703+Chicago+IL+60611" class="directions-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Get Directions</a>
+      </div>
+      <div class="site-contact-block">
+        <div class="site-contact-block-label">Contact</div>
+        <a href="tel:3125395818">(312) 539-5818</a>
+        <a href="mailto:skinlasermedspa@gmail.com">skinlasermedspa@gmail.com</a>
+      </div>
+    </div>
+    <div class="site-hours reveal d2">
+      <h3>Hours</h3>
+      <div class="hours-row"><span class="day">Monday</span><span class="time">Closed</span></div>
+      <div class="hours-row"><span class="day">Tuesday</span><span class="time">10:00 am - 7:00 pm</span></div>
+      <div class="hours-row"><span class="day">Wednesday</span><span class="time">10:00 am - 7:00 pm</span></div>
+      <div class="hours-row"><span class="day">Thursday</span><span class="time">10:00 am - 7:00 pm</span></div>
+      <div class="hours-row"><span class="day">Friday</span><span class="time">10:00 am - 5:00 pm</span></div>
+      <div class="hours-row"><span class="day">Saturday</span><span class="time">10:00 am - 3:00 pm</span></div>
+      <div class="hours-row"><span class="day">Sunday</span><span class="time">Closed</span></div>
+    </div>
   </div>
 </section>
 

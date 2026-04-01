@@ -414,7 +414,7 @@ footer {
 .form-input:focus { border-color: var(--skin-blush); }
 .form-input::placeholder { color: var(--ink-muted); }
 
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
 .modal-nav {
   padding: 0 2rem 2rem;
@@ -444,6 +444,56 @@ footer {
 }
 .confirm-detail .cd-label { color: var(--ink-muted); font-weight: 400; }
 .confirm-detail .cd-value { color: var(--ink-soft); font-weight: 500; }
+
+.results-section {
+  padding: 5rem clamp(2rem, 6vw, 6rem);
+  background: var(--white);
+}
+.results-inner {
+  max-width: 1280px; margin: 0 auto;
+}
+.results-inner > .label { display: block; margin-bottom: 0.75rem; }
+.results-inner > h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 400; line-height: 1.2;
+  margin-bottom: 3rem;
+}
+.results-inner > h2 i { font-style: italic; color: var(--skin-blush); }
+.results-grid {
+  display: flex; flex-wrap: wrap; gap: 2rem;
+  justify-content: center;
+}
+.result-card {
+  background: none; box-shadow: none; overflow: visible;
+}
+.result-ba {
+  display: flex; overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  width: 520px;
+}
+.result-ba-side {
+  flex: 1; position: relative; min-width: 0;
+}
+.result-ba-side img {
+  width: 100%; height: 300px;
+  object-fit: cover; object-position: center 30%;
+  display: block;
+}
+.result-ba-side span {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  text-align: center; padding: 0.4rem 0;
+  font-size: 0.55rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  background: linear-gradient(transparent, rgba(0,0,0,0.45));
+  color: rgba(255,255,255,0.85);
+}
+.result-ba-side:first-child { border-radius: 10px 0 0 10px; }
+.result-ba-side:last-child { border-radius: 0 10px 10px 0; }
+.result-ba-side + .result-ba-side {
+  border-left: 2px solid #fff;
+}
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
@@ -611,6 +661,40 @@ body::after {
   <div class="approach-box">
     <span class="label">Our Approach</span>
     <p>At Skin Laser & Med Spa, we focus on what conditions you are facing, and then recommend the best treatment options. We always provide one cost effective & affordable solution, one quick solution, and one long term solution.</p>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results-section reveal">
+  <div class="results-inner">
+    <span class="label">Results</span>
+    <h2>Real results from <i>real patients</i></h2>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-ba">
+              <div class="result-ba-side">
+                <img src="../skin-laser-assets/old-site/tribella-before-1.jpg" alt="Before treatment">
+                <span>Before</span>
+              </div>
+              <div class="result-ba-side">
+                <img src="../skin-laser-assets/old-site/tribella-after-1.jpg" alt="After treatment">
+                <span>After</span>
+              </div>
+            </div>
+      </div>
+      <div class="result-card">
+        <div class="result-ba">
+              <div class="result-ba-side">
+                <img src="../skin-laser-assets/old-site/venusviva-before-1.jpg" alt="Before treatment">
+                <span>Before</span>
+              </div>
+              <div class="result-ba-side">
+                <img src="../skin-laser-assets/old-site/venusviva-after-1.jpg" alt="After treatment">
+                <span>After</span>
+              </div>
+            </div>
+      </div>
+    </div>
   </div>
 </section>
 

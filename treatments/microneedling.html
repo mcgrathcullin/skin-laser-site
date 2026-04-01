@@ -427,7 +427,7 @@ footer {
 }
 .form-input:focus { border-color: var(--skin-blush); }
 .form-input::placeholder { color: var(--ink-muted); }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
 .modal-nav {
   padding: 0 2rem 2rem;
@@ -458,7 +458,33 @@ footer {
 .confirm-detail .cd-label { color: var(--ink-muted); font-weight: 400; }
 .confirm-detail .cd-value { color: var(--ink-soft); font-weight: 500; }
 
-/* ---- RESPONSIVE ---- */
+.results-section {
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+  text-align: center;
+}
+.results-section .label { display: block; margin-bottom: 1rem; }
+.results-section h2 {
+  font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 400; margin-bottom: 1rem;
+}
+.results-section > p {
+  max-width: 600px; margin: 0 auto 3rem;
+  font-size: 0.88rem; color: var(--ink-muted); line-height: 1.7;
+}
+.result-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.08);
+}
+.result-card-body { padding: 1.5rem; }
+.result-card-body h4 {
+  font-family: var(--serif);
+  font-size: 1rem; font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+.result-card-body p {
+  font-size: 0.78rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.6;
+}
 @media (max-width: 1024px) {
   .treats-grid { grid-template-columns: 1fr 1fr; }
   .nav-links { display: none; }
@@ -674,6 +700,18 @@ body::after {
         <h3>Session details & series</h3>
         <p>Each session takes about an hour. For optimal results, a series of 4 to 6 treatments is recommended, spaced several weeks apart to allow your skin to complete its healing and rebuilding cycle.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results-section">
+  <span class="label">Results</span>
+  <h2>Real results, <i>real transformation</i></h2>
+  <p>Our microneedling patients see dramatic improvements in skin texture, scarring, and overall complexion.</p>
+  <div class="results-video reveal" style="max-width: 720px; margin: 2rem auto 0;">
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px;">
+      <iframe src="https://www.youtube.com/embed/1XsyWrazcjU" title="Pixel8-RF Radio Frequency Microneedling" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
     </div>
   </div>
 </section>

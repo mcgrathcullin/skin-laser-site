@@ -420,7 +420,7 @@ footer {
 }
 .form-input:focus { border-color: var(--skin-blush); }
 .form-input::placeholder { color: var(--ink-muted); }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .modal-nav {
   padding: 0 2rem 2rem;
   display: flex; gap: 0.75rem; flex-shrink: 0;
@@ -449,7 +449,22 @@ footer {
 .confirm-detail .cd-label { color: var(--ink-muted); font-weight: 400; }
 .confirm-detail .cd-value { color: var(--ink-soft); font-weight: 500; }
 
-@media (max-width: 1024px) {
+.results-section {
+  padding: 5rem clamp(2rem, 6vw, 6rem);
+  background: var(--white);
+}
+.results-inner {
+  max-width: 1280px; margin: 0 auto;
+}
+.results-inner > .label { display: block; margin-bottom: 0.75rem; }
+.results-inner > h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 400; line-height: 1.2;
+  margin-bottom: 3rem;
+}
+.results-inner > h2 i { font-style: italic; color: var(--skin-blush); }
+.result-ba-side + @media (max-width: 1024px) {
   .contact-inner { grid-template-columns: 1fr 1fr; }
   .tx-cards { grid-template-columns: 1fr; }
   .nav-links { display: none; }

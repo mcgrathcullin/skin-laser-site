@@ -319,15 +319,6 @@ nav.scrolled .nav-brand img { height: 48px; }
   max-width: 600px; margin-bottom: 3rem;
 }
 
-.results-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-.result-card {
-  background: var(--white);
-  overflow: hidden; transition: all .4s var(--ease);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-}
 .result-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 36px rgba(0,0,0,0.08);
@@ -354,8 +345,6 @@ nav.scrolled .nav-brand img { height: 48px; }
   font-size: 0.78rem; font-weight: 300;
   color: var(--ink-muted); line-height: 1.6;
 }
-
-/* ── CTA BAND ── */
 .cta-band {
   position: relative;
   padding: 6rem clamp(2rem, 6vw, 6rem);
@@ -502,7 +491,7 @@ footer {
 }
 .form-input:focus { border-color: var(--skin-blush); }
 .form-input::placeholder { color: var(--ink-muted); }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
 .modal-nav {
   padding: 0 2rem 2rem;
@@ -533,12 +522,162 @@ footer {
 .confirm-detail .cd-label { color: var(--ink-muted); font-weight: 400; }
 .confirm-detail .cd-value { color: var(--ink-soft); font-weight: 500; }
 
+/* ── GALLERY SECTION (reusable carousel) ── */
+.gallery-section {
+  background: var(--white);
+  padding: 6rem clamp(2rem, 6vw, 6rem);
+}
+.gallery-inner {
+  max-width: 1280px; margin: 0 auto;
+}
+.gallery-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 2.5rem; gap: 2rem;
+}
+.gallery-header-text .label { display: block; margin-bottom: 0.75rem; }
+.gallery-header-text h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 400; line-height: 1.2;
+}
+.gallery-header-text h2 i { font-style: italic; color: var(--skin-blush); }
+.gallery-nav {
+  display: flex; gap: 0.5rem; flex-shrink: 0;
+}
+.gallery-nav button {
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  background: none; border: 1px solid var(--skin-sand);
+  color: var(--ink-soft); font-size: 1.1rem;
+  cursor: pointer; transition: all .3s var(--ease);
+}
+.gallery-nav button:hover {
+  background: var(--ink); color: var(--bg);
+  border-color: var(--ink);
+}
+.gallery-nav button:disabled {
+  opacity: 0.3; cursor: default;
+  background: none; color: var(--ink-muted);
+  border-color: var(--bg-deep);
+}
+.gallery-track-wrap {
+  overflow: hidden; position: relative;
+}
+.gallery-track {
+  display: flex; gap: 1.5rem;
+  transition: transform .5s var(--ease);
+}
+.gallery-slide {
+  flex: 0 0 calc(50% - 0.75rem);
+  position: relative; overflow: hidden;
+  cursor: pointer;
+}
+.gallery-slide img {
+  width: 100%; height: 400px;
+  object-fit: cover; display: block;
+  transition: transform .6s var(--ease);
+}
+.gallery-slide:hover img { transform: scale(1.03); }
+.gallery-dots {
+  display: flex; justify-content: center; gap: 0.5rem;
+  margin-top: 2rem;
+}
+.gallery-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--bg-deep); border: none;
+  cursor: pointer; transition: all .3s var(--ease);
+  padding: 0;
+}
+.gallery-dot.active {
+  background: var(--skin-taupe);
+  width: 24px; border-radius: 4px;
+}
+
+/* Gallery lightbox */
+.gallery-lightbox {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(27,27,27,0.85);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .4s var(--ease);
+}
+.gallery-lightbox.open { opacity: 1; pointer-events: all; }
+.gallery-lightbox img {
+  max-width: 90vw; max-height: 85vh;
+  object-fit: contain;
+  transform: scale(0.95);
+  transition: transform .4s var(--ease);
+}
+.gallery-lightbox.open img { transform: scale(1); }
+.gallery-lightbox-close {
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.7); font-size: 1.2rem;
+  cursor: pointer; transition: all .3s;
+}
+.gallery-lightbox-close:hover {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+.gallery-lightbox-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.7); font-size: 1.2rem;
+  cursor: pointer; transition: all .3s;
+}
+.gallery-lightbox-nav:hover {
+  background: rgba(255,255,255,0.2); color: #fff;
+}
+.gallery-lightbox-nav.prev { left: 1.5rem; }
+.gallery-lightbox-nav.next { right: 1.5rem; }
+
+/* ── BEFORE/AFTER RESULTS ── */
+.results-grid {
+  display: flex; flex-wrap: wrap; gap: 2rem;
+  justify-content: center;
+}
+.result-card {
+  background: none; box-shadow: none; overflow: visible;
+}
+.result-ba {
+  display: flex; overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  width: 520px;
+}
+.result-ba-side {
+  flex: 1; position: relative; min-width: 0;
+}
+.result-ba-side img {
+  width: 100%; height: 300px;
+  object-fit: cover; object-position: center 30%;
+  display: block;
+}
+.result-ba-side span {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  text-align: center; padding: 0.4rem 0;
+  font-size: 0.55rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  background: linear-gradient(transparent, rgba(0,0,0,0.45));
+  color: rgba(255,255,255,0.85);
+}
+.result-ba-side:first-child { border-radius: 10px 0 0 10px; }
+.result-ba-side:last-child { border-radius: 0 10px 10px 0; }
+.result-ba-side + .result-ba-side {
+  border-left: 2px solid #fff;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .content-grid { grid-template-columns: 1fr; }
   .sidebar-wrap { position: static; }
   .process-steps { grid-template-columns: repeat(2, 1fr); }
-  .results-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-slide { flex: 0 0 calc(50% - 0.75rem); }
   .nav-links { display: none; }
   .nav-links {
     display: none;
@@ -596,7 +735,10 @@ footer {
   .process-section { padding: 4rem 1.75rem; }
   .process-steps { grid-template-columns: 1fr; }
   .results-section { padding: 4rem 1.75rem; }
-  .results-grid { grid-template-columns: 1fr; }
+  .gallery-section { padding: 4rem 1.75rem; }
+  .gallery-slide { flex: 0 0 100%; }
+  .gallery-slide img { height: 280px; }
+  .gallery-header { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
   .cta-band { min-height: 300px; padding: 4rem 1.75rem; }
   .form-row { grid-template-columns: 1fr; }
 }
@@ -688,6 +830,7 @@ body::after {
       <div class="sidebar-card">
         <span class="label">Our Technology</span>
         <h3>Cynosure Elite IQ</h3>
+        <img src="../skin-laser-assets/elite-iq.jpg" alt="Cynosure Elite IQ laser system" style="width:100%; border-radius:12px; margin:0.75rem 0;">
         <p>The most intelligent laser hair removal system available, with dual wavelengths and real-time skin reading.</p>
         <ul>
           <li>Dual-wavelength: 755nm Alexandrite + 1064nm Nd:YAG</li>
@@ -735,6 +878,41 @@ body::after {
   </div>
 </section>
 
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="gallery-inner">
+    <div class="gallery-header">
+      <div class="gallery-header-text">
+        <span class="label">Gallery</span>
+        <h2>The <i>treatment experience</i></h2>
+      </div>
+      <div class="gallery-nav">
+        <button class="gallery-prev" aria-label="Previous" disabled>&#8592;</button>
+        <button class="gallery-next" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+    <div class="gallery-track-wrap">
+      <div class="gallery-track">
+        <div class="gallery-slide reveal" onclick="openLightbox(0)">
+          <img src="../skin-laser-assets/gallery-laser-treatment.jpg" alt="Treatment session at Skin Laser MedSpa">
+        </div>
+        <div class="gallery-slide reveal d1" onclick="openLightbox(1)">
+          <img src="../skin-laser-assets/gallery-smooth-skin.jpg" alt="Smooth skin results">
+        </div>
+      </div>
+    </div>
+    <div class="gallery-dots"></div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="gallery-lightbox" id="galleryLightbox" onclick="closeLightbox(event)">
+  <button class="gallery-lightbox-close" onclick="closeLightbox(event)">&times;</button>
+  <button class="gallery-lightbox-nav prev" onclick="lightboxNav(event,-1)">&#8592;</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="gallery-lightbox-nav next" onclick="lightboxNav(event,1)">&#8594;</button>
+</div>
+
 <!-- RESULTS -->
 <section class="results-section">
   <span class="label">Results</span>
@@ -742,24 +920,35 @@ body::after {
   <p>Our patients consistently experience dramatic reduction in unwanted hair, with smoother skin that lasts.</p>
   <div class="results-grid">
     <div class="result-card reveal">
-      <div class="result-placeholder"><span>Before &amp; After</span></div>
+      <div class="result-ba">
+              <div class="result-ba-side">
+                <img src="../skin-laser-assets/old-site/lhr-before-1.png" alt="Before treatment">
+                <span>Before</span>
+              </div>
+              <div class="result-ba-side">
+                <img src="../skin-laser-assets/old-site/lhr-after-1.png" alt="After treatment">
+                <span>After</span>
+              </div>
+            </div>
       <div class="result-card-body">
         <h4>Underarm Treatment</h4>
         <p>Smooth, hair-free results after 6 sessions with the Elite IQ system.</p>
       </div>
     </div>
     <div class="result-card reveal d1">
-      <div class="result-placeholder"><span>Before &amp; After</span></div>
+      <div class="result-ba">
+              <div class="result-ba-side">
+                <img src="../skin-laser-assets/old-site/lhr-before-2.webp" alt="Before treatment">
+                <span>Before</span>
+              </div>
+              <div class="result-ba-side">
+                <img src="../skin-laser-assets/old-site/lhr-after-2.webp" alt="After treatment">
+                <span>After</span>
+              </div>
+            </div>
       <div class="result-card-body">
         <h4>Full Legs</h4>
         <p>Dramatic reduction in hair density, with finer regrowth between sessions.</p>
-      </div>
-    </div>
-    <div class="result-card reveal d2">
-      <div class="result-placeholder"><span>Before &amp; After</span></div>
-      <div class="result-card-body">
-        <h4>Bikini Area</h4>
-        <p>Precision treatment for sensitive areas, with comfortable cooling throughout.</p>
       </div>
     </div>
   </div>
@@ -873,6 +1062,92 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
 }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Gallery carousel
+(function() {
+  const track = document.querySelector('.gallery-track');
+  const slides = document.querySelectorAll('.gallery-slide');
+  const prevBtn = document.querySelector('.gallery-prev');
+  const nextBtn = document.querySelector('.gallery-next');
+  const dotsWrap = document.querySelector('.gallery-dots');
+  if (!track || !slides.length) return;
+
+  let current = 0;
+  const isMobile = () => window.innerWidth <= 768;
+  const perView = () => isMobile() ? 1 : 2;
+  const maxIndex = () => Math.max(0, slides.length - perView());
+
+  // Build dots
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    const total = maxIndex() + 1;
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'gallery-dot' + (i === current ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      dot.onclick = () => goTo(i);
+      dotsWrap.appendChild(dot);
+    }
+  }
+
+  function goTo(i) {
+    current = Math.max(0, Math.min(i, maxIndex()));
+    const gap = 24; // 1.5rem
+    const slideW = slides[0].offsetWidth + gap;
+    track.style.transform = 'translateX(' + (-current * slideW) + 'px)';
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current >= maxIndex();
+    dotsWrap.querySelectorAll('.gallery-dot').forEach((d, idx) => {
+      d.classList.toggle('active', idx === current);
+    });
+  }
+
+  prevBtn.onclick = () => goTo(current - 1);
+  nextBtn.onclick = () => goTo(current + 1);
+  buildDots();
+  window.addEventListener('resize', () => { buildDots(); goTo(Math.min(current, maxIndex())); });
+
+  // Touch/swipe support
+  let startX = 0, startY = 0, dragging = false;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; startY = e.touches[0].clientY; dragging = true; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    if (!dragging) return;
+    dragging = false;
+    const dx = e.changedTouches[0].clientX - startX;
+    const dy = e.changedTouches[0].clientY - startY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      dx < 0 ? goTo(current + 1) : goTo(current - 1);
+    }
+  }, { passive: true });
+})();
+
+// Gallery lightbox
+let lbImages = [];
+let lbIndex = 0;
+function openLightbox(idx) {
+  lbImages = Array.from(document.querySelectorAll('.gallery-slide img')).map(i => i.src);
+  lbIndex = idx;
+  document.getElementById('lightboxImg').src = lbImages[lbIndex];
+  document.getElementById('galleryLightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(e) {
+  if (e && e.target !== e.currentTarget) return;
+  document.getElementById('galleryLightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function lightboxNav(e, dir) {
+  e.stopPropagation();
+  lbIndex = Math.max(0, Math.min(lbIndex + dir, lbImages.length - 1));
+  document.getElementById('lightboxImg').src = lbImages[lbIndex];
+}
+document.addEventListener('keydown', e => {
+  const lb = document.getElementById('galleryLightbox');
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  if (e.key === 'ArrowLeft') lightboxNav(e, -1);
+  if (e.key === 'ArrowRight') lightboxNav(e, 1);
+});
 
 // Nav scroll
 window.addEventListener('scroll', () => {

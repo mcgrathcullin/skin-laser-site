@@ -381,15 +381,6 @@ nav.scrolled .nav-brand img { height: 48px; }
   max-width: 600px; margin-bottom: 3rem;
 }
 
-.results-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-.result-card {
-  background: var(--bg);
-  overflow: hidden; transition: all .4s var(--ease);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-}
 .result-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 36px rgba(0,0,0,0.08);
@@ -414,8 +405,6 @@ nav.scrolled .nav-brand img { height: 48px; }
   font-size: 0.78rem; font-weight: 300;
   color: var(--ink-muted); line-height: 1.6;
 }
-
-/* ── CTA BAND ── */
 .cta-band {
   position: relative;
   padding: 6rem clamp(2rem, 6vw, 6rem);
@@ -561,7 +550,7 @@ footer {
 }
 .form-input:focus { border-color: var(--skin-blush); }
 .form-input::placeholder { color: var(--ink-muted); }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
 .modal-nav {
   padding: 0 2rem 2rem;
@@ -592,13 +581,48 @@ footer {
 .confirm-detail .cd-label { color: var(--ink-muted); font-weight: 400; }
 .confirm-detail .cd-value { color: var(--ink-soft); font-weight: 500; }
 
+/* ── BEFORE/AFTER RESULTS ── */
+.results-grid {
+  display: flex; flex-wrap: wrap; gap: 2rem;
+  justify-content: center;
+}
+.result-card {
+  background: none; box-shadow: none; overflow: visible;
+}
+.result-ba {
+  display: flex; overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  width: 520px;
+}
+.result-ba-side {
+  flex: 1; position: relative; min-width: 0;
+}
+.result-ba-side img {
+  width: 100%; height: 300px;
+  object-fit: cover; object-position: center 30%;
+  display: block;
+}
+.result-ba-side span {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  text-align: center; padding: 0.4rem 0;
+  font-size: 0.55rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  background: linear-gradient(transparent, rgba(0,0,0,0.45));
+  color: rgba(255,255,255,0.85);
+}
+.result-ba-side:first-child { border-radius: 10px 0 0 10px; }
+.result-ba-side:last-child { border-radius: 0 10px 10px 0; }
+.result-ba-side + .result-ba-side {
+  border-left: 2px solid #fff;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .content-grid { grid-template-columns: 1fr; }
   .sidebar-wrap { position: static; }
   .tx-detail-grid { grid-template-columns: 1fr 1fr; }
   .expect-timeline { grid-template-columns: 1fr 1fr; }
-  .results-grid { grid-template-columns: repeat(2, 1fr); }
   .treats-list { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   .nav-links {
@@ -659,7 +683,6 @@ footer {
   .expect-section { padding: 4rem 1.75rem; }
   .expect-timeline { grid-template-columns: 1fr; }
   .results-section { padding: 4rem 1.75rem; }
-  .results-grid { grid-template-columns: 1fr; }
   .cta-band { min-height: 300px; padding: 4rem 1.75rem; }
   .form-row { grid-template-columns: 1fr; }
 }
@@ -835,24 +858,35 @@ body::after {
     <p>CO2 laser resurfacing delivers some of the most significant improvements available in non-surgical skin rejuvenation.</p>
     <div class="results-grid">
       <div class="result-card reveal">
-        <div class="result-placeholder"><span>Before &amp; After</span></div>
+        <div class="result-ba">
+              <div class="result-ba-side">
+                <img src="../skin-laser-assets/old-site/co2-before-1.jpg" alt="Before treatment">
+                <span>Before</span>
+              </div>
+              <div class="result-ba-side">
+                <img src="../skin-laser-assets/old-site/co2-after-1.jpg" alt="After treatment">
+                <span>After</span>
+              </div>
+            </div>
         <div class="result-card-body">
           <h4>Full Face Resurfacing</h4>
           <p>Dramatic improvement in fine lines, texture, and overall skin tone after a single treatment.</p>
         </div>
       </div>
       <div class="result-card reveal d1">
-        <div class="result-placeholder"><span>Before &amp; After</span></div>
+        <div class="result-ba">
+              <div class="result-ba-side">
+                <img src="../skin-laser-assets/old-site/co2-before-2.jpg" alt="Before treatment">
+                <span>Before</span>
+              </div>
+              <div class="result-ba-side">
+                <img src="../skin-laser-assets/old-site/co2-after-2.jpg" alt="After treatment">
+                <span>After</span>
+              </div>
+            </div>
         <div class="result-card-body">
           <h4>Acne Scar Treatment</h4>
           <p>Significant reduction in scar depth and improved skin smoothness with fractional CO2.</p>
-        </div>
-      </div>
-      <div class="result-card reveal d2">
-        <div class="result-placeholder"><span>Before &amp; After</span></div>
-        <div class="result-card-body">
-          <h4>Hand Rejuvenation</h4>
-          <p>Reduced age spots and smoother skin texture on the hands with the Symmetry Laser.</p>
         </div>
       </div>
     </div>

@@ -52,14 +52,6 @@ a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 button { font-family: inherit; cursor: pointer; border: none; }
 
-/* --- UTILITIES --- */
-.reveal {
-  opacity: 0; transform: translateY(50px);
-  transition: opacity 1s var(--ease), transform 1s var(--ease);
-}
-.reveal.vis { opacity: 1; transform: none; }
-.d1 { transition-delay: .1s } .d2 { transition-delay: .2s }
-
 .label {
   font-size: 0.65rem; font-weight: 600;
   letter-spacing: 0.28em; text-transform: uppercase;
@@ -78,17 +70,10 @@ nav {
 }
 nav.scrolled { height: 64px; box-shadow: 0 1px 0 rgba(0,0,0,.06); }
 nav.scrolled .nav-brand img { height: 48px; }
-
 .nav-brand img { height: 64px; width: auto; }
-.nav-links {
-  display: flex; align-items: center; gap: 2.2rem; list-style: none;
-}
-.nav-links a {
-  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em;
-  color: var(--ink-soft); transition: color .3s;
-}
+.nav-links { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
+.nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; color: var(--ink-soft); transition: color .3s; }
 .nav-links a:hover { color: var(--skin-taupe); }
-
 .nav-book {
   padding: 0.65rem 1.6rem !important;
   background: var(--ink); color: var(--bg) !important;
@@ -97,7 +82,6 @@ nav.scrolled .nav-brand img { height: 48px; }
   transition: all .35s var(--ease);
 }
 .nav-book:hover { background: var(--skin-deep) !important; }
-
 .nav-quick-actions { display: none; }
 .burger { display: none; flex-direction: column; gap: 5px; padding: 4px; cursor: pointer; background: none; }
 .burger span { width: 22px; height: 1.5px; background: var(--ink); display: block; }
@@ -126,20 +110,15 @@ nav.scrolled .nav-brand img { height: 48px; }
 }
 .page-hero::after {
   content: ''; position: absolute;
-  bottom: 0; left: 10%; right: 10%;
-  height: 1px;
+  bottom: 0; left: 10%; right: 10%; height: 1px;
   background: linear-gradient(to right, transparent, var(--skin-sand), var(--skin-peach), var(--skin-sand), transparent);
 }
-.page-hero .label {
-  margin-bottom: 1.2rem;
-  opacity: 0; animation: fadeIn .8s .2s var(--ease) forwards;
-}
+.page-hero .label { margin-bottom: 1.2rem; opacity: 0; animation: fadeIn .8s .2s var(--ease) forwards; }
 .page-hero h1 {
   font-family: var(--serif);
   font-size: clamp(2.4rem, 4.5vw, 3.8rem);
   font-weight: 400; line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 1.2rem;
+  letter-spacing: -0.02em; margin-bottom: 1.2rem;
   opacity: 0; animation: fadeUp 1s .3s var(--ease) forwards;
 }
 .page-hero h1 i { font-style: italic; color: var(--skin-taupe); }
@@ -182,7 +161,6 @@ nav.scrolled .nav-brand img { height: 48px; }
   animation: fadeUp .5s var(--ease) forwards;
 }
 .quiz-step.active { display: block; }
-
 .quiz-step h2 {
   font-family: var(--serif);
   font-size: clamp(1.5rem, 3vw, 2rem);
@@ -196,8 +174,9 @@ nav.scrolled .nav-brand img { height: 48px; }
   margin-bottom: 2rem;
 }
 
-.quiz-options {
-  display: flex; flex-direction: column; gap: 0.75rem;
+.quiz-options { display: flex; flex-direction: column; gap: 0.75rem; }
+.quiz-options.multi-col {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;
 }
 .quiz-option {
   padding: 1.2rem 1.6rem;
@@ -238,6 +217,21 @@ nav.scrolled .nav-brand img { height: 48px; }
   background: var(--white);
   border-radius: 50%;
 }
+/* Multi-select: square checkboxes */
+.quiz-options.multi-select .quiz-option-icon { border-radius: 4px; }
+.quiz-options.multi-select .quiz-option.selected .quiz-option-icon { border-radius: 4px; }
+.quiz-options.multi-select .quiz-option.selected .quiz-option-icon::after {
+  width: 10px; height: 10px; border-radius: 2px;
+  background: none;
+  border-left: 2px solid var(--white);
+  border-bottom: 2px solid var(--white);
+  transform: translate(-50%, -60%) rotate(-45deg);
+  width: 8px; height: 5px;
+}
+.quiz-option-text { display: flex; flex-direction: column; gap: 0.15rem; }
+.quiz-option-text small {
+  font-size: 0.72rem; font-weight: 300; color: var(--ink-muted); line-height: 1.4;
+}
 
 .quiz-nav {
   display: flex; align-items: center; justify-content: space-between;
@@ -247,32 +241,21 @@ nav.scrolled .nav-brand img { height: 48px; }
   font-size: 0.72rem; font-weight: 600;
   letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--ink-muted); background: none;
-  padding: 0.8rem 0;
-  transition: color .3s;
+  padding: 0.8rem 0; transition: color .3s;
 }
 .quiz-back:hover { color: var(--skin-deep); }
-.quiz-next {
-  margin-left: auto;
-}
-.quiz-next:disabled {
-  opacity: 0.35; pointer-events: none;
-}
+.quiz-next { margin-left: auto; }
+.quiz-next:disabled { opacity: 0.35; pointer-events: none; }
 
 /* --- RESULTS --- */
-.quiz-results {
-  display: none;
-  animation: fadeUp .6s var(--ease) forwards;
-}
+.quiz-results { display: none; animation: fadeUp .6s var(--ease) forwards; }
 .quiz-results.active { display: block; }
 
-.quiz-results-header {
-  text-align: center; margin-bottom: 3rem;
-}
+.quiz-results-header { text-align: center; margin-bottom: 3rem; }
 .quiz-results-header h2 {
   font-family: var(--serif);
   font-size: clamp(1.8rem, 3vw, 2.4rem);
-  font-weight: 400; line-height: 1.15;
-  margin-top: 0.75rem;
+  font-weight: 400; line-height: 1.15; margin-top: 0.75rem;
 }
 .quiz-results-header h2 i { font-style: italic; color: var(--skin-blush); }
 .quiz-results-header p {
@@ -281,10 +264,7 @@ nav.scrolled .nav-brand img { height: 48px; }
   max-width: 480px; margin: 1rem auto 0;
 }
 
-.result-cards {
-  display: flex; flex-direction: column; gap: 1.25rem;
-  margin-bottom: 3rem;
-}
+.result-cards { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 3rem; }
 .result-card {
   background: var(--white);
   padding: 2rem 2.2rem;
@@ -292,6 +272,7 @@ nav.scrolled .nav-brand img { height: 48px; }
   transition: all .4s var(--ease);
   position: relative; overflow: hidden;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  text-decoration: none; color: inherit;
 }
 .result-card::before {
   content: ''; position: absolute;
@@ -304,7 +285,6 @@ nav.scrolled .nav-brand img { height: 48px; }
   transform: translateY(-3px);
   box-shadow: 0 12px 36px rgba(0,0,0,0.07);
 }
-
 .result-rank {
   font-family: var(--serif);
   font-size: 2rem; font-weight: 400;
@@ -312,7 +292,6 @@ nav.scrolled .nav-brand img { height: 48px; }
   flex-shrink: 0; width: 2rem; text-align: center;
 }
 .result-card:first-child .result-rank { color: var(--skin-deep); }
-
 .result-body { flex: 1; }
 .result-body h3 {
   font-family: var(--serif);
@@ -322,7 +301,15 @@ nav.scrolled .nav-brand img { height: 48px; }
 .result-body p {
   font-size: 0.84rem; font-weight: 300;
   color: var(--ink-muted); line-height: 1.7;
+  margin-bottom: 0.6rem;
+}
+.result-why {
+  font-size: 0.76rem; font-weight: 400;
+  color: var(--skin-deep); line-height: 1.5;
   margin-bottom: 1rem;
+  padding: 0.6rem 0.8rem;
+  background: rgba(139,115,98,0.06);
+  border-left: 2px solid var(--skin-peach);
 }
 .result-match {
   display: inline-block;
@@ -331,6 +318,14 @@ nav.scrolled .nav-brand img { height: 48px; }
   padding: 0.35rem 0.7rem;
   color: var(--skin-deep); background: rgba(139,115,98,0.1);
   margin-bottom: 0.75rem;
+}
+.result-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+.result-tag {
+  font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--bg-deep);
+  color: var(--ink-muted);
 }
 .result-link {
   font-size: 0.68rem; font-weight: 600;
@@ -343,20 +338,25 @@ nav.scrolled .nav-brand img { height: 48px; }
 .result-card:hover .result-link { color: var(--skin-deep); }
 .result-card:hover .result-link::after { transform: translateX(4px); }
 
-.results-cta {
-  text-align: center; padding: 2.5rem 0;
+.result-note {
+  text-align: center; padding: 1.5rem 2rem;
+  background: rgba(139,115,98,0.06);
+  font-size: 0.84rem; font-weight: 300;
+  color: var(--ink-muted); line-height: 1.7;
+  margin-bottom: 2rem;
 }
+.result-note strong { font-weight: 500; color: var(--ink-soft); }
+
+.results-cta { text-align: center; padding: 2.5rem 0; }
 .results-cta p {
   font-size: 0.88rem; font-weight: 300;
-  color: var(--ink-muted); margin-bottom: 1.5rem;
-  line-height: 1.6;
+  color: var(--ink-muted); margin-bottom: 1.5rem; line-height: 1.6;
 }
 .quiz-restart {
   font-size: 0.68rem; font-weight: 600;
   letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--skin-taupe); background: none;
-  margin-top: 1rem;
-  transition: color .3s;
+  margin-top: 1rem; transition: color .3s;
 }
 .quiz-restart:hover { color: var(--skin-deep); }
 
@@ -370,13 +370,10 @@ footer {
   display: flex; align-items: center; justify-content: space-between;
 }
 .footer-brand img { height: 40px; }
-.footer-copy {
-  font-size: 0.72rem; font-weight: 400;
-  color: var(--ink-muted);
-}
+.footer-copy { font-size: 0.72rem; font-weight: 400; color: var(--ink-muted); }
 
 /* --- RESPONSIVE --- */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .nav-links { display: none; }
   .nav-links {
     display: none;
@@ -389,22 +386,17 @@ footer {
   .nav-links a {
     display: block; padding: 0.75rem 0;
     font-size: 0.85rem !important; color: #3A3632 !important;
-    border-bottom: 1px solid #E4DDD3;
-    letter-spacing: 0.04em !important;
+    border-bottom: 1px solid #E4DDD3; letter-spacing: 0.04em !important;
   }
   .nav-links .nav-book {
     margin-top: 0.75rem; text-align: center;
     border-bottom: none; padding: 0.85rem 1.5rem !important;
-    background: #9E7C5E !important; color: #FDFCFA !important;
-    display: block;
+    background: #9E7C5E !important; color: #FDFCFA !important; display: block;
   }
   .nav-quick-actions {
     display: flex !important; gap: 0.5rem;
-    margin-top: 1rem; padding: 0;
-    list-style: none;
-    border: 1px solid #E4DDD3;
-    border-radius: 10px;
-    overflow: hidden;
+    margin-top: 1rem; padding: 0; list-style: none;
+    border: 1px solid #E4DDD3; border-radius: 10px; overflow: hidden;
   }
   .nav-quick-btn {
     flex: 1; text-align: center;
@@ -414,20 +406,20 @@ footer {
     background: #FDFCFA !important; color: #3A3632 !important;
     border: none !important; border-radius: 0 !important;
     border-right: 1px solid #E4DDD3 !important;
-    text-decoration: none !important;
-    white-space: nowrap;
+    text-decoration: none !important; white-space: nowrap;
     display: flex; align-items: center; justify-content: center; gap: 0.4rem;
     transition: all .3s;
   }
-  .nav-quick-btn:hover {
-    background: #9E7C5E !important; color: #FDFCFA !important;
-    border-color: #9E7C5E !important;
-  }
+  .nav-quick-btn:hover { background: #9E7C5E !important; color: #FDFCFA !important; border-color: #9E7C5E !important; }
   nav.menu-open .nav-links { display: flex !important; }
   .burger { display: flex; }
+}
+
+@media (max-width: 768px) {
   .page-hero { min-height: 30vh; padding: calc(88px + 1rem) 1.75rem 2rem; }
   .page-hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
   .quiz-section { padding: 2rem 1.75rem 4rem; }
+  .quiz-options.multi-col { grid-template-columns: 1fr; }
   .result-card { flex-direction: column; gap: 0.75rem; padding: 1.5rem; }
   .result-rank { width: auto; }
   .footer-inner { flex-direction: column; gap: 1rem; text-align: center; }
@@ -450,6 +442,7 @@ body::after {
     <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser & MedSpa" />
   </a>
   <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
     <li><a href="treatments.html">Treatments</a></li>
     <li><a href="conditions.html">Conditions</a></li>
     <li><a href="https://skin-laser-medspa.myshopify.com/">Skincare</a></li>
@@ -483,37 +476,53 @@ body::after {
     <div class="quiz-progress-bar">
       <div class="quiz-progress-fill" id="progressFill" style="width: 0%"></div>
     </div>
-    <span class="quiz-progress-label" id="progressLabel">1 of 6</span>
+    <span class="quiz-progress-label" id="progressLabel">1 of 7</span>
   </div>
 
-  <!-- Step 1: Primary Concern -->
+  <!-- Step 1: Primary Concerns (multi-select) -->
   <div class="quiz-step active" data-step="0">
-    <h2>What's your <i>primary concern?</i></h2>
-    <p class="quiz-subtitle">Select the one that matters most to you right now.</p>
-    <div class="quiz-options">
-      <div class="quiz-option" onclick="selectOption(this, 0)" data-value="acne_scarring">
-        <span class="quiz-option-icon"></span> Acne or acne scarring
+    <h2>What are your <i>skin concerns?</i></h2>
+    <p class="quiz-subtitle">Select all that apply. We'll find treatments that address everything.</p>
+    <div class="quiz-options multi-select multi-col">
+      <div class="quiz-option" onclick="toggleMulti(this, 0)" data-value="acne_scarring">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Acne or acne scarring<small>Active breakouts or scars left behind</small></span>
       </div>
-      <div class="quiz-option" onclick="selectOption(this, 0)" data-value="aging">
-        <span class="quiz-option-icon"></span> Fine lines, wrinkles, or aging skin
+      <div class="quiz-option" onclick="toggleMulti(this, 0)" data-value="aging">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Fine lines or wrinkles<small>Loss of firmness, aging skin</small></span>
       </div>
-      <div class="quiz-option" onclick="selectOption(this, 0)" data-value="hair_removal">
-        <span class="quiz-option-icon"></span> Unwanted hair
+      <div class="quiz-option" onclick="toggleMulti(this, 0)" data-value="hair_removal">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Unwanted hair<small>Including PCOS-related hair growth</small></span>
       </div>
-      <div class="quiz-option" onclick="selectOption(this, 0)" data-value="pigmentation">
-        <span class="quiz-option-icon"></span> Dark spots or uneven skin tone
+      <div class="quiz-option" onclick="toggleMulti(this, 0)" data-value="pigmentation">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Dark spots or melasma<small>Uneven tone, sun damage, hyperpigmentation</small></span>
       </div>
-      <div class="quiz-option" onclick="selectOption(this, 0)" data-value="texture">
-        <span class="quiz-option-icon"></span> Rough texture or dull skin
+      <div class="quiz-option" onclick="toggleMulti(this, 0)" data-value="texture">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Rough or dull skin<small>Uneven texture, large pores, dullness</small></span>
       </div>
-      <div class="quiz-option" onclick="selectOption(this, 0)" data-value="redness">
-        <span class="quiz-option-icon"></span> Redness or visible veins
+      <div class="quiz-option" onclick="toggleMulti(this, 0)" data-value="redness">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Redness or visible veins<small>Rosacea, spider veins, broken capillaries</small></span>
       </div>
-      <div class="quiz-option" onclick="selectOption(this, 0)" data-value="tattoo">
-        <span class="quiz-option-icon"></span> Tattoo removal
+      <div class="quiz-option" onclick="toggleMulti(this, 0)" data-value="tattoo">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Tattoo removal<small>Fading or full removal of tattoo ink</small></span>
       </div>
-      <div class="quiz-option" onclick="selectOption(this, 0)" data-value="body">
-        <span class="quiz-option-icon"></span> Cellulite or body tightening
+      <div class="quiz-option" onclick="toggleMulti(this, 0)" data-value="body">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Body contouring<small>Cellulite, skin tightening, body shaping</small></span>
+      </div>
+      <div class="quiz-option" onclick="toggleMulti(this, 0)" data-value="stretch_marks">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Stretch marks<small>From pregnancy, weight changes, or growth</small></span>
+      </div>
+      <div class="quiz-option" onclick="toggleMulti(this, 0)" data-value="scars">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Scars (non-acne)<small>Surgical, injury, or other facial/body scars</small></span>
       </div>
     </div>
     <div class="quiz-nav">
@@ -528,13 +537,16 @@ body::after {
     <p class="quiz-subtitle">This helps us narrow down the right approach.</p>
     <div class="quiz-options">
       <div class="quiz-option" onclick="selectOption(this, 1)" data-value="face">
-        <span class="quiz-option-icon"></span> Face
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Face only<small>Cheeks, forehead, chin, nose, neck</small></span>
       </div>
       <div class="quiz-option" onclick="selectOption(this, 1)" data-value="body">
-        <span class="quiz-option-icon"></span> Body
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Body only<small>Legs, arms, back, chest, abdomen</small></span>
       </div>
       <div class="quiz-option" onclick="selectOption(this, 1)" data-value="both">
-        <span class="quiz-option-icon"></span> Both face and body
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Both face and body</span>
       </div>
     </div>
     <div class="quiz-nav">
@@ -543,19 +555,22 @@ body::after {
     </div>
   </div>
 
-  <!-- Step 3: Previous Treatments -->
+  <!-- Step 3: Skin Tone (moved earlier since it's a hard filter) -->
   <div class="quiz-step" data-step="2">
-    <h2>Have you had professional <i>skin treatments</i> before?</h2>
-    <p class="quiz-subtitle">No wrong answer here. This helps us gauge your comfort level.</p>
+    <h2>How would you describe your <i>skin tone?</i></h2>
+    <p class="quiz-subtitle">Certain technologies work differently on different skin tones. This ensures safe, effective recommendations.</p>
     <div class="quiz-options">
-      <div class="quiz-option" onclick="selectOption(this, 2)" data-value="yes">
-        <span class="quiz-option-icon"></span> Yes, I'm experienced
+      <div class="quiz-option" onclick="selectOption(this, 2)" data-value="fair">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Fair to light<small>Burns easily, rarely tans</small></span>
       </div>
-      <div class="quiz-option" onclick="selectOption(this, 2)" data-value="some">
-        <span class="quiz-option-icon"></span> A few times (facials, peels, etc.)
+      <div class="quiz-option" onclick="selectOption(this, 2)" data-value="medium">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Medium to olive<small>Sometimes burns, tans gradually</small></span>
       </div>
-      <div class="quiz-option" onclick="selectOption(this, 2)" data-value="no">
-        <span class="quiz-option-icon"></span> This would be my first time
+      <div class="quiz-option" onclick="selectOption(this, 2)" data-value="dark">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Dark to deep<small>Rarely burns, tans easily</small></span>
       </div>
     </div>
     <div class="quiz-nav">
@@ -564,19 +579,22 @@ body::after {
     </div>
   </div>
 
-  <!-- Step 4: Downtime -->
+  <!-- Step 4: Age Range -->
   <div class="quiz-step" data-step="3">
-    <h2>How much <i>downtime</i> works for you?</h2>
-    <p class="quiz-subtitle">Some treatments need a few days of recovery. Others have none at all.</p>
+    <h2>What's your <i>age range?</i></h2>
+    <p class="quiz-subtitle">Different treatments work best at different stages. This helps us recommend what's most effective for you.</p>
     <div class="quiz-options">
-      <div class="quiz-option" onclick="selectOption(this, 3)" data-value="none">
-        <span class="quiz-option-icon"></span> None, I need to get right back to it
+      <div class="quiz-option" onclick="selectOption(this, 3)" data-value="under25">
+        <span class="quiz-option-icon"></span> Under 25
       </div>
-      <div class="quiz-option" onclick="selectOption(this, 3)" data-value="few_days">
-        <span class="quiz-option-icon"></span> A couple days is fine
+      <div class="quiz-option" onclick="selectOption(this, 3)" data-value="25to35">
+        <span class="quiz-option-icon"></span> 25 to 35
       </div>
-      <div class="quiz-option" onclick="selectOption(this, 3)" data-value="week">
-        <span class="quiz-option-icon"></span> Up to a week if it means better results
+      <div class="quiz-option" onclick="selectOption(this, 3)" data-value="36to50">
+        <span class="quiz-option-icon"></span> 36 to 50
+      </div>
+      <div class="quiz-option" onclick="selectOption(this, 3)" data-value="over50">
+        <span class="quiz-option-icon"></span> Over 50
       </div>
     </div>
     <div class="quiz-nav">
@@ -585,19 +603,22 @@ body::after {
     </div>
   </div>
 
-  <!-- Step 5: Priority -->
+  <!-- Step 5: Previous Treatments -->
   <div class="quiz-step" data-step="4">
-    <h2>What matters <i>most</i> to you?</h2>
-    <p class="quiz-subtitle">We offer all three, but this helps us prioritize.</p>
+    <h2>Have you had professional <i>skin treatments</i> before?</h2>
+    <p class="quiz-subtitle">No wrong answer. This helps us gauge your comfort level.</p>
     <div class="quiz-options">
-      <div class="quiz-option" onclick="selectOption(this, 4)" data-value="fast">
-        <span class="quiz-option-icon"></span> Fastest visible results
+      <div class="quiz-option" onclick="selectOption(this, 4)" data-value="yes">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Yes, I'm experienced<small>Lasers, peels, injectables, etc.</small></span>
       </div>
-      <div class="quiz-option" onclick="selectOption(this, 4)" data-value="affordable">
-        <span class="quiz-option-icon"></span> Most affordable option
+      <div class="quiz-option" onclick="selectOption(this, 4)" data-value="some">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">A few times<small>Facials, light peels, basic treatments</small></span>
       </div>
-      <div class="quiz-option" onclick="selectOption(this, 4)" data-value="lasting">
-        <span class="quiz-option-icon"></span> Longest lasting results
+      <div class="quiz-option" onclick="selectOption(this, 4)" data-value="no">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">This would be my first time<small>New to professional treatments</small></span>
       </div>
     </div>
     <div class="quiz-nav">
@@ -606,24 +627,51 @@ body::after {
     </div>
   </div>
 
-  <!-- Step 6: Skin Tone -->
+  <!-- Step 6: Downtime -->
   <div class="quiz-step" data-step="5">
-    <h2>How would you describe your <i>skin tone?</i></h2>
-    <p class="quiz-subtitle">Certain lasers work better on different skin tones. This ensures safe, effective recommendations.</p>
+    <h2>How much <i>downtime</i> works for you?</h2>
+    <p class="quiz-subtitle">Some treatments need a few days of recovery. Others have none at all.</p>
     <div class="quiz-options">
-      <div class="quiz-option" onclick="selectOption(this, 5)" data-value="fair">
-        <span class="quiz-option-icon"></span> Fair to light
+      <div class="quiz-option" onclick="selectOption(this, 5)" data-value="none">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">None at all<small>I need to get right back to work/life</small></span>
       </div>
-      <div class="quiz-option" onclick="selectOption(this, 5)" data-value="medium">
-        <span class="quiz-option-icon"></span> Medium to olive
+      <div class="quiz-option" onclick="selectOption(this, 5)" data-value="few_days">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">A couple days is fine<small>Some redness or peeling is okay</small></span>
       </div>
-      <div class="quiz-option" onclick="selectOption(this, 5)" data-value="dark">
-        <span class="quiz-option-icon"></span> Dark to deep
+      <div class="quiz-option" onclick="selectOption(this, 5)" data-value="week">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Up to a week for better results<small>I can plan around recovery</small></span>
       </div>
     </div>
     <div class="quiz-nav">
       <button class="quiz-back" onclick="prevStep()">&larr; Back</button>
-      <button class="btn btn-dark quiz-next" id="nextBtn5" disabled onclick="showResults()">See My Results &#8594;</button>
+      <button class="btn btn-dark quiz-next" id="nextBtn5" disabled onclick="nextStep()">Continue &#8594;</button>
+    </div>
+  </div>
+
+  <!-- Step 7: Priority -->
+  <div class="quiz-step" data-step="6">
+    <h2>What matters <i>most</i> to you?</h2>
+    <p class="quiz-subtitle">We offer all of the above, but this helps us prioritize your plan.</p>
+    <div class="quiz-options">
+      <div class="quiz-option" onclick="selectOption(this, 6)" data-value="fast">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Fastest visible results<small>I want to see a difference quickly</small></span>
+      </div>
+      <div class="quiz-option" onclick="selectOption(this, 6)" data-value="affordable">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Most affordable option<small>Budget matters right now</small></span>
+      </div>
+      <div class="quiz-option" onclick="selectOption(this, 6)" data-value="lasting">
+        <span class="quiz-option-icon"></span>
+        <span class="quiz-option-text">Longest lasting results<small>I want a permanent or semi-permanent fix</small></span>
+      </div>
+    </div>
+    <div class="quiz-nav">
+      <button class="quiz-back" onclick="prevStep()">&larr; Back</button>
+      <button class="btn btn-dark quiz-next" id="nextBtn6" disabled onclick="showResults()">See My Results &#8594;</button>
     </div>
   </div>
 
@@ -632,8 +680,9 @@ body::after {
     <div class="quiz-results-header">
       <span class="label">Your Personalized Recommendations</span>
       <h2>Here's what we'd <i>recommend</i></h2>
-      <p>Based on your answers, these treatments are the best fit. A free consultation will confirm the perfect plan for you.</p>
+      <p>Based on your answers, these treatments are the best fit for your goals. A free consultation will confirm the perfect plan for you.</p>
     </div>
+    <div id="skinNote"></div>
     <div class="result-cards" id="resultCards"></div>
     <div class="results-cta">
       <p>Every treatment plan starts with a complimentary, no-pressure consultation where we'll tailor these recommendations to your unique skin.</p>
@@ -656,153 +705,246 @@ body::after {
 </footer>
 
 <script>
-// Treatment database
+// ── Treatment Database ──
 const treatments = {
   laser_hair: {
     name: 'Laser Hair Removal',
-    desc: 'Powered by the Cynosure Elite IQ with dual-wavelength technology. FDA-cleared Melanin Reader identifies the optimal settings for every skin type. Treat the face, chest, back, underarms, legs, bikini, and more.',
+    desc: 'Powered by the Cynosure Elite IQ with dual-wavelength technology and FDA-cleared Melanin Reader. Safe for all skin types, including darker tones. Treats face, chest, back, underarms, legs, bikini, and more.',
     url: 'treatments/laser-hair-removal.html',
     concerns: ['hair_removal'],
     area: ['face','body','both'],
     downtime: 'none',
     priority: { fast: 2, affordable: 3, lasting: 3 },
     skin: ['fair','medium','dark'],
-    experience: ['yes','some','no']
+    experience: ['yes','some','no'],
+    tags: ['All skin types', 'No downtime', 'FDA-cleared'],
+    whyFor: { hair_removal: 'The gold standard for permanent hair reduction on all skin tones, including PCOS-related hair growth.' }
   },
   co2: {
     name: 'CO2 Laser Resurfacing',
-    desc: 'The Phoenix CO2 Laser vaporizes damaged surface layers and stimulates deep collagen production. FDA cleared for skin resurfacing, acne scarring, hand restoration, and hyperpigmentation.',
+    desc: 'The Phoenix CO2 Laser by Rohrer Aesthetics vaporizes damaged surface layers and stimulates deep collagen production. FDA cleared for skin resurfacing, acne scarring, hand restoration, and hyperpigmentation.',
     url: 'treatments/co2-laser.html',
-    concerns: ['acne_scarring','aging','texture'],
-    area: ['face','both'],
+    concerns: ['acne_scarring','aging','texture','scars','stretch_marks'],
+    area: ['face','body','both'],
     downtime: 'week',
     priority: { fast: 3, affordable: 1, lasting: 3 },
     skin: ['fair','medium'],
-    experience: ['yes','some']
+    experience: ['yes','some'],
+    tags: ['Most dramatic results', '5-7 day recovery', 'Collagen remodeling'],
+    whyFor: {
+      acne_scarring: 'The most powerful resurfacing option. Vaporizes scarred tissue and triggers deep collagen rebuilding for dramatic improvement.',
+      aging: 'Can take years off your appearance in a single session by resurfacing damaged skin and stimulating new collagen.',
+      scars: 'Resurfaces and remodels scar tissue at the deepest level for the most visible improvement.',
+      stretch_marks: 'Resurfaces the textured surface of stretch marks and stimulates collagen to fill and smooth them.',
+      texture: 'Removes damaged outer layers entirely and rebuilds skin from the inside out for a complete texture reset.'
+    }
   },
   fractional: {
     name: 'Fractional Laser',
-    desc: 'Creates micro-columns of thermal damage to stimulate collagen remodeling and skin renewal. Effective for acne scarring, fine lines, uneven texture, and sun damage with controlled downtime.',
+    desc: 'Creates micro-columns of thermal damage to stimulate collagen remodeling and skin renewal. Effective for acne scarring, fine lines, uneven texture, stretch marks, and sun damage.',
     url: 'treatments/fractional-laser.html',
-    concerns: ['acne_scarring','aging','texture'],
-    area: ['face','both'],
+    concerns: ['acne_scarring','aging','texture','scars','stretch_marks'],
+    area: ['face','body','both'],
     downtime: 'few_days',
     priority: { fast: 2, affordable: 2, lasting: 3 },
     skin: ['fair','medium'],
-    experience: ['yes','some']
+    experience: ['yes','some'],
+    tags: ['Collagen boost', '2-4 day recovery', 'Resurfacing'],
+    whyFor: {
+      acne_scarring: 'Targets scarred areas with precision micro-columns while leaving surrounding skin intact for faster healing.',
+      stretch_marks: 'The fractional approach is ideal for stretch marks because it stimulates collagen in the specific damaged areas.',
+      aging: 'Stimulates collagen renewal to smooth fine lines and restore firmness without full-face resurfacing.',
+      scars: 'Precisely targets scar tissue with micro-columns of energy to remodel and smooth the area.',
+      texture: 'Resurfaces uneven areas while triggering collagen for smoother, more refined skin.'
+    }
   },
   microneedling: {
-    name: 'Microneedling',
-    desc: 'AnteAGE MD Stem Cell Growth Factor is infused while the pen promotes natural healing with increased collagen and elastin production. Combined with AnteAGE MD Exosomes for enhanced results.',
+    name: 'Microneedling with AnteAGE MD',
+    desc: 'AnteAGE MD Stem Cell Growth Factor and Exosomes are infused as the pen creates micro-channels, promoting natural healing with increased collagen and elastin production.',
     url: 'treatments/microneedling.html',
-    concerns: ['acne_scarring','aging','texture','pigmentation'],
+    concerns: ['acne_scarring','aging','texture','pigmentation','scars','stretch_marks'],
     area: ['face','body','both'],
     downtime: 'few_days',
     priority: { fast: 2, affordable: 3, lasting: 2 },
     skin: ['fair','medium','dark'],
-    experience: ['yes','some','no']
+    experience: ['yes','some','no'],
+    tags: ['All skin types', 'Growth factors', 'Natural healing'],
+    whyFor: {
+      acne_scarring: 'Triggers your body\'s natural repair with growth factor infusion for smoother, more even skin over a series of treatments.',
+      pigmentation: 'Combined with growth factors, the micro-channels help break up pigment clusters while promoting even-toned new skin.',
+      aging: 'Stimulates collagen and elastin naturally. The AnteAGE MD exosomes accelerate cellular repair for firmer skin.',
+      scars: 'Safe for all skin tones and works on scars anywhere on the body by triggering natural collagen production.',
+      stretch_marks: 'Creates micro-injuries that trigger collagen production specifically in stretch mark tissue.',
+      texture: 'Growth factors delivered through micro-channels transform rough, dull skin into smoother, more radiant skin.'
+    }
   },
   pico: {
     name: 'Pico Laser',
-    desc: 'The Pico laser delivers ultra-short picosecond pulses to break down pigmentation and ink into tiny particles. FDA approved and safe on all skin types.',
+    desc: 'The Pico Lazer by Rohrer Aesthetics delivers ultra-short picosecond pulses to break down pigmentation and ink into tiny particles. FDA approved and safe on all skin types.',
     url: 'treatments/pico-lazer.html',
     concerns: ['tattoo','pigmentation'],
     area: ['face','body','both'],
     downtime: 'few_days',
     priority: { fast: 3, affordable: 1, lasting: 3 },
     skin: ['fair','medium','dark'],
-    experience: ['yes','some','no']
+    experience: ['yes','some','no'],
+    tags: ['All skin types', 'All ink colors', 'FDA approved'],
+    whyFor: {
+      tattoo: 'Breaks down all ink colors, including stubborn greens and blues, into particles your immune system naturally eliminates.',
+      pigmentation: 'Shatters melanin clusters into micro-particles without damaging surrounding skin. Safe for darker skin tones.'
+    }
   },
   rf_microneedling: {
-    name: 'RF Microneedling',
-    desc: 'The Pixel8-RF by Rohrer Aesthetics delivers radiofrequency energy through precision microneedles, triggering natural repair of fine lines, wrinkles, acne scars, and skin laxity.',
+    name: 'RF Microneedling (Pixel8-RF)',
+    desc: 'The Pixel8-RF by Rohrer Aesthetics delivers radiofrequency energy through precision microneedles, triggering your body\'s natural repair of fine lines, wrinkles, acne scars, and skin laxity.',
     url: 'treatments/rf-microneedling.html',
-    concerns: ['acne_scarring','aging','texture'],
-    area: ['face','both'],
+    concerns: ['acne_scarring','aging','texture','scars'],
+    area: ['face','body','both'],
     downtime: 'few_days',
     priority: { fast: 2, affordable: 2, lasting: 3 },
     skin: ['fair','medium','dark'],
-    experience: ['yes','some']
+    experience: ['yes','some'],
+    tags: ['All skin types', 'RF + needling', 'Skin tightening'],
+    whyFor: {
+      acne_scarring: 'RF energy heats the deep dermis through microneedles, remodeling scar tissue from the inside out.',
+      aging: 'The RF energy creates a tightening effect that goes deeper than standard microneedling for firmer, lifted skin.',
+      scars: 'Radiofrequency energy penetrates deeply through microneedles to break down and remodel scar tissue.',
+      texture: 'Combines the resurfacing benefits of microneedling with deep RF heating for comprehensive texture improvement.'
+    }
   },
   laser_genesis: {
     name: 'Laser Genesis',
-    desc: 'A gentle laser held above the skin in a cross-hatching pattern. Boosts collagen and elastin, removes dead skin cells, and kills acne-causing bacteria. Good for all skin tones with no downtime.',
+    desc: 'A gentle pico laser held above the skin in a cross-hatching pattern. Boosts collagen and elastin, removes dead skin cells, and kills acne-causing bacteria. Good for all skin tones with no downtime.',
     url: 'treatments/laser-genesis.html',
     concerns: ['acne_scarring','redness','texture','aging'],
     area: ['face','both'],
     downtime: 'none',
     priority: { fast: 2, affordable: 2, lasting: 2 },
     skin: ['fair','medium','dark'],
-    experience: ['yes','some','no']
+    experience: ['yes','some','no'],
+    tags: ['All skin types', 'No downtime', 'Painless'],
+    whyFor: {
+      acne_scarring: 'Gently stimulates collagen without downtime. Great as a maintenance treatment or for those who can\'t take time off.',
+      redness: 'Targets the micro-vasculature that causes diffuse redness and rosacea, calming and evening skin tone.',
+      texture: 'Removes dead skin cells and stimulates collagen for a natural glow without any recovery time.',
+      aging: 'A painless, no-downtime option that builds collagen gradually for subtle but consistent improvement.'
+    }
   },
   hydrafacial: {
     name: 'HydraFacial',
-    desc: 'A multi-step facial that cleanses, exfoliates, extracts, and hydrates using patented Vortex-Fusion technology. Instant results with no downtime, leaving skin refreshed and radiant.',
+    desc: 'A multi-step Cleopatra facial that cleanses, exfoliates, extracts, and hydrates. Instant results with no downtime, leaving skin refreshed, radiant, and deeply nourished.',
     url: 'treatments/hydrafacial.html',
     concerns: ['texture','acne_scarring','aging'],
     area: ['face'],
     downtime: 'none',
     priority: { fast: 3, affordable: 2, lasting: 1 },
     skin: ['fair','medium','dark'],
-    experience: ['yes','some','no']
+    experience: ['yes','some','no'],
+    tags: ['All skin types', 'Instant glow', 'No downtime'],
+    whyFor: {
+      texture: 'Deep cleansing and hydration give you instantly smoother, glowing skin in a single session.',
+      acne_scarring: 'Exfoliation and extraction help clear congested skin while hydration plumps and smooths mild scarring.',
+      aging: 'Instant hydration plumps fine lines and gives skin a radiant, refreshed appearance right away.'
+    }
+  },
+  facials: {
+    name: 'Customized Facials',
+    desc: 'Professional facials tailored to your skin\'s unique needs. Deep cleansing, exfoliation, and nourishing treatments to restore your natural glow and maintain healthy, balanced skin.',
+    url: 'treatments/facials.html',
+    concerns: ['texture','acne_scarring'],
+    area: ['face'],
+    downtime: 'none',
+    priority: { fast: 2, affordable: 3, lasting: 1 },
+    skin: ['fair','medium','dark'],
+    experience: ['yes','some','no'],
+    tags: ['All skin types', 'Relaxing', 'Affordable'],
+    whyFor: {
+      texture: 'A personalized approach to cleansing, exfoliating, and nourishing your skin for a healthy, balanced glow.',
+      acne_scarring: 'Gentle professional exfoliation and targeted serums help improve mild scarring and congested skin.'
+    }
   },
   vi_peel: {
     name: 'VI Peels',
-    desc: 'Medical-grade chemical peels targeting acne scarring, hyperpigmentation, and overall skin renewal. Removes damaged outer layers to reveal smoother, brighter skin underneath.',
+    desc: 'Medical-grade chemical peels targeting acne scarring, hyperpigmentation, melasma, and overall skin renewal. VI Peel Precision+ is specifically formulated for stubborn pigmentation.',
     url: 'treatments/vi-peels.html',
     concerns: ['acne_scarring','pigmentation','texture'],
     area: ['face','body','both'],
     downtime: 'few_days',
     priority: { fast: 2, affordable: 3, lasting: 2 },
     skin: ['fair','medium','dark'],
-    experience: ['yes','some','no']
+    experience: ['yes','some','no'],
+    tags: ['All skin types', 'Safe for melasma', 'Affordable'],
+    whyFor: {
+      pigmentation: 'The VI Peel Precision+ is specifically designed for melasma and post-inflammatory hyperpigmentation. Safe for all skin types.',
+      acne_scarring: 'Accelerates cellular turnover to break up pigmented scar tissue and reveal fresh, even-toned skin.',
+      texture: 'Removes damaged outer layers to reveal smoother, brighter skin underneath within a week.'
+    }
   },
   carbon_peel: {
     name: 'Carbon Laser Facial Peel',
-    desc: 'Also known as "The Hollywood Peel." A carbon layer is applied and laser energy deeply exfoliates, unclogs pores, and stimulates collagen for an instantly radiant complexion.',
+    desc: 'Also known as "The Hollywood Peel." A carbon layer is applied to the skin and laser energy deeply exfoliates, unclogs pores, and stimulates collagen for an instantly radiant complexion.',
     url: 'treatments/carbon-laser-peel.html',
     concerns: ['texture','acne_scarring'],
     area: ['face'],
     downtime: 'none',
     priority: { fast: 3, affordable: 2, lasting: 1 },
     skin: ['fair','medium','dark'],
-    experience: ['yes','some','no']
+    experience: ['yes','some','no'],
+    tags: ['All skin types', 'Instant radiance', 'No downtime'],
+    whyFor: {
+      texture: 'The carbon absorbs oil and debris from pores, then the laser blasts it away for instantly refined, glowing skin.',
+      acne_scarring: 'Deep exfoliation and collagen stimulation improve mild scarring while giving you an immediate glow.'
+    }
   },
   ipl: {
     name: 'IPL Photo Facial',
-    desc: 'Intense Pulsed Light therapy targets hyperpigmentation, age spots, sun damage, and rosacea beneath the skin. Breaks up discoloration and evens out skin tone with minimal downtime.',
+    desc: 'Intense Pulsed Light therapy targets hyperpigmentation, age spots, sun damage, and rosacea. Breaks up discoloration and evens out skin tone. Not suitable for all skin tones; a consultation is required.',
     url: 'treatments/ipl-photofacial.html',
     concerns: ['pigmentation','redness','aging'],
-    area: ['face','both'],
+    area: ['face'],
     downtime: 'none',
     priority: { fast: 2, affordable: 2, lasting: 2 },
     skin: ['fair','medium'],
-    experience: ['yes','some','no']
+    experience: ['yes','some','no'],
+    tags: ['Face only', 'Consultation required', 'Light/medium tones'],
+    whyFor: {
+      pigmentation: 'Broad-spectrum light breaks up melanin deposits across larger areas, ideal for diffuse sun damage and age spots.',
+      redness: 'Targets hemoglobin in dilated blood vessels, heating and coagulating them to reduce facial redness and rosacea.',
+      aging: 'Addresses sun damage, age spots, and fine vascular changes that make skin look older than it is.'
+    }
   },
   laser_vein: {
     name: 'Laser Vein Therapy',
-    desc: 'Non-surgical laser treatment to reduce and eliminate spider veins, broken capillaries, and vascular lesions. Safe for all skin types with minimal discomfort and downtime.',
+    desc: 'Using the Cynosure Elite IQ, targeted laser energy heats and coagulates visible spider veins anywhere on the body. Non-surgical with minimal discomfort.',
     url: 'treatments/laser-vein-therapy.html',
     concerns: ['redness'],
     area: ['face','body','both'],
     downtime: 'none',
     priority: { fast: 2, affordable: 2, lasting: 3 },
     skin: ['fair','medium','dark'],
-    experience: ['yes','some','no']
+    experience: ['yes','some','no'],
+    tags: ['All skin types', 'Full body', 'No downtime'],
+    whyFor: {
+      redness: 'The laser precisely targets and coagulates spider veins and broken capillaries. Treated veins are permanently eliminated.'
+    }
   },
   venus_mp2: {
-    name: 'Venus MP2 Treatment',
-    desc: 'Multi-Polar Radio Frequency and Pulsed Electro Magnetic Fields to smooth cellulite, tighten skin, and contour the body. Non-invasive with no downtime.',
+    name: 'Venus MP2 Body Contouring',
+    desc: 'Multi-Polar Radio Frequency and Pulsed Electro Magnetic Fields smooth cellulite, tighten skin, and contour the body. Non-invasive with no downtime.',
     url: 'treatments/venus-mp2.html',
     concerns: ['body'],
     area: ['body','both'],
     downtime: 'none',
     priority: { fast: 2, affordable: 2, lasting: 2 },
     skin: ['fair','medium','dark'],
-    experience: ['yes','some','no']
+    experience: ['yes','some','no'],
+    tags: ['All skin types', 'No downtime', 'Non-invasive'],
+    whyFor: {
+      body: 'RF and electromagnetic fields break down fat cells and tighten connective tissue for smoother, more toned contours in 6-8 sessions.'
+    }
   },
   injectables: {
-    name: 'Injectables',
+    name: 'Injectables (Botox & Fillers)',
     desc: 'Expert-administered Botox, dermal fillers, and other injectables to smooth wrinkles, restore volume, and enhance facial contours. Natural-looking results from our skilled nurse injector.',
     url: 'treatments/injectables.html',
     concerns: ['aging'],
@@ -810,25 +952,48 @@ const treatments = {
     downtime: 'none',
     priority: { fast: 3, affordable: 2, lasting: 2 },
     skin: ['fair','medium','dark'],
-    experience: ['yes','some','no']
+    experience: ['yes','some','no'],
+    tags: ['All skin types', 'Instant results', 'No downtime'],
+    whyFor: {
+      aging: 'Immediately smooths dynamic wrinkles (Botox) and restores lost volume (fillers) for a naturally refreshed appearance.'
+    }
   },
   tribella: {
     name: '3-in-1 TriBella Facial',
-    desc: 'A powerful combination of IPL, RF microneedling, and diamond polar technology addressing multiple skin concerns in a single session for comprehensive rejuvenation.',
+    desc: 'Combines IPL, RF microneedling, and diamond polar technology in a single session for comprehensive rejuvenation. Addresses pigmentation, tightening, and texture all at once.',
     url: 'treatments/tribella-facials.html',
     concerns: ['aging','pigmentation','texture'],
     area: ['face'],
     downtime: 'few_days',
     priority: { fast: 3, affordable: 1, lasting: 3 },
     skin: ['fair','medium'],
-    experience: ['yes','some']
+    experience: ['yes','some'],
+    tags: ['3-in-1', 'Comprehensive', 'Light/medium tones'],
+    whyFor: {
+      aging: 'Three technologies in one session: IPL for discoloration, RF for tightening, and NanoFractional RF for resurfacing.',
+      pigmentation: 'The IPL phase specifically targets and breaks down pigmented areas while the other phases improve overall skin quality.',
+      texture: 'NanoFractional RF resurfaces and refines skin texture while the other two phases address deeper concerns.'
+    }
   }
 };
 
-// Quiz state
-const totalSteps = 6;
+// ── Quiz State ──
+const totalSteps = 7;
 let currentStep = 0;
 const answers = {};
+const multiAnswers = {};
+
+function toggleMulti(el, step) {
+  el.classList.toggle('selected');
+  if (!multiAnswers[step]) multiAnswers[step] = new Set();
+  const val = el.dataset.value;
+  if (multiAnswers[step].has(val)) {
+    multiAnswers[step].delete(val);
+  } else {
+    multiAnswers[step].add(val);
+  }
+  document.getElementById('nextBtn' + step).disabled = multiAnswers[step].size === 0;
+}
 
 function selectOption(el, step) {
   const parent = el.closest('.quiz-step');
@@ -839,51 +1004,52 @@ function selectOption(el, step) {
 }
 
 function nextStep() {
-  if (answers[currentStep] === undefined) return;
   currentStep++;
   updateView();
 }
 
 function prevStep() {
-  if (currentStep > 0) {
-    currentStep--;
-    updateView();
-  }
+  if (currentStep > 0) { currentStep--; updateView(); }
 }
 
 function updateView() {
   document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
   const step = document.querySelector(`.quiz-step[data-step="${currentStep}"]`);
   if (step) step.classList.add('active');
-
   const pct = Math.round((currentStep / totalSteps) * 100);
   document.getElementById('progressFill').style.width = pct + '%';
   document.getElementById('progressLabel').textContent = (currentStep + 1) + ' of ' + totalSteps;
 }
 
 function showResults() {
-  if (answers[5] === undefined) return;
+  if (answers[6] === undefined) return;
 
   document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
   document.getElementById('quizProgress').style.display = 'none';
   document.getElementById('quizResults').classList.add('active');
 
-  const concern = answers[0];
+  const concerns = [...(multiAnswers[0] || [])];
   const area = answers[1];
-  const experience = answers[2];
-  const downtime = answers[3];
-  const priority = answers[4];
-  const skin = answers[5];
+  const skin = answers[2];
+  const age = answers[3];
+  const experience = answers[4];
+  const downtime = answers[5];
+  const priority = answers[6];
 
-  // Score each treatment
-  const scored = [];
   const downtimeRank = { none: 0, few_days: 1, week: 2 };
+  const scored = [];
 
   for (const [key, tx] of Object.entries(treatments)) {
     let score = 0;
+    let matchedConcerns = [];
 
-    // Must match concern
-    if (!tx.concerns.includes(concern)) continue;
+    // Must match at least one concern
+    const overlap = tx.concerns.filter(c => concerns.includes(c));
+    if (overlap.length === 0) continue;
+    matchedConcerns = overlap;
+
+    // Concern breadth bonus: more matched concerns = higher score
+    score += overlap.length * 4;
 
     // Must match skin tone
     if (!tx.skin.includes(skin)) continue;
@@ -900,8 +1066,10 @@ function showResults() {
     const userDown = downtimeRank[downtime] || 0;
     if (txDown <= userDown) {
       score += 2;
+    } else if (txDown === userDown + 1) {
+      score -= 1; // slightly over tolerance
     } else {
-      score -= 2;
+      score -= 3; // way over tolerance
     }
 
     // Priority match
@@ -911,20 +1079,36 @@ function showResults() {
     if (tx.experience.includes(experience)) {
       score += 1;
     } else {
-      score -= 1;
+      score -= 2;
     }
 
-    // Bonus for first-timers: prefer gentle treatments
-    if (experience === 'no') {
-      if (tx.downtime === 'none') score += 1;
+    // First-timer bonus for gentle treatments
+    if (experience === 'no' && tx.downtime === 'none') score += 2;
+
+    // Age-based scoring
+    if (age === 'under25') {
+      if (['acne_scarring','texture'].some(c => overlap.includes(c))) score += 1;
+      if (key === 'injectables') score -= 2;
+    } else if (age === '36to50' || age === 'over50') {
+      if (overlap.includes('aging')) score += 1;
+      if (key === 'injectables' && overlap.includes('aging')) score += 2;
+      if (key === 'co2' && overlap.includes('aging')) score += 2;
     }
 
-    scored.push({ key, tx, score });
+    scored.push({ key, tx, score, matchedConcerns });
   }
 
-  // Sort by score descending, take top 3
+  // Sort by score descending, take top 4
   scored.sort((a, b) => b.score - a.score);
-  const top = scored.slice(0, 3);
+  const top = scored.slice(0, 4);
+
+  // Show skin tone note if relevant
+  const noteEl = document.getElementById('skinNote');
+  if (skin === 'dark') {
+    noteEl.innerHTML = '<div class="result-note"><strong>Great news:</strong> Our Cynosure Elite IQ, Pico Lazer, and microneedling treatments are all safe and effective for darker skin tones. The Skintel Melanin Reader calibrates every laser session specifically to your skin.</div>';
+  } else {
+    noteEl.innerHTML = '';
+  }
 
   const container = document.getElementById('resultCards');
   container.innerHTML = '';
@@ -934,8 +1118,19 @@ function showResults() {
     return;
   }
 
-  const matchLabels = ['Best Match', 'Great Option', 'Also Consider'];
+  const matchLabels = ['Best Match', 'Great Option', 'Also Consider', 'Worth Exploring'];
   top.forEach((item, i) => {
+    // Pick the best "why" reason based on matched concerns
+    let whyText = '';
+    for (const c of item.matchedConcerns) {
+      if (item.tx.whyFor && item.tx.whyFor[c]) {
+        whyText = item.tx.whyFor[c];
+        break;
+      }
+    }
+
+    const tagsHtml = (item.tx.tags || []).map(t => `<span class="result-tag">${t}</span>`).join('');
+
     const card = document.createElement('a');
     card.href = item.tx.url;
     card.className = 'result-card';
@@ -945,6 +1140,8 @@ function showResults() {
         <span class="result-match">${matchLabels[i] || 'Recommended'}</span>
         <h3>${item.tx.name}</h3>
         <p>${item.tx.desc}</p>
+        ${whyText ? `<div class="result-why">Why this for you: ${whyText}</div>` : ''}
+        <div class="result-tags">${tagsHtml}</div>
         <span class="result-link">Learn More</span>
       </div>
     `;
@@ -955,26 +1152,22 @@ function showResults() {
 function restartQuiz() {
   currentStep = 0;
   for (const key in answers) delete answers[key];
+  for (const key in multiAnswers) delete multiAnswers[key];
   document.querySelectorAll('.quiz-option.selected').forEach(o => o.classList.remove('selected'));
   document.querySelectorAll('.quiz-next').forEach(b => b.disabled = true);
   document.getElementById('quizResults').classList.remove('active');
   document.getElementById('quizProgress').style.display = 'flex';
   document.getElementById('resultCards').innerHTML = '';
+  document.getElementById('skinNote').innerHTML = '';
   updateView();
 }
-
-// Reveal
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
-}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
 // Nav scroll
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('scrolled', scrollY > 60);
 });
 
-// Minimal modal stub (for Book Now nav link)
+// Modal stub
 function openModal(e) {
   if (e) e.preventDefault();
   window.location.href = 'contact.html';

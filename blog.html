@@ -427,9 +427,6 @@ footer {
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .blog-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 768px) {
   .nav-links {
     display: none;
     position: absolute; top: 100%; left: 0; right: 0;
@@ -473,6 +470,9 @@ footer {
     background: var(--accent) !important;
     color: var(--white) !important;
   }
+}
+
+@media (max-width: 768px) {
 
   .blog-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
   .blog-card-img { height: 200px; }
@@ -493,6 +493,7 @@ footer {
     <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser & MedSpa" />
   </a>
   <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
     <li><a href="treatments.html">Treatments</a></li>
     <li><a href="conditions.html">Conditions</a></li>
     <li><a href="https://skin-laser-medspa.myshopify.com/">Skincare</a></li>

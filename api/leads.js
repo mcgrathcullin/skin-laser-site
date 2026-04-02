@@ -198,6 +198,7 @@ async function sendThankYouEmail(lead) {
                 </a>
               </td>
             </tr>
+            <!-- Hidden while store is offline
             <tr>
               <td style="background: #FDFCFA; border: 1px solid #E4DDD3; border-radius: 6px; padding: 16px 20px;">
                 <a href="https://skin-laser-medspa.myshopify.com/" style="text-decoration: none;">
@@ -206,6 +207,7 @@ async function sendThankYouEmail(lead) {
                 </a>
               </td>
             </tr>
+            -->
           </table>
 
           <!-- Call us -->

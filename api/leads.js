@@ -56,20 +56,18 @@ async function handlePost(req, res) {
     return res.status(500).json({ error: 'Failed to save lead' });
   }
 
-  // Send emails (non-blocking)
-  // NOTE: Until a domain is verified in Resend, emails can only go to your own address.
-  // Once you verify skinlaserchicago.com in Resend, change the thank you email 'to' back to [lead.email]
-  // and update 'from' addresses to use @skinlaserchicago.com
-  try {
-    await sendNotificationEmail(lead);
-  } catch (err) {
-    console.error('Notification email failed:', err);
-  }
-  try {
-    await sendThankYouEmail(lead);
-  } catch (err) {
-    console.error('Thank you email failed:', err);
-  }
+  // Resend emails commented out - MX records can't be set, using Web3Forms instead
+  // Once domain is verified in Resend, uncomment these:
+  // try {
+  //   await sendNotificationEmail(lead);
+  // } catch (err) {
+  //   console.error('Notification email failed:', err);
+  // }
+  // try {
+  //   await sendThankYouEmail(lead);
+  // } catch (err) {
+  //   console.error('Thank you email failed:', err);
+  // }
 
   res.status(201).json({ success: true, message: 'Consultation request received' });
 }

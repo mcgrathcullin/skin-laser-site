@@ -1124,22 +1124,41 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-// Inquiry form handler
+// Inquiry form handler - Web3Forms
 function handleInquiry(e) {
   e.preventDefault();
-  document.getElementById('captchaOverlay').style.display = 'flex';
-}
-function closeCaptcha(e) {
-  if (e.target === e.currentTarget) {
-    document.getElementById('captchaOverlay').style.display = 'none';
-  }
-}
-function completeCaptcha() {
-  setTimeout(function() {
-    document.getElementById('captchaOverlay').style.display = 'none';
+  var name = document.getElementById('inq-name').value.trim();
+  var email = document.getElementById('inq-email').value.trim();
+  var service = document.getElementById('inq-service').value;
+  var message = document.getElementById('inq-message').value.trim();
+
+  var btn = document.querySelector('.form-submit');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  var formData = new FormData();
+  formData.append('access_key', '03839aa4-ed3a-4dac-ad68-ac28605ae948');
+  formData.append('subject', 'Contact Inquiry: ' + name + ' - ' + (service || 'General'));
+  formData.append('from_name', 'Skin Laser & MedSpa');
+  formData.append('Name', name);
+  formData.append('Email', email);
+  formData.append('Service', service || 'Not specified');
+  formData.append('Message', message);
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: formData
+  }).then(function(r) { return r.json(); })
+  .then(function() {
+    btn.disabled = false;
+    btn.textContent = 'Send Message \u2192';
     document.getElementById('inquiryForm').style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
-  }, 600);
+  }).catch(function() {
+    btn.disabled = false;
+    btn.textContent = 'Send Message \u2192';
+    alert('Something went wrong. Please try again or call us at (312) 539-5818.');
+  });
 }
 
 // Modal - multi-step
@@ -1191,6 +1210,51 @@ function updateStep() {
 }
 
 function nextStep() {
+  // If on form step, submit the lead before advancing
+  if (currentStep === 1) {
+    var fname = document.getElementById('fname').value.trim();
+    var lname = document.getElementById('lname').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var helpMsg = document.getElementById('helpMsg').value.trim();
+    var hearAbout = document.getElementById('hearAbout').value.trim();
+
+    if (!fname || !lname || !email || !phone || !helpMsg || !hearAbout) {
+      alert('Please fill out all fields.');
+      return;
+    }
+
+    var btn = document.getElementById('btnNext');
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
+
+    var formData = new FormData();
+    formData.append('access_key', '03839aa4-ed3a-4dac-ad68-ac28605ae948');
+    formData.append('subject', 'New Booking: ' + fname + ' ' + lname + ' - ' + selectedTx);
+    formData.append('from_name', 'Skin Laser & MedSpa');
+    formData.append('First Name', fname);
+    formData.append('Last Name', lname);
+    formData.append('Email', email);
+    formData.append('Phone', phone);
+    formData.append('Service', selectedTx);
+    formData.append('Message', helpMsg);
+    formData.append('How They Found Us', hearAbout);
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    }).then(function(r) { return r.json(); })
+    .then(function() {
+      btn.disabled = false;
+      currentStep++;
+      updateStep();
+    }).catch(function() {
+      btn.disabled = false;
+      currentStep++;
+      updateStep();
+    });
+    return;
+  }
   if (currentStep < totalSteps - 1) {
     currentStep++;
     updateStep();

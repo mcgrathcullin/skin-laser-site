@@ -1,0 +1,42 @@
+# Skin Laser & MedSpa
+
+> Medical spa in Streeterville, Chicago specializing in advanced laser treatments, skin rejuvenation, and aesthetic services. Located at 220 E Illinois St, Suite 703, Chicago, IL 60611. Phone: 312-539-5818.
+
+- Website: https://www.skinlaserchicago.com
+- Shop: https://skin-laser-medspa.myshopify.com
+- Contact: https://www.skinlaserchicago.com/contact
+- Specials: https://www.skinlaserchicago.com/specials
+- Treatment Quiz: https://www.skinlaserchicago.com/quiz
+
+## Treatments
+
+- [Laser Hair Removal](https://www.skinlaserchicago.com/treatments/laser-hair-removal): Permanent hair reduction using advanced laser technology
+- [CO2 Laser](https://www.skinlaserchicago.com/treatments/co2-laser): Skin resurfacing for scars, wrinkles, and sun damage
+- [Fractional Laser](https://www.skinlaserchicago.com/treatments/fractional-laser): Fractional skin resurfacing for texture and tone improvement
+- [Microneedling](https://www.skinlaserchicago.com/treatments/microneedling): Collagen induction therapy for skin renewal
+- [Pico Laser](https://www.skinlaserchicago.com/treatments/pico-lazer): Picosecond laser for tattoo removal and pigmentation
+- [RF Microneedling](https://www.skinlaserchicago.com/treatments/rf-microneedling): Radiofrequency microneedling for skin tightening and rejuvenation
+- [Laser Genesis](https://www.skinlaserchicago.com/treatments/laser-genesis): Non-invasive laser for redness, large pores, and fine lines
+- [HydraFacial](https://www.skinlaserchicago.com/treatments/hydrafacial): Multi-step facial for deep cleansing, exfoliation, and hydration
+- [Facials](https://www.skinlaserchicago.com/treatments/facials): Customized professional facial treatments
+- [VI Peels](https://www.skinlaserchicago.com/treatments/vi-peels): Medical-grade chemical peels for skin renewal
+- [Carbon Laser Peel](https://www.skinlaserchicago.com/treatments/carbon-laser-peel): Carbon-based laser facial for pore reduction and glow
+- [TriBella Facials](https://www.skinlaserchicago.com/treatments/tribella-facials): Three-in-one treatment combining IPL, RF, and diamond polar
+- [IPL Photofacial](https://www.skinlaserchicago.com/treatments/ipl-photofacial): Intense pulsed light for pigmentation, sun spots, and redness
+- [Laser Vein Therapy](https://www.skinlaserchicago.com/treatments/laser-vein-therapy): Laser treatment for spider veins and vascular lesions
+- [Injectables](https://www.skinlaserchicago.com/treatments/injectables): Botox, dermal fillers, and other injectable treatments
+- [Venus MP2](https://www.skinlaserchicago.com/treatments/venus-mp2): Multi-polar RF and pulsed electromagnetic fields for body contouring
+- [Medical-Grade Skincare](https://www.skinlaserchicago.com/treatments/medical-grade-skincare): Professional skincare products and regimens
+
+## Conditions We Treat
+
+- [Excess Hair](https://www.skinlaserchicago.com/conditions/excess-hair): Unwanted facial and body hair removal
+- [Acne Scarring](https://www.skinlaserchicago.com/conditions/acne-scarring): Treatment for acne scars and post-inflammatory marks
+- [Tattoo Removal](https://www.skinlaserchicago.com/conditions/tattoo-removal): Safe and effective laser tattoo removal
+- [Facial Scars](https://www.skinlaserchicago.com/conditions/facial-scars): Reduction of surgical and traumatic facial scars
+- [Anti-Aging](https://www.skinlaserchicago.com/conditions/anti-aging): Wrinkle reduction, skin tightening, and rejuvenation
+- [Acne](https://www.skinlaserchicago.com/conditions/acne): Active acne treatment and prevention
+- [Hyperpigmentation](https://www.skinlaserchicago.com/conditions/hyperpigmentation): Dark spots, melasma, and uneven skin tone correction
+- [Cellulite](https://www.skinlaserchicago.com/conditions/cellulite): Body contouring and cellulite reduction treatments
+- [Rosacea & Spider Veins](https://www.skinlaserchicago.com/conditions/rosacea-spider-veins): Treatment for facial redness, rosacea, and visible veins
+- [Stretch Marks](https://www.skinlaserchicago.com/conditions/stretch-marks): Laser and RF treatments for stretch mark reduction

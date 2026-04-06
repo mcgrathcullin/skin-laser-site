@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: https://skinlaserchicago.com/sitemap.xml
+Sitemap: https://www.skinlaserchicago.com/sitemap.xml

@@ -510,16 +510,16 @@ body::after {
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="index.html" class="nav-brand">
+  <a href="/" class="nav-brand">
     <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Skin+Laser+Med+Spa+%281%29-1920w.png" alt="Skin Laser & MedSpa" />
   </a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="treatments.html">Treatments</a></li>
-    <li><a href="conditions.html">Conditions</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/treatments">Treatments</a></li>
+    <li><a href="/conditions">Conditions</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/contact">Contact</a></li>
     <li><a href="#" class="nav-book" onclick="openModal(event)">Book Now</a></li>
     <li class="nav-quick-actions">
       <a href="tel:3125395818" class="nav-quick-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call</a>
@@ -1249,7 +1249,7 @@ function showResults() {
         <p>${item.tx.desc}</p>
         ${whyText ? `<div class="result-why">Why this for you: ${whyText}</div>` : ''}
         <div class="result-tags">${tagsHtml}</div>
-        <span class="result-link">Learn More</span>
+        <span class="result-link">Explore ${item.tx.name}</span>
       </div>
     `;
     container.appendChild(card);

@@ -42,7 +42,8 @@
   "description": "FDA-cleared laser hair removal with Cynosure Elite IQ dual-wavelength technology. Safe for all skin types and tones. Book a free consultation in Streeterville, Chicago.",
   "url": "https://www.skinlaserchicago.com/treatments/laser-hair-removal",
   "provider": {
-    "@type": "MedicalBusiness",
+    "@type": "MedicalClinic",
+    "@id": "https://www.skinlaserchicago.com/#organization",
     "name": "Skin Laser & MedSpa",
     "url": "https://www.skinlaserchicago.com",
     "address": {
@@ -50,7 +51,8 @@
       "streetAddress": "220 E Illinois St, Suite 703",
       "addressLocality": "Chicago",
       "addressRegion": "IL",
-      "postalCode": "60611"
+      "postalCode": "60611",
+      "addressCountry": "US"
     }
   }
 }
@@ -81,8 +83,57 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is laser hair removal safe for all skin types?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The Cynosure Elite IQ uses dual wavelengths (755nm Alexandrite and 1064nm Nd:YAG) that safely and effectively treat all skin types on the Fitzpatrick scale, including darker skin tones. The FDA-cleared Skintel Melanin Reader measures your skin's unique melanin levels to customize each treatment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many sessions are needed for laser hair removal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We recommend a minimum of 6 sessions for optimal, long-lasting results. After just 1 to 3 sessions, most patients visibly notice silkier, smoother results. Hair grows back finer, lighter, and slower with each treatment. Sessions are spaced 4 to 10 weeks apart depending on the treatment area."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What areas can be treated with laser hair removal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We treat all major body areas including face, chest, back, underarms, legs, bikini, arms, buttocks, shoulders, abdomen, neck and hairline, and head."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does laser hair removal hurt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Cynosure Elite IQ features Zimmer cooling technology for comfort during treatment. Most patients find the sessions very tolerable. Treatment times are the fastest in its class, with smaller areas like underarms taking just minutes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can laser hair removal help with PCOS-related hair growth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. For many women, excess hair growth is connected to Polycystic Ovary Syndrome (PCOS), a common hormonal condition that can cause thicker, darker hair. The Cynosure Elite IQ is specifically designed to treat all hair types, including the coarser hair associated with hormonal conditions."
+      }
+    }
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -886,6 +937,76 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
   pointer-events: none; z-index: 9999; opacity: 0.5;
 }
+
+/* ── FAQ SECTION ── */
+.faq-section {
+  padding: 5rem 2rem;
+  background: var(--white);
+}
+.faq-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq-inner .label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.faq-inner h2 {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 2.5rem;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.faq-item {
+  border-bottom: 1px solid var(--bg-deep);
+}
+.faq-item:first-child {
+  border-top: 1px solid var(--bg-deep);
+}
+.faq-item summary {
+  padding: 1.25rem 2.5rem 1.25rem 0;
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  line-height: 1.5;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--gold);
+  transition: transform 0.3s var(--ease);
+}
+.faq-item[open] summary::after {
+  content: '\2212';
+}
+.faq-answer {
+  padding: 0 0 1.25rem 0;
+}
+.faq-answer p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+@media (max-width: 768px) {
+  .faq-section { padding: 3rem 1.25rem; }
+  .faq-inner h2 { font-size: 1.6rem; }
+}
 </style>
 </head>
 <body>
@@ -1086,6 +1207,46 @@ body::after {
         <h4>Full Legs</h4>
         <p>Dramatic reduction in hair density, with finer regrowth between sessions.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq-section">
+  <div class="faq-inner reveal">
+    <span class="label">Common Questions</span>
+    <h2>Frequently Asked Questions About <i>Laser Hair Removal</i></h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Is laser hair removal safe for all skin types?</summary>
+        <div class="faq-answer">
+          <p>Yes. The Cynosure Elite IQ uses dual wavelengths (755nm Alexandrite and 1064nm Nd:YAG) that safely and effectively treat all skin types on the Fitzpatrick scale, including darker skin tones. The FDA-cleared Skintel Melanin Reader measures your skin's unique melanin levels to customize each treatment.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How many sessions are needed for laser hair removal?</summary>
+        <div class="faq-answer">
+          <p>We recommend a minimum of 6 sessions for optimal, long-lasting results. After just 1 to 3 sessions, most patients visibly notice silkier, smoother results. Hair grows back finer, lighter, and slower with each treatment. Sessions are spaced 4 to 10 weeks apart depending on the treatment area.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>What areas can be treated with laser hair removal?</summary>
+        <div class="faq-answer">
+          <p>We treat all major body areas including face, chest, back, underarms, legs, bikini, arms, buttocks, shoulders, abdomen, neck and hairline, and head.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Does laser hair removal hurt?</summary>
+        <div class="faq-answer">
+          <p>The Cynosure Elite IQ features Zimmer cooling technology for comfort during treatment. Most patients find the sessions very tolerable. Treatment times are the fastest in its class, with smaller areas like underarms taking just minutes.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Can laser hair removal help with PCOS-related hair growth?</summary>
+        <div class="faq-answer">
+          <p>Yes. For many women, excess hair growth is connected to Polycystic Ovary Syndrome (PCOS), a common hormonal condition that can cause thicker, darker hair. The Cynosure Elite IQ is specifically designed to treat all hair types, including the coarser hair associated with hormonal conditions.</p>
+        </div>
+      </details>
     </div>
   </div>
 </section>

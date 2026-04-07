@@ -42,7 +42,7 @@
   "description": "Professional microneedling to boost collagen, reduce scars, and improve skin texture at Skin Laser & MedSpa in Streeterville, Chicago. Book a free consultation.",
   "url": "https://www.skinlaserchicago.com/treatments/microneedling",
   "provider": {
-    "@type": "MedicalBusiness",
+    "@type": "MedicalClinic",
     "name": "Skin Laser & MedSpa",
     "url": "https://www.skinlaserchicago.com",
     "address": {
@@ -82,7 +82,53 @@
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many microneedling sessions are needed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For optimal results, a series of 4 to 6 treatments is recommended, spaced several weeks apart. Each session takes about an hour, including numbing time."
+      }
+    },\n    {
+      "@type": "Question",
+      "name": "What does microneedling treat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Microneedling treats acne scarring, hair loss, dark spots, sun damaged patches, large pores, reduced skin elasticity, scars, fine lines and wrinkles, and uneven skin texture. It is safe for all skin types and tones."
+      }
+    },\n    {
+      "@type": "Question",
+      "name": "What are AnteAGE MD growth factors used in microneedling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AnteAGE MD Growth Factors and Exosomes are cell-derived vesicles that carry growth factors, cytokines, and signaling molecules directly to your cells. They accelerate the healing process, enhance collagen synthesis, and deliver faster recovery with more dramatic improvements when applied during microneedling."
+      }
+    },\n    {
+      "@type": "Question",
+      "name": "Is microneedling safe for all skin types?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Microneedling is safe for all skin types and tones. The treatment promotes your body's natural healing response with precision micro-punctures that boost collagen and elastin production."
+      }
+    },\n    {
+      "@type": "Question",
+      "name": "What should I expect during a microneedling session?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Plan to arrive 1 hour before your session so a topical numbing cream can be applied. The provider then applies the microneedling pen in a precise cross-hatching pattern, followed by AnteAGE MD growth factor application through the micro-channels created during treatment."
+      }
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -721,6 +767,76 @@ body::after {
 .hours-row .day { color: rgba(246,243,238,0.35); }
 .hours-row .time { color: rgba(246,243,238,0.6); }
 
+
+/* ── FAQ SECTION ── */
+.faq-section {
+  padding: 5rem 2rem;
+  background: var(--white);
+}
+.faq-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq-inner .label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.faq-inner h2 {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 2.5rem;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.faq-item {
+  border-bottom: 1px solid var(--bg-deep);
+}
+.faq-item:first-child {
+  border-top: 1px solid var(--bg-deep);
+}
+.faq-item summary {
+  padding: 1.25rem 2.5rem 1.25rem 0;
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  line-height: 1.5;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--gold);
+  transition: transform 0.3s var(--ease);
+}
+.faq-item[open] summary::after {
+  content: '\2212';
+}
+.faq-answer {
+  padding: 0 0 1.25rem 0;
+}
+.faq-answer p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+@media (max-width: 768px) {
+  .faq-section { padding: 3rem 1.25rem; }
+  .faq-inner h2 { font-size: 1.6rem; }
+}
 </style>
 </head>
 <body>
@@ -861,6 +977,46 @@ body::after {
 </section>
 
 <!-- CONTACT -->
+<!-- FAQ SECTION -->
+<section class="faq-section">
+  <div class="faq-inner reveal">
+    <span class="label">Common Questions</span>
+    <h2>Frequently Asked Questions About <i>Microneedling</i></h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How many microneedling sessions are needed?</summary>
+        <div class="faq-answer">
+          <p>For optimal results, a series of 4 to 6 treatments is recommended, spaced several weeks apart. Each session takes about an hour, including numbing time.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>What does microneedling treat?</summary>
+        <div class="faq-answer">
+          <p>Microneedling treats acne scarring, hair loss, dark spots, sun damaged patches, large pores, reduced skin elasticity, scars, fine lines and wrinkles, and uneven skin texture. It is safe for all skin types and tones.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>What are AnteAGE MD growth factors used in microneedling?</summary>
+        <div class="faq-answer">
+          <p>AnteAGE MD Growth Factors and Exosomes are cell-derived vesicles that carry growth factors, cytokines, and signaling molecules directly to your cells. They accelerate the healing process, enhance collagen synthesis, and deliver faster recovery with more dramatic improvements when applied during microneedling.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Is microneedling safe for all skin types?</summary>
+        <div class="faq-answer">
+          <p>Yes. Microneedling is safe for all skin types and tones. The treatment promotes your body&#x27;s natural healing response with precision micro-punctures that boost collagen and elastin production.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>What should I expect during a microneedling session?</summary>
+        <div class="faq-answer">
+          <p>Plan to arrive 1 hour before your session so a topical numbing cream can be applied. The provider then applies the microneedling pen in a precise cross-hatching pattern, followed by AnteAGE MD growth factor application through the micro-channels created during treatment.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <section class="site-contact" id="contact">
   <div class="site-contact-inner">
     <div class="site-contact-main reveal">

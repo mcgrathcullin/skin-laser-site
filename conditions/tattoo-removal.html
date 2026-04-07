@@ -42,7 +42,7 @@
   "description": "FDA-approved Pico Laser tattoo removal for all ink colors and skin types at Skin Laser & MedSpa in Streeterville, Chicago. Full removal, fading, and cover-up lightening.",
   "url": "https://www.skinlaserchicago.com/conditions/tattoo-removal",
   "provider": {
-    "@type": "MedicalBusiness",
+    "@type": "MedicalClinic",
     "name": "Skin Laser & MedSpa",
     "url": "https://www.skinlaserchicago.com",
     "address": {
@@ -82,7 +82,46 @@
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does tattoo removal take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Full removal typically requires 6 to 12 sessions depending on ink density, depth, and colors. Cover-up lightening usually needs 3 to 5 sessions. Sessions are spaced 6 to 8 weeks apart to allow your immune system to flush the fragmented ink particles."
+      }
+    },\n    {
+      "@type": "Question",
+      "name": "Can the Pico Laser remove stubborn ink colors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Unlike older nanosecond lasers, the Pico Laser's picosecond technology works on the full spectrum of ink colors, including notoriously stubborn greens, blues, and reds. It uses multiple wavelengths to target various tattoo pigments."
+      }
+    },\n    {
+      "@type": "Question",
+      "name": "Does tattoo removal have to mean full removal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. We offer three approaches: complete removal, lightening for cover-up artwork, and selective fading of specific areas. Cover-up lightening typically needs only 3 to 5 sessions compared to 6 to 12 for full removal."
+      }
+    },\n    {
+      "@type": "Question",
+      "name": "Is tattoo removal safe for dark skin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The Pico Laser is FDA-approved and safe for all skin tones, including darker complexions that carry a higher risk of hyperpigmentation with older laser technologies. The ultra-short pulse duration minimizes heat damage and reduces scarring risk."
+      }
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -651,6 +690,76 @@ body::after {
 .hours-row .day { color: rgba(246,243,238,0.35); }
 .hours-row .time { color: rgba(246,243,238,0.6); }
 
+
+/* ── FAQ SECTION ── */
+.faq-section {
+  padding: 5rem 2rem;
+  background: var(--white);
+}
+.faq-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq-inner .label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.faq-inner h2 {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 2.5rem;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.faq-item {
+  border-bottom: 1px solid var(--bg-deep);
+}
+.faq-item:first-child {
+  border-top: 1px solid var(--bg-deep);
+}
+.faq-item summary {
+  padding: 1.25rem 2.5rem 1.25rem 0;
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  line-height: 1.5;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--gold);
+  transition: transform 0.3s var(--ease);
+}
+.faq-item[open] summary::after {
+  content: '\2212';
+}
+.faq-answer {
+  padding: 0 0 1.25rem 0;
+}
+.faq-answer p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+@media (max-width: 768px) {
+  .faq-section { padding: 3rem 1.25rem; }
+  .faq-inner h2 { font-size: 1.6rem; }
+}
 </style>
 </head>
 <body>
@@ -749,6 +858,40 @@ body::after {
 </section>
 
 <!-- CONTACT -->
+<!-- FAQ SECTION -->
+<section class="faq-section">
+  <div class="faq-inner reveal">
+    <span class="label">Common Questions</span>
+    <h2>Frequently Asked Questions About <i>Tattoo Removal</i></h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How long does tattoo removal take?</summary>
+        <div class="faq-answer">
+          <p>Full removal typically requires 6 to 12 sessions depending on ink density, depth, and colors. Cover-up lightening usually needs 3 to 5 sessions. Sessions are spaced 6 to 8 weeks apart to allow your immune system to flush the fragmented ink particles.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Can the Pico Laser remove stubborn ink colors?</summary>
+        <div class="faq-answer">
+          <p>Yes. Unlike older nanosecond lasers, the Pico Laser&#x27;s picosecond technology works on the full spectrum of ink colors, including notoriously stubborn greens, blues, and reds. It uses multiple wavelengths to target various tattoo pigments.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Does tattoo removal have to mean full removal?</summary>
+        <div class="faq-answer">
+          <p>No. We offer three approaches: complete removal, lightening for cover-up artwork, and selective fading of specific areas. Cover-up lightening typically needs only 3 to 5 sessions compared to 6 to 12 for full removal.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Is tattoo removal safe for dark skin?</summary>
+        <div class="faq-answer">
+          <p>Yes. The Pico Laser is FDA-approved and safe for all skin tones, including darker complexions that carry a higher risk of hyperpigmentation with older laser technologies. The ultra-short pulse duration minimizes heat damage and reduces scarring risk.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <section class="site-contact" id="contact">
   <div class="site-contact-inner">
     <div class="site-contact-main reveal">

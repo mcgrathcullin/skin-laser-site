@@ -42,7 +42,7 @@
   "description": "Comprehensive anti-aging treatments for fine lines, wrinkles, volume loss, and sagging skin at Skin Laser & MedSpa in Streeterville, Chicago. Book a free consultation.",
   "url": "https://www.skinlaserchicago.com/conditions/anti-aging",
   "provider": {
-    "@type": "MedicalBusiness",
+    "@type": "MedicalClinic",
     "name": "Skin Laser & MedSpa",
     "url": "https://www.skinlaserchicago.com",
     "address": {
@@ -82,7 +82,39 @@
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What causes skin aging?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As we age, collagen and elastin production slows, causing the skin to lose firmness and bounce. Fine lines appear first around the eyes and mouth, gradually deepening into wrinkles. Fat pads beneath the skin shift and diminish, leading to hollow cheeks and a less defined jawline. Sun exposure, environmental stress, and lifestyle factors accelerate this process."
+      }
+    },\n    {
+      "@type": "Question",
+      "name": "What anti-aging treatments are available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer Laser Genesis for collagen stimulation without downtime, Fractional Laser for collagen remodeling, CO2 Laser Resurfacing for the most powerful results, medical-grade chemical peels, microneedling for natural collagen and elastin production, and injectables including Botox and dermal fillers."
+      }
+    },\n    {
+      "@type": "Question",
+      "name": "Which anti-aging treatment has no downtime?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Laser Genesis stimulates collagen production in the upper dermis without downtime. Over a series of sessions, it smooths fine lines, evens out skin tone, and restores a natural glow. HydraFacial also provides instant results with zero recovery time."
+      }
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -701,6 +733,76 @@ body::after {
 .hours-row .day { color: rgba(246,243,238,0.35); }
 .hours-row .time { color: rgba(246,243,238,0.6); }
 
+
+/* ── FAQ SECTION ── */
+.faq-section {
+  padding: 5rem 2rem;
+  background: var(--white);
+}
+.faq-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq-inner .label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.faq-inner h2 {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 2.5rem;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.faq-item {
+  border-bottom: 1px solid var(--bg-deep);
+}
+.faq-item:first-child {
+  border-top: 1px solid var(--bg-deep);
+}
+.faq-item summary {
+  padding: 1.25rem 2.5rem 1.25rem 0;
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  line-height: 1.5;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--gold);
+  transition: transform 0.3s var(--ease);
+}
+.faq-item[open] summary::after {
+  content: '\2212';
+}
+.faq-answer {
+  padding: 0 0 1.25rem 0;
+}
+.faq-answer p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+@media (max-width: 768px) {
+  .faq-section { padding: 3rem 1.25rem; }
+  .faq-inner h2 { font-size: 1.6rem; }
+}
 </style>
 </head>
 <body>
@@ -845,6 +947,34 @@ body::after {
 </section>
 
 <!-- CONTACT -->
+<!-- FAQ SECTION -->
+<section class="faq-section">
+  <div class="faq-inner reveal">
+    <span class="label">Common Questions</span>
+    <h2>Frequently Asked Questions About <i>Anti-Aging</i></h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>What causes skin aging?</summary>
+        <div class="faq-answer">
+          <p>As we age, collagen and elastin production slows, causing the skin to lose firmness and bounce. Fine lines appear first around the eyes and mouth, gradually deepening into wrinkles. Fat pads beneath the skin shift and diminish, leading to hollow cheeks and a less defined jawline. Sun exposure, environmental stress, and lifestyle factors accelerate this process.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>What anti-aging treatments are available?</summary>
+        <div class="faq-answer">
+          <p>We offer Laser Genesis for collagen stimulation without downtime, Fractional Laser for collagen remodeling, CO2 Laser Resurfacing for the most powerful results, medical-grade chemical peels, microneedling for natural collagen and elastin production, and injectables including Botox and dermal fillers.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Which anti-aging treatment has no downtime?</summary>
+        <div class="faq-answer">
+          <p>Laser Genesis stimulates collagen production in the upper dermis without downtime. Over a series of sessions, it smooths fine lines, evens out skin tone, and restores a natural glow. HydraFacial also provides instant results with zero recovery time.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <section class="site-contact" id="contact">
   <div class="site-contact-inner">
     <div class="site-contact-main reveal">

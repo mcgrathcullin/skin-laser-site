@@ -38,11 +38,23 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "MedicalBusiness",
+  "@type": "MedicalClinic",
+  "@id": "https://www.skinlaserchicago.com/#organization",
   "name": "Skin Laser & MedSpa",
   "url": "https://www.skinlaserchicago.com",
-  "logo": "https://www.skinlaserchicago.com/skin-laser-assets/og-image.png",
-  "image": "https://www.skinlaserchicago.com/skin-laser-assets/og-image.png",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.skinlaserchicago.com/skin-laser-assets/og-image.png",
+    "width": 1200,
+    "height": 630
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://www.skinlaserchicago.com/skin-laser-assets/og-image.png",
+    "width": 1200,
+    "height": 630
+  },
+  "description": "FDA-cleared laser hair removal, CO2 resurfacing, microneedling, and skin rejuvenation treatments in Streeterville, Chicago. Safe for all skin types.",
   "telephone": "+1-312-539-5818",
   "email": "skinlasermedspa@gmail.com",
   "address": {
@@ -55,25 +67,31 @@
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 41.891,
-    "longitude": -87.6217
+    "latitude": 41.89103,
+    "longitude": -87.62173
   },
+  "hasMap": "https://maps.google.com/maps?q=220+E+Illinois+St+Suite+703+Chicago+IL+60611",
+  "medicalSpecialty": "Dermatology",
   "areaServed": {
     "@type": "City",
-    "name": "Chicago"
+    "name": "Chicago",
+    "sameAs": "https://en.wikipedia.org/wiki/Chicago"
   },
+  "sameAs": [
+    "https://www.expertise.com/il/chicago/laser-hair-removal"
+  ],
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
+      "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"],
       "opens": "10:00",
-      "closes": "18:00"
+      "closes": "19:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Friday",
+      "opens": "10:00",
+      "closes": "17:00"
     },
     {
       "@type": "OpeningHoursSpecification",
@@ -83,11 +101,116 @@
     }
   ],
   "priceRange": "$$",
-  "sameAs": []
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-312-539-5818",
+    "email": "skinlasermedspa@gmail.com",
+    "contactType": "customer service",
+    "areaServed": "US",
+    "availableLanguage": "English"
+  },
+  "employee": {
+    "@type": "Person",
+    "name": "Kimberly Mack",
+    "jobTitle": "Cosmetologist & Certified Clinical Laser Technician",
+    "image": "https://www.skinlaserchicago.com/skin-laser-assets/kimberly-new.jpg"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "5"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+      "author": { "@type": "Person", "name": "Reema K." },
+      "reviewBody": "Kimberly was so sweet & honest with her approach. I loved her transparency. I knew I was in good hands."
+    },
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+      "author": { "@type": "Person", "name": "Gabriella W." },
+      "reviewBody": "Very thorough, knowledgeable, and kind! Kim always made me feel comfortable during treatment."
+    },
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+      "author": { "@type": "Person", "name": "Mariel E." },
+      "reviewBody": "Kim is the best! I've done 2 different treatments and have been so happy with the results."
+    },
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+      "author": { "@type": "Person", "name": "Olga G." },
+      "reviewBody": "I saw an immediate improvement. The office is beautiful and centrally-located."
+    },
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+      "author": { "@type": "Person", "name": "Alyssa N." },
+      "reviewBody": "Incredible results for tattoo removal. Kimberly is kind, friendly, and professional."
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Skin Laser & MedSpa",
+  "url": "https://www.skinlaserchicago.com",
+  "description": "Streeterville's most trusted name in laser hair removal and skin rejuvenation. Medical-grade technology, tailored treatment plans, and a dedicated provider.",
+  "publisher": {
+    "@type": "MedicalBusiness",
+    "name": "Skin Laser & MedSpa"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Kimberly Mack",
+  "jobTitle": "Cosmetologist & Certified Clinical Laser Technician",
+  "image": "https://www.skinlaserchicago.com/skin-laser-assets/kimberly-new.jpg",
+  "description": "Licensed Cosmetologist (MI, FL, IL), Certified Laser Technician, and Licensed Dietitian with a B.S. from Florida International University. Trained at the National Laser Institute in advanced laser treatments and skin rejuvenation.",
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Licensed Cosmetologist",
+      "recognizedBy": { "@type": "Organization", "name": "State of Illinois" }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Certified Clinical Laser Technician",
+      "recognizedBy": { "@type": "Organization", "name": "National Laser Institute" }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Licensed Dietitian"
+    }
+  ],
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Florida International University"
+  },
+  "worksFor": {
+    "@type": "MedicalBusiness",
+    "name": "Skin Laser & MedSpa",
+    "url": "https://www.skinlaserchicago.com"
+  }
 }
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://lirp.cdn-website.com" crossorigin>
+<link rel="preload" as="image" href="skin-laser-assets/hero-new.jpg" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -1893,11 +2016,11 @@ body::after {
 <section class="hero">
   <div class="hero-frame">
   <div class="hero-slides">
-    <div class="hero-slide active"><img src="skin-laser-assets/hero-new.jpg" alt="" /></div>
-    <div class="hero-slide"><img src="skin-laser-assets/hero-treatment.jpg" alt="" /></div>
+    <div class="hero-slide active"><img src="skin-laser-assets/hero-new.jpg" alt="Laser hair removal treatment room at Skin Laser and MedSpa in Streeterville Chicago" width="1920" height="1080" fetchpriority="high" decoding="async" /></div>
+    <div class="hero-slide"><img src="skin-laser-assets/hero-treatment.jpg" alt="Patient receiving laser treatment at Skin Laser MedSpa Chicago" width="1920" height="1080" decoding="async" /></div>
     <!-- <div class="hero-slide"><img src="skin-laser-assets/interior.jpg" alt="" /></div> -->
-    <div class="hero-slide"><img src="skin-laser-assets/interior2.jpeg" alt="" /></div>
-    <div class="hero-slide"><img src="skin-laser-assets/pexels-spa.jpeg" alt="" /></div>
+    <div class="hero-slide"><img src="skin-laser-assets/interior2.jpeg" alt="Skin Laser MedSpa treatment room interior in Streeterville Chicago" width="1920" height="1080" loading="lazy" decoding="async" /></div>
+    <div class="hero-slide"><img src="skin-laser-assets/pexels-spa.jpeg" alt="Relaxing spa treatment environment" width="1920" height="1080" loading="lazy" decoding="async" /></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-left">
@@ -1999,8 +2122,8 @@ body::after {
     -->
   </div>
   <div class="phil-images reveal d2">
-    <img class="phil-img-main" src="skin-laser-assets/lobby.jpg" alt="Skin Laser MedSpa lobby" />
-    <img class="phil-img-secondary" src="https://lirp.cdn-website.com/md/pexels/dms3rep/multi/opt/pexels-photo-5069612-1920w.jpeg" alt="Facial treatment" />
+    <img class="phil-img-main" src="skin-laser-assets/lobby.jpg" alt="Skin Laser MedSpa lobby" width="800" height="600" loading="lazy" decoding="async" />
+    <img class="phil-img-secondary" src="https://lirp.cdn-website.com/md/pexels/dms3rep/multi/opt/pexels-photo-5069612-1920w.jpeg" alt="Facial treatment" width="1920" height="1280" loading="lazy" decoding="async" />
   </div>
 </section>
 
@@ -2030,7 +2153,7 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
   </div>
   <div class="cond-grid reveal d1">
     <a href="/conditions/excess-hair" class="cond-card--featured reveal">
-      <img class="cond-featured-img" src="skin-laser-assets/cond-excess-hair.jpg" alt="Laser hair removal treatment" />
+      <img class="cond-featured-img" src="skin-laser-assets/cond-excess-hair.jpg" alt="Laser hair removal treatment" width="600" height="400" loading="lazy" decoding="async" />
       <div class="cond-featured-overlay"></div>
       <div class="cond-featured-content">
         <span class="cond-featured-tag">Most Popular Condition</span>
@@ -2131,7 +2254,7 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
       <span class="tx-home-arrow">Explore Pico Laser</span>
     </a>
     <a href="/treatments" class="tx-featured reveal d2">
-      <img class="cond-featured-img" src="skin-laser-assets/laser-hair-removal-treatment.jpg" alt="Laser treatment in progress" />
+      <img class="cond-featured-img" src="skin-laser-assets/laser-hair-removal-treatment.jpg" alt="Laser treatment in progress" width="800" height="600" loading="lazy" decoding="async" />
       <div class="cond-featured-overlay"></div>
       <div class="cond-featured-content">
         <span class="cond-featured-tag">17 Treatments Available</span>
@@ -2146,7 +2269,7 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
 <!-- CTA BAND -->
 <section class="cta-band">
   <div class="cta-band-bg">
-    <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Model_Freeze_DiamondPolar_1-1920w.jpg" alt="Laser treatment" />
+    <img src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/Model_Freeze_DiamondPolar_1-1920w.jpg" alt="Venus MP2 skin tightening treatment" width="1920" height="1280" loading="lazy" decoding="async" />
   </div>
   <div class="cta-band-content reveal">
     <span class="label" style="color: var(--gold-light);">Ready to Start?</span>
@@ -2172,7 +2295,7 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
     <div class="tech-track-wrap">
       <div class="tech-cards" id="techTrack">
         <div class="tech-card reveal">
-          <img class="tech-card-img" src="skin-laser-assets/elite-iq-transparent.png" alt="Cynosure Elite iQ+" />
+          <img class="tech-card-img" src="skin-laser-assets/elite-iq-transparent.png" alt="Cynosure Elite iQ+ dual-wavelength laser system" width="400" height="500" loading="lazy" decoding="async" />
           <div>
             <span class="tech-card-badge">Flagship</span>
             <h3>Cynosure Elite iQ+</h3>
@@ -2185,7 +2308,7 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
           </div>
         </div>
         <div class="tech-card reveal d2">
-          <img class="tech-card-img" src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/PicoLazer-tile-clear-640w.png" alt="Pico Laser" />
+          <img class="tech-card-img" src="https://lirp.cdn-website.com/fd0a6522/dms3rep/multi/opt/PicoLazer-tile-clear-640w.png" alt="Pico Laser tattoo removal and pigmentation treatment device" width="640" height="640" loading="lazy" decoding="async" />
           <div>
             <span class="tech-card-badge">Advanced</span>
             <h3>Pico Laser</h3>
@@ -2256,7 +2379,7 @@ Kimberly was very knowledgeable and easy to talk to. She texted which was hugely
   <div class="about-grid">
     <div class="about-portrait reveal">
       <div class="about-portrait-wrap">
-        <img src="skin-laser-assets/kimberly-new.jpg" alt="Kimberly Mack" />
+        <img src="skin-laser-assets/kimberly-new.jpg" alt="Kimberly Mack, Licensed Cosmetologist and Certified Laser Technician" width="600" height="800" loading="lazy" decoding="async" />
       </div>
     </div>
     <div class="about-content reveal d2">

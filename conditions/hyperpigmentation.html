@@ -42,7 +42,7 @@
   "description": "Treat hyperpigmentation, age spots, and melasma with Pico Laser, IPL Photofacial, and VI Peel at Skin Laser & MedSpa in Streeterville, Chicago.",
   "url": "https://www.skinlaserchicago.com/conditions/hyperpigmentation",
   "provider": {
-    "@type": "MedicalBusiness",
+    "@type": "MedicalClinic",
     "name": "Skin Laser & MedSpa",
     "url": "https://www.skinlaserchicago.com",
     "address": {
@@ -82,7 +82,39 @@
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What causes hyperpigmentation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sun exposure is the most common trigger, stimulating melanocytes to produce excess pigment. Hormonal changes, particularly during pregnancy or while taking oral contraceptives, can cause melasma. Post-inflammatory hyperpigmentation occurs after skin injury such as acne, cuts, or burns, leaving dark marks that can persist for months or years."
+      }
+    },\n    {
+      "@type": "Question",
+      "name": "What are the best treatments for hyperpigmentation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer four treatments: Pico Laser delivers ultra-short pulses that shatter pigment particles for natural elimination. IPL Photofacial targets melanin deposits across broader areas. VI Peel Precision+ accelerates cellular turnover and breaks up pigment. Microneedling creates controlled micro-injuries that break up excess pigment while stimulating collagen."
+      }
+    },\n    {
+      "@type": "Question",
+      "name": "What types of hyperpigmentation can be treated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We treat all common types including age spots (liver spots), sun spots, brown spots, freckles, melasma, and post-inflammatory hyperpigmentation."
+      }
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -700,6 +732,76 @@ body::after {
 .hours-row .day { color: rgba(246,243,238,0.35); }
 .hours-row .time { color: rgba(246,243,238,0.6); }
 
+
+/* ── FAQ SECTION ── */
+.faq-section {
+  padding: 5rem 2rem;
+  background: var(--white);
+}
+.faq-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq-inner .label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.faq-inner h2 {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 2.5rem;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.faq-item {
+  border-bottom: 1px solid var(--bg-deep);
+}
+.faq-item:first-child {
+  border-top: 1px solid var(--bg-deep);
+}
+.faq-item summary {
+  padding: 1.25rem 2.5rem 1.25rem 0;
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  line-height: 1.5;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--gold);
+  transition: transform 0.3s var(--ease);
+}
+.faq-item[open] summary::after {
+  content: '\2212';
+}
+.faq-answer {
+  padding: 0 0 1.25rem 0;
+}
+.faq-answer p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+@media (max-width: 768px) {
+  .faq-section { padding: 3rem 1.25rem; }
+  .faq-inner h2 { font-size: 1.6rem; }
+}
 </style>
 </head>
 <body>
@@ -834,6 +936,34 @@ body::after {
 </section>
 
 <!-- CONTACT -->
+<!-- FAQ SECTION -->
+<section class="faq-section">
+  <div class="faq-inner reveal">
+    <span class="label">Common Questions</span>
+    <h2>Frequently Asked Questions About <i>Hyperpigmentation</i></h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>What causes hyperpigmentation?</summary>
+        <div class="faq-answer">
+          <p>Sun exposure is the most common trigger, stimulating melanocytes to produce excess pigment. Hormonal changes, particularly during pregnancy or while taking oral contraceptives, can cause melasma. Post-inflammatory hyperpigmentation occurs after skin injury such as acne, cuts, or burns, leaving dark marks that can persist for months or years.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>What are the best treatments for hyperpigmentation?</summary>
+        <div class="faq-answer">
+          <p>We offer four treatments: Pico Laser delivers ultra-short pulses that shatter pigment particles for natural elimination. IPL Photofacial targets melanin deposits across broader areas. VI Peel Precision+ accelerates cellular turnover and breaks up pigment. Microneedling creates controlled micro-injuries that break up excess pigment while stimulating collagen.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>What types of hyperpigmentation can be treated?</summary>
+        <div class="faq-answer">
+          <p>We treat all common types including age spots (liver spots), sun spots, brown spots, freckles, melasma, and post-inflammatory hyperpigmentation.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <section class="site-contact" id="contact">
   <div class="site-contact-inner">
     <div class="site-contact-main reveal">
